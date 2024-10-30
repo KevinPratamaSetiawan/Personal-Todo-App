@@ -11,8 +11,8 @@ const root = createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <Routes>
-      <Route path="/" element={ <Navigate to="/login" />} />
-      <Route path="/login" element={ <LoginPage /> } />
+      {/* <Route path="/" element={ <Navigate to="/login" />} /> */}
+      <Route path="/" element={ <LoginPage /> } />
       <Route path="/todo" element={<TodoPage />} />
     </Routes>
   </Router>
