@@ -141,7 +141,7 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
     }
 
     const onTodoCopyIdEventHandler = (event) => {
-        let copyText = todoItem.scheduleType + '=>' + todoItem.title + ' => ' + todoItem.description + '=>' + JSON.stringify(todoItem.subTask);
+        let copyText = todoItem.scheduleType + '=>' + todoItem.title + ' => ' + todoItem.description + '=>' + (todoItem.subTask === 'no subtask' ? todoItem.subTask : JSON.stringify(todoItem.subTask));
 
         navigator.clipboard.writeText(copyText);
         setTodoId(<><FontAwesomeIcon icon={faCopy} /> Copied!</>);

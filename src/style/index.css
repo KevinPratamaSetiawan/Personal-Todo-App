@@ -782,15 +782,15 @@ body{
                   }
                 }
       
-                li:has(.todo-list-indent-one):not(:nth-child(1)) i{
+                li:has(.todo-list-indent-one):not(:nth-child(1)) svg{
                   margin-top: 15px;
                 }
       
-                li:has(.todo-list-indent-two):not(:nth-child(1)) i{
+                li:has(.todo-list-indent-two):not(:nth-child(1)) svg{
                   margin-top: 10px;
                 }
       
-                li:has(.todo-list-indent-three):not(:nth-child(1)) i{
+                li:has(.todo-list-indent-three):not(:nth-child(1)) svg{
                   margin-top: 5px;
                 }
       
