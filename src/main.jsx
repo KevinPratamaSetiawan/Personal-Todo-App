@@ -12,8 +12,8 @@ root.render(
   <Router>
     <Routes>
       {/* <Route path="/" element={ <Navigate to="/login" />} /> */}
-      <Route path="/" element={ <LoginPage /> } />
-      <Route path="/todo" element={<TodoPage />} />
+      {/* <Route path="/" element={ <LoginPage /> } /> */}
+      <Route path="/" element={<TodoPage />} />
     </Routes>
   </Router>
 );
