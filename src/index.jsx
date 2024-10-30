@@ -13,9 +13,9 @@ const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
 root.render(
   <Router>
     <Routes>
-      <Route path="/" element={ <Navigate to="/🔑" />} />
-      <Route path="/🔑" element={ <LoginPage /> } />
-      <Route path="/💻" element={<TodoPage />} />
+      <Route path="/" element={ <Navigate to="/login" />} />
+      <Route path="/login" element={ <LoginPage /> } />
+      <Route path="/todo" element={<TodoPage />} />
     </Routes>
   </Router>
 );

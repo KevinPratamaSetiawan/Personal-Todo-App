@@ -23,7 +23,7 @@ const LoginPage = () => {
         const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true'
 
         if (isAuthenticated) {
-            navigate('/💻');
+            navigate('/todo');
         } else if (!password.trim()) {
             document.getElementById('passwordLabel').classList.add('input-error');
         } else if (password.trim() !== '400391211') {
