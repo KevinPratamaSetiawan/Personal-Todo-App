@@ -1,5 +1,5 @@
 {
-  "name": "Kevin Pratama Setiawan",
+  "name": "KPS",
   "short_name": "KPS",
   "start_url": "https://kps-iota.vercel.app/%F0%9F%94%91",
   "scope": "/",
@@ -30,7 +30,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#fdfdfd",
+  "theme_color": "#23272d",
   "background_color": "#23272d",
   "display": "standalone",
   "prefer_related_applications": false
