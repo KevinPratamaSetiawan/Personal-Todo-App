@@ -1,0 +1,37 @@
+{
+  "name": "Kevin Pratama Setiawan",
+  "short_name": "KPS",
+  "start_url": "https://kps-iota.vercel.app/%F0%9F%94%91",
+  "scope": "/",
+  "description": "Personal Todo App",
+  "icons": [
+    {
+      "src": "icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#fdfdfd",
+  "background_color": "#23272d",
+  "display": "standalone",
+  "prefer_related_applications": false
+}
