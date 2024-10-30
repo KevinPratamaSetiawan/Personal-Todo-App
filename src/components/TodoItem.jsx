@@ -169,7 +169,7 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                     <div className='todo-description-subtask'>
                     { 
                         todoItem.description !== "no description" ? 
-                        <p className='todo-description'>{todoItem.description}</p> 
+                        <p className={`todo-description ${todoItem.subTask !== "no subtask" ? 'divider' : ''}`}>{todoItem.description}</p> 
                         : null 
                     }
                     { 
@@ -177,9 +177,11 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                         <ul className='todo-description'>
                             {todoItem.subTask.map((task) => (
                                 <li key={task.id}>
+                                    {task.listStyle !== '' ?
                                     <button onClick={() => onToggleSubTask(todoId, task.id)}>
                                         {getListIcon(task.listStyle, task.completed)}
                                     </button>
+                                    : null}
                                     {task.content}
                                 </li>
                             ))}

@@ -743,9 +743,17 @@ body{
               }
 
               .todo-description-subtask{
+                width: 100%;
+                margin-right: 31px;
                 display: flex;
                 flex-direction: column;
                 align-items: start;
+              }
+
+              .divider{
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid var(--text-color);
               }
       
               .todo-description{
@@ -782,7 +790,7 @@ body{
                   }
                 }
       
-                li:has(.todo-list-indent-one):not(:nth-child(1)) svg{
+                /* li:has(.todo-list-indent-one):not(:nth-child(1)) svg{
                   margin-top: 15px;
                 }
       
@@ -792,14 +800,18 @@ body{
       
                 li:has(.todo-list-indent-three):not(:nth-child(1)) svg{
                   margin-top: 5px;
+                } */
+
+                li:has(.todo-list-indent-one){
+                  padding-left: 7px;
                 }
       
                 li:has(.todo-list-indent-two){
-                  padding-left: 21px;
+                  padding-left: 28px;
                 }
       
                 li:has(.todo-list-indent-three){
-                  padding-left: 42px;
+                  padding-left: 49px;
                 }
       
                 li:has(.fa-plus), li:has(.fa-circle-xmark), li:has(.fa-square-check) {
