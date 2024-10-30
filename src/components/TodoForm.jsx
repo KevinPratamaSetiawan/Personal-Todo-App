@@ -164,12 +164,12 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                                 <option value="plusIndentOne">-.</option>
                                 <option value="plusIndentTwo">-‥</option>
                                 <option value="plusIndentThree">-…</option>
-                                <option value="checkboxIndentOne">*.</option>
-                                <option value="checkboxIndentTwo">*‥</option>
-                                <option value="checkboxIndentThree">*…</option>
-                                <option value="xcircleIndentOne">=.</option>
-                                <option value="xcircleIndentTwo">=‥</option>
-                                <option value="xcircleIndentThree">=…</option>
+                                <option value="checkboxIndentOne">=.</option>
+                                <option value="checkboxIndentTwo">=‥</option>
+                                <option value="checkboxIndentThree">=…</option>
+                                <option value="xcircleIndentOne">*.</option>
+                                <option value="xcircleIndentTwo">*‥</option>
+                                <option value="xcircleIndentThree">*…</option>
                             </select>
                             <input 
                                 type="text"
