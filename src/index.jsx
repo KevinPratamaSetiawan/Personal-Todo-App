@@ -8,7 +8,6 @@ import LoginPage from './components/LoginPage';
 import TodoPage from './components/TodoPage';
 
 const root = createRoot(document.getElementById('root'));
-const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
 
 root.render(
   <Router>
