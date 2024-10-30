@@ -1,7 +1,7 @@
 {
-  "name": "Kevin Pratama Setiawan",
-  "short_name": "KPS",
-  "start_url": "https://kevinpratamasetiawan.github.io/",
+  "name": "KPS-ToDo",
+  "short_name": "KPSToDo",
+  "start_url": "https://kps-iota.vercel.app/",
   "scope": "/",
   "description": "A portfolio and project showcase for Kevin Pratama Setiawan.",
   "icons": [
