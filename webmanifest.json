@@ -31,7 +31,7 @@
     }
   ],
   "theme_color": "#23272d",
-  "background_color": "#fdfdfd",
+  "background_color": "#23272d",
   "display": "standalone",
   "prefer_related_applications": false
 }
