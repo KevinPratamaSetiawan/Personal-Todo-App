@@ -62,7 +62,7 @@ const TodoForm = ({ onAddTodo, setTab }) => {
         if (text.length > 0) {
             setTitle(text[1] || '');
             setDescription(text[2] || '');
-            setSubTask(JSON.parse(text[3]) || []);
+            setSubTask(text[3] === 'no subtask' ? JSON.parse(text[3]) || [] : []);
             setScheduleType(text[0] === '' ? '' : 'custom');
             setCustomScheduleType(text[0] === '' ? '' : text[0]);
     
