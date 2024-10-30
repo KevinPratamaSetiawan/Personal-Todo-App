@@ -1,7 +1,7 @@
 {
   "name": "KPS",
   "short_name": "KPS",
-  "start_url": "https://kps-iota.vercel.app/%F0%9F%94%91",
+  "start_url": "https://kps-iota.vercel.app/%F0%9F%94%91/",
   "scope": "/",
   "description": "Personal Todo App",
   "icons": [
@@ -25,6 +25,30 @@
     },
     {
       "src": "icons/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/manifest-icon-193.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/manifest-icon-193.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/manifest-icon-513.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/manifest-icon-513.maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
