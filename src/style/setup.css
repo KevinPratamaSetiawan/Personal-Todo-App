@@ -1,0 +1,136 @@
+/* This file is use for setup some basic variables that gonna used 
+throughout the styling file and reset some element to encourage styling 
+through typing */
+
+/* to use this file add @import url("setup.css"); into your main css file */
+/* @import url("setup.css"); */
+
+:root {
+  --head-font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+  --base-font-family: JetBrains Mono, monospace;
+
+  /* Main */
+  --background-color: #23272d;
+  --text-color: #fdfdfd;
+  --accent-color: #a97bff;
+
+  /* Support */
+  --danger-color: #f85149;
+  --warning-color: #f1e05a;
+  --succes-color: #6bdd9a;
+
+  /* Neutrals */
+  --neutral-100: #fafafa;
+  --neutral-200: #e1e1e1;
+  --neutral-300: #c8c8c8;
+  --neutral-400: #afafaf;
+  --neutral-500: #969696;
+  --neutral-600: #4b4b4b;
+  --neutral-700: #323232;
+  --neutral-800: #191919;
+
+  --schedule-color: #fdfdfd;
+  --schedule-half: #fdfdfd;
+  --priority-color: #fdfdfd;
+  --schedule-half: #fdfdfd;
+  --task-color: #fdfdfd;
+  --schedule-half: #fdfdfd;
+  --complete-color: #fdfdfd;
+  --schedule-half: #fdfdfd;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
+html {
+  hanging-punctuation: first last;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--head-font-family);
+  text-wrap: balance;
+}
+
+p,
+li {
+  font-family: var(--base-font-family);
+  /* max-width: 65ch; */
+  text-wrap: pretty;
+  text-align: left;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-color);
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+textarea,
+button,
+input {
+  font: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  all: unset;
+  display: inline-block;
+  margin: 0;
+  background: none;
+  text-transform: none;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
