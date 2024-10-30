@@ -15,7 +15,7 @@ root.render(
     <Routes>
       <Route path="/" element={ <Navigate to="/🔑" />} />
       <Route path="/🔑" element={ <LoginPage /> } />
-      <Route path="/💻" element={isAuthenticated ? <TodoPage /> : <Navigate to="/" />} />
+      <Route path="/💻" element={<TodoPage />} />
     </Routes>
   </Router>
 );
