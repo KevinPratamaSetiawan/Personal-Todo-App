@@ -6,6 +6,40 @@ import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faSquareC
 const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}) => {
     const [todoId, setTodoId] = React.useState(todoItem.id);
 
+    const scheduleAlert = (scheduleType, title) => {
+        let todayAlert = ']';
+        scheduleType = scheduleType.slice(0, -1);
+        const days = [ 
+                        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
+                        'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
+                    ];
+        
+        let day = days.findIndex(day => title.includes(day));
+        let today = new Date();
+        let tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+
+        let todayDate = (today.getDate()).toString().padStart(2, '0') + '-' 
+                    + (today.getMonth()+1).toString().padStart(2, '0') + '-' 
+                    + (today.getFullYear()).toString().slice(-2);
+
+        let tomorrowDate = (tomorrow.getDate()).toString().padStart(2, '0') + '-' 
+                        + (tomorrow.getMonth()+1).toString().padStart(2, '0') + '-' 
+                        + (tomorrow.getFullYear()).toString().slice(-2);
+        
+        if(title.match(/\b(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{2}\b/)){
+            if(title.includes(todayDate)){   
+                todayAlert = '-TDY]';
+            }else if(title.includes(tomorrowDate)){ 
+                todayAlert = '-TMW]';
+            }
+        }else if(day !== -1 && day%7 === today.getDay()){
+            todayAlert = '-T]';
+        }
+
+        return scheduleType + todayAlert;
+    };
+
     const getListIcon = (listStyle, status) => {
         let icon;
 
@@ -122,7 +156,7 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
             <div className='todo-summary'>
                 <button onClick={onTodoFinishEventHandler}> {todoItem.completed ? <FontAwesomeIcon icon={faCircleCheck} /> : <FontAwesomeIcon icon={faCircle} />} </button>
                 <button onClick={onTodoPriorityEventHandler} className='priority-indicator'> {todoItem.priority ? <FontAwesomeIcon icon={faCircleExclamation} /> : <FontAwesomeIcon icon={faCircle} />} </button>
-                <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span>{ todoItem.scheduleType }</span> { todoItem.title }</p></button>
+                <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span>{ todoItem.schedule ? scheduleAlert(todoItem.scheduleType, todoItem.title) : null }</span> { todoItem.title }</p></button>
                 <button onClick={onTodoDeleteEventHandler}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
             <div className='todo-detail'>

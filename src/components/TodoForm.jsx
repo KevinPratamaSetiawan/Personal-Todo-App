@@ -192,6 +192,7 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                             <option value="[W]">Weekly</option>
                             <option value="[Y]">Yearly</option>
                             <option value="[S]">Scheduled</option>
+                            <option value="[A]">Assignment</option>
                             <option value="custom">Custom</option>
                         </select>
 
