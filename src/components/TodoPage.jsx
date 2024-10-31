@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
+import { faToggleOff, faToggleOn, faChessRook } from '@fortawesome/free-solid-svg-icons';
 
 import TodoTime from './TodoTime';
 import TodoForm from './TodoForm';
@@ -119,7 +119,7 @@ const TodoPage = () => {
     return (
         <div className='todo-page'>
             <div className='todo-header'>
-                <h3 className='app-title'>© KPS {thisYear}</h3>
+                <h3 className='app-title'><FontAwesomeIcon icon={faChessRook} size='lg' /> KPS {thisYear}</h3>
                     {currentTheme === 'mono' && (
                         <div className='theme-toggle'>
                             <div className='monochrome-theme'>

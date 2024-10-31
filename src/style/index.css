@@ -136,6 +136,10 @@ body{
     .app-title{
       border-left: 4px solid var(--text-color);
       padding: 5px 10px;
+
+      .fa-chess-rook{
+        color: var(--priority-color);
+      }
     }
 
     .theme-toggle{
