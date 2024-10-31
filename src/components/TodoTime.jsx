@@ -8,7 +8,7 @@ const TodoTime = ({ today, currentTime, setTab }) => {
     const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const todayDay = dayName[today.getDay()];
-    const todayDate = today.getDate();
+    const todayDate = today.getDate().toString().padStart(2, '0');
     const todayMonth = monthName[today.getMonth()];
     const todayYear = today.getFullYear().toString().slice(2);
 
