@@ -44,60 +44,45 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
     const getListIcon = (listStyle, status) => {
         let icon;
 
-        if(listStyle === "plusIndentOne"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faPlus} className="todo-list-dash todo-list-indent-one" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faMinus} className="todo-list-dash todo-list-indent-one" />;
-            }
-        }else if(listStyle === "plusIndentTwo"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faPlus} className="todo-list-dash todo-list-indent-two" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faMinus} className="todo-list-dash todo-list-indent-two" />;
-            }
-        }else if(listStyle === "plusIndentThree"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faPlus} className="todo-list-dash todo-list-indent-three" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faMinus} className="todo-list-dash todo-list-indent-three" />;
-            }
-        }else if(listStyle === "checkboxIndentOne"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faSquareCheck} className="todo-list-checkbox todo-list-indent-one" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faSquare} className="todo-list-checkbox todo-list-indent-one" />;
-            }
-        }else if(listStyle === "checkboxIndentTwo"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faSquareCheck} className="todo-list-checkbox todo-list-indent-two" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faSquare} className="todo-list-checkbox todo-list-indent-two" />;
-            }
-        }else if(listStyle === "checkboxIndentThree"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faSquareCheck} className="todo-list-checkbox todo-list-indent-three" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faSquare} className="todo-list-checkbox todo-list-indent-three" />;
-            }
-        }else if(listStyle === "xcircleIndentOne"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faCircleXmark} className="todo-list-circle todo-list-indent-one" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faCircle} className="todo-list-circle todo-list-indent-one" />;
-            }
-        }else if(listStyle === "xcircleIndentTwo"){
-            if(status){
-                icon = <FontAwesomeIcon icon={faCircleXmark} className="todo-list-circle todo-list-indent-two" />;
-            }else{
-                icon = <FontAwesomeIcon icon={faCircle} className="todo-list-circle todo-list-indent-two" />;
-            }
-        }else if(listStyle === "xcircleIndentThree"){
-            if(status){
-                icon = <button><FontAwesomeIcon icon={faCircleXmark} className="todo-list-circle todo-list-indent-three" /></button>;
-            }else{
-                icon = <FontAwesomeIcon icon={faCircle} className="todo-list-circle todo-list-indent-three" />;
-            }
+        switch (listStyle){
+            case "plusIndentOne":
+                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-one" />;
+                break;
+
+            case "plusIndentTwo":
+                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-two" />;
+                break;
+            
+            case "plusIndentThree":
+                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-three" />;
+                break;
+            
+            case "checkboxIndentOne":
+                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-one" />;
+                break;
+            
+            case "checkboxIndentTwo":
+                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-two" />;
+                break;
+                
+            case "checkboxIndentThree":
+                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-three" />;
+                break;
+            
+            case "xcircleIndentOne":
+                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-one" />;
+                break;
+                                        
+            case "xcircleIndentTwo":
+                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-two" />;
+                break;
+                                    
+            case "xcircleIndentThree":
+                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-three" />;
+                break;
+                                                                                                                                                                
+            default:
+                icon = null;
         }
 
         return icon;

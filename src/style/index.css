@@ -762,6 +762,7 @@ body{
                 overflow-wrap: break-word;
                 text-wrap: wrap;
                 white-space: normal;
+                /* counter-reset: list-counter; */
       
                 li hr{
                   margin: 15px 0;
@@ -772,6 +773,8 @@ body{
                   overflow-wrap: break-word;
                   text-wrap: wrap;
                   white-space: normal;
+                  /* position: relative;
+                  counter-increment: list-counter; */
       
                   code{
                     background-color: var(--background-color);
@@ -791,16 +794,12 @@ body{
                   }
                 }
       
-                /* li:has(.todo-list-indent-one):not(:nth-child(1)){
-                  margin-top: 15px;
-                }
-      
-                li:has(.todo-list-indent-two):not(:nth-child(1)){
-                  margin-top: 10px;
-                }
-      
-                li:has(.todo-list-indent-three):not(:nth-child(1)){
-                  margin-top: 5px;
+                /* li::before{
+                  content: counter(list-counter);
+                  text-decoration: none;
+                  color: var(--neutral-600);
+                  position: absolute;
+                  right: 0;
                 } */
 
                 li:not(
