@@ -5,6 +5,7 @@ import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faSquareC
 
 const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}) => {
     const [todoId, setTodoId] = React.useState(todoItem.id);
+    const currentTheme = localStorage.getItem('currentTheme') || 'mono';
 
     const scheduleAlert = (scheduleType, title) => {
         let todayAlert = ']';
@@ -176,8 +177,15 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                         todoItem.subTask !== "no subtask" ? 
                         <ul className='todo-description'>
                             {todoItem.subTask.map((task) => (
-                                <li key={task.id}>
-                                    {task.listStyle !== '' ?
+                                <li 
+                                key={task.id} 
+                                className={
+                                    `${task.listStyle === 'textIndentOne' ? 'text-indent-one' : 
+                                        task.listStyle === 'textIndentTwo' ? 'text-indent-two' : 
+                                        task.listStyle === 'textIndentThree' ? 'text-indent-three' : ''}
+                                    ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`
+                                    }>
+                                    {task.listStyle !== '' && task.listStyle !== 'textIndentOne' && task.listStyle !== 'textIndentTwo' && task.listStyle !== 'textIndentThree' ?
                                     <button onClick={() => onToggleSubTask(todoId, task.id)}>
                                         {getListIcon(task.listStyle, task.completed)}
                                     </button>

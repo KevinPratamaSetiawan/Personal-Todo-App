@@ -161,6 +161,9 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                                 onChange={(e) => onSubTaskListStyleChangeEventHandler(e, index)}
                             >
                                 <option value="">None</option>
+                                <option value="textIndentOne">Str.</option>
+                                <option value="textIndentTwo">Str‥</option>
+                                <option value="textIndentThree">Str…</option>
                                 <option value="plusIndentOne">-.</option>
                                 <option value="plusIndentTwo">-‥</option>
                                 <option value="plusIndentThree">-…</option>
