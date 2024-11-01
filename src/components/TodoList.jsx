@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesRight, faFolderClosed, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesRight, faFolderClosed, faFolderOpen, faInbox, faBoxArchive, faArchway } from '@fortawesome/free-solid-svg-icons';
 
 import TodoItem from './TodoItem';
 
@@ -42,8 +42,16 @@ const TodoList = ({ id, todoItems, listName, listType, onToggleComplete, onToggl
             <summary>
                 <h4>
                     <FontAwesomeIcon icon={faAnglesRight} />
-                    <FontAwesomeIcon icon={faFolderClosed} />
-                    <FontAwesomeIcon icon={faFolderOpen} />
+                    {listType === 'completed' ? 
+                        <>
+                            <FontAwesomeIcon icon={faInbox} />
+                            <FontAwesomeIcon icon={faBoxArchive} />
+                        </>:
+                        <>
+                            <FontAwesomeIcon icon={faFolderClosed} />
+                            <FontAwesomeIcon icon={faFolderOpen} />
+                        </>
+                    }
                     { listName }
                 </h4>
                 <span>

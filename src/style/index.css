@@ -922,11 +922,13 @@ body{
       transition: transform .5s ease;
     }
   
-    details[open] .fa-folder-closed{
+    details[open] .fa-folder-closed,
+    details[open] .fa-box-archive{
       display: none;
     }
   
-    details:not([open]) .fa-folder-open{
+    details:not([open]) .fa-folder-open,
+    details:not([open]) .fa-inbox{
       display: none;
     }
   }
