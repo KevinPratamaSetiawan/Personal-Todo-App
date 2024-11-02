@@ -19,11 +19,13 @@ const TodoSave = ({ setTodosData, setTab }) => {
     const putData = () => {
         localStorage.setItem("todoItems", updateData);
         setTodosData(JSON.parse(localStorage.getItem('todoItems')) || []);
+        window.location.reload();
     };
 
     const delData = () => {
         localStorage.removeItem("todoItems");
         setTodosData(JSON.parse(localStorage.getItem('todoItems')) || []);
+        window.location.reload();
     };
 
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 
 import TodoNav from './TodoNav';
 
@@ -10,6 +10,10 @@ const TodoForm = ({ onAddTodo, setTab }) => {
     const [subTask, setSubTask] = React.useState([]);
     const [scheduleType, setScheduleType] = React.useState('');
     const [customScheduleType, setCustomScheduleType] = React.useState('');
+    const [isDisabled, setIsDisabled] = React.useState(true);
+    const [deadlineTimeHour, setDeadlineTimeHour] = React.useState(new Date().getHours() % 12 || 12);
+    const [deadlineTimeMinute, setDeadlineTimeMinute] = React.useState(new Date().getMinutes());
+    const [meridiemType, setMeridiemType] = React.useState(new Date().getHours() > 12 ? 'PM' : 'PM');
 
     const onTitleChangeEventHandler = (event) => {
         setTitle(event.target.value);
@@ -56,6 +60,18 @@ const TodoForm = ({ onAddTodo, setTab }) => {
         setCustomScheduleType(event.target.value);
     };
 
+    const onTimeHourChangeEventHandler = (event) => {
+        setDeadlineTimeHour(event.target.value);
+    };
+
+    const onTimeMinuteChangeEventHandler = (event) => {
+        setDeadlineTimeMinute(event.target.value);
+    };
+
+    const onMeridiemTypeChangeEventHandler = (event) => {
+        setMeridiemType(event.target.value);
+    };
+
     const onPasteEventHandler = () => {
         const text = title.split('=>').map(str => str.trim());
     
@@ -65,6 +81,16 @@ const TodoForm = ({ onAddTodo, setTab }) => {
             setSubTask(text[3] === 'no subtask' ? [] : JSON.parse(text[3]) || []);
             setScheduleType(text[0] === '' ? '' : 'custom');
             setCustomScheduleType(text[0] === '' ? '' : text[0]);
+
+            if(text[4] !== 'no deadline'){
+                const [timePart, meridiem] = text[4].split(' ');
+                const [hour, minute] = timePart.split(':').map(Number);
+                
+                setIsDisabled(false);
+                setDeadlineTimeHour(hour);
+                setDeadlineTimeMinute(minute);
+                setMeridiemType(meridiem);
+            }
     
             document.getElementById('titleLabel').classList.remove('title-empty');
         } else {
@@ -77,11 +103,21 @@ const TodoForm = ({ onAddTodo, setTab }) => {
         event.preventDefault();
         document.getElementById('titleLabel').classList.remove('title-empty');
         document.getElementById('scheduleOptionsLabel').classList.remove('schedule-type-empty');
+        document.getElementById('timePickerLabel').classList.remove('time-picker-under');
+        document.getElementById('timePickerLabel').classList.remove('time-picker-over');
 
         const updatedSubTasks = subTask.filter(task => task.content !== "");
 
         if(!title.trim()){
             document.getElementById('titleLabel').classList.add('title-empty');
+        }
+
+        if(deadlineTimeHour < 1 || deadlineTimeMinute < 0){
+            document.getElementById('timePickerLabel').classList.add('time-picker-under');
+        }
+
+        if(deadlineTimeHour > 12 || deadlineTimeMinute > 60){
+            document.getElementById('timePickerLabel').classList.add('time-picker-over');
         }
 
         if(scheduleType === 'custom' && customScheduleType === ''){
@@ -104,7 +140,8 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                 completed: false, 
                 priority: false,
                 schedule: scheduleType !== "",
-                scheduleType: scheduleType === 'custom' ? customScheduleType : scheduleType
+                scheduleType: scheduleType === 'custom' ? customScheduleType : scheduleType,
+                deadlineTime: isDisabled ? 'no deadline' : deadlineTimeHour.toString().padStart(2, '0') + ":" + deadlineTimeMinute.toString().padStart(2, '0') + " " + meridiemType
             };
             
             items.push(newTodo);
@@ -187,7 +224,6 @@ const TodoForm = ({ onAddTodo, setTab }) => {
 
                 <div className='todo-schedule-type'>
                     <label htmlFor="scheduleOptions" id='scheduleOptionsLabel'>Schedule Type</label>
-
                     <div>
                         <select id="scheduleOptions" value={scheduleType} onChange={onScheduleTypeChangeEventHandler}>
                             <option value="">None</option>
@@ -218,9 +254,52 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                                 placeholder="Custom type.."
                                 />
                             )}
+                    </div>
+                </div>
 
-                        <button type='button' onClick={onPasteEventHandler}><FontAwesomeIcon icon={faPaste} /></button>
-                        <button type='submit'><FontAwesomeIcon icon={faPlus} /></button>
+                <div className='todo-time-picker'>
+                    <div className='deadline-label-toggle'>
+                        <button type='button' onClick={() => setIsDisabled(prev => !prev)}>
+                            {
+                                isDisabled ? 
+                                <FontAwesomeIcon icon={faSquareXmark} /> :
+                                <FontAwesomeIcon icon={faSquareCheck} />
+                            }
+                        </button>
+                        <label htmlFor="hourTimePicker" id='timePickerLabel'>Deadline Time</label>
+                    </div>
+                    <div>
+                        <div className='time-picker'>
+                            <input 
+                                id="hourTimePicker" 
+                                type="number"
+                                value={deadlineTimeHour} 
+                                onChange={onTimeHourChangeEventHandler}
+                                disabled={isDisabled}
+                                />
+                            <p>:</p>
+                            <input 
+                                id="minuteTimePicker" 
+                                type="number" 
+                                value={deadlineTimeMinute}
+                                onChange={onTimeMinuteChangeEventHandler}
+                                disabled={isDisabled}
+                                />
+                            <select 
+                            id="meridiemOptions" 
+                            value={meridiemType} 
+                            onChange={onMeridiemTypeChangeEventHandler}
+                            disabled={isDisabled}
+                            >
+                                <option value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+
+                        <div className='todo-buttons'>                        
+                            <button type='button' onClick={onPasteEventHandler}><FontAwesomeIcon icon={faPaste} /></button>
+                            <button type='submit'><FontAwesomeIcon icon={faPlus} /></button>
+                        </div>
                     </div>
                 </div>
             </form>
