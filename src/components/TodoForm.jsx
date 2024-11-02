@@ -13,7 +13,7 @@ const TodoForm = ({ onAddTodo, setTab }) => {
     const [isDisabled, setIsDisabled] = React.useState(true);
     const [deadlineTimeHour, setDeadlineTimeHour] = React.useState(new Date().getHours() % 12 || 12);
     const [deadlineTimeMinute, setDeadlineTimeMinute] = React.useState(new Date().getMinutes());
-    const [meridiemType, setMeridiemType] = React.useState(new Date().getHours() > 12 ? 'PM' : 'PM');
+    const [meridiemType, setMeridiemType] = React.useState(new Date().getHours() > 12 ? 'PM' : 'AM');
 
     const onTitleChangeEventHandler = (event) => {
         setTitle(event.target.value);
