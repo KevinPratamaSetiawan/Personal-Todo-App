@@ -6,6 +6,7 @@ import TodoTime from './TodoTime';
 import TodoForm from './TodoForm';
 import TodoSave from './TodoSave';
 import TodoDisplay from './TodoDisplay';
+import { completedData } from '../utils/data';
 
 const TodoPage = () => {
     const today = new Date();
@@ -161,7 +162,7 @@ const TodoPage = () => {
                 />
             )}
             <TodoDisplay
-                todoItems={todosData}
+                todoItems={[...todosData, ...completedData]}
                 onToggleComplete={toggleComplete}
                 onTogglePriority={togglePriority}
                 onDeleteTodo={deleteTodo}
