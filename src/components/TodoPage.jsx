@@ -94,20 +94,22 @@ const TodoPage = () => {
     };
 
     const [currentTime, setCurrentTime] = useState(
-        (today.getHours() < 10 ? '0' : '') + today.getHours() + ':' + 
-        (today.getMinutes() < 10 ? '0' : '') + today.getMinutes() + ':' + 
-        (today.getSeconds() < 10 ? '0' : '') + today.getSeconds()
+        today.getHours().toString().padStart(2, '0') + ':' + 
+        today.getMinutes().toString().padStart(2, '0') + ':' + 
+        today.getSeconds().toString().padStart(2, '0')
+        // + ':' + today.getMilliseconds().toString().padStart(3, '0')
     );
 
     useEffect(() => {
         const timer = setInterval(() => {
             const now = new Date();
             setCurrentTime(
-                (now.getHours() < 10 ? '0' : '') + now.getHours() + ':' +
-                (now.getMinutes() < 10 ? '0' : '') + now.getMinutes() + ':' +
-                (now.getSeconds() < 10 ? '0' : '') + now.getSeconds()
+                now.getHours().toString().padStart(2, '0') + ':' + 
+                now.getMinutes().toString().padStart(2, '0') + ':' + 
+                now.getSeconds().toString().padStart(2, '0') 
+                // + ':' + now.getMilliseconds().toString().padStart(3, '0')
             );
-        }, 1000);
+        }, 143);
 
         // Cleanup function
         return () => clearInterval(timer);
