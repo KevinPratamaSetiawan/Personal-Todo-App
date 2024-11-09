@@ -19,6 +19,11 @@ through typing */
   --warning-color: #f1e05a;
   --succes-color: #6bdd9a;
 
+  --schedule-ratio-color:   #a97bff;
+  --priority-ratio-color:   #f85149;
+  --task-ratio-color:       #f1e05a;
+  --complete-ratio-color:   #6bdd9a;
+
   /* Neutrals */
   --neutral-100: #fafafa;
   --neutral-200: #e1e1e1;

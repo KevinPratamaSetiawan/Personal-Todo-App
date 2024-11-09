@@ -4,6 +4,7 @@ import { faToggleOff, faToggleOn, faChessRook } from '@fortawesome/free-solid-sv
 
 import TodoTime from './TodoTime';
 import TodoForm from './TodoForm';
+import TodoStats from './TodoStats';
 import TodoSave from './TodoSave';
 import TodoDisplay from './TodoDisplay';
 import { completedData } from '../utils/data';
@@ -154,6 +155,12 @@ const TodoPage = () => {
             {currentTab === 'add' && (
                 <TodoForm 
                 onAddTodo={addTodo}
+                setTab={onTabChangeEventHandler}
+                />
+            )}
+            {currentTab === 'stats' && (
+                <TodoStats 
+                todosData={[...todosData, ...completedData]}
                 setTab={onTabChangeEventHandler}
                 />
             )}
