@@ -28,7 +28,7 @@ const TodoStats = ({ todosData, setTab }) => {
             </div>
             <div>
                 <div className='total-stats'>
-                    <p>Total: {todosData.length}</p>
+                    <p>Total: {todosData.length.toString().padStart(3, '0')}</p>
                     <div className='todo-ratio-container'>
                         <div id="schedule-ratio" className='schedule-ratio ratio-item' style={{ width: `${getTypeLength('schedule') / todosData.length * 100}%` }}></div>
                         <div id="priority-ratio" className='priority-ratio ratio-item' style={{ width: `${getTypeLength('priority') / todosData.length * 100}%` }}></div>

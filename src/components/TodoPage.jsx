@@ -7,7 +7,7 @@ import TodoForm from './TodoForm';
 import TodoStats from './TodoStats';
 import TodoSave from './TodoSave';
 import TodoDisplay from './TodoDisplay';
-import { completedData } from '../utils/data';
+import { completedData } from '../utils/script';
 
 const TodoPage = () => {
     const today = new Date();

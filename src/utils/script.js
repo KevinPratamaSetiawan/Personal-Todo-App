@@ -1,469 +1,524 @@
 const task = [
   {
-    "id": "N-0063",
-    "title": "RPP Research Project",
-    "description": "no description",
-    "subTask": "no subtask",
-    "completed": false,
-    "priority": false,
-    "schedule": false,
-    "scheduleType": "",
-    "deadlineTime": "no deadline"
-  },
-  {
-    "id": "N-0062",
-    "title": "Senin, 9:30-12:00",
-    "description": " Pengolahan Bahasa Alami",
-    "subTask": [
+    id: "N-0064",
+    title: "Update Todo App",
+    description: "no description",
+    subTask: [
       {
-        "id": 0,
-        "content": "Kelas R | GK2-312 A | WIY",
-        "completed": false,
-        "listStyle": ""
+        id: 0,
+        content: "Add deadlineStartDate",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 1,
-        "content": "Pertemuan 1",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 1,
+        content: "Add deadlineStartTime",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 2,
-        "content": "Pertemuan 2",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 2,
+        content: "Add deadlineEndDate",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 3,
-        "content": "Pertemuan 3",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 3,
+        content: "Add deadlineEndTime",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 4,
-        "content": "Pertemuan 4",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 4,
+        content:
+          'On Schedule List have a more specific listing per day on that week and shows the date on that week from Monday to Sunday and "coming soon" for the date that out of the week',
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
-      {
-        "id": 5,
-        "content": "Pertemuan 5",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 6,
-        "content": "Pertemuan 6",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 7,
-        "content": "Pertemuan 7",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 8,
-        "content": "Ujian Tengah Semester",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 9,
-        "content": "Pertemuan 9",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 10,
-        "content": "Pertemuan 10",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 11,
-        "content": "Pertemuan 11",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 12,
-        "content": "Pertemuan 12",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 13,
-        "content": "Pertemuan 13",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 14,
-        "content": "Pertemuan 14",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 15,
-        "content": "Pertemuan 15",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      },
-      {
-        "id": 16,
-        "content": "Ujian Akhir Semester",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      }
     ],
-    "completed": false,
-    "priority": false,
-    "schedule": true,
-    "scheduleType": "[W]",
-    "deadlineTime": "09:30 AM"
+    completed: false,
+    priority: true,
+    schedule: false,
+    scheduleType: "",
+    deadlineStartDate: 'noDeadlineStartDate',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: 'noDeadlineStartTime',
+    deadlineEndTime: 'noDeadlineEndTime'
   },
   {
-    "id": "N-0061",
-    "title": "Jumat, 9:30-12:00",
-    "description": " Pengolahan Citra Digital",
-    "subTask": [
+    id: "N-0063",
+    title: "RPP Research Project",
+    description: "no description",
+    subTask: "no subtask",
+    completed: false,
+    priority: false,
+    schedule: false,
+    scheduleType: "",
+    deadlineStartDate: 'noDeadlineStartDate',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: 'noDeadlineStartTime',
+    deadlineEndTime: 'noDeadlineEndTime'
+  },
+  {
+    id: "N-0062",
+    title: "Pengolahan Bahasa Alami",
+    description: "Kelas R | GK2-312 A | WIY",
+    subTask: [
       {
-        "id": 0,
-        "content": "Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
-        "completed": false,
-        "listStyle": ""
+        id: 0,
+        content: "Pertemuan 1",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 1,
-        "content": "Pertemuan 1",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 1,
+        content: "Pertemuan 2",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 2,
-        "content": "Pertemuan 2",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 2,
+        content: "Pertemuan 3",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 3,
-        "content": "Pertemuan 3",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 3,
+        content: "Pertemuan 4",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 4,
-        "content": "Pertemuan 4",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 4,
+        content: "Pertemuan 5",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 5,
-        "content": "Pertemuan 5",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 5,
+        content: "Pertemuan 6",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 6,
-        "content": "Pertemuan 6",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 6,
+        content: "Pertemuan 7",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 7,
-        "content": "Pertemuan 7",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 7,
+        content: "Ujian Tengah Semester",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 8,
-        "content": "Ujian Tengah Semester",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 8,
+        content: "Pertemuan 9",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 9,
-        "content": "Pertemuan 9",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 9,
+        content: "Pertemuan 10",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 10,
-        "content": "Pertemuan 10",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 10,
+        content: "Pertemuan 11",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 11,
-        "content": "Pertemuan 11",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 11,
+        content: "Pertemuan 12",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 12,
-        "content": "Pertemuan 12",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 12,
+        content: "Pertemuan 13",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 13,
-        "content": "Pertemuan 13",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 13,
+        content: "Pertemuan 14",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 14,
-        "content": "Pertemuan 14",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 14,
+        content: "Pertemuan 15",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 15,
-        "content": "Pertemuan 15",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 15,
+        content: "Ujian Akhir Semester",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
-      {
-        "id": 16,
-        "content": "Ujian Akhir Semester",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      }
     ],
-    "completed": false,
-    "priority": false,
-    "schedule": true,
-    "scheduleType": "[W]",
-    "deadlineTime": "09:30 AM"
+    completed: false,
+    priority: false,
+    schedule: true,
+    scheduleType: "[W]",
+    deadlineStartDate: 'Monday',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: '09:30',
+    deadlineEndTime: '12:00'
   },
   {
-    "id": "N-0060",
-    "title": "Jumat, 13:00-15:30",
-    "description": "Representasi Pengetahuan dan Penalaran",
-    "subTask": [
+    id: "N-0061",
+    title: "Pengolahan Citra Digital",
+    description: "Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
+    subTask: [
       {
-        "id": 0,
-        "content": "Kelas R | LAB IOT | MCU",
-        "completed": false,
-        "listStyle": ""
+        id: 1,
+        content: "Pertemuan 1",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 1,
-        "content": "Pertemuan 1",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 2,
+        content: "Pertemuan 2",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 2,
-        "content": "Pertemuan 2",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 3,
+        content: "Pertemuan 3",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 3,
-        "content": "Pertemuan 3",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 4,
+        content: "Pertemuan 4",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 4,
-        "content": "Pertemuan 4",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 5,
+        content: "Pertemuan 5",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 5,
-        "content": "Pertemuan 5",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 6,
+        content: "Pertemuan 6",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 6,
-        "content": "Pertemuan 6",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 7,
+        content: "Pertemuan 7",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 7,
-        "content": "Pertemuan 7",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 8,
+        content: "Ujian Tengah Semester",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 8,
-        "content": "Ujian Tengah Semester",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 9,
+        content: "Pertemuan 9",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 9,
-        "content": "Pertemuan 9",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 10,
+        content: "Pertemuan 10",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 10,
-        "content": "Pertemuan 10",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 11,
+        content: "Pertemuan 11",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 11,
-        "content": "Pertemuan 11",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 12,
+        content: "Pertemuan 12",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 12,
-        "content": "Pertemuan 12",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 13,
+        content: "Pertemuan 13",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 13,
-        "content": "Pertemuan 13",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 14,
+        content: "Pertemuan 14",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 14,
-        "content": "Pertemuan 14",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 15,
+        content: "Pertemuan 15",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 15,
-        "content": "Pertemuan 15",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 16,
+        content: "Ujian Akhir Semester",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
-      {
-        "id": 16,
-        "content": "Ujian Akhir Semester",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      }
     ],
-    "completed": false,
-    "priority": false,
-    "schedule": true,
-    "scheduleType": "[W]",
-    "deadlineTime": "01:00 PM"
+    completed: false,
+    priority: false,
+    schedule: true,
+    scheduleType: "[W]",
+    deadlineStartDate: 'Friday',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: '09:30',
+    deadlineEndTime: '12:00'
   },
   {
-    "id": "N-0059",
-    "title": " IDCamp and Project Odin",
-    "description": "no description",
-    "subTask": "no subtask",
-    "completed": false,
-    "priority": false,
-    "schedule": false,
-    "scheduleType": "",
-    "deadlineTime": "no deadline"
-  },
-  {
-    "id": "N-0058",
-    "title": " Find Internship",
-    "description": "no description",
-    "subTask": "no subtask",
-    "completed": false,
-    "priority": true,
-    "schedule": false,
-    "scheduleType": "",
-    "deadlineTime": "no deadline"
-  },
-  {
-    "id": "N-0057",
-    "title": "NLP Capstone Project",
-    "description": "no description",
-    "subTask": "no subtask",
-    "completed": false,
-    "priority": true,
-    "schedule": false,
-    "scheduleType": "",
-    "deadlineTime": "no deadline"
-  },
-  {
-    "id": "N-0056",
-    "title": " Finish TA",
-    "description": "no description",
-    "subTask": [
+    id: "N-0060",
+    title: "Representasi Pengetahuan dan Penalaran",
+    description: "Kelas R | LAB IOT | MCU",
+    subTask: [
       {
-        "id": 0,
-        "content": "Bab I",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 1,
+        content: "Pertemuan 1",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 1,
-        "content": "Bab II",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 2,
+        content: "Pertemuan 2",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 2,
-        "content": "Bab III",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
+        id: 3,
+        content: "Pertemuan 3",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 3,
-        "content": "Bab Lampiran",
-        "completed": false,
-        "listStyle": "checkboxIndentOne"
-      }
+        id: 4,
+        content: "Pertemuan 4",
+        completed: true,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 5,
+        content: "Pertemuan 5",
+        completed: true,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 6,
+        content: "Pertemuan 6",
+        completed: true,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 7,
+        content: "Pertemuan 7",
+        completed: true,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 8,
+        content: "Ujian Tengah Semester",
+        completed: true,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 9,
+        content: "Pertemuan 9",
+        completed: true,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 10,
+        content: "Pertemuan 10",
+        completed: false,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 11,
+        content: "Pertemuan 11",
+        completed: false,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 12,
+        content: "Pertemuan 12",
+        completed: false,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 13,
+        content: "Pertemuan 13",
+        completed: false,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 14,
+        content: "Pertemuan 14",
+        completed: false,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 15,
+        content: "Pertemuan 15",
+        completed: false,
+        listStyle: "checkboxIndentOne",
+      },
+      {
+        id: 16,
+        content: "Ujian Akhir Semester",
+        completed: false,
+        listStyle: "checkboxIndentOne",
+      },
     ],
-    "completed": false,
-    "priority": true,
-    "schedule": false,
-    "scheduleType": "",
-    "deadlineTime": "no deadline"
+    completed: false,
+    priority: false,
+    schedule: true,
+    scheduleType: "[W]",
+    deadlineStartDate: 'Friday',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: '13:00',
+    deadlineEndTime: '15:30'
   },
   {
-    "id": "N-0055",
-    "title": "Alternatif Judul TA",
-    "description": "no description",
-    "subTask": [
+    id: "N-0059",
+    title: " IDCamp and Project Odin",
+    description: "no description",
+    subTask: "no subtask",
+    completed: false,
+    priority: false,
+    schedule: false,
+    scheduleType: "",
+    deadlineStartDate: 'noDeadlineStartDate',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: 'noDeadlineStartTime',
+    deadlineEndTime: 'noDeadlineEndTime'
+  },
+  {
+    id: "N-0058",
+    title: " Find Internship",
+    description: "no description",
+    subTask: "no subtask",
+    completed: false,
+    priority: true,
+    schedule: false,
+    scheduleType: "",
+    deadlineStartDate: 'noDeadlineStartDate',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: 'noDeadlineStartTime',
+    deadlineEndTime: 'noDeadlineEndTime'
+  },
+  {
+    id: "N-0057",
+    title: "NLP Capstone Project",
+    description: "no description",
+    subTask: "no subtask",
+    completed: false,
+    priority: false,
+    schedule: false,
+    scheduleType: "",
+    deadlineStartDate: 'noDeadlineStartDate',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: 'noDeadlineStartTime',
+    deadlineEndTime: 'noDeadlineEndTime'
+  },
+  {
+    id: "N-0056",
+    title: " Finish TA",
+    description: "no description",
+    subTask: [
       {
-        "id": 0,
-        "content": "Klasifikasi Pola Batik CNN.",
-        "completed": false,
-        "listStyle": "plusIndentOne"
+        id: 0,
+        content: "Bab I",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 1,
-        "content": "Klasifikasi Karya Museum CNN.",
-        "completed": false,
-        "listStyle": "plusIndentOne"
+        id: 1,
+        content: "Bab II",
+        completed: true,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 2,
-        "content": "Klasifikasi Kekuatan Tanah Pondasi CNN.",
-        "completed": false,
-        "listStyle": "plusIndentOne"
+        id: 2,
+        content: "Bab III",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
       {
-        "id": 3,
-        "content": "Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
-        "completed": true,
-        "listStyle": "plusIndentOne"
+        id: 3,
+        content: "Bab Lampiran",
+        completed: false,
+        listStyle: "checkboxIndentOne",
       },
-      {
-        "id": 4,
-        "content": "Klasifikasi Aksara/Alfabet yang ada di Indonesi.",
-        "completed": false,
-        "listStyle": "plusIndentOne"
-      }
     ],
-    "completed": false,
-    "priority": false,
-    "schedule": false,
-    "scheduleType": "",
-    "deadlineTime": "no deadline"
-  }
-]
+    completed: false,
+    priority: true,
+    schedule: false,
+    scheduleType: "",
+    deadlineStartDate: 'noDeadlineStartDate',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: 'noDeadlineStartTime',
+    deadlineEndTime: 'noDeadlineEndTime'
+  },
+  {
+    id: "N-0055",
+    title: "Alternatif Judul TA",
+    description: "no description",
+    subTask: [
+      {
+        id: 0,
+        content: "Klasifikasi Pola Batik CNN.",
+        completed: false,
+        listStyle: "plusIndentOne",
+      },
+      {
+        id: 1,
+        content: "Klasifikasi Karya Museum CNN.",
+        completed: false,
+        listStyle: "plusIndentOne",
+      },
+      {
+        id: 2,
+        content: "Klasifikasi Kekuatan Tanah Pondasi CNN.",
+        completed: false,
+        listStyle: "plusIndentOne",
+      },
+      {
+        id: 3,
+        content: "Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
+        completed: true,
+        listStyle: "plusIndentOne",
+      },
+      {
+        id: 4,
+        content: "Klasifikasi Aksara/Alfabet yang ada di Indonesi.",
+        completed: false,
+        listStyle: "plusIndentOne",
+      },
+    ],
+    completed: false,
+    priority: false,
+    schedule: false,
+    scheduleType: "",
+    deadlineStartDate: 'noDeadlineStartDate',
+    deadlineEndDate: 'noDeadlineEndDate',
+    deadlineStartTime: 'noDeadlineStartTime',
+    deadlineEndTime: 'noDeadlineEndTime'
+  },
+];
 
 export const completedData = [
   {
@@ -644,7 +699,10 @@ export const completedData = [
     "priority": false,
     "schedule": true,
     "scheduleType": "[A]",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-31',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '23:59',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0053",
@@ -788,7 +846,10 @@ export const completedData = [
     "priority": false,
     "schedule": true,
     "scheduleType": "[A]",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-31',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '23:59',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0052",
@@ -854,7 +915,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0051",
@@ -878,7 +942,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-13',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '23:59',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0050",
@@ -891,7 +958,10 @@ export const completedData = [
     "priority": true,
     "schedule": true,
     "scheduleType": "[UTS]",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-18',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '15:00',
+    "deadlineEndTime": '17:00'
   },
   {
     "id": "N-0049",
@@ -904,7 +974,10 @@ export const completedData = [
     "priority": true,
     "schedule": true,
     "scheduleType": "[UTS]",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-18',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '09:30',
+    "deadlineEndTime": '11:30'
   },
   {
     "id": "N-0048",
@@ -915,7 +988,10 @@ export const completedData = [
     "priority": true,
     "schedule": true,
     "scheduleType": "[UTS]",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-14',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '10:00',
+    "deadlineEndTime": '12:00'
   },
   {
     "id": "N-0047",
@@ -945,7 +1021,10 @@ export const completedData = [
     "priority": true,
     "schedule": true,
     "scheduleType": "[A]",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-12',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '23:59',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0046",
@@ -1041,7 +1120,10 @@ export const completedData = [
     "priority": true,
     "schedule": true,
     "scheduleType": "[A]",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-11',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '23:59',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0045",
@@ -1065,7 +1147,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": '2024-10-09',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": '23:59',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0044",
@@ -1089,7 +1174,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0043",
@@ -1107,7 +1195,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0042",
@@ -1118,7 +1209,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0041",
@@ -1129,7 +1223,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0040",
@@ -1140,7 +1237,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0039",
@@ -1151,7 +1251,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0038",
@@ -1162,7 +1265,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0037",
@@ -1173,7 +1279,10 @@ export const completedData = [
     "priority": false,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0036",
@@ -1184,7 +1293,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0035",
@@ -1195,7 +1307,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0034",
@@ -1206,7 +1321,10 @@ export const completedData = [
     "priority": false,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0033",
@@ -1217,7 +1335,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0032",
@@ -1228,7 +1349,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0031",
@@ -1239,7 +1363,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0030",
@@ -1250,7 +1377,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0029",
@@ -1261,7 +1391,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0028",
@@ -1272,7 +1405,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0027",
@@ -1283,7 +1419,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0026",
@@ -1294,7 +1433,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0025",
@@ -1305,7 +1447,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0024",
@@ -1316,7 +1461,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0023",
@@ -1327,7 +1475,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0022",
@@ -1338,7 +1489,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0021",
@@ -1349,7 +1503,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0020",
@@ -1360,7 +1517,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0019",
@@ -1371,7 +1531,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0018",
@@ -1382,7 +1545,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0017",
@@ -1393,7 +1559,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0016",
@@ -1404,7 +1573,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0015",
@@ -1415,7 +1587,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0014",
@@ -1426,7 +1601,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0013",
@@ -1437,7 +1615,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0012",
@@ -1448,7 +1629,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0011",
@@ -1459,7 +1643,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0010",
@@ -1470,7 +1657,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0009",
@@ -1481,7 +1671,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0008",
@@ -1492,7 +1685,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0007",
@@ -1503,7 +1699,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0006",
@@ -1514,7 +1713,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0005",
@@ -1525,7 +1727,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0004",
@@ -1536,7 +1741,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0003",
@@ -1547,7 +1755,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0002",
@@ -1558,7 +1769,10 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   },
   {
     "id": "N-0001",
@@ -1569,6 +1783,37 @@ export const completedData = [
     "priority": true,
     "schedule": false,
     "scheduleType": "",
-    "deadlineTime": "no deadline"
+    "deadlineStartDate": 'noDeadlineStartDate',
+    "deadlineEndDate": 'noDeadlineEndDate',
+    "deadlineStartTime": 'noDeadlineStartTime',
+    "deadlineEndTime": 'noDeadlineEndTime'
   }
 ]
+
+export const formatDate = (date, format) => {
+  const days = [ 
+    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
+    'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
+  ];
+
+  if (typeof date === 'string') {
+    if(days.findIndex(day => date.includes(day)) !== -1){
+      return date;
+    }
+    date = new Date(date);
+  }
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+
+  if(format === 'YY-MM-DD'){
+      return `${year}-${month}-${day}`;
+  }else if(format === 'DD-MM-YY'){
+      return `${day}-${month}-${year}`;
+  }else if(format === 'MM-DD-YY'){
+      return `${month}-${day}-${year}`;
+  }else if(format === 'DD-MM'){
+      return `${day}-${month}`;
+  }
+};

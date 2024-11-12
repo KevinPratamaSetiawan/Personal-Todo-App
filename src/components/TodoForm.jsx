@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 
 import TodoNav from './TodoNav';
+import { formatDate } from '../utils/script';
 
 const TodoForm = ({ onAddTodo, setTab }) => {
     const [title, setTitle] = React.useState('');
@@ -10,10 +11,14 @@ const TodoForm = ({ onAddTodo, setTab }) => {
     const [subTask, setSubTask] = React.useState([]);
     const [scheduleType, setScheduleType] = React.useState('');
     const [customScheduleType, setCustomScheduleType] = React.useState('');
-    const [isDisabled, setIsDisabled] = React.useState(true);
-    const [deadlineTimeHour, setDeadlineTimeHour] = React.useState(new Date().getHours() % 12 || 12);
-    const [deadlineTimeMinute, setDeadlineTimeMinute] = React.useState(new Date().getMinutes());
-    const [meridiemType, setMeridiemType] = React.useState(new Date().getHours() > 12 ? 'PM' : 'AM');
+    // const [isDisabled, setIsDisabled] = React.useState(true);
+    const [deadlineStartDate, setStartDeadlineDate] = React.useState(formatDate(new Date(), 'YY-MM-DD'));
+    const [deadlineEndDate, setEndDeadlineDate] = React.useState(formatDate(new Date(), 'YY-MM-DD'));
+    const [deadlineStartTimeHour, setStartDeadlineTimeHour] = React.useState(new Date().getHours());
+    const [deadlineStartTimeMinute, setStartDeadlineTimeMinute] = React.useState(new Date().getMinutes());
+    const [deadlineEndTimeHour, setEndDeadlineTimeHour] = React.useState(new Date().getHours() + 1);
+    const [deadlineEndTimeMinute, setEndDeadlineTimeMinute] = React.useState(new Date().getMinutes());
+    // const [meridiemType, setMeridiemType] = React.useState(new Date().getHours() > 12 ? 'PM' : 'AM');
 
     const onTitleChangeEventHandler = (event) => {
         setTitle(event.target.value);
@@ -60,16 +65,28 @@ const TodoForm = ({ onAddTodo, setTab }) => {
         setCustomScheduleType(event.target.value);
     };
 
-    const onTimeHourChangeEventHandler = (event) => {
-        setDeadlineTimeHour(event.target.value);
+    const onStartDateChangeEventHandler = (event) => {
+        setStartDeadlineDate(event.target.value);
     };
 
-    const onTimeMinuteChangeEventHandler = (event) => {
-        setDeadlineTimeMinute(event.target.value);
+    const onEndDateChangeEventHandler = (event) => {
+        setEndDeadlineDate(event.target.value);
     };
 
-    const onMeridiemTypeChangeEventHandler = (event) => {
-        setMeridiemType(event.target.value);
+    const onStartTimeHourChangeEventHandler = (event) => {
+        setStartDeadlineTimeHour(event.target.value);
+    };
+
+    const onStartTimeMinuteChangeEventHandler = (event) => {
+        setStartDeadlineTimeMinute(event.target.value);
+    };
+
+    const onEndTimeHourChangeEventHandler = (event) => {
+        setEndDeadlineTimeHour(event.target.value);
+    };
+
+    const onEndTimeMinuteChangeEventHandler = (event) => {
+        setEndDeadlineTimeMinute(event.target.value);
     };
 
     const onPasteEventHandler = () => {
@@ -79,17 +96,29 @@ const TodoForm = ({ onAddTodo, setTab }) => {
             setTitle(text[1] || '');
             setDescription(text[2] || '');
             setSubTask(text[3] === 'no subtask' ? [] : JSON.parse(text[3]) || []);
-            setScheduleType(text[0] === '' ? '' : 'custom');
-            setCustomScheduleType(text[0] === '' ? '' : text[0]);
+            setScheduleType(text[0] === '' ? '' : (text[0] === 'custom' ? 'custom' : text[0]));
+            setCustomScheduleType(text[0] === '' && text[0] !== 'custom' ? '' : text[0]);
 
-            if(text[4] !== 'no deadline'){
-                const [timePart, meridiem] = text[4].split(' ');
-                const [hour, minute] = timePart.split(':').map(Number);
+            if(text[4] !== 'noDeadlineStartDate'){   
+                setStartDeadlineDate(text[4]);
+            }
+
+            if(text[5] !== 'noDeadlineEndDate'){   
+                setEndDeadlineDate(text[5]);
+            }
+
+            if(text[6] !== 'noDeadlineStartTime'){
+                const [startHour, startMinute] = text[6].split(':').map(Number);
+
+                setStartDeadlineTimeHour(startHour);
+                setStartDeadlineTimeMinute(startMinute);
+            }
+
+            if(text[7] !== 'noDeadlineEndTime'){
+                const [endHour, endMinute] = text[7].split(':').map(Number);
                 
-                setIsDisabled(false);
-                setDeadlineTimeHour(hour);
-                setDeadlineTimeMinute(minute);
-                setMeridiemType(meridiem);
+                setEndDeadlineTimeHour(endHour);
+                setEndDeadlineTimeMinute(endMinute);
             }
     
             document.getElementById('titleLabel').classList.remove('title-empty');
@@ -103,8 +132,11 @@ const TodoForm = ({ onAddTodo, setTab }) => {
         event.preventDefault();
         document.getElementById('titleLabel').classList.remove('title-empty');
         document.getElementById('scheduleOptionsLabel').classList.remove('schedule-type-empty');
-        document.getElementById('timePickerLabel').classList.remove('time-picker-under');
-        document.getElementById('timePickerLabel').classList.remove('time-picker-over');
+
+        if(scheduleType !== ''){
+            document.getElementById('timePickerLabel').classList.remove('time-picker-under');
+            document.getElementById('timePickerLabel').classList.remove('time-picker-over');
+        }
 
         const updatedSubTasks = subTask.filter(task => task.content !== "");
 
@@ -112,12 +144,14 @@ const TodoForm = ({ onAddTodo, setTab }) => {
             document.getElementById('titleLabel').classList.add('title-empty');
         }
 
-        if(deadlineTimeHour < 1 || deadlineTimeMinute < 0){
-            document.getElementById('timePickerLabel').classList.add('time-picker-under');
-        }
+        if(scheduleType !== ''){
+            if(deadlineStartTimeHour < 1 || deadlineStartTimeMinute < 0 || deadlineEndTimeHour < 1 || deadlineEndTimeMinute < 0){
+                document.getElementById('timePickerLabel').classList.add('time-picker-under');
+            }
 
-        if(deadlineTimeHour > 12 || deadlineTimeMinute > 60){
-            document.getElementById('timePickerLabel').classList.add('time-picker-over');
+            if(deadlineStartTimeHour > 23 || deadlineStartTimeMinute > 60 || deadlineEndTimeHour > 23 || deadlineEndTimeMinute > 60){
+                document.getElementById('timePickerLabel').classList.add('time-picker-over');
+            }
         }
 
         if(scheduleType === 'custom' && customScheduleType === ''){
@@ -141,7 +175,10 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                 priority: false,
                 schedule: scheduleType !== "",
                 scheduleType: scheduleType === 'custom' ? customScheduleType : scheduleType,
-                deadlineTime: isDisabled ? 'no deadline' : deadlineTimeHour.toString().padStart(2, '0') + ":" + deadlineTimeMinute.toString().padStart(2, '0') + " " + meridiemType
+                deadlineStartDate: scheduleType === '' || scheduleType === '[D]' ? 'noDeadlineStartDate' : deadlineStartDate,
+                deadlineEndDate: scheduleType !== '[Y]' && scheduleType !== '[S]' && scheduleType !== 'custom' ? 'noDeadlineEndDate' : deadlineEndDate,
+                deadlineStartTime: scheduleType === '' ? 'noDeadlineStartTime' : deadlineStartTimeHour.toString().padStart(2, '0') + ":" + deadlineStartTimeMinute.toString().padStart(2, '0'),
+                deadlineEndTime: scheduleType === '' || scheduleType === '[A]' ? 'noDeadlineEndTime' : deadlineEndTimeHour.toString().padStart(2, '0') + ":" + deadlineEndTimeMinute.toString().padStart(2, '0')
             };
             
             items.push(newTodo);
@@ -154,6 +191,12 @@ const TodoForm = ({ onAddTodo, setTab }) => {
             setSubTask([]);
             setScheduleType('');
             setCustomScheduleType('');
+            setStartDeadlineDate(formatDate(new Date(), 'YY-MM-DD'));
+            setEndDeadlineDate(formatDate(new Date(), 'YY-MM-DD'));
+            setStartDeadlineTimeHour(new Date().getHours());
+            setStartDeadlineTimeMinute(new Date().getMinutes());
+            setEndDeadlineTimeHour(new Date().getHours() + 1);
+            setEndDeadlineTimeMinute(new Date().getMinutes());
         }
     };
 
@@ -257,50 +300,106 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                     </div>
                 </div>
 
+                {
+                scheduleType !== '' ?
                 <div className='todo-time-picker'>
                     <div className='deadline-label-toggle'>
-                        <button type='button' onClick={() => setIsDisabled(prev => !prev)}>
+                        {/* <button type='button' onClick={() => setIsDisabled(prev => !prev)}>
                             {
                                 isDisabled ? 
                                 <FontAwesomeIcon icon={faSquareXmark} /> :
                                 <FontAwesomeIcon icon={faSquareCheck} />
                             }
-                        </button>
+                        </button> */}
                         <label htmlFor="hourTimePicker" id='timePickerLabel'>Deadline Time</label>
                     </div>
-                    <div>
-                        <div className='time-picker'>
-                            <input 
-                                id="hourTimePicker" 
-                                type="number"
-                                value={deadlineTimeHour} 
-                                onChange={onTimeHourChangeEventHandler}
-                                disabled={isDisabled}
-                                />
-                            <p>:</p>
-                            <input 
-                                id="minuteTimePicker" 
-                                type="number" 
-                                value={deadlineTimeMinute}
-                                onChange={onTimeMinuteChangeEventHandler}
-                                disabled={isDisabled}
-                                />
-                            <select 
-                            id="meridiemOptions" 
-                            value={meridiemType} 
-                            onChange={onMeridiemTypeChangeEventHandler}
-                            disabled={isDisabled}
-                            >
-                                <option value="AM">AM</option>
-                                <option value="PM">PM</option>
-                            </select>
+                    <div className='time-picker'>
+                        <div className='date-time-section'>
+                            <label htmlFor="datePicker" id='timePickerLabel'>Start:</label>
+                            {
+                                scheduleType !== '[D]' && scheduleType !== '[W]' ?
+                                <input 
+                                id="datePicker" 
+                                type="date"
+                                value={deadlineStartDate}
+                                onChange={onStartDateChangeEventHandler}
+                                // disabled={isDisabled}
+                                />:
+                                (scheduleType === '[W]' ? 
+                                <select id="dateOptions" value={deadlineStartDate} onChange={onStartDateChangeEventHandler}>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                </select> :
+                                null
+                                )                    
+                            }
+                            <div>
+                                <input 
+                                    id="hourTimePicker" 
+                                    type="number"
+                                    value={deadlineStartTimeHour} 
+                                    onChange={onStartTimeHourChangeEventHandler}
+                                    // disabled={isDisabled}
+                                    />
+                                <p>:</p>
+                                <input 
+                                    id="minuteTimePicker" 
+                                    type="number" 
+                                    value={deadlineStartTimeMinute}
+                                    onChange={onStartTimeMinuteChangeEventHandler}
+                                    // disabled={isDisabled}
+                                    />
+                            </div>
                         </div>
-
-                        <div className='todo-buttons'>                        
-                            <button type='button' onClick={onPasteEventHandler}><FontAwesomeIcon icon={faPaste} /></button>
-                            <button type='submit'><FontAwesomeIcon icon={faPlus} /></button>
-                        </div>
+                        
+                        {
+                        scheduleType !== '[A]' ?
+                        <div className='date-time-section'>
+                            <label htmlFor="datePicker" id='timePickerLabel'>End:</label>
+                            {
+                                scheduleType !== '[D]' &&  scheduleType !== '[W]' ?
+                            <input 
+                                id="datePicker" 
+                                type="date"
+                                value={deadlineEndDate}
+                                onChange={onEndDateChangeEventHandler}
+                                // disabled={isDisabled}
+                                />:
+                                null
+                            }
+                            <div>
+                                <input 
+                                    id="hourTimePicker" 
+                                    type="number"
+                                    value={deadlineEndTimeHour} 
+                                    onChange={onEndTimeHourChangeEventHandler}
+                                    // disabled={isDisabled}
+                                    />
+                                <p>:</p>
+                                <input 
+                                    id="minuteTimePicker" 
+                                    type="number" 
+                                    value={deadlineEndTimeMinute}
+                                    onChange={onEndTimeMinuteChangeEventHandler}
+                                    // disabled={isDisabled}
+                                    />
+                            </div>
+                        </div>:
+                        null
+                        }
                     </div>
+                </div>:
+                null
+                }
+
+                <div className='todo-buttons'>                        
+                    <button type='button' onClick={onPasteEventHandler}><FontAwesomeIcon icon={faPaste} /></button>
+                    <button type='submit'><FontAwesomeIcon icon={faPlus} /></button>
                 </div>
             </form>
         </div>

@@ -125,13 +125,17 @@ body{
 }
 
 .time-picker-over::after{
-  content: 'Hour or Minutes over the limit of 12 or 60';
+  content: 'Hour or Minutes over the limit of 23 or 60';
   background-color: var(--warning-color);
 }
 
 .schedule-type-empty::after {
   content: 'Schedule Type is required';
   background-color: var(--warning-color);
+}
+
+.no-string{
+  color: var(--neutral-500) !important; 
 }
 
 .todo-page{
@@ -457,49 +461,68 @@ body{
         }
 
         .time-picker{
-          width: 50%;
-          gap: 10px;
+          width: 100%;
+          display: flex;
+          align-items: stretch;
+          gap: 20px;
 
-          input[type="number"]{
-            width: 30%;
-            text-align: center;
-          }
-  
-          select{
-            width: 40%;
-          }
-
-          input:disabled{
-            color: var(--neutral-400);
-            border-bottom: 3px solid var(--neutral-400);
-          }
-        }
-
-        .todo-buttons{
-          width: 30%;
-          gap: 10px;
-
-          button {
-            height: 30px;
-            width: 50%;
-            border-radius: 5px;
-            cursor: pointer;
-            border: 2px solid var(--text-color);
-            font: var(--base-font-family);
-            color: var(--text-color);
-            text-align: center;
-  
+          .date-time-section{
+            width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-          
-          button:hover {
-            color: var(--background-color);
-            background-color: var(--text-color);
+            flex-direction: column;
+            align-items: start;
+
+            select{
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            
+            input[type="date"]{
+              width: 100%;
+              text-align: left;
+            }
+
+            input[type="number"]{
+              width: 50%;
+              text-align: center;
+            }
+
+            input:disabled{
+              color: var(--neutral-400);
+              border-bottom: 3px solid var(--neutral-400);
+            }
           }
         }
+      }
 
+      .todo-buttons{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+
+        button {
+          height: 30px;
+          width: 20%;
+          border-radius: 5px;
+          cursor: pointer;
+          border: 2px solid var(--text-color);
+          font: var(--base-font-family);
+          color: var(--text-color);
+          text-align: center;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        button:hover {
+          color: var(--background-color);
+          background-color: var(--text-color);
+        }
       }
     }
   }
@@ -543,7 +566,7 @@ body{
           display: flex;
           justify-content: left;
           align-items: end;
-          padding: 5px;
+          padding: 5px 0;
       
           .ratio-item{
             width: 1%;
@@ -854,6 +877,33 @@ body{
       
             border-top: 1px dashed var(--text-color);
             text-align: left;
+
+            .todo-deadline-detail{
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: start;
+              padding: 10px 0;
+              border-top: 1px solid var(--neutral-500);
+              border-bottom: 1px solid var(--neutral-500);
+
+              .todo-detail-item{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 3px;
+
+                p{
+                  white-space: nowrap;
+                }
+
+                span{
+                  width: 100%;
+                  margin-top: 10px;
+                  border-bottom: 2px dotted var(--text-color);
+                }
+              }
+            }
       
             .todo-description-container{
               width: 100%;
@@ -1106,6 +1156,7 @@ body{
   .fa-angle-right:nth-child(2){ color: var(--schedule-half); }
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--schedule-color); } }
+  .todo-deadline-stats-label{ color: var(--schedule-half); }
 }
 #todo-priority{
   .todo-id::before,
@@ -1115,6 +1166,7 @@ body{
   .fa-angle-right:nth-child(2){ color: var(--priority-half); }
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--priority-color); } }
+  .todo-deadline-stats-label{ color: var(--priority-half); }
 }
 #todo-items{
   .todo-id::before,
@@ -1124,6 +1176,7 @@ body{
   .fa-angle-right:nth-child(2){ color: var(--task-half); }
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--task-color); } }
+  .todo-deadline-stats-label{ color: var(--task-half); }
 }
 #todo-finish{
   .todo-id::before,
@@ -1133,4 +1186,5 @@ body{
   .fa-angle-right:nth-child(2){ color: var(--complete-half); }
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--complete-color); } }
+  .todo-deadline-stats-label{ color: var(--complete-half); }
 }

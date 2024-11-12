@@ -3,14 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSquare } from '@fortawesome/free-regular-svg-icons';
 import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faSquareCheck, faMinus, faPlus, faCopy, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
-import DeadlineTime from './DeadlineTime';
+import TodoDeadlineStats from './TodoDeadlineStats';
+import TodoDeadlineCounter from './TodoDeadlineCounter';
+import { formatDate } from '../utils/script';
 
 const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}) => {
     const [todoId, setTodoId] = React.useState(todoItem.id);
     const currentTheme = localStorage.getItem('currentTheme') || 'mono';
-    let isToday = false;
+    let isToday = todoItem.scheduleType === '[D]' ? true : false;
 
-    const scheduleAlert = (scheduleType, title) => {
+    const scheduleAlert = (scheduleType, deadlineStartDate) => {
         let todayAlert = ']';
         scheduleType = scheduleType.slice(0, -1);
         const days = [ 
@@ -18,24 +20,24 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                         'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
                     ];
         
-        let day = days.findIndex(day => title.includes(day));
+        let day = days.findIndex(day => deadlineStartDate.includes(day));
         let today = new Date();
         let tomorrow = new Date(today);
         tomorrow.setDate(today.getDate() + 1);
 
         let todayDate = (today.getDate()).toString().padStart(2, '0') + '-' 
                     + (today.getMonth()+1).toString().padStart(2, '0') + '-' 
-                    + (today.getFullYear()).toString().slice(-2);
+                    + (today.getFullYear()).toString();
 
         let tomorrowDate = (tomorrow.getDate()).toString().padStart(2, '0') + '-' 
                         + (tomorrow.getMonth()+1).toString().padStart(2, '0') + '-' 
-                        + (tomorrow.getFullYear()).toString().slice(-2);
+                        + (tomorrow.getFullYear()).toString();
         
-        if(title.match(/\b(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{2}\b/)){
-            if(title.includes(todayDate)){   
+        if(deadlineStartDate !== 'noDeadlineStartDate' && day === -1){
+            if(formatDate(deadlineStartDate, 'DD-MM-YY').includes(todayDate)){   
                 todayAlert = '-TDY]';
                 isToday = true;
-            }else if(title.includes(tomorrowDate)){ 
+            }else if(formatDate(deadlineStartDate, 'DD-MM-YY').includes(tomorrowDate)){ 
                 todayAlert = '-TMW]';
             }
         }else if(day !== -1 && day%7 === today.getDay()){
@@ -144,7 +146,15 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
     }
 
     const onTodoCopyIdEventHandler = (event) => {
-        let copyText = todoItem.scheduleType + '=>' + todoItem.title + ' => ' + todoItem.description + '=>' + (todoItem.subTask === 'no subtask' ? todoItem.subTask : JSON.stringify(todoItem.subTask)) + '=>' + todoItem.deadlineTime;
+        let copyText = 
+        todoItem.scheduleType + '=>' + 
+        todoItem.title + ' => ' + 
+        todoItem.description + '=>' + 
+        (todoItem.subTask === 'no subtask' ? todoItem.subTask : JSON.stringify(todoItem.subTask)) + '=>' + 
+        todoItem.deadlineStartDate + '=>' +
+        todoItem.deadlineEndDate + '=>' +
+        todoItem.deadlineStartTime + '=>' +
+        todoItem.deadlineEndTime;
 
         navigator.clipboard.writeText(copyText);
         setTodoId(<><FontAwesomeIcon icon={faCopy} /> Copied!</>);
@@ -159,7 +169,7 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
             <div className='todo-summary'>
                 <button onClick={onTodoFinishEventHandler}> {todoItem.completed ? <FontAwesomeIcon icon={faCircleCheck} /> : <FontAwesomeIcon icon={faCircle} />} </button>
                 <button onClick={onTodoPriorityEventHandler} className='priority-indicator'> {todoItem.priority ? <FontAwesomeIcon icon={faCircleExclamation} /> : <FontAwesomeIcon icon={faCircle} />} </button>
-                <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span className='todo-schedule-display'>{ todoItem.schedule ? scheduleAlert(todoItem.scheduleType, todoItem.title) : null }</span> { todoItem.title }</p></button>
+                <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span className='todo-schedule-display'>{ todoItem.schedule ? scheduleAlert(todoItem.scheduleType, todoItem.deadlineStartDate) : null }</span> { todoItem.title }</p></button>
                 <button onClick={onTodoDeleteEventHandler}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
             <div className='todo-detail'>
@@ -200,17 +210,30 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                     }
                     { 
                         todoItem.description === "no description" && todoItem.subTask === "no subtask" ? 
-                        <p className='todo-description'>{todoItem.description}</p> 
+                        <p className='todo-description no-string'>{todoItem.description}</p> 
                         : null 
                     }
                     </div>
 
                 </div>
+                {
+                    todoItem.scheduleType !== '' ?
+                    <TodoDeadlineStats 
+                    scheduleType={todoItem.scheduleType}
+                    deadlineStartDate={todoItem.deadlineStartDate}
+                    deadlineEndDate={todoItem.deadlineEndDate}
+                    deadlineStartTime={todoItem.deadlineStartTime}
+                    deadlineEndTime={todoItem.deadlineEndTime}
+                    isToday={isToday}
+                    />:
+                    null
+                }
                 <div className='todo-deadline-copy'>
                     {
-                        todoItem.deadlineTime !== 'no deadline' ?
-                        <DeadlineTime 
-                        deadlineTimeData={todoItem.deadlineTime}
+                        todoItem.scheduleType !== '' && isToday ?
+                        <TodoDeadlineCounter 
+                        deadlineStartTime={todoItem.deadlineStartTime}
+                        deadlineEndTime={todoItem.deadlineEndTime}
                         isToday={isToday}
                         />:
                         null
