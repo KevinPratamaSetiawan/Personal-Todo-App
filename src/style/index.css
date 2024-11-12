@@ -941,6 +941,7 @@ body{
                 overflow-wrap: break-word;
                 text-wrap: wrap;
                 white-space: normal;
+                padding-bottom: 5px;
                 /* counter-reset: list-counter; */
       
                 li hr{
