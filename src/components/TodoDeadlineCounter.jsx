@@ -10,29 +10,55 @@ const TodoDeadlineCounter = ({deadlineStartTime, deadlineEndTime, isToday}) => {
     const [startHour, startMinute] = deadlineStartTime.split(':').map(Number);
     const [endHour, endMinute] = deadlineEndTime.split(':').map(Number);
 
-    const deadlineTotalMinutes = startHour * 60 + startMinute;
-    const deadlineTotalSeconds = deadlineTotalMinutes * 60;
+    const deadlineStartTotalMinutes = startHour * 60 + startMinute;
+    const deadlineEndTotalMinutes = endHour * 60 + endMinute;
+    const deadlineStartTotalSeconds = deadlineStartTotalMinutes * 60;
+    const deadlineEndTotalSeconds = deadlineEndTotalMinutes * 60;
+
+    let secondsLeft, hoursLeft, minutesLeft, secondsLeftRemaining = 0;
 
     let timeLeft = '';
+    let opening = '';
+    let closing = '';
 
     if (isToday) {
-        const secondLeft = deadlineTotalSeconds - currentTotalSeconds;
-        const absSecondLeft = Math.abs(secondLeft);
-        const hourLeft = Math.floor(absSecondLeft / 3600);
-        const minuteLeft = Math.floor((absSecondLeft % 3600) / 60);
-        const secondLeftRemaining = absSecondLeft % 60;
+        if (currentTotalSeconds <= deadlineStartTotalSeconds) {
+            secondsLeft = deadlineStartTotalSeconds - currentTotalSeconds;
+            hoursLeft = Math.floor(secondsLeft / 3600);
+            minutesLeft = Math.floor((secondsLeft % 3600) / 60);
+            secondsLeftRemaining = secondsLeft % 60;
 
-        if (secondLeft > 0) {
-            timeLeft = `in ${hourLeft.toString().padStart(2, '0')}h : ${minuteLeft.toString().padStart(2, '0')}m : ${secondLeftRemaining.toString().padStart(2, '0')}s`;
-        }else if(now.getHours() > startHour && now.getHours() < endHour){
-            timeLeft = `now`;
-        }else {
-            timeLeft = `${hourLeft.toString().padStart(2, '0')}h : ${minuteLeft.toString().padStart(2, '0')}m : ${secondLeftRemaining.toString().padStart(2, '0')}s ago`;
+            opening = 'starts in ';
+
+            // timeLeft = `starts in ${hoursLeft.toString().padStart(2, '0')}h : ${minutesLeft.toString().padStart(2, '0')}m : ${secondsLeftRemaining.toString().padStart(2, '0')}s`;
+        } else if (currentTotalSeconds >= deadlineEndTotalSeconds) {
+            secondsLeft = currentTotalSeconds - deadlineEndTotalSeconds;
+            hoursLeft = Math.floor(secondsLeft / 3600);
+            minutesLeft = Math.floor((secondsLeft % 3600) / 60);
+            secondsLeftRemaining = secondsLeft % 60;
+
+            opening = 'finished ';
+            closing = ' ago';
+
+            // timeLeft = `finished ${hoursLeft.toString().padStart(2, '0')}h : ${minutesLeft.toString().padStart(2, '0')}m : ${secondsLeftRemaining.toString().padStart(2, '0')}s ago`;
+        } else {
+            secondsLeft = deadlineEndTotalSeconds - currentTotalSeconds;
+            hoursLeft = Math.floor(secondsLeft / 3600);
+            minutesLeft = Math.floor((secondsLeft % 3600) / 60);
+            secondsLeftRemaining = secondsLeft % 60;
+
+            opening = 'ends in ';
+
+            // timeLeft = `ends in ${hoursLeft.toString().padStart(2, '0')}h : ${minutesLeft.toString().padStart(2, '0')}m : ${secondsLeftRemaining.toString().padStart(2, '0')}s`;
         }
     }
 
     return (
-        <p>{timeLeft}</p>
+        <p className='todo-deadline-counter'>
+            {opening} 
+            <span>{hoursLeft.toString().padStart(2, '0')}</span>h : <span>{minutesLeft.toString().padStart(2, '0')}</span>m : <span>{secondsLeftRemaining.toString().padStart(2, '0')}</span>s 
+            {closing}
+        </p>
     );
 };
 
