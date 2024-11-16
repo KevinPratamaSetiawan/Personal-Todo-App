@@ -2,7 +2,12 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faFloppyDisk, faCheckSquare, faChartGantt } from '@fortawesome/free-solid-svg-icons';
 
-const TodoNav = ({currentTab, setTab}) => {
+type TodoNavProps = {
+    currentTab: string;
+    setTab: (tab: string) => void;
+}
+
+export default function TodoNav ({currentTab, setTab}: TodoNavProps) {
     const openTimeTab = () => { setTab('time'); };
 
     const openAddTab = () => { setTab('add'); };
@@ -20,5 +25,3 @@ const TodoNav = ({currentTab, setTab}) => {
         </div>
     );
 };
-
-export default TodoNav;

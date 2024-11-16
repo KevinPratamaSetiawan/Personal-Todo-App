@@ -4,11 +4,18 @@ import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck,
 
 import TodoNav from './TodoNav';
 import { formatDate } from '../utils/script';
+import { completedData } from '../utils/script';
+import { todoItem, SubTask } from '../utils/props';
 
-const TodoForm = ({ onAddTodo, setTab }) => {
+type TodoFormProps = {
+    onAddTodo: (newTodo: todoItem) => void;
+    setTab: (tab: string) => void;
+}
+
+const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
     const [title, setTitle] = React.useState('');
     const [description, setDescription] = React.useState('');
-    const [subTask, setSubTask] = React.useState([]);
+    const [subTask, setSubTask] = React.useState<SubTask[]>([]);
     const [scheduleType, setScheduleType] = React.useState('');
     const [customScheduleType, setCustomScheduleType] = React.useState('');
     // const [isDisabled, setIsDisabled] = React.useState(true);
@@ -20,11 +27,11 @@ const TodoForm = ({ onAddTodo, setTab }) => {
     const [deadlineEndTimeMinute, setEndDeadlineTimeMinute] = React.useState(new Date().getMinutes());
     // const [meridiemType, setMeridiemType] = React.useState(new Date().getHours() > 12 ? 'PM' : 'AM');
 
-    const onTitleChangeEventHandler = (event) => {
+    const onTitleChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(event.target.value);
     };
 
-    const onDescriptionChangeEventHandler = (event) => {
+    const onDescriptionChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDescription(event.target.value);
     };
 
@@ -35,25 +42,25 @@ const TodoForm = ({ onAddTodo, setTab }) => {
         ]);
     };
 
-    const delSubTask = (event, index) => {
+    const delSubTask = (event: React.MouseEvent, index: number) => {
         const updatedSubTasks = [...subTask];
         updatedSubTasks.splice(index, 1);
         setSubTask(updatedSubTasks);
     };
 
-    const onSubTaskContentChangeEventHandler = (event, index) => {
+    const onSubTaskContentChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const updatedSubTasks = [...subTask];
         updatedSubTasks[index].content = event.target.value;
         setSubTask(updatedSubTasks);
     };
 
-    const onSubTaskListStyleChangeEventHandler = (event, index) => {
+    const onSubTaskListStyleChangeEventHandler = (event: React.ChangeEvent<HTMLSelectElement>, index: number) => {
         const updatedSubTasks = [...subTask];
         updatedSubTasks[index].listStyle = event.target.value;
         setSubTask(updatedSubTasks);
     };
 
-    const onScheduleTypeChangeEventHandler = (event) => {
+    const onScheduleTypeChangeEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setScheduleType(event.target.value);
 
         if (event.target.value !== 'custom') {
@@ -61,32 +68,32 @@ const TodoForm = ({ onAddTodo, setTab }) => {
         }
     };
 
-    const onCustomScheduleTypeChangeEventHandler = (event) => {
+    const onCustomScheduleTypeChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCustomScheduleType(event.target.value);
     };
 
-    const onStartDateChangeEventHandler = (event) => {
+    const onStartDateChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
         setStartDeadlineDate(event.target.value);
     };
 
-    const onEndDateChangeEventHandler = (event) => {
+    const onEndDateChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEndDeadlineDate(event.target.value);
     };
 
-    const onStartTimeHourChangeEventHandler = (event) => {
-        setStartDeadlineTimeHour(event.target.value);
+    const onStartTimeHourChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setStartDeadlineTimeHour(parseFloat(event.target.value));
     };
 
-    const onStartTimeMinuteChangeEventHandler = (event) => {
-        setStartDeadlineTimeMinute(event.target.value);
+    const onStartTimeMinuteChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setStartDeadlineTimeMinute(parseFloat(event.target.value));
     };
 
-    const onEndTimeHourChangeEventHandler = (event) => {
-        setEndDeadlineTimeHour(event.target.value);
+    const onEndTimeHourChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEndDeadlineTimeHour(parseFloat(event.target.value));
     };
 
-    const onEndTimeMinuteChangeEventHandler = (event) => {
-        setEndDeadlineTimeMinute(event.target.value);
+    const onEndTimeMinuteChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEndDeadlineTimeMinute(parseFloat(event.target.value));
     };
 
     const onPasteEventHandler = () => {
@@ -97,7 +104,7 @@ const TodoForm = ({ onAddTodo, setTab }) => {
             setDescription(text[2] || '');
             setSubTask(text[3] === 'no subtask' ? [] : JSON.parse(text[3]) || []);
             setScheduleType(text[0] === '' ? '' : (text[0] === 'custom' ? 'custom' : text[0]));
-            setCustomScheduleType(text[0] === '' && text[0] !== 'custom' ? '' : text[0]);
+            setCustomScheduleType(text[0] !== '' && text[0] !== 'custom' ? '' : text[0]);
 
             if(text[4] !== 'noDeadlineStartDate'){   
                 setStartDeadlineDate(text[4]);
@@ -121,44 +128,45 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                 setEndDeadlineTimeMinute(endMinute);
             }
     
-            document.getElementById('titleLabel').classList.remove('title-empty');
+            document.getElementById('titleLabel')!.classList.remove('title-empty');
         } else {
-            document.getElementById('titleLabel').classList.add('title-empty');
+            document.getElementById('titleLabel')!.classList.add('title-empty');
         }
     };
     
 
-    const onAddTodoEventHandler = (event) => {
+    const onAddTodoEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        document.getElementById('titleLabel').classList.remove('title-empty');
-        document.getElementById('scheduleOptionsLabel').classList.remove('schedule-type-empty');
+        document.getElementById('titleLabel')!.classList.remove('title-empty');
+        document.getElementById('scheduleOptionsLabel')!.classList.remove('schedule-type-empty');
 
         if(scheduleType !== ''){
-            document.getElementById('timePickerLabel').classList.remove('time-picker-under');
-            document.getElementById('timePickerLabel').classList.remove('time-picker-over');
+            document.getElementById('timePickerLabel')!.classList.remove('time-picker-under');
+            document.getElementById('timePickerLabel')!.classList.remove('time-picker-over');
         }
 
         const updatedSubTasks = subTask.filter(task => task.content !== "");
 
         if(!title.trim()){
-            document.getElementById('titleLabel').classList.add('title-empty');
+            document.getElementById('titleLabel')!.classList.add('title-empty');
         }
 
         if(scheduleType !== ''){
             if(deadlineStartTimeHour < 1 || deadlineStartTimeMinute < 0 || deadlineEndTimeHour < 1 || deadlineEndTimeMinute < 0){
-                document.getElementById('timePickerLabel').classList.add('time-picker-under');
+                document.getElementById('timePickerLabel')!.classList.add('time-picker-under');
             }
 
             if(deadlineStartTimeHour > 23 || deadlineStartTimeMinute > 60 || deadlineEndTimeHour > 23 || deadlineEndTimeMinute > 60){
-                document.getElementById('timePickerLabel').classList.add('time-picker-over');
+                document.getElementById('timePickerLabel')!.classList.add('time-picker-over');
             }
         }
 
         if(scheduleType === 'custom' && customScheduleType === ''){
-            document.getElementById('scheduleOptionsLabel').classList.add('schedule-type-empty')
+            document.getElementById('scheduleOptionsLabel')!.classList.add('schedule-type-empty')
         }else if(title.trim()){
             let todoId
-            const items = JSON.parse(localStorage.getItem('todoItems')) || [];
+            const storedData = localStorage.getItem("todoItems") || '[]';
+            const items = [...JSON.parse(storedData), ...completedData];
 
             if(items.length === 0){
                 todoId = 'N-' + (items.length + 1).toString().padStart(4, '0');
@@ -175,8 +183,8 @@ const TodoForm = ({ onAddTodo, setTab }) => {
                 priority: false,
                 schedule: scheduleType !== "",
                 scheduleType: scheduleType === 'custom' ? customScheduleType : scheduleType,
-                deadlineStartDate: scheduleType === '' || scheduleType === '[D]' ? 'noDeadlineStartDate' : deadlineStartDate,
-                deadlineEndDate: scheduleType !== '[Y]' && scheduleType !== '[S]' && scheduleType !== 'custom' ? 'noDeadlineEndDate' : deadlineEndDate,
+                deadlineStartDate: scheduleType === '' || scheduleType === '[D]' ? 'noDeadlineStartDate' : deadlineStartDate as string,
+                deadlineEndDate: scheduleType !== '[Y]' && scheduleType !== '[S]' && scheduleType !== 'custom' ? 'noDeadlineEndDate' : deadlineEndDate as string,
                 deadlineStartTime: scheduleType === '' ? 'noDeadlineStartTime' : deadlineStartTimeHour.toString().padStart(2, '0') + ":" + deadlineStartTimeMinute.toString().padStart(2, '0'),
                 deadlineEndTime: scheduleType === '' || scheduleType === '[A]' ? 'noDeadlineEndTime' : deadlineEndTimeHour.toString().padStart(2, '0') + ":" + deadlineEndTimeMinute.toString().padStart(2, '0')
             };

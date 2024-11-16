@@ -1,7 +1,16 @@
 import React from 'react';
 import TodoList from './TodoList';
+import { todoItem, SubTask } from '../utils/props';
 
-const TodoDisplay = ({todoItems, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}) => {
+type TodoDisplayProps = {
+    todoItems: todoItem[];
+    onToggleComplete: (id: string) => void;
+    onTogglePriority: (id: string) => void;
+    onDeleteTodo: (id: string) => void;
+    onToggleSubTask: (id: string, subtaskId: number) => void;
+}
+
+export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoDisplayProps) {
     return (
         <div className='todo-display'>
             <TodoList 
@@ -47,5 +56,3 @@ const TodoDisplay = ({todoItems, onToggleComplete, onTogglePriority, onDeleteTod
         </div>
     );
 };
-
-export default TodoDisplay;

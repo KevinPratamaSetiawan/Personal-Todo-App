@@ -1498,22 +1498,23 @@ export const completedData = [
   }
 ]
 
-export const formatDate = (date, format) => {
+export const formatDate = (date: string | Date, format: string) => {
   const days = [ 
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
     'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
   ];
 
-  if (typeof date === 'string') {
+  if (typeof date === 'string'){
     if(days.findIndex(day => date.includes(day)) !== -1){
       return date;
     }
-    date = new Date(date);
   }
 
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
+  const properDate: Date = new Date(date);
+  
+  const year = properDate.getFullYear();
+  const month = String(properDate.getMonth() + 1).padStart(2, '0');
+  const day = String(properDate.getDate()).padStart(2, '0');
 
   if(format === 'YY-MM-DD'){
       return `${year}-${month}-${day}`;

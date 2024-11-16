@@ -5,19 +5,19 @@ import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons';
 
 import LoginButton from './LoginButton';
 
-const LoginPage = () => {
+export default function LoginPage () {
     const [password, setPassword] = React.useState('');
     const [buttonText, setButtonText] = React.useState(<FontAwesomeIcon icon={faLock} />);
     const navigate = useNavigate();
 
-    const onPasswordChangeEventHandler = (event) => {
+    const onPasswordChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
     };
 
-    const onLoginEventHandler = (event) => {
+    const onLoginEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        document.getElementById('passwordLabel').classList.remove('input-error');
-        document.getElementById('passwordLabel').classList.remove('input-false');
+        document.getElementById('passwordLabel')!.classList.remove('input-error');
+        document.getElementById('passwordLabel')!.classList.remove('input-false');
 
         console.log(sessionStorage.getItem('isAuthenticated') === 'true');
         const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true'
@@ -25,9 +25,9 @@ const LoginPage = () => {
         if (isAuthenticated) {
             navigate('/💻');
         } else if (!password.trim()) {
-            document.getElementById('passwordLabel').classList.add('input-error');
+            document.getElementById('passwordLabel')!.classList.add('input-error');
         } else if (password.trim() !== '400391211') {
-            document.getElementById('passwordLabel').classList.add('input-false');
+            document.getElementById('passwordLabel')!.classList.add('input-false');
         } else {
             sessionStorage.setItem('isAuthenticated', 'true');
             setButtonText(
@@ -56,5 +56,3 @@ const LoginPage = () => {
         </div>
     );
 };
-
-export default LoginPage;

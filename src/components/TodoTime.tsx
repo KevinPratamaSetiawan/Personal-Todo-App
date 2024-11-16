@@ -1,7 +1,13 @@
 import React from 'react';
 import TodoNav from './TodoNav';
 
-const TodoTime = ({ today, currentTime, setTab }) => {
+type TodoTimeProps = {
+    today: Date;
+    currentTime: string;
+    setTab: (tab: string) => void;
+}
+
+export default function TodoTime ({ today, currentTime, setTab }: TodoTimeProps) {
     const dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const todayDay = dayName[today.getDay()];
@@ -30,5 +36,3 @@ const TodoTime = ({ today, currentTime, setTab }) => {
         </div>
     );
 };
-
-export default TodoTime;

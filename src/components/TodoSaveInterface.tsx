@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 
-const TodoSaveInterface = ({ methodLink, interfaceType, buttonText, methodUsed, setUpdateData }) => {
+type TodoSaveInterfaceProps = {
+    methodLink: string;
+    interfaceType: string;
+    buttonText: string;
+    methodUsed: () => void;
+    setUpdateData: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function TodoSaveInterface ({ methodLink, interfaceType, buttonText, methodUsed, setUpdateData }: TodoSaveInterfaceProps) {
     const [updateValue, setUpdateValue] = useState('');
 
-    const onUpdateDataChangeEventHandler = (event) => {
+    const onUpdateDataChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUpdateValue(event.target.value);
         setUpdateData(event.target.value);
     };
@@ -28,7 +36,8 @@ const TodoSaveInterface = ({ methodLink, interfaceType, buttonText, methodUsed, 
             <pre id="save-display" className="save-display">
                 {interfaceType === 'put' 
                     ? updateValue || '' 
-                    : JSON.stringify(JSON.parse(localStorage.getItem('todoItems')) || [], null, 2)}
+                    : JSON.stringify(JSON.parse(localStorage.getItem('todoItems') || '[]'), null, 2)
+                }
             </pre>
             <div>                
                 <button onClick={methodUsed} className='method-button'>{buttonText}</button>
@@ -36,5 +45,3 @@ const TodoSaveInterface = ({ methodLink, interfaceType, buttonText, methodUsed, 
         </div>
     );
 };
-
-export default TodoSaveInterface;

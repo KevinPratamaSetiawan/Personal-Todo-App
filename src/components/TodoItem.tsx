@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSquare } from '@fortawesome/free-regular-svg-icons';
 import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faSquareCheck, faMinus, faPlus, faCopy, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
@@ -6,13 +6,22 @@ import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faSquareC
 import TodoDeadlineStats from './TodoDeadlineStats';
 import TodoDeadlineCounter from './TodoDeadlineCounter';
 import { formatDate } from '../utils/script';
+import { todoItem, SubTask } from '../utils/props';
 
-const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}) => {
-    const [todoId, setTodoId] = React.useState(todoItem.id);
+type TodoItemProps = {
+    todoItem: todoItem;
+    onToggleComplete: (id: string) => void;
+    onTogglePriority: (id: string) => void;
+    onDeleteTodo: (id: string) => void;
+    onToggleSubTask: (id: string, subtaskId: number) => void;
+}
+
+export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoItemProps) {
+    const [todoId, setTodoId] = React.useState<string | ReactNode>(todoItem.id);
     const currentTheme = localStorage.getItem('currentTheme') || 'mono';
     let isToday = todoItem.scheduleType === '[D]' ? true : false;
 
-    const scheduleAlert = (scheduleType, deadlineStartDate) => {
+    const scheduleAlert = (scheduleType: string, deadlineStartDate: string) => {
         let todayAlert = ']';
         scheduleType = scheduleType.slice(0, -1);
         const days = [ 
@@ -34,10 +43,10 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                         + (tomorrow.getFullYear()).toString();
         
         if(deadlineStartDate !== 'noDeadlineStartDate' && day === -1){
-            if(formatDate(deadlineStartDate, 'DD-MM-YY').includes(todayDate)){   
+            if(formatDate(deadlineStartDate, 'DD-MM-YY')!.includes(todayDate)){   
                 todayAlert = '-TDY]';
                 isToday = true;
-            }else if(formatDate(deadlineStartDate, 'DD-MM-YY').includes(tomorrowDate)){ 
+            }else if(formatDate(deadlineStartDate, 'DD-MM-YY')!.includes(tomorrowDate)){ 
                 todayAlert = '-TMW]';
             }
         }else if(day !== -1 && day%7 === today.getDay()){
@@ -48,7 +57,7 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
         return scheduleType + todayAlert;
     };
 
-    const getListIcon = (listStyle, status) => {
+    const getListIcon = (listStyle: string, status: boolean) => {
         let icon;
 
         switch (listStyle){
@@ -107,11 +116,11 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
         onDeleteTodo(todoItem.id);
     }
 
-    const onTodoToggleDetailEventHandler = (event) => {
-        const li = event.target.parentElement.parentElement.parentElement;
-        const title  = li.querySelector('.todo-title');
-        const detail = li.querySelector('.todo-detail');
-        const summary = li.querySelector('.todo-summary');
+    const onTodoToggleDetailEventHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const li = (event.target as HTMLElement).parentElement?.parentElement?.parentElement;
+        const title   = li!.querySelector('.todo-title');
+        const detail = li!.querySelector('.todo-detail');
+        const summary = li!.querySelector('.todo-summary');
 
         const allTodoItems = document.querySelectorAll('.todo-item');
 
@@ -120,32 +129,32 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
             const itemSummary = item.querySelector('.todo-summary');
             const itemTitle = item.querySelector('.todo-title');
 
-            if (item !== li && itemDetail.style.display === 'flex') {
-                itemDetail.style.display = 'none';
-                itemTitle.classList.remove('open');
+            if (item !== li && (itemDetail as HTMLElement).style.display === 'flex') {
+                (itemDetail as HTMLElement).style.display = 'none';
+                itemTitle!.classList.remove('open');
             }
 
             if(item !== li){
-                itemSummary.classList.add('disabled');
+                itemSummary!.classList.add('disabled');
             }
         });
 
-        if(detail.style.display === 'none' || detail.style.display === ''){
-            detail.style.display = 'flex';
-            title.classList.add('open');
-            summary.classList.remove('disabled');
+        if((detail as HTMLElement)!.style.display === 'none' || (detail as HTMLElement).style.display === ''){
+            (detail as HTMLElement)!.style.display = 'flex';
+            title!.classList.add('open');
+            summary!.classList.remove('disabled');
         }else{
-            detail.style.display = 'none';
-            title.classList.remove('open');
+            (detail as HTMLElement)!.style.display = 'none';
+            title!.classList.remove('open');
 
             allTodoItems.forEach(item => {
                 const itemSummary = item.querySelector('.todo-summary');
-                itemSummary.classList.remove('disabled');
+                itemSummary!.classList.remove('disabled');
             });
         }
     }
 
-    const onTodoCopyIdEventHandler = (event) => {
+    const onTodoCopyIdEventHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
         let copyText = 
         todoItem.scheduleType + '=>' + 
         todoItem.title + ' => ' + 
@@ -188,7 +197,7 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                     { 
                         todoItem.subTask !== "no subtask" ? 
                         <ul className='todo-description'>
-                            {todoItem.subTask.map((task) => (
+                            {Array.isArray(todoItem.subTask) && todoItem.subTask.map((task: SubTask) => (
                                 <li 
                                 key={task.id} 
                                 className={
@@ -198,7 +207,7 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                                     ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`
                                     }>
                                     {task.listStyle !== '' && task.listStyle !== 'textIndentOne' && task.listStyle !== 'textIndentTwo' && task.listStyle !== 'textIndentThree' ?
-                                    <button onClick={() => onToggleSubTask(todoId, task.id)}>
+                                    <button onClick={() => onToggleSubTask(todoItem.id, task.id)}>
                                         {getListIcon(task.listStyle, task.completed)}
                                     </button>
                                     : null}
@@ -224,7 +233,6 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
                     deadlineEndDate={todoItem.deadlineEndDate}
                     deadlineStartTime={todoItem.deadlineStartTime}
                     deadlineEndTime={todoItem.deadlineEndTime}
-                    isToday={isToday}
                     />:
                     null
                 }
@@ -244,5 +252,3 @@ const TodoItem = ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, o
         </li>
     );
 };
-
-export default TodoItem;

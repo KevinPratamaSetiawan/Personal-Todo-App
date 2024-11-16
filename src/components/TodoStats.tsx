@@ -1,8 +1,14 @@
 import React from 'react';
 import TodoNav from './TodoNav';
+import { todoItem, SubTask } from '../utils/props';
 
-const TodoStats = ({ todosData, setTab }) => {
-    const getTypeLength = (listType) => {
+type TodoStatsProps = {
+    todosData: todoItem[];
+    setTab: (tab: string) => void;
+}
+
+export default function TodoStats ({ todosData, setTab }: TodoStatsProps) {
+    const getTypeLength = (listType: string) => {
         return todosData.filter((item) => {
             if (listType === 'schedule' && !item.completed && item.schedule) {
                 return true;
@@ -60,5 +66,3 @@ const TodoStats = ({ todosData, setTab }) => {
         </div>
     );
 };
-
-export default TodoStats;

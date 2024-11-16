@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-
 import { formatDate } from '../utils/script';
 
-const TodoDeadlineStats = ({scheduleType, deadlineStartDate, deadlineEndDate, deadlineStartTime, deadlineEndTime}) => {
+type TodoDeadlineStatsProps = {
+    scheduleType: string;
+    deadlineStartDate: string;
+    deadlineEndDate: string;
+    deadlineStartTime: string;
+    deadlineEndTime: string;
+}
+
+export default function TodoDeadlineStats ({scheduleType, deadlineStartDate, deadlineEndDate, deadlineStartTime, deadlineEndTime}: TodoDeadlineStatsProps) {
     return (
         <div className='todo-deadline-detail'>
             {deadlineStartDate !== 'noDeadlineStartDate' ?
@@ -32,5 +39,3 @@ const TodoDeadlineStats = ({scheduleType, deadlineStartDate, deadlineEndDate, de
         </div>
     );
 };
-
-export default TodoDeadlineStats;

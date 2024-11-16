@@ -3,28 +3,33 @@ import React, { useState, useEffect } from 'react';
 import TodoNav from './TodoNav';
 import TodoSaveInterface from './TodoSaveInterface';
 
-const TodoSave = ({ setTodosData, setTab }) => {
+type TodoSaveProps = {
+    setTodosData: React.Dispatch<React.SetStateAction<string>>;
+    setTab: (tab: string) => void;
+}
+
+export default function TodoSave ({ setTodosData, setTab }: TodoSaveProps) {
     const [currentMethod, setCurrentMethod] = React.useState('get');
-    const [updateData, setUpdateData] = React.useState('');
+    const [updateData, setUpdateData] = React.useState<string>('');
 
     const openGetMethod = () => { setCurrentMethod('get'); };
     const openPutMethod = () => { setCurrentMethod('put'); };
     const openDelMethod = () => { setCurrentMethod('del'); };
 
     const getData = () => {
-        let saveData = localStorage.getItem('todoItems') || [];
+        let saveData = localStorage.getItem('todoItems') || '[]]';
         navigator.clipboard.writeText(saveData);
     };
 
     const putData = () => {
         localStorage.setItem("todoItems", updateData);
-        setTodosData(JSON.parse(localStorage.getItem('todoItems')) || []);
+        setTodosData(JSON.parse(localStorage.getItem('todoItems') || '[]'));
         window.location.reload();
     };
 
     const delData = () => {
         localStorage.removeItem("todoItems");
-        setTodosData(JSON.parse(localStorage.getItem('todoItems')) || []);
+        setTodosData(JSON.parse(localStorage.getItem('todoItems') || '[]'));
         window.location.reload();
     };
 
@@ -76,5 +81,3 @@ const TodoSave = ({ setTodosData, setTab }) => {
         </div>
     );
 };
-
-export default TodoSave;

@@ -3,9 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight, faFolderClosed, faFolderOpen, faInbox, faBoxArchive, faArchway } from '@fortawesome/free-solid-svg-icons';
 
 import TodoItem from './TodoItem';
+import { todoItem, SubTask } from '../utils/props';
 
-const TodoList = ({ id, todoItems, listName, listType, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}) => {
-    function numberToRoman(num) {
+type TodoListProps = {
+    id: string;
+    todoItems: todoItem[];
+    listName: string;
+    listType: string;
+    onToggleComplete: (id: string) => void;
+    onTogglePriority: (id: string) => void;
+    onDeleteTodo: (id: string) => void;
+    onToggleSubTask: (id: string, subtaskId: number) => void;
+}
+
+export default function TodoList ({ id, todoItems, listName, listType, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoListProps) {
+    function numberToRoman(num: number) {
         const romanNumerals = [
             { value: 1000, numeral: 'M' },
             { value: 900, numeral: 'CM' },
@@ -117,5 +129,3 @@ const TodoList = ({ id, todoItems, listName, listType, onToggleComplete, onToggl
         </details>
     );
 };
-
-export default TodoList;

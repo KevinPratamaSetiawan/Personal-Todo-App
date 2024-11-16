@@ -8,17 +8,21 @@ import TodoStats from './TodoStats';
 import TodoSave from './TodoSave';
 import TodoDisplay from './TodoDisplay';
 import { completedData } from '../utils/script';
+import { todoItem, SubTask } from '../utils/props';
 
-const TodoPage = () => {
+export default function TodoPage () {
     const today = new Date();
     const [currentTab, setCurrentTab] = React.useState('time');
     const [currentTheme, setCurrentTheme] = React.useState(localStorage.getItem('currentTheme') || 'mono');
 
     const [todosData, setTodosData] = React.useState(
-        JSON.parse(localStorage.getItem("todoItems")) || []
+        () => {
+            const storedData = localStorage.getItem("todoItems");
+            return storedData ? JSON.parse(storedData) : [];
+        }
     );
 
-    const onThemeChangeEventHandler = (chosenTheme) => {
+    const onThemeChangeEventHandler = (chosenTheme: string) => {
         if(chosenTheme === 'color'){
             setCurrentTheme('color');
             localStorage.setItem('currentTheme', 'color');
@@ -44,48 +48,50 @@ const TodoPage = () => {
         }
     };
 
-    const onTabChangeEventHandler = (tab) => {
+    const onTabChangeEventHandler = (tab: string) => {
         setCurrentTab(tab);
     };
 
     const thisYear = new Date().getFullYear();
 
-    const addTodo = (newTodo) => {
+    const addTodo = (newTodo: todoItem) => {
         // const updatedTodos = [...todosData, newTodo];
         const updatedTodos = [newTodo, ...todosData];
         setTodosData(updatedTodos);
         localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
     };
 
-    const toggleComplete = (todoId) => {
-        const updatedTodos = todosData.map((todo) =>
+    const toggleComplete = (todoId: string) => {
+        const updatedTodos = todosData.map((todo: todoItem) =>
             todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
         );
         setTodosData(updatedTodos);
         localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
     };
 
-    const togglePriority = (todoId) => {
-        const updatedTodos = todosData.map((todo) =>
+    const togglePriority = (todoId: string) => {
+        const updatedTodos = todosData.map((todo: todoItem) =>
             todo.id === todoId ? { ...todo, priority: !todo.priority } : todo
         );
         setTodosData(updatedTodos);
         localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
     };
 
-    const deleteTodo = (todoId) => {
-        const updatedTodos = todosData.filter((todo) => todo.id !== todoId);
+    const deleteTodo = (todoId: string) => {
+        const updatedTodos = todosData.filter((todo: todoItem) => todo.id !== todoId);
         setTodosData(updatedTodos);
         localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
     };
 
-    const toggleSubTaskComplete = (todoId, subtaskId) => {
-        const updatedTodos = todosData.map((todo) => {
+    const toggleSubTaskComplete = (todoId: string, subtaskId: number) => {
+        const updatedTodos = todosData.map((todo: todoItem) => {
             if (todo.id === todoId) {
-                const updatedSubTasks = todo.subTask.map((subtask) => 
-                    subtask.id === subtaskId ? { ...subtask, completed: !subtask.completed } : subtask
-                );
-                return { ...todo, subTask: updatedSubTasks };
+                if (Array.isArray(todo.subTask)) {
+                    const updatedSubTasks = todo.subTask.map((subtask: SubTask) => 
+                        subtask.id === subtaskId ? { ...subtask, completed: !subtask.completed } : subtask
+                    );
+                    return { ...todo, subTask: updatedSubTasks };
+                }
             }
             return todo;
         });
@@ -98,7 +104,6 @@ const TodoPage = () => {
         today.getHours().toString().padStart(2, '0') + ':' + 
         today.getMinutes().toString().padStart(2, '0') + ':' + 
         today.getSeconds().toString().padStart(2, '0')
-        // + ':' + today.getMilliseconds().toString().padStart(3, '0')
     );
 
     useEffect(() => {
@@ -108,7 +113,6 @@ const TodoPage = () => {
                 now.getHours().toString().padStart(2, '0') + ':' + 
                 now.getMinutes().toString().padStart(2, '0') + ':' + 
                 now.getSeconds().toString().padStart(2, '0') 
-                // + ':' + now.getMilliseconds().toString().padStart(3, '0')
             );
         }, 143);
 
@@ -180,5 +184,3 @@ const TodoPage = () => {
         </div>
     );
 };
-
-export default TodoPage;
