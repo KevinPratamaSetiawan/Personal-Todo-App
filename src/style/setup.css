@@ -84,6 +84,7 @@ h5,
 h6 {
   font-family: var(--head-font-family);
   text-wrap: balance;
+  margin: 0;
 }
 
 p,
@@ -92,6 +93,7 @@ li {
   /* max-width: 65ch; */
   text-wrap: pretty;
   text-align: left;
+  margin: 0;
 }
 
 a {

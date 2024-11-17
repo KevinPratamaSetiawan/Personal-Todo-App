@@ -19,7 +19,7 @@ export default function TodoSaveInterface ({ methodLink, interfaceType, buttonTe
     return (
         <div className='todo-save-interface'>
             <div>
-                <p className="method-link">{methodLink}</p>
+                <p className="method-link small">{methodLink}</p>
             </div>
             {interfaceType === 'put' && (
                 <form>

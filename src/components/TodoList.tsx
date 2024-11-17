@@ -52,7 +52,7 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
     return (
         <details className='todo-list' id={id}>
             <summary>
-                <h4>
+                <h6>
                     <FontAwesomeIcon icon={faAnglesRight} />
                     {listType === 'completed' ? 
                         <>
@@ -65,7 +65,7 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
                         </>
                     }
                     { listName }
-                </h4>
+                </h6>
                 <span>
                     {numberToRoman(
                         todoItems.filter((item) => {

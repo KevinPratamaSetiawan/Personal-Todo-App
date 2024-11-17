@@ -51,7 +51,7 @@ export default function TodoSave ({ setTodosData, setTab }: TodoSaveProps) {
                 <div className='interface-display'>
                     {currentMethod === 'get' && (
                         <TodoSaveInterface
-                        methodLink={'https://kevinpratamasetiawan.github.io/💻/getSaveData'}
+                        methodLink={'https://💻/getSaveData'}
                         interfaceType={currentMethod}
                         buttonText={'GET Data'}
                         methodUsed={getData}
@@ -60,7 +60,7 @@ export default function TodoSave ({ setTodosData, setTab }: TodoSaveProps) {
                     )}
                     {currentMethod === 'put' && (
                         <TodoSaveInterface
-                        methodLink={'https://kevinpratamasetiawan.github.io/💻/putSaveData'}
+                        methodLink={'https://💻/putSaveData'}
                         interfaceType={currentMethod}
                         buttonText={'PUT Data'}
                         methodUsed={putData}
@@ -69,7 +69,7 @@ export default function TodoSave ({ setTodosData, setTab }: TodoSaveProps) {
                     )}
                     {currentMethod === 'del' && (
                         <TodoSaveInterface
-                        methodLink={'https://kevinpratamasetiawan.github.io/💻/delSaveData'}
+                        methodLink={'https://💻/delSaveData'}
                         interfaceType={currentMethod}
                         buttonText={'DEL Data'}
                         methodUsed={delData}

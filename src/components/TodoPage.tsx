@@ -127,18 +127,16 @@ export default function TodoPage () {
     return (
         <div className='todo-page'>
             <div className='todo-header'>
-                <h3 className='app-title'><FontAwesomeIcon icon={faChessRook} size='lg' /> KPS {thisYear}</h3>
-                    {currentTheme === 'mono' && (
-                        <div className='theme-toggle'>
+                <h5 className='app-title fw-bold mb-0'><FontAwesomeIcon icon={faChessRook} size='lg' /> KPS {thisYear}</h5>
+                    <div className='theme-toggle'>
+                        {currentTheme === 'mono' && (<>
                             <div className='monochrome-theme'>
                                 <span></span>
                                 <span></span>
                             </div>
-                            <button onClick={() => onThemeChangeEventHandler('color')}><FontAwesomeIcon icon={faToggleOff} size="2xl"/></button>
-                        </div>
-                    )}
-                    {currentTheme === 'color' && (
-                        <div className='theme-toggle'>
+                            <button onClick={() => onThemeChangeEventHandler('color')}><FontAwesomeIcon icon={faToggleOff} size="2xl"/></button>                    
+                        </>)}
+                        {currentTheme === 'color' && (<>
                             <div className='color-theme'>
                                 <span></span>
                                 <span></span>
@@ -146,8 +144,8 @@ export default function TodoPage () {
                                 <span></span>
                             </div>
                             <button onClick={() => onThemeChangeEventHandler('mono')}><FontAwesomeIcon icon={faToggleOn} size="2xl"/></button>
-                        </div>
-                    )}
+                        </>)}
+                    </div>
             </div>
             {currentTab === 'time' && (
                 <TodoTime 

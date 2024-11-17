@@ -35,11 +35,11 @@ export default function TodoStats ({ todosData, setTab }: TodoStatsProps) {
             <div>
                 <div className='total-stats'>
                     <p>Total: {todosData.length.toString().padStart(3, '0')}</p>
-                    <div className='todo-ratio-container'>
-                        <div id="schedule-ratio" className='schedule-ratio ratio-item' style={{ width: `${getTypeLength('schedule') / todosData.length * 100}%` }}></div>
-                        <div id="priority-ratio" className='priority-ratio ratio-item' style={{ width: `${getTypeLength('priority') / todosData.length * 100}%` }}></div>
-                        <div id="task-ratio" className='task-ratio ratio-item' style={{ width: `${getTypeLength('task') / todosData.length * 100}%` }}></div>
-                        <div id="complete-ratio" className='complete-ratio ratio-item' style={{ width: `${getTypeLength('completed') / todosData.length * 100}%` }}></div>
+                    <div className='todo-ratio-container progress'>
+                        <div id="schedule-ratio" className='schedule-ratio ratio-item progress-bar progress-bar-striped progress-bar-animated' style={{ width: `${getTypeLength('schedule') / todosData.length * 100}%` }}></div>
+                        <div id="priority-ratio" className='priority-ratio ratio-item progress-bar progress-bar-striped progress-bar-animated' style={{ width: `${getTypeLength('priority') / todosData.length * 100}%` }}></div>
+                        <div id="task-ratio" className='task-ratio ratio-item progress-bar progress-bar-striped progress-bar-animated' style={{ width: `${getTypeLength('task') / todosData.length * 100}%` }}></div>
+                        <div id="complete-ratio" className='complete-ratio ratio-item progress-bar progress-bar-striped progress-bar-animated' style={{ width: `${getTypeLength('completed') / todosData.length * 100}%` }}></div>
                     </div>
                 </div>
                 <div className='fraction-stats'>
