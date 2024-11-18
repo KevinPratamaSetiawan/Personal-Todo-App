@@ -574,13 +574,16 @@ body{
           .ratio-item{
             height: 15px;
             transition: width 0.5s ease;
-            
           }
         
           .schedule-ratio{ background-color: var(--schedule-ratio-color); }
           .priority-ratio{ background-color: var(--priority-ratio-color); }
           .task-ratio{ background-color: var(--task-ratio-color); }
           .complete-ratio{ background-color: var(--complete-ratio-color); }
+        }
+        
+        .todo-ratio-container:hover .ratio-item:not(:hover){
+          background-color: var(--neutral-700);
         }
       }
 
@@ -804,12 +807,6 @@ body{
 
         gap: 5px;
 
-        .custom-modal{
-          
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
         .todo-item{
           font-family: var(--base-font-family);
           width: 100%;
@@ -906,12 +903,11 @@ body{
                 }
 
                 p:nth-child(1)::before{
-                  content: '• ';
+                  content: '■ ';
                 }
 
-                span{
+                > span{
                   width: 100%;
-                  /* margin-top: 10px; */
                   border-bottom: 1px solid var(--text-color);
                 }
               }
@@ -1084,11 +1080,11 @@ body{
               }
               
               .todo-id::before{
-                content: '|'; 
+                content: '〔'; 
               }
               
               .todo-id::after{
-                content: '|'; 
+                content: '〕'; 
               }
             }
           }

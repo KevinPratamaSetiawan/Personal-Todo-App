@@ -335,6 +335,7 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                 />:
                                 (scheduleType === '[W]' ? 
                                 <select id="dateOptions" value={deadlineStartDate} onChange={onStartDateChangeEventHandler}>
+                                    <option value="">None</option>
                                     <option value="Monday">Monday</option>
                                     <option value="Tuesday">Tuesday</option>
                                     <option value="Wednesday">Wednesday</option>

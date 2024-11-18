@@ -12,7 +12,7 @@ type TodoDeadlineStatsProps = {
 export default function TodoDeadlineStats ({scheduleType, deadlineStartDate, deadlineEndDate, deadlineStartTime, deadlineEndTime}: TodoDeadlineStatsProps) {
     return (
         <div className='todo-deadline-detail'>
-            {deadlineStartDate !== 'noDeadlineStartDate' ?
+            {/* {deadlineStartDate !== 'noDeadlineStartDate' ?
             <div className={`todo-detail-item ${deadlineStartDate === 'noDeadlineStartDate' ? 'no-string' : ''}`}>
                 <p className='todo-deadline-stats-label'>{scheduleType === '[W]' ? 'Day' : (scheduleType === '[A]' ? 'Deadline Date' : 'Start Date')}</p>
                 <span></span>
@@ -35,6 +35,35 @@ export default function TodoDeadlineStats ({scheduleType, deadlineStartDate, dea
                 <p className='todo-deadline-stats-label'>End Time</p>
                 <span></span>
                 <p>{deadlineEndTime !== 'noDeadlineEndTime' ? deadlineEndTime : 'none'}</p>
+            </div> : null} */}
+
+            {deadlineStartDate !== 'noDeadlineStartDate' ?
+            <div className={`todo-detail-item ${deadlineStartDate === 'noDeadlineStartDate' ? 'no-string' : ''}`}>
+                <p className='todo-deadline-stats-label'>{scheduleType === '[W]' ? 'Day' : (scheduleType === '[A]' ? 'Deadline Date' : 'Date')}</p>
+                <span></span>
+                <p>
+                    {deadlineStartDate === 'noDeadlineStartDate' ? null : scheduleType === '[Y]' ? 
+                        formatDate(deadlineStartDate, 'DD MMM')
+                    : 
+                        formatDate(deadlineStartDate, 'dddd, DD MMM YY')
+                    }
+
+                    {deadlineEndDate === 'noDeadlineEndDate' ? null : scheduleType === '[Y]' ? 
+                    <>
+                        <span className='todo-deadline-stats-label'> → </span> {formatDate(deadlineEndDate, 'DD MMM')}
+                    </> : <>
+                        <span className='todo-deadline-stats-label'> → </span> {formatDate(deadlineEndDate, 'DD MMM YY')}
+                    </>}
+                </p>
+            </div> : null}
+            {deadlineStartTime !== 'noDeadlineStartTime' ? 
+            <div className={`todo-detail-item ${deadlineStartTime === 'noDeadlineStartTime' ? 'no-string' : ''}`}>
+                <p className='todo-deadline-stats-label'>{scheduleType === '[A]' ? 'Deadline Time' : 'Time'}</p>
+                <span></span>
+                <p>
+                    {deadlineStartTime !== 'noDeadlineStartTime' ? deadlineStartTime : null}
+                    {deadlineEndTime !== 'noDeadlineEndTime' ? <><span className='todo-deadline-stats-label'> → </span> {deadlineEndTime}</> : null}
+                </p>
             </div> : null}
         </div>
     );
