@@ -1,232 +1,408 @@
 const task = [
   {
-      "id": "N-0064",
-      "title": "Update Todo App",
-      "description": "no description",
-      "subTask": [
-          {
-              "id": 0,
-              "content": "Add deadlineStartDate",
-              "completed": true,
-              "listStyle": "checkboxIndentOne"
-          },
-          {
-              "id": 1,
-              "content": "Add deadlineStartTime",
-              "completed": true,
-              "listStyle": "checkboxIndentOne"
-          },
-          {
-              "id": 2,
-              "content": "Add deadlineEndDate",
-              "completed": true,
-              "listStyle": "checkboxIndentOne"
-          },
-          {
-              "id": 3,
-              "content": "Add deadlineEndTime",
-              "completed": true,
-              "listStyle": "checkboxIndentOne"
-          },
-          {
-              "id": 4,
-              "content": "On Schedule List have a more specific listing per day on that week and shows the date on that week from Monday to Sunday and \"coming soon\" for the date that out of the week",
-              "completed": true,
-              "listStyle": "checkboxIndentOne"
-          }
-      ],
-      "completed": false,
-      "priority": true,
-      "schedule": false,
-      "scheduleType": "",
-      "deadlineStartDate": "noDeadlineStartDate",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "noDeadlineStartTime",
-      "deadlineEndTime": "noDeadlineEndTime"
+     "id":"N-0068",
+     "title":"Update Todo App 3",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Category Badge",
+           "completed":false,
+           "listStyle":""
+        },
+        {
+           "id":1,
+           "content":"Subtask Completion Percentage",
+           "completed":false,
+           "listStyle":""
+        },
+        {
+           "id":2,
+           "content":"Preferred ID",
+           "completed":false,
+           "listStyle":""
+        }
+     ],
+     "completed":false,
+     "priority":true,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
   },
   {
-      "id": "N-0063",
-      "title": "RPP Research Project",
-      "description": "no description",
-      "subTask": "no subtask",
-      "completed": false,
-      "priority": false,
-      "schedule": false,
-      "scheduleType": "",
-      "deadlineStartDate": "noDeadlineStartDate",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "noDeadlineStartTime",
-      "deadlineEndTime": "noDeadlineEndTime"
+     "id":"N-0067",
+     "title":"Find Internship",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"DBS Foundation Program",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":1,
+           "content":"PT Mikrodata",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        }
+     ],
+     "completed":false,
+     "priority":true,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
   },
   {
-      "id": "N-0062",
-      "title": "Pengolahan Bahasa Alami",
-      "description": "Kelas R | GK2-312 A | WIY",
-      "subTask": "no subtask",
-      "completed": false,
-      "priority": false,
-      "schedule": true,
-      "scheduleType": "[W]",
-      "deadlineStartDate": "Monday",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "09:30",
-      "deadlineEndTime": "12:00"
+     "id":"N-0066",
+     "title":"Update Todo App",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Typescript",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Bootstrap",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Stats Progress Bar",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":3,
+           "content":"Form and Label",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":4,
+           "content":"Badge",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":5,
+           "content":"Toggles",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":6,
+           "content":"Validation",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":7,
+           "content":"Modal for Delete Validation",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":8,
+           "content":"Counter for Schedule item if not completed for scheduleType [D], [W], [Y]",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        }
+     ],
+     "completed":true,
+     "priority":false,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
   },
   {
-      "id": "N-0061",
-      "title": "Pengolahan Citra Digital",
-      "description": "Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
-      "subTask": "no subtask",
-      "completed": false,
-      "priority": false,
-      "schedule": true,
-      "scheduleType": "[W]",
-      "deadlineStartDate": "Friday",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "09:30",
-      "deadlineEndTime": "12:00"
+     "id":"N-0065",
+     "title":"Tanya Soal PKL di DBS Foundation Program",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Minta nomor ibu leslie",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Apakah program DBS Foundation bisa dikonversikan ke PKL",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Untuk Laporan PKL apakah menjadi semester 9, dan apakah pada semester 8 dapat mengerjakan TA1 dan TA2",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        }
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":true,
+     "scheduleType":"[S]",
+     "deadlineStartDate":"2024-11-18",
+     "deadlineEndDate":"2024-11-18",
+     "deadlineStartTime":"09:00",
+     "deadlineEndTime":"16:00"
   },
   {
-      "id": "N-0060",
-      "title": "Representasi Pengetahuan dan Penalaran",
-      "description": "Kelas R | LAB IOT | MCU",
-      "subTask": "no subtask",
-      "completed": false,
-      "priority": false,
-      "schedule": true,
-      "scheduleType": "[W]",
-      "deadlineStartDate": "Friday",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "13:00",
-      "deadlineEndTime": "15:30"
+     "id":"N-0064",
+     "title":"Update Todo App",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Add deadlineStartDate",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Add deadlineStartTime",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Add deadlineEndDate",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":3,
+           "content":"Add deadlineEndTime",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":4,
+           "content":"On Schedule List have a more specific listing per day on that week and shows the date on that week from Monday to Sunday and \"coming soon\" for the date that out of the week",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        }
+     ],
+     "completed":true,
+     "priority":true,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
   },
   {
-      "id": "N-0059",
-      "title": " IDCamp and Project Odin",
-      "description": "no description",
-      "subTask": "no subtask",
-      "completed": false,
-      "priority": false,
-      "schedule": false,
-      "scheduleType": "",
-      "deadlineStartDate": "noDeadlineStartDate",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "noDeadlineStartTime",
-      "deadlineEndTime": "noDeadlineEndTime"
+     "id":"N-0063",
+     "title":"RPP Research Project",
+     "description":"no description",
+     "subTask":[
+        
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
   },
   {
-      "id": "N-0058",
-      "title": " Find Internship",
-      "description": "no description",
-      "subTask": "no subtask",
-      "completed": false,
-      "priority": true,
-      "schedule": false,
-      "scheduleType": "",
-      "deadlineStartDate": "noDeadlineStartDate",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "noDeadlineStartTime",
-      "deadlineEndTime": "noDeadlineEndTime"
+     "id":"N-0062",
+     "title":"Pengolahan Bahasa Alami",
+     "description":"Kelas R | GK2-312 A | WIY",
+     "subTask":[
+        
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":true,
+     "scheduleType":"[W]",
+     "deadlineStartDate":"Monday",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"09:30",
+     "deadlineEndTime":"12:00"
   },
   {
-      "id": "N-0057",
-      "title": "NLP Capstone Project",
-      "description": "no description",
-      "subTask": "no subtask",
-      "completed": false,
-      "priority": false,
-      "schedule": false,
-      "scheduleType": "",
-      "deadlineStartDate": "noDeadlineStartDate",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "noDeadlineStartTime",
-      "deadlineEndTime": "noDeadlineEndTime"
+     "id":"N-0061",
+     "title":"Pengolahan Citra Digital",
+     "description":"Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
+     "subTask":[
+        
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":true,
+     "scheduleType":"[W]",
+     "deadlineStartDate":"Friday",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"09:30",
+     "deadlineEndTime":"12:00"
   },
   {
-      "id": "N-0056",
-      "title": " Finish TA",
-      "description": "no description",
-      "subTask": [
-          {
-              "id": 0,
-              "content": "Bab I",
-              "completed": true,
-              "listStyle": "checkboxIndentOne"
-          },
-          {
-              "id": 1,
-              "content": "Bab II",
-              "completed": true,
-              "listStyle": "checkboxIndentOne"
-          },
-          {
-              "id": 2,
-              "content": "Bab III",
-              "completed": false,
-              "listStyle": "checkboxIndentOne"
-          },
-          {
-              "id": 3,
-              "content": "Bab Lampiran",
-              "completed": false,
-              "listStyle": "checkboxIndentOne"
-          }
-      ],
-      "completed": false,
-      "priority": true,
-      "schedule": false,
-      "scheduleType": "",
-      "deadlineStartDate": "noDeadlineStartDate",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "noDeadlineStartTime",
-      "deadlineEndTime": "noDeadlineEndTime"
+     "id":"N-0060",
+     "title":"Representasi Pengetahuan dan Penalaran",
+     "description":"Kelas R | LAB IOT | MCU",
+     "subTask":[
+        
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":true,
+     "scheduleType":"[W]",
+     "deadlineStartDate":"Friday",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"13:00",
+     "deadlineEndTime":"15:30"
   },
   {
-      "id": "N-0055",
-      "title": "Alternatif Judul TA",
-      "description": "no description",
-      "subTask": [
-          {
-              "id": 0,
-              "content": "Klasifikasi Pola Batik CNN.",
-              "completed": false,
-              "listStyle": "plusIndentOne"
-          },
-          {
-              "id": 1,
-              "content": "Klasifikasi Karya Museum CNN.",
-              "completed": false,
-              "listStyle": "plusIndentOne"
-          },
-          {
-              "id": 2,
-              "content": "Klasifikasi Kekuatan Tanah Pondasi CNN.",
-              "completed": false,
-              "listStyle": "plusIndentOne"
-          },
-          {
-              "id": 3,
-              "content": "Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
-              "completed": true,
-              "listStyle": "plusIndentOne"
-          },
-          {
-              "id": 4,
-              "content": "Klasifikasi Aksara/Alfabet yang ada di Indonesi.",
-              "completed": false,
-              "listStyle": "plusIndentOne"
-          }
-      ],
-      "completed": false,
-      "priority": false,
-      "schedule": false,
-      "scheduleType": "",
-      "deadlineStartDate": "noDeadlineStartDate",
-      "deadlineEndDate": "noDeadlineEndDate",
-      "deadlineStartTime": "noDeadlineStartTime",
-      "deadlineEndTime": "noDeadlineEndTime"
+     "id":"N-0059",
+     "title":" IDCamp and Project Odin",
+     "description":"no description",
+     "subTask":[
+        
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
+  },
+  {
+     "id":"N-0058",
+     "title":" Find Internship",
+     "description":"no description",
+     "subTask":[
+        
+     ],
+     "completed":true,
+     "priority":true,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
+  },
+  {
+     "id":"N-0057",
+     "title":"NLP Capstone Project",
+     "description":"no description",
+     "subTask":[
+        
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
+  },
+  {
+     "id":"N-0056",
+     "title":" Finish TA",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Bab I",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Bab II",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Bab III",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":3,
+           "content":"Bab Lampiran",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        }
+     ],
+     "completed":false,
+     "priority":true,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
+  },
+  {
+     "id":"N-0055",
+     "title":"Alternatif Judul TA",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Klasifikasi Pola Batik CNN.",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Klasifikasi Karya Museum CNN.",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Klasifikasi Kekuatan Tanah Pondasi CNN.",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":3,
+           "content":"Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":4,
+           "content":"Klasifikasi Aksara/Alfabet yang ada di Indonesi.",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        }
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime"
   }
-]
+];
 
 export const completedData = [
   {
@@ -691,7 +867,7 @@ export const completedData = [
     "id": "N-0048",
     "title": "Senin, 14-10-24 10:00-12:00",
     "description": "Pengolahan Bahasa Alami.",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": true,
@@ -912,7 +1088,7 @@ export const completedData = [
     "id": "N-0042",
     "title": "add \"Today!\" for schedule todo",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -926,7 +1102,7 @@ export const completedData = [
     "id": "N-0041",
     "title": "Make details on todo feature => using \"",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -940,7 +1116,7 @@ export const completedData = [
     "id": "N-0040",
     "title": "For print saves, has an option of what feature save you want extract",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -954,7 +1130,7 @@ export const completedData = [
     "id": "N-0039",
     "title": "add number of history per tab maybe",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -968,7 +1144,7 @@ export const completedData = [
     "id": "N-0038",
     "title": "history tab look like book index page",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -982,7 +1158,7 @@ export const completedData = [
     "id": "N-0037",
     "title": "Floating action button on mobile",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": false,
     "schedule": false,
@@ -996,7 +1172,7 @@ export const completedData = [
     "id": "N-0036",
     "title": "Make input dialog to applied the saved settings",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1010,7 +1186,7 @@ export const completedData = [
     "id": "N-0035",
     "title": "Print all current settings and saved todo item into stringify json",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1024,7 +1200,7 @@ export const completedData = [
     "id": "N-0034",
     "title": "Save last played of each Tab",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": false,
     "schedule": false,
@@ -1038,7 +1214,7 @@ export const completedData = [
     "id": "N-0033",
     "title": "Save MP3 Settings",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1052,7 +1228,7 @@ export const completedData = [
     "id": "N-0032",
     "title": ":last-child border",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1066,7 +1242,7 @@ export const completedData = [
     "id": "N-0031",
     "title": "CSS Accent Color",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1080,7 +1256,7 @@ export const completedData = [
     "id": "N-0030",
     "title": "Add more item to font and theme on theme popover",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1094,7 +1270,7 @@ export const completedData = [
     "id": "N-0029",
     "title": "Fix Theme Popover For Socials Footer",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1108,7 +1284,7 @@ export const completedData = [
     "id": "N-0028",
     "title": "Fix Theme Popover For Mobile",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1122,7 +1298,7 @@ export const completedData = [
     "id": "N-0027",
     "title": "Theme Popover",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1136,7 +1312,7 @@ export const completedData = [
     "id": "N-0026",
     "title": "Font Option Popover",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1150,7 +1326,7 @@ export const completedData = [
     "id": "N-0025",
     "title": "QR Popover",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1164,7 +1340,7 @@ export const completedData = [
     "id": "N-0024",
     "title": "Try new things from fireship",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1178,7 +1354,7 @@ export const completedData = [
     "id": "N-0023",
     "title": "Cover Doctype Slider",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1192,7 +1368,7 @@ export const completedData = [
     "id": "N-0022",
     "title": "coverChangeInterval Slider",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1206,7 +1382,7 @@ export const completedData = [
     "id": "N-0021",
     "title": "Audio Speed Slider",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1220,7 +1396,7 @@ export const completedData = [
     "id": "N-0020",
     "title": "Jump Seconds Slider",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1234,7 +1410,7 @@ export const completedData = [
     "id": "N-0019",
     "title": "Multiple Theme Option",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1248,7 +1424,7 @@ export const completedData = [
     "id": "N-0018",
     "title": "if clicked speker button",
     "description": "slider show up under duration slider and changes depend on the level of volume, speaker icon changes",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1262,7 +1438,7 @@ export const completedData = [
     "id": "N-0017",
     "title": "Volume setting in 10 level",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1276,7 +1452,7 @@ export const completedData = [
     "id": "N-0016",
     "title": "Queue Tab and Podcasts Tab both are dynamically added so it needs special function",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1290,7 +1466,7 @@ export const completedData = [
     "id": "N-0015",
     "title": "Fix Play From Queue Problem",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1304,7 +1480,7 @@ export const completedData = [
     "id": "N-0014",
     "title": "Fix Podcast Problem",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1318,7 +1494,7 @@ export const completedData = [
     "id": "N-0013",
     "title": "Shuffle, Repeat, Normal, Reverse Button Functions",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1332,7 +1508,7 @@ export const completedData = [
     "id": "N-0012",
     "title": "Update Volume Slider Function",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1346,7 +1522,7 @@ export const completedData = [
     "id": "N-0011",
     "title": "Update Slider Max and Value Function",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1360,7 +1536,7 @@ export const completedData = [
     "id": "N-0010",
     "title": "Display Metadata on Mp3 Player Function",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1374,7 +1550,7 @@ export const completedData = [
     "id": "N-0009",
     "title": "Make a function",
     "description": "that parameter is the list id, url and based on the input id gonna go on a ifelse to load the list display it on queue list like loadResult function",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1388,7 +1564,7 @@ export const completedData = [
     "id": "N-0008",
     "title": "Make a function to extract the mp3 duration and display it on my cli",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1402,7 +1578,7 @@ export const completedData = [
     "id": "N-0007",
     "title": "Make the song yml to json format",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1416,7 +1592,7 @@ export const completedData = [
     "id": "N-0006",
     "title": "Make a Function to Get a Tab ID and The Mp3 Link",
     "description": "There is gonna be an ifelse to determine the tab then through loop finding the url == songurl",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1430,7 +1606,7 @@ export const completedData = [
     "id": "N-0005",
     "title": "Established a Global List For Currently Played List",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1444,7 +1620,7 @@ export const completedData = [
     "id": "N-0004",
     "title": "Tab on MP3 Player to Show Current Running Queue",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1458,7 +1634,7 @@ export const completedData = [
     "id": "N-0003",
     "title": "Rebuild MP3 Player Functions Properly",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1472,7 +1648,7 @@ export const completedData = [
     "id": "N-0002",
     "title": "Change The Duration Slider",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1486,7 +1662,7 @@ export const completedData = [
     "id": "N-0001",
     "title": "PWA",
     "description": "no description",
-    "subTask": "no subtask",
+    "subTask": [],
     "completed": true,
     "priority": true,
     "schedule": false,
@@ -1504,7 +1680,6 @@ export const formatDate = (date: string | Date, format: string) => {
 
   if (typeof date === 'string'){
     if(days.findIndex(day => date.includes(day)) !== -1){
-      console.log(date)
       return date;
     }
   }

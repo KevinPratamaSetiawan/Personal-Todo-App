@@ -2,13 +2,14 @@ import React, { useState, ReactNode } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faSquare } from '@fortawesome/free-regular-svg-icons';
-import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faSquareCheck, faMinus, faPlus, faCopy, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faCopy } from '@fortawesome/free-solid-svg-icons';
 
+import TodoTask from './TodoSubtask';
 import TodoDeadlineStats from './TodoDeadlineStats';
 import TodoDeadlineCounter from './TodoDeadlineCounter';
 import { formatDate } from '../utils/script';
-import { todoItem, SubTask } from '../utils/props';
+import { todoItem } from '../utils/props';
 
 type TodoItemProps = {
     todoItem: todoItem;
@@ -20,7 +21,6 @@ type TodoItemProps = {
 
 export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoItemProps) {
     const [todoId, setTodoId] = React.useState<string | ReactNode>(todoItem.id);
-    const currentTheme = localStorage.getItem('currentTheme') || 'mono';
     let isToday = todoItem.scheduleType === '[D]' ? true : false;
     const [showModal, setShowModal] = useState(false);
 
@@ -62,53 +62,6 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
         }
 
         return scheduleType + todayAlert;
-    };
-
-    const getListIcon = (listStyle: string, status: boolean) => {
-        let icon;
-
-        switch (listStyle){
-            case "plusIndentOne":
-                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-one" />;
-                break;
-
-            case "plusIndentTwo":
-                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-two" />;
-                break;
-            
-            case "plusIndentThree":
-                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-three" />;
-                break;
-            
-            case "checkboxIndentOne":
-                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-one" />;
-                break;
-            
-            case "checkboxIndentTwo":
-                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-two" />;
-                break;
-                
-            case "checkboxIndentThree":
-                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-three" />;
-                break;
-            
-            case "xcircleIndentOne":
-                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-one" />;
-                break;
-                                        
-            case "xcircleIndentTwo":
-                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-two" />;
-                break;
-                                    
-            case "xcircleIndentThree":
-                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-three" />;
-                break;
-                                                                                                                                                                
-            default:
-                icon = null;
-        }
-
-        return icon;
     };
 
     const onTodoFinishEventHandler = () => {
@@ -163,10 +116,11 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
 
     const onTodoCopyIdEventHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
         let copyText = 
+        todoId + '=>' + 
         todoItem.scheduleType + '=>' + 
         todoItem.title + ' => ' + 
         todoItem.description + '=>' + 
-        (todoItem.subTask === 'no subtask' ? todoItem.subTask : JSON.stringify(todoItem.subTask)) + '=>' + 
+        (todoItem.subTask.length === 0 ? 'noSubtask' : JSON.stringify(todoItem.subTask)) + '=>' + 
         todoItem.deadlineStartDate + '=>' +
         todoItem.deadlineEndDate + '=>' +
         todoItem.deadlineStartTime + '=>' +
@@ -221,34 +175,20 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
                     <div className='todo-description-subtask'>
                     { 
                         todoItem.description !== "no description" ? 
-                        <p className={`todo-description ${todoItem.subTask !== "no subtask" ? 'divider' : ''}`}>{todoItem.description}</p> 
+                        <p className={`todo-description ${todoItem.subTask.length !== 0 ? 'divider' : ''}`}>{todoItem.description}</p> 
                         : null 
                     }
                     { 
-                        todoItem.subTask !== "no subtask" ? 
-                        <ul className='todo-description'>
-                            {Array.isArray(todoItem.subTask) && todoItem.subTask.map((task: SubTask) => (
-                                <li 
-                                key={task.id} 
-                                className={
-                                    `${task.listStyle === 'textIndentOne' ? 'text-indent-one' : 
-                                        task.listStyle === 'textIndentTwo' ? 'text-indent-two' : 
-                                        task.listStyle === 'textIndentThree' ? 'text-indent-three' : ''}
-                                    ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`
-                                    }>
-                                    {task.listStyle !== '' && task.listStyle !== 'textIndentOne' && task.listStyle !== 'textIndentTwo' && task.listStyle !== 'textIndentThree' ?
-                                    <button onClick={() => onToggleSubTask(todoItem.id, task.id)}>
-                                        {getListIcon(task.listStyle, task.completed)}
-                                    </button>
-                                    : null}
-                                    {task.content}
-                                </li>
-                            ))}
-                        </ul> 
+                        todoItem.subTask.length !== 0 ? 
+                         <TodoTask
+                         todoId={todoItem.id}
+                         subTasks={todoItem.subTask}
+                         onToggleSubTask={onToggleSubTask}
+                         />
                         : null 
                     }
                     { 
-                        todoItem.description === "no description" && todoItem.subTask === "no subtask" ? 
+                        todoItem.description === "no description" && todoItem.subTask.length === 0 ? 
                         <p className='todo-description no-string'>{todoItem.description}</p> 
                         : null 
                     }

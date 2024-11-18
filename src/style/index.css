@@ -406,6 +406,11 @@ body{
         }
       }
 
+      #preferredId{
+        width: 25%;
+        text-align: center;
+      }
+
       .todo-description{
         select{
           width: 15%;
@@ -932,10 +937,13 @@ body{
 
               .todo-description-subtask{
                 width: 100%;
-                margin-right: 31px;
                 display: flex;
                 flex-direction: column;
                 align-items: start;
+              }
+
+              .divider{
+                margin-bottom: 10px;
               }
       
               .todo-description{
@@ -944,10 +952,12 @@ body{
                 text-wrap: wrap;
                 white-space: normal;
                 padding-bottom: 5px;
-                /* counter-reset: list-counter; */
-      
-                li hr{
-                  margin: 15px 0;
+
+                .subtask-counter{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  font-weight: 900;
                 }
       
                 li{
@@ -955,8 +965,6 @@ body{
                   overflow-wrap: break-word;
                   text-wrap: wrap;
                   white-space: normal;
-                  /* position: relative;
-                  counter-increment: list-counter; */
       
                   code{
                     background-color: var(--background-color);
@@ -974,18 +982,6 @@ body{
                   br {
                     display: none;
                   }
-                }
-
-                li:not(
-                  :has(
-                    .todo-list-indent-one, 
-                    .todo-list-indent-two, 
-                    .todo-list-indent-three), 
-                    .text-indent-one, 
-                    .text-indent-two, 
-                    .text-indent-three)
-                    :not(:nth-child(1)){
-                  margin-top: 10px;
                 }
 
                 li:has(.todo-list-indent-one){ padding-left: 7px; }
@@ -1021,7 +1017,8 @@ body{
                 .mono-theme:has(.fa-plus)::after, 
                 .mono-theme:has(.fa-circle-xmark)::after, 
                 .mono-theme:has(.fa-square-check)::after{
-                  content: '\2714';
+                  /* content: '\2714'; */
+                  content: '';
                   text-decoration: none;
                   color: var(--text-color);
                   display: inline-block;

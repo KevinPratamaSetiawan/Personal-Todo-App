@@ -9,7 +9,7 @@ export type todoItem = {
     id: string;
     title: string;
     description: string;
-    subTask: string | SubTask[];
+    subTask: [] | SubTask[];
     completed: boolean;
     priority: boolean;
     schedule: boolean;

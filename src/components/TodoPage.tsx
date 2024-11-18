@@ -57,6 +57,13 @@ export default function TodoPage () {
     const addTodo = (newTodo: todoItem) => {
         // const updatedTodos = [...todosData, newTodo];
         const updatedTodos = [newTodo, ...todosData];
+
+        updatedTodos.sort((a, b) => {
+            const numA = parseInt(a.id.slice(2), 10);
+            const numB = parseInt(b.id.slice(2), 10);
+            return numB - numA;
+        });
+
         setTodosData(updatedTodos);
         localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
     };

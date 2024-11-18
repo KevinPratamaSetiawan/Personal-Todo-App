@@ -13,22 +13,25 @@ type TodoFormProps = {
 }
 
 const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
+    let [preferredId, setPreferredId] = React.useState('');
     const [title, setTitle] = React.useState('');
     const [description, setDescription] = React.useState('');
     const [subTask, setSubTask] = React.useState<SubTask[]>([]);
     const [scheduleType, setScheduleType] = React.useState('');
     const [customScheduleType, setCustomScheduleType] = React.useState('');
-    // const [isDisabled, setIsDisabled] = React.useState(true);
     const [deadlineStartDate, setStartDeadlineDate] = React.useState(formatDate(new Date(), 'YY-MM-DD'));
     const [deadlineEndDate, setEndDeadlineDate] = React.useState(formatDate(new Date(), 'YY-MM-DD'));
     const [deadlineStartTimeHour, setStartDeadlineTimeHour] = React.useState(new Date().getHours());
     const [deadlineStartTimeMinute, setStartDeadlineTimeMinute] = React.useState(new Date().getMinutes());
     const [deadlineEndTimeHour, setEndDeadlineTimeHour] = React.useState(new Date().getHours() + 1);
     const [deadlineEndTimeMinute, setEndDeadlineTimeMinute] = React.useState(new Date().getMinutes());
-    // const [meridiemType, setMeridiemType] = React.useState(new Date().getHours() > 12 ? 'PM' : 'AM');
 
     const onTitleChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(event.target.value);
+    };
+
+    const onPreferredIdChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPreferredId(event.target.value);
     };
 
     const onDescriptionChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,29 +103,30 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
         const text = title.split('=>').map(str => str.trim());
     
         if (text.length > 0) {
-            setTitle(text[1] || '');
-            setDescription(text[2] || '');
-            setSubTask(text[3] === 'no subtask' ? [] : JSON.parse(text[3]) || []);
-            setScheduleType(text[0] === '' ? '' : (text[0] === 'custom' ? 'custom' : text[0]));
-            setCustomScheduleType(text[0] !== '' && text[0] !== 'custom' ? '' : text[0]);
+            setPreferredId(text[0])
+            setTitle(text[2] || '');
+            setDescription(text[3] || '');
+            setSubTask(text[4] === 'noSubtask' ? [] : JSON.parse(text[4]) || []);
+            setScheduleType(text[1] === '' ? '' : (text[1] === 'custom' ? 'custom' : text[1]));
+            setCustomScheduleType(text[1] !== '' && text[1] !== 'custom' ? '' : text[1]);
 
-            if(text[4] !== 'noDeadlineStartDate'){   
-                setStartDeadlineDate(text[4]);
+            if(text[5] !== 'noDeadlineStartDate'){   
+                setStartDeadlineDate(text[5]);
             }
 
-            if(text[5] !== 'noDeadlineEndDate'){   
-                setEndDeadlineDate(text[5]);
+            if(text[6] !== 'noDeadlineEndDate'){   
+                setEndDeadlineDate(text[6]);
             }
 
-            if(text[6] !== 'noDeadlineStartTime'){
-                const [startHour, startMinute] = text[6].split(':').map(Number);
+            if(text[7] !== 'noDeadlineStartTime'){
+                const [startHour, startMinute] = text[7].split(':').map(Number);
 
                 setStartDeadlineTimeHour(startHour);
                 setStartDeadlineTimeMinute(startMinute);
             }
 
-            if(text[7] !== 'noDeadlineEndTime'){
-                const [endHour, endMinute] = text[7].split(':').map(Number);
+            if(text[8] !== 'noDeadlineEndTime'){
+                const [endHour, endMinute] = text[8].split(':').map(Number);
                 
                 setEndDeadlineTimeHour(endHour);
                 setEndDeadlineTimeMinute(endMinute);
@@ -168,17 +172,29 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
             const storedData = localStorage.getItem("todoItems") || '[]';
             const items = [...JSON.parse(storedData), ...completedData];
 
-            if(items.length === 0){
-                todoId = 'N-' + (items.length + 1).toString().padStart(4, '0');
-            }else{
-                todoId = 'N-' + (parseInt(items[0].id.slice(2), 10) + 1).toString().padStart(4, '0');
+            if(preferredId !== ''){
+                items.forEach((todo: todoItem) => {
+                    if (todo.id === preferredId) {
+                        preferredId = '';
+                    }
+                });
+            }
+
+            if(preferredId === ''){
+                if(items.length === 0){
+                    todoId = 'N-' + (items.length + 1).toString().padStart(4, '0');
+                }else{
+                    todoId = 'N-' + (parseInt(items[0].id.slice(2), 10) + 1).toString().padStart(4, '0');
+                }
+            }else {
+                todoId = preferredId;
             }
 
             const newTodo = {
                 id: todoId,
                 title: title, 
                 description: description.trim() ? description : 'no description',
-                subTask: updatedSubTasks.length !== 0 ? updatedSubTasks : 'no subtask',
+                subTask: updatedSubTasks.length !== 0 ? updatedSubTasks : [],
                 completed: false, 
                 priority: false,
                 schedule: scheduleType !== "",
@@ -194,6 +210,7 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
             
             onAddTodo(newTodo);
             
+            setPreferredId('');
             setTitle('');
             setDescription('');
             setSubTask([]);
@@ -220,6 +237,7 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
             <form onSubmit={onAddTodoEventHandler}>
                 <div className='todo-title'>
                     <label htmlFor="title" id='titleLabel'>Title<span>*</span></label>
+                    <div>
                     <input
                         id="title"
                         type="text"
@@ -227,6 +245,16 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                         onChange={onTitleChangeEventHandler}
                         placeholder='Title here..'
                         />
+                    {preferredId !== '' ?
+                        <input
+                            id="preferredId"
+                            type="text"
+                            value={preferredId}
+                            onChange={onPreferredIdChangeEventHandler}
+                            placeholder='ID here..'
+                            /> : null
+                    }
+                    </div>
                 </div>
 
                 <div className='todo-description'>
@@ -252,15 +280,15 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                 <option value="textIndentOne">Str.</option>
                                 <option value="textIndentTwo">Str‥</option>
                                 <option value="textIndentThree">Str…</option>
-                                <option value="plusIndentOne">-.</option>
-                                <option value="plusIndentTwo">-‥</option>
-                                <option value="plusIndentThree">-…</option>
                                 <option value="checkboxIndentOne">=.</option>
                                 <option value="checkboxIndentTwo">=‥</option>
                                 <option value="checkboxIndentThree">=…</option>
                                 <option value="xcircleIndentOne">*.</option>
                                 <option value="xcircleIndentTwo">*‥</option>
                                 <option value="xcircleIndentThree">*…</option>
+                                <option value="plusIndentOne">-.</option>
+                                <option value="plusIndentTwo">-‥</option>
+                                <option value="plusIndentThree">-…</option>
                             </select>
                             <input 
                                 type="text"
