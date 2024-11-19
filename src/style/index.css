@@ -997,15 +997,18 @@ body{
                   margin-bottom: 5px;
                 }
 
-                .text-indent-one{
+                .text-indent-one,
+                .link-indent-one{
                   padding-left: 26px;
                 }
 
-                .text-indent-two{
+                .text-indent-two,
+                .link-indent-two{
                   padding-left: 47px;
                 }
       
-                .text-indent-three{
+                .text-indent-three,
+                .link-indent-three{
                   padding-left: 68px;
                 }
       
@@ -1152,6 +1155,11 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--schedule-color); } }
   .todo-deadline-stats-label{ color: var(--schedule-half); }
+  .link-indent-zero,
+  .link-indent-one,
+  .link-indent-two,
+  .link-indent-three{
+    span{ color: var(--schedule-ratio-color); }}
 }
 #todo-priority{
   .todo-id::before,
@@ -1162,6 +1170,11 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--priority-color); } }
   .todo-deadline-stats-label{ color: var(--priority-half); }
+  .link-indent-zero,
+  .link-indent-one,
+  .link-indent-two,
+  .link-indent-three{
+    span{ color: var(--priority-ratio-color); }}
 }
 #todo-items{
   .todo-id::before,
@@ -1172,6 +1185,11 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--task-color); } }
   .todo-deadline-stats-label{ color: var(--task-half); }
+  .link-indent-zero,
+  .link-indent-one,
+  .link-indent-two,
+  .link-indent-three{
+    span{ color: var(--task-ratio-color); }}
 }
 #todo-finish{
   .todo-id::before,
@@ -1182,4 +1200,9 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--complete-color); } }
   .todo-deadline-stats-label{ color: var(--complete-half); }
+  .link-indent-zero,
+  .link-indent-one,
+  .link-indent-two,
+  .link-indent-three{
+    span{ color: var(--complete-ratio-color); }}
 }

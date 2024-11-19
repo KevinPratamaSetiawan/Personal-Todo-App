@@ -289,6 +289,10 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                 <option value="plusIndentOne">-.</option>
                                 <option value="plusIndentTwo">-‥</option>
                                 <option value="plusIndentThree">-…</option>
+                                <option value="linkIndentZero">#</option>
+                                <option value="linkIndentOne">#.</option>
+                                <option value="linkIndentTwo">#‥</option>
+                                <option value="linkIndentThree">#…</option>
                             </select>
                             <input 
                                 type="text"
@@ -340,13 +344,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                 scheduleType !== '' ?
                 <div className='todo-time-picker'>
                     <div className='deadline-label-toggle'>
-                        {/* <button type='button' onClick={() => setIsDisabled(prev => !prev)}>
-                            {
-                                isDisabled ? 
-                                <FontAwesomeIcon icon={faSquareXmark} /> :
-                                <FontAwesomeIcon icon={faSquareCheck} />
-                            }
-                        </button> */}
                         <label htmlFor="hourTimePicker" id='timePickerLabel'>Deadline Time</label>
                     </div>
                     <div className='time-picker'>
@@ -359,7 +356,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                 type="date"
                                 value={deadlineStartDate}
                                 onChange={onStartDateChangeEventHandler}
-                                // disabled={isDisabled}
                                 />:
                                 (scheduleType === '[W]' ? 
                                 <select id="dateOptions" value={deadlineStartDate} onChange={onStartDateChangeEventHandler}>
@@ -381,7 +377,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                     type="number"
                                     value={deadlineStartTimeHour} 
                                     onChange={onStartTimeHourChangeEventHandler}
-                                    // disabled={isDisabled}
                                     />
                                 <p>:</p>
                                 <input 
@@ -389,7 +384,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                     type="number" 
                                     value={deadlineStartTimeMinute}
                                     onChange={onStartTimeMinuteChangeEventHandler}
-                                    // disabled={isDisabled}
                                     />
                             </div>
                         </div>
@@ -405,7 +399,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                 type="date"
                                 value={deadlineEndDate}
                                 onChange={onEndDateChangeEventHandler}
-                                // disabled={isDisabled}
                                 />:
                                 null
                             }
@@ -415,7 +408,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                     type="number"
                                     value={deadlineEndTimeHour} 
                                     onChange={onEndTimeHourChangeEventHandler}
-                                    // disabled={isDisabled}
                                     />
                                 <p>:</p>
                                 <input 
@@ -423,7 +415,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                     type="number" 
                                     value={deadlineEndTimeMinute}
                                     onChange={onEndTimeMinuteChangeEventHandler}
-                                    // disabled={isDisabled}
                                     />
                             </div>
                         </div>:

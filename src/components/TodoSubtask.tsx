@@ -1,5 +1,6 @@
 import React from 'react';
 import { SubTask } from '../utils/props';
+import TodoCopyButton from './TodoCopyButton';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSquare } from '@fortawesome/free-regular-svg-icons';
@@ -68,7 +69,14 @@ export default function TodoTask ({ todoId, subTasks, onToggleSubTask}: TodoTask
     ));
 
     subTasks.map((task: SubTask) => (
-        task.listStyle !== '' && task.listStyle !== 'textIndentOne' && task.listStyle !== 'textIndentTwo' && task.listStyle !== 'textIndentThree' ? 
+        task.listStyle !== '' && 
+        task.listStyle !== 'textIndentOne' && 
+        task.listStyle !== 'textIndentTwo' && 
+        task.listStyle !== 'textIndentThree' && 
+        task.listStyle !== 'linkIndentZero' &&
+        task.listStyle !== 'linkIndentOne' && 
+        task.listStyle !== 'linkIndentTwo' && 
+        task.listStyle !== 'linkIndentThree' ? 
         totalSubtask++ : null
     ));
 
@@ -88,12 +96,33 @@ export default function TodoTask ({ todoId, subTasks, onToggleSubTask}: TodoTask
             {Array.isArray(subTasks) && subTasks.map((task: SubTask) => (
                 <li 
                 key={task.id} 
-                className={`${task.listStyle === 'textIndentOne' ? 'text-indent-one' : task.listStyle === 'textIndentTwo' ? 'text-indent-two' : task.listStyle === 'textIndentThree' ? 'text-indent-three' : ''} ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`}>
-                    {task.listStyle !== '' && task.listStyle !== 'textIndentOne' && task.listStyle !== 'textIndentTwo' && task.listStyle !== 'textIndentThree' ?
+                className={`${task.listStyle === 'textIndentOne' ? 'text-indent-one' : task.listStyle === 'textIndentTwo' ? 'text-indent-two' : task.listStyle === 'textIndentThree' ? 'text-indent-three' : ''} ${task.listStyle === 'linkIndentZero' ? 'link-indent-zero' : task.listStyle === 'linkIndentOne' ? 'link-indent-one' : task.listStyle === 'linkIndentTwo' ? 'link-indent-two' : task.listStyle === 'linkIndentThree' ? 'link-indent-three' : ''} ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`}>
+                    {task.listStyle !== '' && 
+                        task.listStyle !== 'textIndentOne' && 
+                        task.listStyle !== 'textIndentTwo' && 
+                        task.listStyle !== 'textIndentThree' && 
+                        task.listStyle !== 'linkIndentZero' &&
+                        task.listStyle !== 'linkIndentOne' && 
+                        task.listStyle !== 'linkIndentTwo' && 
+                        task.listStyle !== 'linkIndentThree' ?
+
                     <button onClick={() => onToggleSubTask(todoId, task.id)}>
                         {getListIcon(task.listStyle, task.completed)}
                     </button> : null}
-                    {task.content}
+                    {
+                        task.listStyle !== 'linkIndentZero' &&
+                        task.listStyle !== 'linkIndentOne' && 
+                        task.listStyle !== 'linkIndentTwo' && 
+                        task.listStyle !== 'linkIndentThree' 
+                        ?
+                        task.content 
+                        : 
+                        <>
+                            # <TodoCopyButton
+                                buttonText={task.content}
+                            />
+                        </>
+                    }
                 </li>
             ))}
         </ul>
