@@ -997,6 +997,28 @@ body{
                   margin-bottom: 5px;
                 }
 
+                .link-indent-one,
+                .link-indent-two,
+                .link-indent-three{
+                  button{
+                    text-align: left;
+                  }
+
+                  span{
+                    text-align: left;
+                    word-break: break-word;
+                    overflow-wrap: break-word;
+                    white-space: normal;
+                  }
+                }
+
+                .link-indent-one button::before,
+                .link-indent-two button::before,
+                .link-indent-three button::before{
+                  content: '# ';
+                  padding-left: 2px;
+                }
+
                 .text-indent-one,
                 .link-indent-one{
                   padding-left: 26px;

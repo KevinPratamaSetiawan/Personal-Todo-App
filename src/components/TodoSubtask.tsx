@@ -118,7 +118,7 @@ export default function TodoTask ({ todoId, subTasks, onToggleSubTask}: TodoTask
                         task.content 
                         : 
                         <>
-                            # <TodoCopyButton
+                            <TodoCopyButton
                                 buttonText={task.content}
                             />
                         </>
