@@ -21,44 +21,45 @@ type TodoItemProps = {
 
 export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoItemProps) {
     const [todoId, setTodoId] = React.useState<string | ReactNode>(todoItem.id);
-    let isToday = todoItem.scheduleType === '[D]' ? true : false;
+    let isToday = false;
     const [showModal, setShowModal] = useState(false);
 
     const handleModalToggle = () => {
         setShowModal(!showModal);
     };
 
-    const scheduleAlert = (scheduleType: string, deadlineStartDate: string) => {
+    const scheduleAlert = (scheduleType: string, deadlineStartDate: string, deadlineEndDate: string) => {
         let todayAlert = ']';
         scheduleType = scheduleType.slice(0, -1);
-        const days = [ 
-                        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
-                        'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'
-                    ];
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         
-        let day = days.findIndex(day => deadlineStartDate.includes(day));
-        let today = new Date();
-        let tomorrow = new Date(today);
-        tomorrow.setDate(today.getDate() + 1);
-
-        let todayDate = (today.getDate()).toString().padStart(2, '0') + '-' 
-                    + (today.getMonth()+1).toString().padStart(2, '0') + '-' 
-                    + (today.getFullYear()).toString();
-
-        let tomorrowDate = (tomorrow.getDate()).toString().padStart(2, '0') + '-' 
-                        + (tomorrow.getMonth()+1).toString().padStart(2, '0') + '-' 
-                        + (tomorrow.getFullYear()).toString();
-        
-        if(deadlineStartDate !== 'noDeadlineStartDate' && day === -1){
-            if(formatDate(deadlineStartDate, 'DD-MM-YY')!.includes(todayDate)){   
-                todayAlert = '-TDY]';
-                isToday = true;
-            }else if(formatDate(deadlineStartDate, 'DD-MM-YY')!.includes(tomorrowDate)){ 
-                todayAlert = '-TMW]';
-            }
-        }else if(day !== -1 && day%7 === today.getDay()){
+        if(scheduleType === '[D'){
             todayAlert = '-T]';
             isToday = true;
+        }else if (scheduleType === '[W'){
+            let day = days.findIndex(day => deadlineStartDate.includes(day));
+            
+            if(day !== -1){
+                todayAlert = '-T]';
+                isToday = true;
+            }
+        }else if (scheduleType === '[A'){
+            const now = new Date().getTime();
+            const deadlineStart = new Date(`${deadlineStartDate}T23:59:59`).getTime();
+
+            if (now <= deadlineStart){
+                todayAlert = '-TDY]';
+                isToday = true;
+            }
+        }else if (scheduleType !== '[D' && scheduleType !== '[W' && scheduleType !== '[A'){
+            const now = new Date().getTime();
+            const deadlineStart = new Date(`${deadlineStartDate}T00:00:01`).getTime();
+            const deadlineEnd = new Date(`${deadlineEndDate}T23:59:59`).getTime();
+
+            if (now >= deadlineStart && now <= deadlineEnd){
+                todayAlert = '-TDY]';
+                isToday = true;
+            }
         }
 
         return scheduleType + todayAlert;
@@ -162,7 +163,7 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
             <div className='todo-summary'>
                 <button onClick={onTodoFinishEventHandler}> {todoItem.completed ? <FontAwesomeIcon icon={faCircleCheck} /> : <FontAwesomeIcon icon={faCircle} />} </button>
                 <button onClick={onTodoPriorityEventHandler} className='priority-indicator'> {todoItem.priority ? <FontAwesomeIcon icon={faCircleExclamation} /> : <FontAwesomeIcon icon={faCircle} />} </button>
-                <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span className='todo-schedule-display'>{ todoItem.schedule ? scheduleAlert(todoItem.scheduleType, todoItem.deadlineStartDate) : null }</span> { todoItem.title }</p></button>
+                <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span className='todo-schedule-display'>{ todoItem.schedule ? scheduleAlert(todoItem.scheduleType, todoItem.deadlineStartDate, todoItem.deadlineEndDate) : null }</span> { todoItem.title }</p></button>
                 <button onClick={handleModalToggle}><FontAwesomeIcon icon={faTrashCan} /></button>
             </div>
             <div className='todo-detail'>
@@ -210,6 +211,9 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
                     {
                         todoItem.scheduleType !== '' && isToday ?
                         <TodoDeadlineCounter 
+                        scheduleType={todoItem.scheduleType}
+                        deadlineStartDate={todoItem.deadlineStartDate}
+                        deadlineEndDate={todoItem.deadlineEndDate}
                         deadlineStartTime={todoItem.deadlineStartTime}
                         deadlineEndTime={todoItem.deadlineEndTime}
                         isToday={isToday}

@@ -1,56 +1,51 @@
 import React, { useState } from 'react';
 
 type TodoDeadlineCounterProps = {
+    scheduleType: string;
+    deadlineStartDate: string;
+    deadlineEndDate: string;
     deadlineStartTime: string;
     deadlineEndTime: string;
     isToday: boolean;
 };
 
-export default function TodoDeadlineCounter ({deadlineStartTime, deadlineEndTime, isToday}: TodoDeadlineCounterProps) {
-    const now = new Date();
-    const currentTotalMinutes = now.getHours() * 60 + now.getMinutes();
-    const currentTotalSeconds = currentTotalMinutes * 60 + now.getSeconds();
+export default function TodoDeadlineCounter ({ scheduleType, deadlineStartDate, deadlineEndDate, deadlineStartTime, deadlineEndTime, isToday}: TodoDeadlineCounterProps) {
+    const now = new Date().getTime();
+    const localDate = new Date();
+    const today = `${localDate.getFullYear()}-${(localDate.getMonth() + 1).toString().padStart(2, '0')}-${localDate.getDate().toString().padStart(2, '0')}`;
+    let deadlineStart = new Date(`${deadlineStartDate}T${deadlineStartTime}:00`).getTime();
+    let deadlineEnd = new Date(`${deadlineEndDate}T${deadlineEndTime}:00`).getTime();
 
-    const [startHour, startMinute] = deadlineStartTime.split(':').map(Number);
-    const [endHour, endMinute] = deadlineEndTime.split(':').map(Number);
+    if (scheduleType === '[D]' || scheduleType === '[W]'){
+        deadlineStart = new Date(`${today}T${deadlineStartTime}:00`).getTime();
+        deadlineEnd = new Date(`${today}T${deadlineEndTime}:00`).getTime();
+    }else if (scheduleType === '[A]'){
+        deadlineStart = new Date(`${today}T${deadlineStartTime}:00`).getTime();
+        deadlineEnd = deadlineStart;
+    }
 
-    const deadlineStartTotalMinutes = startHour * 60 + startMinute;
-    const deadlineEndTotalMinutes = endHour * 60 + endMinute;
-    const deadlineStartTotalSeconds = deadlineStartTotalMinutes * 60;
-    const deadlineEndTotalSeconds = deadlineEndTotalMinutes * 60;
-
-    let secondsLeft = 0;
-    let hoursLeft = 0;
-    let minutesLeft = 0;
-    let secondsLeftRemaining = 0;
+    let msGap = 0, secondsLeft = 0, hoursLeft = 0, minutesLeft = 0, secondsLeftRemaining = 0; 
 
     let opening = '';
     let closing = '';
 
     if (isToday) {
-        if (currentTotalSeconds <= deadlineStartTotalSeconds) {
-            secondsLeft = deadlineStartTotalSeconds - currentTotalSeconds;
-            hoursLeft = Math.floor(secondsLeft / 3600);
-            minutesLeft = Math.floor((secondsLeft % 3600) / 60);
-            secondsLeftRemaining = secondsLeft % 60;
-
+        if (now <= deadlineStart) {
+            msGap = deadlineStart - now;
             opening = 'starts in ';
-        } else if (currentTotalSeconds >= deadlineEndTotalSeconds) {
-            secondsLeft = currentTotalSeconds - deadlineEndTotalSeconds;
-            hoursLeft = Math.floor(secondsLeft / 3600);
-            minutesLeft = Math.floor((secondsLeft % 3600) / 60);
-            secondsLeftRemaining = secondsLeft % 60;
-
+        } else if (now >= deadlineEnd) {
+            msGap = now - deadlineEnd;
             opening = 'finished ';
             closing = ' ago';
         } else {
-            secondsLeft = deadlineEndTotalSeconds - currentTotalSeconds;
-            hoursLeft = Math.floor(secondsLeft / 3600);
-            minutesLeft = Math.floor((secondsLeft % 3600) / 60);
-            secondsLeftRemaining = secondsLeft % 60;
-
+            msGap = deadlineEnd - now;
             opening = 'ends in ';
         }
+
+        secondsLeft = Math.floor(msGap/1000)
+        hoursLeft = Math.floor(secondsLeft / 3600);
+        minutesLeft = Math.floor((secondsLeft % 3600) / 60);
+        secondsLeftRemaining = secondsLeft % 60;
     }
 
     return (

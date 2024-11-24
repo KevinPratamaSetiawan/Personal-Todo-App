@@ -12,33 +12,23 @@ type TodoDeadlineStatsProps = {
 export default function TodoDeadlineStats ({scheduleType, deadlineStartDate, deadlineEndDate, deadlineStartTime, deadlineEndTime}: TodoDeadlineStatsProps) {
     return (
         <div className='todo-deadline-detail'>
-            {/* {deadlineStartDate !== 'noDeadlineStartDate' ?
-            <div className={`todo-detail-item ${deadlineStartDate === 'noDeadlineStartDate' ? 'no-string' : ''}`}>
-                <p className='todo-deadline-stats-label'>{scheduleType === '[W]' ? 'Day' : (scheduleType === '[A]' ? 'Deadline Date' : 'Start Date')}</p>
+            <div className={`todo-detail-item`}>
+                <p className='todo-deadline-stats-label'>Type</p>
                 <span></span>
-                <p>{deadlineStartDate !== 'noDeadlineStartDate' ? formatDate(deadlineStartDate, 'DD-MM-YY') : 'none'}</p>
-            </div> : null}
-            {deadlineStartTime !== 'noDeadlineStartTime' ? 
-            <div className={`todo-detail-item ${deadlineStartTime === 'noDeadlineStartTime' ? 'no-string' : ''}`}>
-                <p className='todo-deadline-stats-label'>{scheduleType === '[A]' ? 'Deadline Time' : 'Start Time'}</p>
-                <span></span>
-                <p>{deadlineStartTime !== 'noDeadlineStartTime' ? deadlineStartTime : 'none'}</p>
-            </div> : null}
-            {deadlineEndDate !== 'noDeadlineEndDate' ?
-            <div className={`todo-detail-item ${deadlineEndDate === 'noDeadlineEndDate' ? 'no-string' : ''}`}>
-                <p className='todo-deadline-stats-label'>End Date</p>
-                <span></span>
-                <p>{deadlineEndDate !== 'noDeadlineEndDate' ? formatDate(deadlineEndDate, 'DD-MM-YY') : 'none'}</p>
-            </div> : null}
-            {deadlineEndTime !== 'noDeadlineEndTime' ?
-            <div className={`todo-detail-item ${deadlineEndTime === 'noDeadlineEndTime' ? 'no-string' : ''}`}>
-                <p className='todo-deadline-stats-label'>End Time</p>
-                <span></span>
-                <p>{deadlineEndTime !== 'noDeadlineEndTime' ? deadlineEndTime : 'none'}</p>
-            </div> : null} */}
-
+                <p>
+                    {scheduleType}
+                    <span className='todo-deadline-stats-label'> → </span>
+                    {
+                        scheduleType === '[D]' ? 'Daily' :
+                        scheduleType === '[W]' ? 'Weekly' : 
+                        scheduleType === '[Y]' ? 'Yearly' :
+                        scheduleType === '[A]' ? 'Assignment' :
+                        scheduleType === '[S]' ? 'Scheduled' : 'Custom'
+                    }
+                </p>
+            </div>
             {deadlineStartDate !== 'noDeadlineStartDate' ?
-            <div className={`todo-detail-item ${deadlineStartDate === 'noDeadlineStartDate' ? 'no-string' : ''}`}>
+            <div className={`todo-detail-item`}>
                 <p className='todo-deadline-stats-label'>{scheduleType === '[W]' ? 'Day' : (scheduleType === '[A]' ? 'Deadline Date' : 'Date')}</p>
                 <span></span>
                 <p>
@@ -57,7 +47,7 @@ export default function TodoDeadlineStats ({scheduleType, deadlineStartDate, dea
                 </p>
             </div> : null}
             {deadlineStartTime !== 'noDeadlineStartTime' ? 
-            <div className={`todo-detail-item ${deadlineStartTime === 'noDeadlineStartTime' ? 'no-string' : ''}`}>
+            <div className={`todo-detail-item`}>
                 <p className='todo-deadline-stats-label'>{scheduleType === '[A]' ? 'Deadline Time' : 'Time'}</p>
                 <span></span>
                 <p>
