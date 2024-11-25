@@ -37,9 +37,10 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
             todayAlert = '-T]';
             isToday = true;
         }else if (scheduleType === '[W'){
+            const today = new Date().getDay();
             let day = days.findIndex(day => deadlineStartDate.includes(day));
             
-            if(day !== -1){
+            if(day !== -1 && day === today){
                 todayAlert = '-T]';
                 isToday = true;
             }
