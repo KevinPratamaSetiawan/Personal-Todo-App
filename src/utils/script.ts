@@ -1704,6 +1704,8 @@ export const formatDate = (date: string | Date, format: string) => {
     return `${day} ${months[properDate.getMonth()].slice(0, 3)} ${year}`;
   }else if(format === 'DD MMMM YY'){
     return `${day} ${months[properDate.getMonth()]} ${year}`;
+  }else if(format === 'dddd, DD MMM'){
+    return `${days[properDate.getDay()]}, ${day} ${months[properDate.getMonth()].slice(0, 3)}`;
   }else if(format === 'dddd, DD MMM YY'){
     return `${days[properDate.getDay()]}, ${day} ${months[properDate.getMonth()].slice(0, 3)} ${year}`;
   }else if(format === 'dddd, DD MMMM YY'){

@@ -34,8 +34,10 @@ export default function TodoDeadlineStats ({scheduleType, deadlineStartDate, dea
                 <p>
                     {deadlineStartDate === 'noDeadlineStartDate' ? null : scheduleType === '[Y]' ? 
                         formatDate(deadlineStartDate, 'DD MMM')
-                    : 
+                    : scheduleType === '[A]' ? 
                         formatDate(deadlineStartDate, 'dddd, DD MMM YY')
+                    :
+                        formatDate(deadlineStartDate, 'dddd, DD MMM')
                     }
 
                     {deadlineEndDate === 'noDeadlineEndDate' ? null : scheduleType === '[Y]' ? 

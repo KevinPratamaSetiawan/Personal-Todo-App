@@ -785,11 +785,6 @@ body{
             margin-left: 3px;
           }
   
-          /* .folder-color-code-0{ color: var(--schedule-color); }
-          .folder-color-code-1{ color: var(--priority-color); }
-          .folder-color-code-2{ color: var(--task-color); }
-          .folder-color-code-3{ color: var(--complete-color); } */
-  
           .color-code-0{ background-color: var(--schedule-color); }
           .color-code-1{ background-color: var(--priority-color); }
           .color-code-2{ background-color: var(--task-color); }
@@ -817,10 +812,6 @@ body{
           width: 100%;
           padding: 10px;
           gap: 10px;
-          /* border: 3px solid var(--text-color); */
-          /* border-radius: 5px; */
-          /* margin-bottom: 10px; */
-
           border-bottom: 1px solid var(--neutral-200);
           
           display: flex;
@@ -1052,28 +1043,13 @@ body{
                 }
 
                 .color-theme:has(:is(.fa-plus, .fa-circle-xmark, .fa-square-check))::after {
+                  content: ' ✨';
                   text-decoration: none;
                   color: var(--text-color);
                   display: inline-block;
                   margin-left: 5px;
                   font-size: smaller;
                 }
-
-                .color-theme:has(:is(.fa-plus, .fa-circle-xmark, .fa-square-check)):nth-child(4n+1)::after {
-                  content: '🚀';
-                }                
-
-                .color-theme:has(:is(.fa-plus, .fa-circle-xmark, .fa-square-check)):nth-child(4n+2)::after {
-                  content: ' 👍';
-                } 
-
-                .color-theme:has(:is(.fa-plus, .fa-circle-xmark, .fa-square-check)):nth-child(4n+3)::after {
-                  content: ' 🌌';
-                } 
-
-                .color-theme:has(:is(.fa-plus, .fa-circle-xmark, .fa-square-check)):nth-child(4n+4)::after {
-                  content: ' ☄️';
-                } 
               }
             }
             
