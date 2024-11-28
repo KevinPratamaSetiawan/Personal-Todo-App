@@ -1,9 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './style/index.css'
-import './style/setup.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './style/style.scss';
+import './style/index.css';
+import './style/setup.css';
 
 import LoginPage from './components/LoginPage';
 import TodoPage from './components/TodoPage';

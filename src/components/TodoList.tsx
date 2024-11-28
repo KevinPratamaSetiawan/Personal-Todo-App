@@ -12,11 +12,12 @@ type TodoListProps = {
     listType: string;
     onToggleComplete: (id: string) => void;
     onTogglePriority: (id: string) => void;
+    onEditTodo: (id: string, edittedObject: todoItem) => void;
     onDeleteTodo: (id: string) => void;
     onToggleSubTask: (id: string, subtaskId: number) => void;
 }
 
-export default function TodoList ({ id, todoItems, listName, listType, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoListProps) {
+export default function TodoList ({ id, todoItems, listName, listType, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask}: TodoListProps) {
     function numberToRoman(num: number) {
         const romanNumerals = [
             { value: 1000, numeral: 'M' },
@@ -92,6 +93,7 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
                                     todoItem={item}
                                     onToggleComplete={onToggleComplete}
                                     onTogglePriority={onTogglePriority}
+                                    onEditTodo={onEditTodo}
                                     onDeleteTodo={onDeleteTodo}
                                     onToggleSubTask={onToggleSubTask}
                                 />;
@@ -101,6 +103,7 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
                                     todoItem={item}
                                     onToggleComplete={onToggleComplete}
                                     onTogglePriority={onTogglePriority}
+                                    onEditTodo={onEditTodo}
                                     onDeleteTodo={onDeleteTodo}
                                     onToggleSubTask={onToggleSubTask}
                                 />;
@@ -110,6 +113,7 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
                                     todoItem={item}
                                     onToggleComplete={onToggleComplete}
                                     onTogglePriority={onTogglePriority}
+                                    onEditTodo={onEditTodo}
                                     onDeleteTodo={onDeleteTodo}
                                     onToggleSubTask={onToggleSubTask}
                                 />;
@@ -119,6 +123,7 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
                                     todoItem={item}
                                     onToggleComplete={onToggleComplete}
                                     onTogglePriority={onTogglePriority}
+                                    onEditTodo={onEditTodo}
                                     onDeleteTodo={onDeleteTodo}
                                     onToggleSubTask={onToggleSubTask}
                                 />;

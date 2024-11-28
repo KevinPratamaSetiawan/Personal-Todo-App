@@ -1,6 +1,13 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import TextareaAutosize, { TextareaAutosizeProps } from "react-textarea-autosize";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 
 import TodoNav from './TodoNav';
 import { formatDate } from '../utils/script';
@@ -34,7 +41,7 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
         setPreferredId(event.target.value);
     };
 
-    const onDescriptionChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onDescriptionChangeEventHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setDescription(event.target.value);
     };
 
@@ -51,7 +58,7 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
         setSubTask(updatedSubTasks);
     };
 
-    const onSubTaskContentChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const onSubTaskContentChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index: number) => {
         const updatedSubTasks = [...subTask];
         updatedSubTasks[index].content = event.target.value;
         setSubTask(updatedSubTasks);
@@ -139,8 +146,7 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
     };
     
 
-    const onAddTodoEventHandler = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const onAddTodoEventHandler = () => {
         document.getElementById('titleLabel')!.classList.remove('title-empty');
         document.getElementById('scheduleOptionsLabel')!.classList.remove('schedule-type-empty');
 
@@ -226,55 +232,81 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
     };
 
     return (
-        <div className='todo-form'>
-            <div>
+        <div className='w-100 d-flex flex-column align-items-center justify-content-start'>
+            <div className='w-100 d-flex align-items-center justify-content-between'>
                 <p className='nav-title'>To-do</p>
                 <TodoNav 
                     currentTab={'add'}
                     setTab={setTab}
                 />
             </div>
-            <form onSubmit={onAddTodoEventHandler}>
-                <div className='todo-title'>
-                    <label htmlFor="title" id='titleLabel'>Title<span>*</span></label>
-                    <div>
-                    <input
-                        id="title"
-                        type="text"
-                        value={title}
-                        onChange={onTitleChangeEventHandler}
-                        placeholder='Title here..'
-                        />
-                    {preferredId !== '' ?
-                        <input
-                            id="preferredId"
-                            type="text"
-                            value={preferredId}
-                            onChange={onPreferredIdChangeEventHandler}
-                            placeholder='ID here..'
-                            /> : null
-                    }
-                    </div>
-                </div>
 
-                <div className='todo-description'>
-                    <label htmlFor="description" id='descriptionLabel'>Description</label>
-                    <div>
-                        <input
-                        id="description"
-                        type='text'
-                        value={description}
-                        onChange={onDescriptionChangeEventHandler}
-                        placeholder='Description here..'
+            <div className='mt-3 w-100'>
+                <InputGroup className="mb-3">
+                        <InputGroup.Text className="text-white">Title</InputGroup.Text>
+                        <Form.Control
+                            id="title"
+                            type="text"
+                            value={title}
+                            onChange={onTitleChangeEventHandler}
+                            placeholder='Title here..'
+                            aria-label="Title"
+                            aria-describedby="title-input"
+                            className="bg-dark text-white"
                         />
-                        <button type='button' onClick={addSubTask}><FontAwesomeIcon icon={faPlus} /><FontAwesomeIcon icon={faListCheck} /></button>
-                    </div>
+                        <InputGroup.Text id='titleLabel' className="text-white"></InputGroup.Text>
+                        {preferredId !== '' ? <>
+                            <InputGroup.Text id='preferredIdLabel' className="text-white">ID</InputGroup.Text>
+                            <Form.Control
+                                id="preferredId"
+                                type="text"
+                                value={preferredId}
+                                onChange={onPreferredIdChangeEventHandler}
+                                placeholder='ID here..'
+                                aria-label="Preferred Id"
+                                aria-describedby="preferred-id-input"
+                                className="bg-dark text-white"
+                            />
+                            </> : null
+                        }
+                    </InputGroup>
+
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text className="text-white align-items-start">Desc</InputGroup.Text>
+                        <TextareaAutosize
+                            id="description"
+                            value={description}
+                            onChange={onDescriptionChangeEventHandler}
+                            placeholder="Description here.."
+                            className="form-control bg-dark text-white"
+                            minRows={1}
+                            maxRows={5}
+                            style={{resize: 'none'}}
+                        />
+                        <Button 
+                            variant="outline-light" 
+                            id="add-subtask-btn"
+                            onClick={addSubTask}
+                        >
+                            <FontAwesomeIcon icon={faPlus} /><FontAwesomeIcon icon={faListCheck} />
+                        </Button>
+                    </InputGroup>
+
+                    {subTask.length !== 0 ?
+                        <InputGroup className="mb-3 w-100">
+                            <InputGroup.Text className="text-white text-center w-100 d-flex justify-content-center align-items-center">Sub-Task</InputGroup.Text>
+                        </InputGroup> : null
+                    }
+
                     {subTask.map((task, index) => (
-                        <div key={task.id} className='subtask-form'>
-                            <select 
+                        <InputGroup className="mb-3" key={task.id}>
+                            <Form.Select 
                                 id="listStyleOptions" 
                                 value={task.listStyle} 
                                 onChange={(e) => onSubTaskListStyleChangeEventHandler(e, index)}
+                                aria-label="Subtask Style Select"
+                                className="bg-dark text-white"
+                                style={{width: '15%', padding: '0', backgroundImage: 'none'}}
                             >
                                 <option value="">None</option>
                                 <option value="textIndentOne">Str.</option>
@@ -293,22 +325,34 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                                 <option value="linkIndentOne">#.</option>
                                 <option value="linkIndentTwo">#‥</option>
                                 <option value="linkIndentThree">#…</option>
-                            </select>
-                            <input 
-                                type="text"
+                            </Form.Select>
+                            <Form.Control 
                                 value={task.content}
                                 onChange={(e) => onSubTaskContentChangeEventHandler(e, index)}
                                 placeholder={`Subtask ${index + 1}`}
+                                aria-label="Text input for subtask content"
+                                className="bg-dark text-white"
                             />
-                            <button type='button' onClick={(e) => delSubTask(e, index)}><FontAwesomeIcon icon={faX} size="xs" /></button>
-                        </div>
+                            <Button 
+                                variant="outline-light" 
+                                id="del-subtask-btn"
+                                onClick={(e) => delSubTask(e, index)}
+                            >
+                                <FontAwesomeIcon icon={faX} size="xs" />
+                            </Button>
+                        </InputGroup>                    
                     ))}
-                </div>
 
-                <div className='todo-schedule-type'>
-                    <label htmlFor="scheduleOptions" id='scheduleOptionsLabel'>Schedule Type</label>
-                    <div>
-                        <select id="scheduleOptions" value={scheduleType} onChange={onScheduleTypeChangeEventHandler}>
+                    <InputGroup className="mb-3 bg-dark">
+                        <InputGroup.Text className="text-white">Schedule</InputGroup.Text>
+                        <Form.Select 
+                            id="scheduleOptions" 
+                            value={scheduleType} 
+                            onChange={onScheduleTypeChangeEventHandler}
+                            aria-label="Schedule Type Select"
+                            className="bg-dark text-white"
+                            style={{width: '30%'}}
+                        >
                             <option value="">None</option>
                             <option value="[D]">Daily</option>
                             <option value="[W]">Weekly</option>
@@ -316,120 +360,130 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                             <option value="[S]">Scheduled</option>
                             <option value="[A]">Assignment</option>
                             <option value="custom">Custom</option>
-                        </select>
-
+                        </Form.Select>
+                        
                         {scheduleType !== 'custom' && (
-                            <input
-                                id='scheduleTypeDisplay'
-                                type="text"
-                                value={scheduleType}
-                                placeholder="None"
-                                disabled
-                                />
-                            )}
+                        <Form.Control 
+                            id='scheduleTypeDisplay'
+                            type="text"
+                            value={scheduleType}
+                            placeholder="None"
+                            disabled
+                            aria-label="Text input for subtask content"
+                            className="bg-dark text-white text-center"
+                        />
+                        )}
 
                         {scheduleType === 'custom' && (
-                            <input
-                                id='customScheduleType'
-                                type="text"
-                                value={customScheduleType}
-                                onChange={onCustomScheduleTypeChangeEventHandler}
-                                placeholder="Custom type.."
-                                />
-                            )}
-                    </div>
-                </div>
+                        <Form.Control 
+                            id='customScheduleType'
+                            type="text"
+                            value={customScheduleType}
+                            onChange={onCustomScheduleTypeChangeEventHandler}
+                            placeholder="Custom type.."
+                            aria-label="Text input for subtask content"
+                            className="bg-dark text-white"
+                        />
+                        )}
+                        <InputGroup.Text id='scheduleOptionsLabel' className="text-white"></InputGroup.Text>
+                    </InputGroup>
 
-                {
-                scheduleType !== '' ?
-                <div className='todo-time-picker'>
-                    <div className='deadline-label-toggle'>
-                        <label htmlFor="hourTimePicker" id='timePickerLabel'>Deadline Time</label>
-                    </div>
-                    <div className='time-picker'>
-                        <div className='date-time-section'>
-                            <label htmlFor="datePicker" id='timePickerLabel'>Start:</label>
-                            {
-                                scheduleType !== '[D]' && scheduleType !== '[W]' ?
-                                <input 
-                                id="datePicker" 
-                                type="date"
-                                value={deadlineStartDate}
-                                onChange={onStartDateChangeEventHandler}
-                                />:
-                                (scheduleType === '[W]' ? 
-                                <select id="dateOptions" value={deadlineStartDate} onChange={onStartDateChangeEventHandler}>
-                                    <option value="">None</option>
-                                    <option value="Monday">Monday</option>
-                                    <option value="Tuesday">Tuesday</option>
-                                    <option value="Wednesday">Wednesday</option>
-                                    <option value="Thursday">Thursday</option>
-                                    <option value="Friday">Friday</option>
-                                    <option value="Saturday">Saturday</option>
-                                    <option value="Sunday">Sunday</option>
-                                </select> :
-                                null
+                    {scheduleType !== '' ?
+                        <InputGroup className="mb-3 w-100">
+                            <InputGroup.Text id='timePickerLabel' className="text-white text-center w-100 d-flex justify-content-center align-items-center">Time Picker</InputGroup.Text>
+                        </InputGroup> : null
+                    }
+
+                    {scheduleType !== '' && scheduleType !== '[D]' ?
+                        <InputGroup className="mb-3 bg-dark">
+                            {scheduleType !== '[D]' && scheduleType !== '[W]' ?
+                                <>
+                                    <input 
+                                        id="datePicker" 
+                                        type="date"
+                                        value={deadlineStartDate}
+                                        onChange={onStartDateChangeEventHandler}
+                                        className='form-control bg-dark text-light text-center form-datepicker'
+                                    />
+
+                                    {scheduleType !== '[A]' ? <>
+                                        <InputGroup.Text className="text-white"><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+                                        <input 
+                                            id="datePicker" 
+                                            type="date"
+                                            value={deadlineEndDate}
+                                            onChange={onEndDateChangeEventHandler}
+                                            className='form-control bg-dark text-light text-center form-datepicker'
+                                        />
+                                        </> : null
+                                    }
+                                </> :
+                                (scheduleType === '[W]' ?
+                                    <Form.Select 
+                                        id="dateOptions" 
+                                        value={deadlineStartDate} 
+                                        onChange={onStartDateChangeEventHandler}
+                                        aria-label="Deadline Day Select"
+                                        className="bg-dark text-white"
+                                        style={{width: '100%'}}
+                                    >
+                                        <option value="">None</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </Form.Select> : null
                                 )                    
                             }
-                            <div>
-                                <input 
-                                    id="hourTimePicker" 
-                                    type="number"
-                                    value={deadlineStartTimeHour} 
-                                    onChange={onStartTimeHourChangeEventHandler}
-                                    />
-                                <p>:</p>
-                                <input 
-                                    id="minuteTimePicker" 
-                                    type="number" 
-                                    value={deadlineStartTimeMinute}
-                                    onChange={onStartTimeMinuteChangeEventHandler}
-                                    />
-                            </div>
-                        </div>
-                        
-                        {
-                        scheduleType !== '[A]' ?
-                        <div className='date-time-section'>
-                            <label htmlFor="datePicker" id='timePickerLabel'>End:</label>
-                            {
-                                scheduleType !== '[D]' &&  scheduleType !== '[W]' ?
-                            <input 
-                                id="datePicker" 
-                                type="date"
-                                value={deadlineEndDate}
-                                onChange={onEndDateChangeEventHandler}
-                                />:
-                                null
-                            }
-                            <div>
-                                <input 
+                        </InputGroup> : null
+                    }
+
+                    {scheduleType !== '' ?
+                        <InputGroup className="mb-3 bg-dark">
+                            <Form.Control 
+                                id="hourTimePicker" 
+                                type="number"
+                                value={deadlineStartTimeHour} 
+                                onChange={onStartTimeHourChangeEventHandler}
+                                className="bg-dark text-white text-center"
+                            />
+                            <InputGroup.Text className="text-white">:</InputGroup.Text>
+                            <Form.Control 
+                                id="minuteTimePicker" 
+                                type="number" 
+                                value={deadlineStartTimeMinute}
+                                onChange={onStartTimeMinuteChangeEventHandler}
+                                className="bg-dark text-white text-center"
+                            /> 
+                            {scheduleType !== '[A]' ? <>
+                                <InputGroup.Text className="text-white"><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+                                <Form.Control 
                                     id="hourTimePicker" 
                                     type="number"
                                     value={deadlineEndTimeHour} 
                                     onChange={onEndTimeHourChangeEventHandler}
-                                    />
-                                <p>:</p>
-                                <input 
+                                    className="bg-dark text-white text-center"
+                                />
+                                <InputGroup.Text className="text-white">:</InputGroup.Text>
+                                <Form.Control 
                                     id="minuteTimePicker" 
                                     type="number" 
                                     value={deadlineEndTimeMinute}
                                     onChange={onEndTimeMinuteChangeEventHandler}
-                                    />
-                            </div>
-                        </div>:
-                        null
-                        }
-                    </div>
-                </div>:
-                null
-                }
-
-                <div className='todo-buttons'>                        
-                    <button type='button' onClick={onPasteEventHandler}><FontAwesomeIcon icon={faPaste} /></button>
-                    <button type='submit'><FontAwesomeIcon icon={faPlus} /></button>
+                                    className="bg-dark text-white text-center"
+                                />
+                            </> : null }
+                        </InputGroup> : null
+                    }
                 </div>
-            </form>
+
+                <InputGroup className='w-100 d-flex align-items-center justify-content-end gap-2'>                        
+                    <Button type='button' onClick={onPasteEventHandler} variant="outline-light" className='' style={{ width: '20%', borderRadius: '5px' }}><FontAwesomeIcon icon={faPaste} /></Button>
+                    <Button type='button' onClick={onAddTodoEventHandler} variant="outline-light" className='' style={{ width: '20%', borderRadius: '5px' }}><FontAwesomeIcon icon={faPlus} /></Button>
+                </InputGroup>
         </div>
     );
 };

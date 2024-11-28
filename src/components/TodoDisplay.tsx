@@ -6,11 +6,12 @@ type TodoDisplayProps = {
     todoItems: todoItem[];
     onToggleComplete: (id: string) => void;
     onTogglePriority: (id: string) => void;
+    onEditTodo: (id: string, edittedObject: todoItem) => void;
     onDeleteTodo: (id: string) => void;
     onToggleSubTask: (id: string, subtaskId: number) => void;
 }
 
-export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoDisplayProps) {
+export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask}: TodoDisplayProps) {
     return (
         <div className='todo-display'>
             <TodoList 
@@ -20,6 +21,7 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 listType={'schedule'}
                 onToggleComplete={onToggleComplete}
                 onTogglePriority={onTogglePriority}
+                onEditTodo={onEditTodo}
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />
@@ -30,6 +32,7 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 listType={'priority'}
                 onToggleComplete={onToggleComplete}
                 onTogglePriority={onTogglePriority}
+                onEditTodo={onEditTodo}
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />
@@ -40,6 +43,7 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 listType={'task'}
                 onToggleComplete={onToggleComplete}
                 onTogglePriority={onTogglePriority}
+                onEditTodo={onEditTodo}
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />
@@ -50,6 +54,7 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 listType={'completed'}
                 onToggleComplete={onToggleComplete}
                 onTogglePriority={onTogglePriority}
+                onEditTodo={onEditTodo}
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />

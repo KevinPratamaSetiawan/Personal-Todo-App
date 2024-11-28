@@ -84,6 +84,14 @@ export default function TodoPage () {
         localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
     };
 
+    const editTodo = (todoId: string, edittedTodo: todoItem) => {
+        const updatedTodos = todosData.map((todo: todoItem) =>
+            todo.id === todoId ? edittedTodo : todo
+        );
+        setTodosData(updatedTodos);
+        localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
+    };
+
     const deleteTodo = (todoId: string) => {
         const updatedTodos = todosData.filter((todo: todoItem) => todo.id !== todoId);
         setTodosData(updatedTodos);
@@ -134,16 +142,28 @@ export default function TodoPage () {
     return (
         <div className='todo-page'>
             <div className='todo-header'>
-                <h5 className='app-title fw-bold mb-0'><FontAwesomeIcon icon={faChessRook} size='lg' /> KPS {thisYear}</h5>
+                <div className='d-flex align-items-center gap-2'>
+                    {/* <FontAwesomeIcon icon={faChessRook} size='lg' /> */}
+                    {
+                        currentTheme === 'mono' ?
+                        <img src="./blue-profile.jpg" alt="Blue Profile Picture" className='rounded border border-white' style={{width: '45px', height: '45px'}} /> :
+                        <img src="./red-profile.jpg" alt="Red Profile Picture" className='rounded border border-white' style={{width: '45px', height: '45px'}}/>
+                    }
+                    <div>
+                        <p className='d-flex flex-column align-items-start fw-lighter fs-6 m-0'>Welcome back,
+                            <span className='fw-bold fs-5 mb-0'>KPS {thisYear}</span>
+                        </p>
+                    </div>
+                </div>
                     <div className='theme-toggle'>
-                        {currentTheme === 'mono' && (<>
+                        {currentTheme === 'mono' ? <>
                             <div className='monochrome-theme'>
                                 <span></span>
                                 <span></span>
                             </div>
                             <button onClick={() => onThemeChangeEventHandler('color')}><FontAwesomeIcon icon={faToggleOff} size="2xl"/></button>                    
-                        </>)}
-                        {currentTheme === 'color' && (<>
+                        </> : 
+                        <>
                             <div className='color-theme'>
                                 <span></span>
                                 <span></span>
@@ -151,7 +171,8 @@ export default function TodoPage () {
                                 <span></span>
                             </div>
                             <button onClick={() => onThemeChangeEventHandler('mono')}><FontAwesomeIcon icon={faToggleOn} size="2xl"/></button>
-                        </>)}
+                        </>
+                        }
                     </div>
             </div>
             {currentTab === 'time' && (
@@ -183,6 +204,7 @@ export default function TodoPage () {
                 todoItems={[...todosData, ...completedData]}
                 onToggleComplete={toggleComplete}
                 onTogglePriority={togglePriority}
+                onEditTodo={editTodo}
                 onDeleteTodo={deleteTodo}
                 onToggleSubTask={toggleSubTaskComplete}
             />

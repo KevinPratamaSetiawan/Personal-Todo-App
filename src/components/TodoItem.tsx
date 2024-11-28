@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faCopy } from '@fortawesome/free-solid-svg-icons';
 
+import TodoItemOptionButton from './TodoItemOptionButton';
 import TodoTask from './TodoSubtask';
 import TodoDeadlineStats from './TodoDeadlineStats';
 import TodoDeadlineCounter from './TodoDeadlineCounter';
@@ -15,18 +16,14 @@ type TodoItemProps = {
     todoItem: todoItem;
     onToggleComplete: (id: string) => void;
     onTogglePriority: (id: string) => void;
+    onEditTodo: (id: string, edittedObject: todoItem) => void;
     onDeleteTodo: (id: string) => void;
     onToggleSubTask: (id: string, subtaskId: number) => void;
 }
 
-export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority, onDeleteTodo, onToggleSubTask}: TodoItemProps) {
+export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask}: TodoItemProps) {
     const [todoId, setTodoId] = React.useState<string | ReactNode>(todoItem.id);
     let isToday = false;
-    const [showModal, setShowModal] = useState(false);
-
-    const handleModalToggle = () => {
-        setShowModal(!showModal);
-    };
 
     const scheduleAlert = (scheduleType: string, deadlineStartDate: string, deadlineEndDate: string) => {
         let todayAlert = ']';
@@ -72,10 +69,6 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
 
     const onTodoPriorityEventHandler = () => {
         onTogglePriority(todoItem.id);
-    }
-
-    const onTodoDeleteEventHandler = () => {
-        onDeleteTodo(todoItem.id);
     }
 
     const onTodoToggleDetailEventHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -138,34 +131,16 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
 
     return (
         <>
-        <Modal
-            show={showModal}
-            onHide={handleModalToggle}
-            backdrop="static"
-            centered
-            keyboard={false}
-            dialogClassName="custom-modal"
-        >
-            <Modal.Header className="bg-dark text-white">
-            <Modal.Title>{todoId} · {todoItem.title}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="bg-dark text-white">
-            Are you sure you want to delete this item ?
-            </Modal.Body>
-            <Modal.Footer className="bg-dark text-white">
-            <Button variant="secondary" onClick={handleModalToggle}>
-                Cancel
-            </Button>
-            <Button variant="danger" onClick={onTodoDeleteEventHandler}>Yes</Button>
-            </Modal.Footer>
-        </Modal>
-
         <li className='todo-item'>
             <div className='todo-summary'>
                 <button onClick={onTodoFinishEventHandler}> {todoItem.completed ? <FontAwesomeIcon icon={faCircleCheck} /> : <FontAwesomeIcon icon={faCircle} />} </button>
                 <button onClick={onTodoPriorityEventHandler} className='priority-indicator'> {todoItem.priority ? <FontAwesomeIcon icon={faCircleExclamation} /> : <FontAwesomeIcon icon={faCircle} />} </button>
                 <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span className='todo-schedule-display'>{ todoItem.schedule ? scheduleAlert(todoItem.scheduleType, todoItem.deadlineStartDate, todoItem.deadlineEndDate) : null }</span> { todoItem.title }</p></button>
-                <button onClick={handleModalToggle}><FontAwesomeIcon icon={faTrashCan} /></button>
+                <TodoItemOptionButton 
+                    todoItem= {todoItem}
+                    onEditTodo={onEditTodo}
+                    onDeleteTodo={onDeleteTodo} 
+                />
             </div>
             <div className='todo-detail'>
                 <div className='todo-description-container'>
