@@ -151,7 +151,7 @@ export default function TodoPage () {
                     }
                     <div>
                         <p className='d-flex flex-column align-items-start fw-lighter fs-6 m-0'>Welcome back,
-                            <span className='fw-bold fs-5 mb-0'>KPS {thisYear}</span>
+                            <span className='fw-bold fs-5 mb-0' style={{marginTop: '-10px'}}>KPS {thisYear}</span>
                         </p>
                     </div>
                 </div>
