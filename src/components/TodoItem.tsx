@@ -119,7 +119,8 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
         todoItem.deadlineStartDate + '=>' +
         todoItem.deadlineEndDate + '=>' +
         todoItem.deadlineStartTime + '=>' +
-        todoItem.deadlineEndTime;
+        todoItem.deadlineEndTime + '=>' +
+        todoItem.tags;
 
         navigator.clipboard.writeText(copyText);
         setTodoId(<><FontAwesomeIcon icon={faCopy} /> Copied!</>);

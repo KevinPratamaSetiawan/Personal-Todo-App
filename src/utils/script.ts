@@ -1,24 +1,356 @@
 const task = [
   {
-     "id":"N-0068",
-     "title":"Update Todo App 3",
+     "id":"N-0074",
+     "title":"Current Priority",
      "description":"no description",
      "subTask":[
         {
            "id":0,
-           "content":"Category Badge",
+           "content":"Classes",
            "completed":false,
-           "listStyle":""
+           "listStyle":"checkboxIndentOne"
         },
         {
            "id":1,
-           "content":"Subtask Completion Percentage",
+           "content":"NLP -> Finishing the LSTM model",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":2,
+           "content":"PCD -> Finishing the report",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":3,
+           "content":"RPP -> Finishing the model",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":4,
+           "content":"PKL",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":5,
+           "content":"MicroData -> Make the registration letter",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":6,
+           "content":"DBS Foundation -> Find a way to get recommendation letter",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":7,
+           "content":"Other -> wait for email",
+           "completed":false,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":8,
+           "content":"Thesis -> Take project hibah next semester, get pak Radhinka one if possible",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":9,
+           "content":"Fullstack Development -> Finish that odin project you dipshit",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        }
+     ],
+     "completed":false,
+     "priority":true,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
+  },
+  {
+     "id":"N-0073",
+     "title":"Vite React.js Typescript Bootstrap React-Bootstrap",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Create Vite React.js Typescript Bootstrap",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":1,
+           "content":"npm create vite@latest",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":2,
+           "content":"cd my-vite-project",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":3,
+           "content":"npm install",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":4,
+           "content":"npm install bootstrap",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":5,
+           "content":"On main.tsx",
+           "completed":false,
+           "listStyle":"plusIndentTwo"
+        },
+        {
+           "id":6,
+           "content":"import 'bootstrap/dist/css/bootstrap.min.css';",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":7,
+           "content":"Override Bootstrap Var for more Custom Style",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":8,
+           "content":"npm install sass",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":9,
+           "content":"Create a file like src/styles/custom.scss and import Bootstrap",
+           "completed":false,
+           "listStyle":"plusIndentTwo"
+        },
+        {
+           "id":10,
+           "content":"@import \"bootstrap/scss/bootstrap\";",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":11,
+           "content":"Import the custom file in main.tsx instead of bootstrap.min.css",
+           "completed":false,
+           "listStyle":"plusIndentTwo"
+        },
+        {
+           "id":12,
+           "content":"import './styles/custom.scss';",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":13,
+           "content":"Install React Bootstrap",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":14,
+           "content":"npm install react-bootstrap bootstrap",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":15,
+           "content":"import { Button, etc } from 'react-bootstrap';",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":16,
+           "content":"Install Bootstrap Icons",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":17,
+           "content":"npm install bootstrap-icons",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":18,
+           "content":"import 'bootstrap-icons/font/bootstrap-icons.css';",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":19,
+           "content":"Install React Icons",
+           "completed":false,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":20,
+           "content":"npm install react-icons",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":21,
+           "content":"import { FaBeer } from 'react-icons/fa';",
+           "completed":false,
+           "listStyle":"linkIndentOne"
+        },
+        {
+           "id":22,
+           "content":"React Icons includes many popular libraries. You can import from these prefixes:",
+           "completed":false,
+           "listStyle":"plusIndentTwo"
+        },
+        {
+           "id":23,
+           "content":"fa: Font Awesome",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":24,
+           "content":"md: Material Design",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":25,
+           "content":"ai: Ant Design",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":26,
+           "content":"bs: Bootstrap Icons",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":27,
+           "content":"gi: Game Icons",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":28,
+           "content":"io: Ionicons",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":29,
+           "content":"ri: Remix Icons",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":30,
+           "content":"si: Simple Icons",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":31,
+           "content":"fi: Feather Icons",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":32,
+           "content":"cg: CSS.gg",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        },
+        {
+           "id":33,
+           "content":"tb: Tabler Icons",
+           "completed":false,
+           "listStyle":"textIndentTwo"
+        }
+     ],
+     "completed":true,
+     "priority":false,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
+  },
+  {
+     "id":"N-0072",
+     "title":"PCD Capstone Project",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Tingkatin Kontras Clache",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Hue bermasalah karena jadinya merah range 0-30 entah kenapa",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":2,
+           "content":"GLCM untuk tekstur, contrast, energy nya low, correlation, ",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":3,
+           "content":"dataset di sift mana yang jelek atau bagus, pembagian otomatis bermasalah",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":4,
+           "content":"input model ada 2 (gambar dikecilin, dan dinormalisasi eg dibagi 255) feature texture sama feature warna sama gambarnya",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":5,
+           "content":"hasil model overfitting, akurasi 100% tapi validasi 75%, value loss dapat 1 tapi bagusnya dibawah 1",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":6,
+           "content":"Masalah: ekstrasi fitur malah fokus ke background, tekstur uang gak ke detect terutama yang jarak jauh, susunan dataset harus dibalance",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":7,
+           "content":"hasil epochs gak stabil naik turun, harusnya stabil naik dikit2",
            "completed":false,
            "listStyle":""
         },
         {
-           "id":2,
-           "content":"Preferred ID",
+           "id":8,
+           "content":"Isi2 laporan",
            "completed":false,
            "listStyle":""
         }
@@ -30,7 +362,248 @@ const task = [
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
+  },
+  {
+     "id":"N-0071",
+     "title":"Sekawan Media Internship Technical Test",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Use Open API for Restaurant Data like Yelp, Zomato API, OpenCage Geocoder API",
+           "completed":false,
+           "listStyle":""
+        },
+        {
+           "id":1,
+           "content":"Main",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Filter navigation",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":3,
+           "content":"Open now (client side filter)",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":4,
+           "content":"Price (client side filter)",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":5,
+           "content":"Categories/Cuisines (server side search filter)",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":6,
+           "content":"Section",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":7,
+           "content":"Restaurant item",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":8,
+           "content":"Image (use first item in `photos`)",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":9,
+           "content":"Cuisine / Categories (use first item in `categories`)",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":10,
+           "content":"Rating",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":11,
+           "content":"Price range",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":12,
+           "content":"Open / Closed",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":13,
+           "content":"Restaurant name",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":14,
+           "content":"Learn more (navigate to Detail View)",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":15,
+           "content":"Detail View",
+           "completed":true,
+           "listStyle":"plusIndentOne"
+        },
+        {
+           "id":16,
+           "content":"Restaurant Name & Rating",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":17,
+           "content":"Map (optional)",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":18,
+           "content":"Section",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":19,
+           "content":"Review item",
+           "completed":true,
+           "listStyle":"checkboxIndentTwo"
+        },
+        {
+           "id":20,
+           "content":"Image",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":21,
+           "content":"Name",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":22,
+           "content":"Rating",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        },
+        {
+           "id":23,
+           "content":"Text",
+           "completed":true,
+           "listStyle":"checkboxIndentThree"
+        }
+     ],
+     "completed":true,
+     "priority":false,
+     "schedule":true,
+     "scheduleType":"[A]",
+     "deadlineStartDate":"2024-11-22",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"11:00",
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
+  },
+  {
+     "id":"N-0069",
+     "title":"Expense Tracker PWA",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Set up budget each month",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Form to put my expense consist of name, money spend, the date of expense, category (ex: food, primary, transportation, etc), createdAt",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Count the budget left out of setup budget that month",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":3,
+           "content":"Stats f spending each month, and display the percentage of each spending out of the total budget",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":4,
+           "content":"Icon based on the category that listed",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        }
+     ],
+     "completed":false,
+     "priority":false,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
+  },
+  {
+     "id":"N-0068",
+     "title":"Update Todo App 3",
+     "description":"no description",
+     "subTask":[
+        {
+           "id":0,
+           "content":"Category Badge",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Subtask Completion Percentage",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":2,
+           "content":"Preferred ID",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        }
+     ],
+     "completed":true,
+     "priority":true,
+     "schedule":false,
+     "scheduleType":"",
+     "deadlineStartDate":"noDeadlineStartDate",
+     "deadlineEndDate":"noDeadlineEndDate",
+     "deadlineStartTime":"noDeadlineStartTime",
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0067",
@@ -51,17 +624,18 @@ const task = [
         }
      ],
      "completed":false,
-     "priority":true,
+     "priority":false,
      "schedule":false,
      "scheduleType":"",
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0066",
-     "title":"Update Todo App",
+     "title":"Update Todo App 2",
      "description":"no description",
      "subTask":[
         {
@@ -73,7 +647,7 @@ const task = [
         {
            "id":1,
            "content":"Bootstrap",
-           "completed":false,
+           "completed":true,
            "listStyle":"checkboxIndentOne"
         },
         {
@@ -120,13 +694,14 @@ const task = [
         }
      ],
      "completed":true,
-     "priority":false,
+     "priority":true,
      "schedule":false,
      "scheduleType":"",
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0065",
@@ -157,9 +732,10 @@ const task = [
      "schedule":true,
      "scheduleType":"[S]",
      "deadlineStartDate":"2024-11-18",
-     "deadlineEndDate":"2024-11-18",
+     "deadlineEndDate":"2024-11-22",
      "deadlineStartTime":"09:00",
-     "deadlineEndTime":"16:00"
+     "deadlineEndTime":"16:00",
+     "tags": []
   },
   {
      "id":"N-0064",
@@ -204,7 +780,8 @@ const task = [
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0063",
@@ -220,7 +797,8 @@ const task = [
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0062",
@@ -236,7 +814,8 @@ const task = [
      "deadlineStartDate":"Monday",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"09:30",
-     "deadlineEndTime":"12:00"
+     "deadlineEndTime":"12:00",
+     "tags": []
   },
   {
      "id":"N-0061",
@@ -252,7 +831,8 @@ const task = [
      "deadlineStartDate":"Friday",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"09:30",
-     "deadlineEndTime":"12:00"
+     "deadlineEndTime":"12:00",
+     "tags": []
   },
   {
      "id":"N-0060",
@@ -268,7 +848,8 @@ const task = [
      "deadlineStartDate":"Friday",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"13:00",
-     "deadlineEndTime":"15:30"
+     "deadlineEndTime":"15:30",
+     "tags": []
   },
   {
      "id":"N-0059",
@@ -284,7 +865,8 @@ const task = [
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0058",
@@ -300,23 +882,36 @@ const task = [
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0057",
      "title":"NLP Capstone Project",
      "description":"no description",
      "subTask":[
-        
+        {
+           "id":0,
+           "content":"Cari kode buat chatbot dulu, nunggu preprocessing",
+           "completed":true,
+           "listStyle":"checkboxIndentOne"
+        },
+        {
+           "id":1,
+           "content":"Modeling LSTM",
+           "completed":false,
+           "listStyle":"checkboxIndentOne"
+        }
      ],
      "completed":false,
-     "priority":false,
+     "priority":true,
      "schedule":false,
      "scheduleType":"",
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0056",
@@ -349,13 +944,14 @@ const task = [
         }
      ],
      "completed":false,
-     "priority":true,
+     "priority":false,
      "schedule":false,
      "scheduleType":"",
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   },
   {
      "id":"N-0055",
@@ -400,7 +996,8 @@ const task = [
      "deadlineStartDate":"noDeadlineStartDate",
      "deadlineEndDate":"noDeadlineEndDate",
      "deadlineStartTime":"noDeadlineStartTime",
-     "deadlineEndTime":"noDeadlineEndTime"
+     "deadlineEndTime":"noDeadlineEndTime",
+     "tags": []
   }
 ];
 
@@ -586,7 +1183,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-31',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '23:59',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0053",
@@ -733,7 +1331,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-31',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '23:59',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0052",
@@ -802,7 +1401,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0051",
@@ -829,7 +1429,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-13',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '23:59',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0050",
@@ -845,7 +1446,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-18',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '15:00',
-    "deadlineEndTime": '17:00'
+    "deadlineEndTime": '17:00',
+    "tags": []
   },
   {
     "id": "N-0049",
@@ -861,7 +1463,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-18',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '09:30',
-    "deadlineEndTime": '11:30'
+    "deadlineEndTime": '11:30',
+    "tags": []
   },
   {
     "id": "N-0048",
@@ -875,7 +1478,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-14',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '10:00',
-    "deadlineEndTime": '12:00'
+    "deadlineEndTime": '12:00',
+    "tags": []
   },
   {
     "id": "N-0047",
@@ -908,7 +1512,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-12',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '23:59',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0046",
@@ -1007,7 +1612,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-11',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '23:59',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0045",
@@ -1034,7 +1640,8 @@ export const completedData = [
     "deadlineStartDate": '2024-10-09',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": '23:59',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0044",
@@ -1061,7 +1668,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0043",
@@ -1082,7 +1690,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0042",
@@ -1096,7 +1705,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0041",
@@ -1110,7 +1720,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0040",
@@ -1124,7 +1735,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0039",
@@ -1138,7 +1750,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0038",
@@ -1152,7 +1765,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0037",
@@ -1166,7 +1780,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0036",
@@ -1180,7 +1795,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0035",
@@ -1194,7 +1810,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0034",
@@ -1208,7 +1825,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0033",
@@ -1222,7 +1840,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0032",
@@ -1236,7 +1855,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0031",
@@ -1250,7 +1870,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0030",
@@ -1264,7 +1885,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0029",
@@ -1278,7 +1900,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0028",
@@ -1292,7 +1915,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0027",
@@ -1306,7 +1930,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0026",
@@ -1320,7 +1945,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0025",
@@ -1334,7 +1960,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0024",
@@ -1348,7 +1975,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0023",
@@ -1362,7 +1990,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0022",
@@ -1376,7 +2005,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0021",
@@ -1390,7 +2020,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0020",
@@ -1404,7 +2035,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0019",
@@ -1418,7 +2050,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0018",
@@ -1432,7 +2065,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0017",
@@ -1446,7 +2080,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0016",
@@ -1460,7 +2095,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0015",
@@ -1474,7 +2110,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0014",
@@ -1488,7 +2125,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0013",
@@ -1502,7 +2140,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0012",
@@ -1516,7 +2155,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0011",
@@ -1530,7 +2170,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0010",
@@ -1544,7 +2185,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0009",
@@ -1558,7 +2200,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0008",
@@ -1572,7 +2215,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0007",
@@ -1586,7 +2230,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0006",
@@ -1600,7 +2245,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0005",
@@ -1614,7 +2260,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0004",
@@ -1628,7 +2275,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0003",
@@ -1642,7 +2290,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0002",
@@ -1656,7 +2305,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   },
   {
     "id": "N-0001",
@@ -1670,7 +2320,8 @@ export const completedData = [
     "deadlineStartDate": 'noDeadlineStartDate',
     "deadlineEndDate": 'noDeadlineEndDate',
     "deadlineStartTime": 'noDeadlineStartTime',
-    "deadlineEndTime": 'noDeadlineEndTime'
+    "deadlineEndTime": 'noDeadlineEndTime',
+    "tags": []
   }
 ]
 

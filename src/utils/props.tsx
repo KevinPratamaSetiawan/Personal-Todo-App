@@ -18,4 +18,5 @@ export type todoItem = {
     deadlineEndDate: string;
     deadlineStartTime: string;
     deadlineEndTime:string;
+    tags: string[];
 }

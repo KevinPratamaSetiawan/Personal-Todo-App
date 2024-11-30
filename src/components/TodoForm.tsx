@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import TextareaAutosize, { TextareaAutosizeProps } from "react-textarea-autosize";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark, faAnglesRight, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 import TodoNav from './TodoNav';
 import { formatDate } from '../utils/script';
@@ -32,18 +32,12 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
     const [deadlineStartTimeMinute, setStartDeadlineTimeMinute] = React.useState(new Date().getMinutes());
     const [deadlineEndTimeHour, setEndDeadlineTimeHour] = React.useState(new Date().getHours() + 1);
     const [deadlineEndTimeMinute, setEndDeadlineTimeMinute] = React.useState(new Date().getMinutes());
+    const [tag, setTag] = React.useState('');
+    const [tagsList, setTagsList] = React.useState<string[]>([]);
 
-    const onTitleChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(event.target.value);
-    };
-
-    const onPreferredIdChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPreferredId(event.target.value);
-    };
-
-    const onDescriptionChangeEventHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setDescription(event.target.value);
-    };
+    const onTitleChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setTitle(event.target.value); };
+    const onPreferredIdChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setPreferredId(event.target.value); };
+    const onDescriptionChangeEventHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => { setDescription(event.target.value); };
 
     const addSubTask = () => {
         setSubTask(prevSubTask => [
@@ -78,33 +72,38 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
         }
     };
 
-    const onCustomScheduleTypeChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCustomScheduleType(event.target.value);
+    const onCustomScheduleTypeChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setCustomScheduleType(event.target.value); };
+    const onStartDateChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => { setStartDeadlineDate(event.target.value); };
+    const onEndDateChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setEndDeadlineDate(event.target.value); };
+    const onStartTimeHourChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setStartDeadlineTimeHour(parseFloat(event.target.value)); };
+    const onStartTimeMinuteChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setStartDeadlineTimeMinute(parseFloat(event.target.value)); };
+    const onEndTimeHourChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setEndDeadlineTimeHour(parseFloat(event.target.value)); };
+    const onEndTimeMinuteChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setEndDeadlineTimeMinute(parseFloat(event.target.value)); };
+
+    const onTagChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTag(event.target.value);
     };
 
-    const onStartDateChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
-        setStartDeadlineDate(event.target.value);
+    const onAddTagEventHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if(event.key === 'Enter'){
+            if(tag.trim()){
+                const newTag = tag.split(',').map(tag => tag.trim()).filter(tag => tag !== "");
+                setTagsList([...new Set([...tagsList, ...newTag])]);
+                setTag('');
+            }
+        }
     };
 
-    const onEndDateChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEndDeadlineDate(event.target.value);
+    const removeTag = (index: number) => {
+        const updatedTagsList = [...tagsList];
+        updatedTagsList.splice(index, 1);
+        setTagsList(updatedTagsList);
     };
 
-    const onStartTimeHourChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setStartDeadlineTimeHour(parseFloat(event.target.value));
+    const removeAllTag = () => {
+        setTagsList([]);
     };
 
-    const onStartTimeMinuteChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setStartDeadlineTimeMinute(parseFloat(event.target.value));
-    };
-
-    const onEndTimeHourChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEndDeadlineTimeHour(parseFloat(event.target.value));
-    };
-
-    const onEndTimeMinuteChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEndDeadlineTimeMinute(parseFloat(event.target.value));
-    };
 
     const onPasteEventHandler = () => {
         const text = title.split('=>').map(str => str.trim());
@@ -138,6 +137,8 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                 setEndDeadlineTimeHour(endHour);
                 setEndDeadlineTimeMinute(endMinute);
             }
+
+            setTagsList(text[9] === '[]' ? [] : JSON.parse(text[9]) || []);
     
             document.getElementById('titleLabel')!.classList.remove('title-empty');
         } else {
@@ -208,7 +209,8 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                 deadlineStartDate: scheduleType === '' || scheduleType === '[D]' ? 'noDeadlineStartDate' : deadlineStartDate as string,
                 deadlineEndDate: scheduleType !== '[Y]' && scheduleType !== '[S]' && scheduleType !== 'custom' ? 'noDeadlineEndDate' : deadlineEndDate as string,
                 deadlineStartTime: scheduleType === '' ? 'noDeadlineStartTime' : deadlineStartTimeHour.toString().padStart(2, '0') + ":" + deadlineStartTimeMinute.toString().padStart(2, '0'),
-                deadlineEndTime: scheduleType === '' || scheduleType === '[A]' ? 'noDeadlineEndTime' : deadlineEndTimeHour.toString().padStart(2, '0') + ":" + deadlineEndTimeMinute.toString().padStart(2, '0')
+                deadlineEndTime: scheduleType === '' || scheduleType === '[A]' ? 'noDeadlineEndTime' : deadlineEndTimeHour.toString().padStart(2, '0') + ":" + deadlineEndTimeMinute.toString().padStart(2, '0'),
+                tags: tagsList
             };
             
             items.push(newTodo);
@@ -228,6 +230,8 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
             setStartDeadlineTimeMinute(new Date().getMinutes());
             setEndDeadlineTimeHour(new Date().getHours() + 1);
             setEndDeadlineTimeMinute(new Date().getMinutes());
+            setTag('');
+            setTagsList([]);
         }
     };
 
@@ -478,6 +482,40 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                             </> : null }
                         </InputGroup> : null
                     }
+
+                    <InputGroup className="mb-3 bg-dark d-flex">
+                        <InputGroup.Text className="text-white align-items-center">Tags</InputGroup.Text>
+                        <ul className='d-flex align-items-center gap-2 form-control bg-dark text-white m-0 p-3' style={{overflowX: 'auto', flexWrap: 'wrap'}}>
+                            {tagsList.map((tag: string, index: number) => (
+                                <li 
+                                    key={index}
+                                    className='px-2 py-1 border rounded-1 d-flex align-items-center gap-2'
+                                >
+                                    {tag}
+                                    <button 
+                                    type='button' 
+                                    onClick={() => removeTag(index)} 
+                                    className='p-0 border-0 rounded-circle d-flex align-items-center justify-content-center bg-secondary' 
+                                    style={{ borderRadius: '5px', width: '20px', height: '20px' }}
+                                    >
+                                        <FontAwesomeIcon icon={faX} size='2xs' className='m-0' />
+                                    </button>
+                                </li>
+                            ))}
+                            <Form.Control
+                                id="tag"
+                                type="text"
+                                value={tag}
+                                onChange={onTagChangeEventHandler}
+                                onKeyDown={onAddTagEventHandler}
+                                placeholder='Add tag here..'
+                                aria-label="Tag"
+                                aria-describedby="tag-input"
+                                className="bg-dark text-white w-auto flex-grow-1 border-0 p-0 rounded-0"
+                            />
+                        </ul>
+                        <Button type='button' onClick={removeAllTag} variant="outline-light"><FontAwesomeIcon icon={faTrashCan} /></Button>
+                    </InputGroup>
                 </div>
 
                 <InputGroup className='w-100 d-flex align-items-center justify-content-end gap-2'>                        
