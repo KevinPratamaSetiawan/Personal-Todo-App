@@ -54,6 +54,8 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
             setEndDeadlineTimeMinute(endMinute);
         }
 
+        setTag('');
+
         setShowEditModal(!showEditModal); 
     };
 
