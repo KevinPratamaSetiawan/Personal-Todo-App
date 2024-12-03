@@ -552,7 +552,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                     <Dropdown.Divider />
                 </> : null}
                 <Dropdown.Item as="button" onClick={handleEditModalToggle}><FontAwesomeIcon icon={faPen} className="me-2" />Edit</Dropdown.Item>
-                {/* <Dropdown.Divider /> */}
+                <Dropdown.Divider />
                 <Dropdown.Item as="button" onClick={handleDeleteModalToggle}><FontAwesomeIcon icon={faTrashCan} className="me-2" />Delete</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
