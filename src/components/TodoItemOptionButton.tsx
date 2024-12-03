@@ -2,7 +2,6 @@ import React, { useState, ReactNode } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import TextareaAutosize, { TextareaAutosizeProps } from "react-textarea-autosize";
@@ -55,6 +54,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
         }
 
         setTag('');
+        setTagsList(todoItem.tags);
 
         setShowEditModal(!showEditModal); 
     };
@@ -104,14 +104,15 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
             };
             
             onEditTodo(todoItem.id, edittedTodo); 
-            
             handleEditModalToggle();
         }
 
     };
 
     const handleDeleteModalToggle = () => { setShowDeleteModal(!showDeleteModal); };
-    const onTodoDeleteEventHandler = () => { onDeleteTodo(todoItem.id); };
+    const onTodoDeleteEventHandler = () => { 
+        onDeleteTodo(todoItem.id);
+    };
 
     // Handle Title
     const [title, setTitle] = React.useState(todoItem.title);
@@ -238,14 +239,15 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
             keyboard={false}
             dialogClassName="custom-modal"
             size='lg'
+            data-bs-theme="dark"
         >
-            <Modal.Header className="bg-dark text-white">
+            <Modal.Header>
                 <Modal.Title>{todoItem.id}</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body className="bg-dark text-white">
+            <Modal.Body >
                 <InputGroup className="mb-3">
-                    <InputGroup.Text className="text-white">Title</InputGroup.Text>
+                    <InputGroup.Text className="">Title</InputGroup.Text>
                     <Form.Control
                         id="title"
                         type="text"
@@ -254,19 +256,19 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                         placeholder='Title here..'
                         aria-label="Title"
                         aria-describedby="title-input"
-                        className="bg-dark text-white"
+                        
                     />
-                    <InputGroup.Text id='titleLabel' className="text-white"></InputGroup.Text>
+                    <InputGroup.Text id='titleLabel' className=""></InputGroup.Text>
                 </InputGroup>
 
                 <InputGroup className="mb-3">
-                    <InputGroup.Text className="text-white align-items-start">Desc</InputGroup.Text>
+                    <InputGroup.Text className=" align-items-start">Desc</InputGroup.Text>
                     <TextareaAutosize
                         id="description"
                         value={description}
                         onChange={onDescriptionChangeEventHandler}
                         placeholder="Description here.."
-                        className="form-control bg-dark text-white"
+                        className="form-control  "
                         minRows={1}
                         maxRows={5}
                         style={{resize: 'none'}}
@@ -282,7 +284,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
 
                 {subTask.length !== 0 ?
                     <InputGroup className="mb-3 w-100">
-                        <InputGroup.Text className="text-white text-center w-100 d-flex justify-content-center align-items-center">Sub-Task</InputGroup.Text>
+                        <InputGroup.Text className=" text-center w-100 d-flex justify-content-center align-items-center">Sub-Task</InputGroup.Text>
                     </InputGroup> : null
                 }
 
@@ -293,7 +295,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                             value={task.listStyle} 
                             onChange={(e) => onSubTaskListStyleChangeEventHandler(e, index)}
                             aria-label="Subtask Style Select"
-                            className="bg-dark text-white"
+                            
                             style={{width: '15%', padding: '0', backgroundImage: 'none'}}
                         >
                             <option value="">None</option>
@@ -319,7 +321,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                             onChange={(e) => onSubTaskContentChangeEventHandler(e, index)}
                             placeholder={`Subtask ${index + 1}`}
                             aria-label="Text input for subtask content"
-                            className="bg-dark text-white"
+                            
                         />
                         <Button 
                             variant="outline-light" 
@@ -331,14 +333,14 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                     </InputGroup>                    
                 ))}
 
-                <InputGroup className="mb-3 bg-dark">
-                    <InputGroup.Text className="text-white">Schedule</InputGroup.Text>
+                <InputGroup className="mb-3 ">
+                    <InputGroup.Text className="">Schedule</InputGroup.Text>
                     <Form.Select 
                         id="scheduleOptions" 
                         value={scheduleType} 
                         onChange={onScheduleTypeChangeEventHandler}
                         aria-label="Schedule Type Select"
-                        className="bg-dark text-white"
+                        
                         style={{width: '30%'}}
                     >
                         <option value="">None</option>
@@ -358,7 +360,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                         placeholder="None"
                         disabled
                         aria-label="Text input for subtask content"
-                        className="bg-dark text-white text-center"
+                        className="  text-center"
                     />
                     )}
 
@@ -370,20 +372,20 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                         onChange={onCustomScheduleTypeChangeEventHandler}
                         placeholder="Custom type.."
                         aria-label="Text input for subtask content"
-                        className="bg-dark text-white"
+                        
                     />
                     )}
-                    <InputGroup.Text id='scheduleOptionsLabel' className="text-white"></InputGroup.Text>
+                    <InputGroup.Text id='scheduleOptionsLabel' className=""></InputGroup.Text>
                 </InputGroup>
 
                 {scheduleType !== '' ?
                     <InputGroup className="mb-3 w-100">
-                        <InputGroup.Text id='timePickerLabel' className="text-white text-center w-100 d-flex justify-content-center align-items-center">Time Picker</InputGroup.Text>
+                        <InputGroup.Text id='timePickerLabel' className=" text-center w-100 d-flex justify-content-center align-items-center">Time Picker</InputGroup.Text>
                     </InputGroup> : null
                 }
 
                 {scheduleType !== '' && scheduleType !== '[D]' ?
-                    <InputGroup className="mb-3 bg-dark">
+                    <InputGroup className="mb-3 ">
                         {scheduleType !== '[D]' && scheduleType !== '[W]' ?
                             <>
                                 <input 
@@ -391,17 +393,17 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                                     type="date"
                                     value={deadlineStartDate}
                                     onChange={onStartDateChangeEventHandler}
-                                    className='form-control bg-dark text-light text-center form-datepicker'
+                                    className='form-control  text-light text-center form-datepicker'
                                 />
 
                                 {scheduleType !== '[A]' ? <>
-                                    <InputGroup.Text className="text-white"><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+                                    <InputGroup.Text className=""><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
                                     <input 
                                         id="datePicker" 
                                         type="date"
                                         value={deadlineEndDate}
                                         onChange={onEndDateChangeEventHandler}
-                                        className='form-control bg-dark text-light text-center form-datepicker'
+                                        className='form-control  text-light text-center form-datepicker'
                                     />
                                     </> : null
                                 }
@@ -411,8 +413,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                                     id="dateOptions" 
                                     value={deadlineStartDate} 
                                     onChange={onStartDateChangeEventHandler}
-                                    aria-label="Deadline Day Select"
-                                    className="bg-dark text-white"
+                                    aria-label="Deadline Day Select"                                    
                                     style={{width: '100%'}}
                                 >
                                     <option value="">None</option>
@@ -430,46 +431,46 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                 }
 
                 {scheduleType !== '' ?
-                    <InputGroup className="mb-3 bg-dark">
+                    <InputGroup className="mb-3 ">
                         <Form.Control 
                             id="hourTimePicker" 
                             type="number"
                             value={deadlineStartTimeHour} 
                             onChange={onStartTimeHourChangeEventHandler}
-                            className="bg-dark text-white text-center"
+                            className="  text-center"
                         />
-                        <InputGroup.Text className="text-white">:</InputGroup.Text>
+                        <InputGroup.Text className="">:</InputGroup.Text>
                         <Form.Control 
                             id="minuteTimePicker" 
                             type="number" 
                             value={deadlineStartTimeMinute}
                             onChange={onStartTimeMinuteChangeEventHandler}
-                            className="bg-dark text-white text-center"
+                            className="  text-center"
                         /> 
                         {scheduleType !== '[A]' ? <>
-                            <InputGroup.Text className="text-white"><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+                            <InputGroup.Text className=""><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
                             <Form.Control 
                                 id="hourTimePicker" 
                                 type="number"
                                 value={deadlineEndTimeHour} 
                                 onChange={onEndTimeHourChangeEventHandler}
-                                className="bg-dark text-white text-center"
+                                className="  text-center"
                             />
-                            <InputGroup.Text className="text-white">:</InputGroup.Text>
+                            <InputGroup.Text className="">:</InputGroup.Text>
                             <Form.Control 
                                 id="minuteTimePicker" 
                                 type="number" 
                                 value={deadlineEndTimeMinute}
                                 onChange={onEndTimeMinuteChangeEventHandler}
-                                className="bg-dark text-white text-center"
+                                className="  text-center"
                             />
                         </> : null }
                     </InputGroup> : null
                 }
 
-                <InputGroup className="mb-3 bg-dark d-flex">
-                    <InputGroup.Text className="text-white align-items-center">Tags</InputGroup.Text>
-                    <ul className='d-flex align-items-center gap-2 form-control bg-dark text-white m-0 p-3' style={{overflowX: 'auto', flexWrap: 'wrap'}}>
+                <InputGroup className="mb-3 d-flex">
+                    <InputGroup.Text className="align-items-center">Tags</InputGroup.Text>
+                    <ul className='d-flex align-items-center gap-2 form-control m-0 p-3' style={{overflowX: 'auto', flexWrap: 'wrap'}}>
                         {tagsList.map((tag: string, index: number) => (
                             <li 
                                 key={index}
@@ -495,14 +496,14 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                             placeholder='Add tag here..'
                             aria-label="Tag"
                             aria-describedby="tag-input"
-                            className="bg-dark text-white w-auto flex-grow-1 border-0 p-0 rounded-0"
+                            className="w-auto flex-grow-1 border-0 p-0 rounded-0"
                         />
                     </ul>
                     <Button type='button' onClick={removeAllTag} variant="outline-light"><FontAwesomeIcon icon={faTrashCan} /></Button>
                 </InputGroup>
             </Modal.Body>
 
-            <Modal.Footer className="bg-dark text-white">
+            <Modal.Footer>
                 <Button variant="secondary" onClick={handleEditModalToggle}>Cancel</Button>
                 <Button variant="success" onClick={onTodoEditEventHandler}>Edit</Button>
             </Modal.Footer>
@@ -515,14 +516,15 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
             centered
             keyboard={false}
             dialogClassName="custom-modal"
+            data-bs-theme="dark"
         >
-            <Modal.Header className="bg-dark text-white">
+            <Modal.Header>
             <Modal.Title>{todoId} · {todoItem.title}</Modal.Title>
             </Modal.Header>
-            <Modal.Body className="bg-dark text-white">
+            <Modal.Body>
             Are you sure you want to delete this item ?
             </Modal.Body>
-            <Modal.Footer className="bg-dark text-white">
+            <Modal.Footer>
             <Button variant="secondary" onClick={handleDeleteModalToggle}>
                 Cancel
             </Button>
@@ -530,8 +532,8 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
             </Modal.Footer>
         </Modal>
 
-        <Dropdown data-bs-theme="dark" className='ms-auto bg-dark text-light'>
-            <Dropdown.Toggle variant="secondary" className='todo-item-option-button bg-dark text-light'><FontAwesomeIcon icon={faEllipsisVertical} /></Dropdown.Toggle>
+        <Dropdown data-bs-theme="dark" className='ms-auto'>
+            <Dropdown.Toggle variant="secondary" className='todo-item-option-button bg-dark text-white'><FontAwesomeIcon icon={faEllipsisVertical} /></Dropdown.Toggle>
 
             <Dropdown.Menu className="shadow rounded" align="end" style={{width: '195px'}}>
                 {todoItem.tags.length !== 0 ? <>
@@ -541,7 +543,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                             Tags 
                             <Badge bg='success' className='ms-auto'>{todoItem.tags.length}</Badge>
                         </p>
-                        <ul className='d-flex flex-row align-items-center gap-2 bg-dark text-white m-0 p-0 w-100' style={{overflowX: 'scroll'}}>
+                        <ul className='d-flex flex-row align-items-center gap-2 m-0 p-0 w-100' style={{overflowX: 'scroll'}}>
                             {todoItem.tags.map((tag: string, index: number) => (
                                 <li key={index} className='px-2 py-1 border rounded-1 text-nowrap'>{tag}</li>
                             ))}                        

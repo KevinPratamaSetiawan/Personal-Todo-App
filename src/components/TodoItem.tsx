@@ -138,7 +138,7 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
                 <button onClick={onTodoPriorityEventHandler} className='priority-indicator'> {todoItem.priority ? <FontAwesomeIcon icon={faCircleExclamation} /> : <FontAwesomeIcon icon={faCircle} />} </button>
                 <button onClick={onTodoToggleDetailEventHandler}><p className={`todo-title ${todoItem.completed ? 'completed' : ''}`}><span className='todo-schedule-display'>{ todoItem.schedule ? scheduleAlert(todoItem.scheduleType, todoItem.deadlineStartDate, todoItem.deadlineEndDate) : null }</span> { todoItem.title }</p></button>
                 <TodoItemOptionButton 
-                    todoItem= {todoItem}
+                    todoItem={todoItem}
                     onEditTodo={onEditTodo}
                     onDeleteTodo={onDeleteTodo} 
                 />

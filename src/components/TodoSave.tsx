@@ -6,9 +6,10 @@ import TodoSaveInterface from './TodoSaveInterface';
 type TodoSaveProps = {
     setTodosData: React.Dispatch<React.SetStateAction<string>>;
     setTab: (tab: string) => void;
+    createNotification: (todoId: string, actionType: number) => void;
 }
 
-export default function TodoSave ({ setTodosData, setTab }: TodoSaveProps) {
+export default function TodoSave ({ setTodosData, setTab, createNotification }: TodoSaveProps) {
     const [currentMethod, setCurrentMethod] = React.useState('get');
     const [updateData, setUpdateData] = React.useState<string>('');
 
@@ -19,18 +20,33 @@ export default function TodoSave ({ setTodosData, setTab }: TodoSaveProps) {
     const getData = () => {
         let saveData = localStorage.getItem('todoItems') || '[]]';
         navigator.clipboard.writeText(saveData);
+
+        createNotification(
+            JSON.parse(saveData).length.toString().padStart(3, '0'),
+            12
+        );
     };
 
     const putData = () => {
         localStorage.setItem("todoItems", updateData);
         setTodosData(JSON.parse(localStorage.getItem('todoItems') || '[]'));
-        window.location.reload();
+        // window.location.reload();
+
+        createNotification(
+            JSON.parse(localStorage.getItem('todoItems') || '[]').length.toString().padStart(3, '0'),
+            13
+        );
     };
 
     const delData = () => {
+        createNotification(
+            JSON.parse(localStorage.getItem('todoItems') || '[]').length.toString().padStart(3, '0'),
+            14
+        );
+
         localStorage.removeItem("todoItems");
         setTodosData(JSON.parse(localStorage.getItem('todoItems') || '[]'));
-        window.location.reload();
+        // window.location.reload();
     };
 
     return (
