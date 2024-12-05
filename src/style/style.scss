@@ -31,7 +31,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
     padding: 0 5px;
 }
 
-.todo-item-option-button::after{
+.todo-item-option-button::after,
+.dropdown-toggle::after{
     content: none;
 }
 

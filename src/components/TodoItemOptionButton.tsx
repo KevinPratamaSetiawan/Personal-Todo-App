@@ -8,7 +8,7 @@ import TextareaAutosize, { TextareaAutosizeProps } from "react-textarea-autosize
 import Badge from 'react-bootstrap/Badge';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faPen, faEllipsisVertical, faPlus, faListCheck, faX, faAnglesRight, faTags } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPen, faEllipsisVertical, faPlus, faListCheck, faX, faAnglesRight, faTags, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import { formatDate } from '../utils/script';
 import { todoItem, SubTask } from '../utils/props';
@@ -147,6 +147,23 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
         const updatedSubTasks = [...subTask];
         updatedSubTasks[index].listStyle = event.target.value;
         setSubTask(updatedSubTasks);
+    };
+
+    const orderSubTask = (id: number, method: string) => {
+        const updatedSubtask = [...subTask];
+        const currentIndex = updatedSubtask.findIndex(item => item.id === id);
+
+        if(method === 'up'){
+            [updatedSubtask[currentIndex - 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex - 1]];
+        }else if(method === 'add'){
+            updatedSubtask.splice(currentIndex + 1, 0, 
+                { id: updatedSubtask.length, content: "", completed: false, listStyle: "" }
+            )
+        }else if(method === 'down'){
+            [updatedSubtask[currentIndex + 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex + 1]];
+        }
+
+        setSubTask(updatedSubtask);
     };
 
     // Handle Schedule Type
@@ -330,6 +347,43 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                         >
                             <FontAwesomeIcon icon={faX} size="xs" />
                         </Button>
+
+                        <Dropdown data-bs-theme="dark" className='ms-auto'>
+                            <Dropdown.Toggle variant="outline-light" className=''><FontAwesomeIcon icon={faEllipsisVertical} /></Dropdown.Toggle>
+
+                            <Dropdown.Menu data-bs-theme="dark" className="shadow rounded" align="end" style={{width: '195px'}}>
+                                {index !== 0 ? <>
+                                    <Dropdown.Item 
+                                    as="button" 
+                                    onClick={() => orderSubTask(task.id, 'up')} 
+                                    className='d-flex align-items-center'
+                                    >
+                                        <FontAwesomeIcon icon={faCaretUp} className="me-2" size='lg' />
+                                        Move Up
+                                    </Dropdown.Item> 
+                                    <Dropdown.Divider /> 
+                                </> : null}
+                                <Dropdown.Item 
+                                as="button" 
+                                onClick={() => orderSubTask(task.id, 'add')} 
+                                className='d-flex align-items-center'
+                                >
+                                    <FontAwesomeIcon icon={faPlus} className="me-2" style={{markerStart: '-2px'}} />
+                                    Add Below
+                                </Dropdown.Item>
+                                {index !== subTask.length-1 ? <>
+                                    <Dropdown.Divider />
+                                    <Dropdown.Item 
+                                    as="button" 
+                                    onClick={() => orderSubTask(task.id, 'down')}
+                                    className='d-flex align-items-center'
+                                    >
+                                        <FontAwesomeIcon icon={faCaretDown} className="me-2" size='lg' />
+                                        Move Down
+                                    </Dropdown.Item>
+                                </> : null}
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </InputGroup>                    
                 ))}
 

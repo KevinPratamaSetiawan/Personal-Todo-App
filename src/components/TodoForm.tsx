@@ -1,13 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import TextareaAutosize, { TextareaAutosizeProps } from "react-textarea-autosize";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faToggleOn, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark, faAnglesRight, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark, faAnglesRight, faTrashCan, faCaretDown, faCaretUp, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
 import TodoNav from './TodoNav';
 import { formatDate } from '../utils/script';
@@ -64,6 +62,23 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
         setSubTask(updatedSubTasks);
     };
 
+    const orderSubTask = (id: number, method: string) => {
+        const updatedSubtask = [...subTask];
+        const currentIndex = updatedSubtask.findIndex(item => item.id === id);
+
+        if(method === 'up'){
+            [updatedSubtask[currentIndex - 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex - 1]];
+        }else if(method === 'add'){
+            updatedSubtask.splice(currentIndex + 1, 0, 
+                { id: updatedSubtask.length, content: "", completed: false, listStyle: "" }
+            )
+        }else if(method === 'down'){
+            [updatedSubtask[currentIndex + 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex + 1]];
+        }
+
+        setSubTask(updatedSubtask);
+    };
+
     const onScheduleTypeChangeEventHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setScheduleType(event.target.value);
 
@@ -103,7 +118,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
     const removeAllTag = () => {
         setTagsList([]);
     };
-
 
     const onPasteEventHandler = () => {
         const text = title.split('=>').map(str => str.trim());
@@ -146,7 +160,6 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
         }
     };
     
-
     const onAddTodoEventHandler = () => {
         document.getElementById('titleLabel')!.classList.remove('title-empty');
         document.getElementById('scheduleOptionsLabel')!.classList.remove('schedule-type-empty');
@@ -344,6 +357,43 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                             >
                                 <FontAwesomeIcon icon={faX} size="xs" />
                             </Button>
+
+                            <Dropdown data-bs-theme="dark" className='ms-auto'>
+                                <Dropdown.Toggle variant="outline-light" className=''><FontAwesomeIcon icon={faEllipsisVertical} /></Dropdown.Toggle>
+
+                                <Dropdown.Menu data-bs-theme="dark" className="shadow rounded" align="end" style={{width: '195px'}}>
+                                    {index !== 0 ? <>
+                                        <Dropdown.Item 
+                                        as="button" 
+                                        onClick={() => orderSubTask(task.id, 'up')} 
+                                        className='d-flex align-items-center'
+                                        >
+                                            <FontAwesomeIcon icon={faCaretUp} className="me-2" size='lg' />
+                                            Move Up
+                                        </Dropdown.Item> 
+                                        <Dropdown.Divider /> 
+                                    </> : null}
+                                    <Dropdown.Item 
+                                    as="button" 
+                                    onClick={() => orderSubTask(task.id, 'add')} 
+                                    className='d-flex align-items-center'
+                                    >
+                                        <FontAwesomeIcon icon={faPlus} className="me-2" style={{markerStart: '-2px'}} />
+                                        Add Below
+                                    </Dropdown.Item>
+                                    {index !== subTask.length-1 ? <>
+                                        <Dropdown.Divider />
+                                        <Dropdown.Item 
+                                        as="button" 
+                                        onClick={() => orderSubTask(task.id, 'down')}
+                                        className='d-flex align-items-center'
+                                        >
+                                            <FontAwesomeIcon icon={faCaretDown} className="me-2" size='lg' />
+                                            Move Down
+                                        </Dropdown.Item>
+                                    </> : null}
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </InputGroup>                    
                     ))}
 
