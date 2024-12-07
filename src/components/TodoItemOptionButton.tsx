@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPen, faEllipsisVertical, faPlus, faListCheck, faX, faAnglesRight, faTags, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import { formatDate } from '../utils/script';
-import { todoItem, SubTask } from '../utils/props';
+import { todoItem, SubTask, TagProp } from '../utils/props';
 
 type TodoItemProps = {
     todoItem: todoItem;
@@ -226,7 +226,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
 
     // Handle Tag
     const [tag, setTag] = React.useState('');
-    const [tagsList, setTagsList] = React.useState<string[]>(todoItem.tags);
+    const [tagsList, setTagsList] = React.useState<TagProp[]>(todoItem.tags);
 
     const onTagChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTag(event.target.value);
@@ -235,11 +235,25 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
     const onAddTagEventHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if(event.key === 'Enter'){
             if(tag.trim()){
-                const newTag = tag.split(',').map(tag => tag.trim()).filter(tag => tag !== "");
-                setTagsList([...new Set([...tagsList, ...newTag])]);
+                const newTags = tag
+                    .split(',')
+                    .map(tag => tag.trim())
+                    .filter(tag => tag !== "")
+                    .map(tag => ({ "content": tag, "labelColor": '#23272d' }));
+
+                let updatedTagsList = [...tagsList, ...newTags];
+                updatedTagsList = Array.from(new Map(updatedTagsList.map(tag => [tag.content, tag])).values());
+
+                setTagsList(updatedTagsList);
                 setTag('');
             }
         }
+    };
+
+    const onTagColorChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+        const updatedTagsList = [...tagsList];
+        updatedTagsList[index].labelColor = event.target.value;
+        setTagsList(updatedTagsList);
     };
 
     const removeTag = (index: number) => {
@@ -534,12 +548,19 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                 <InputGroup className="mb-3 d-flex">
                     <InputGroup.Text className="align-items-center">Tags</InputGroup.Text>
                     <ul className='d-flex align-items-center gap-2 form-control m-0 p-3' style={{overflowX: 'auto', flexWrap: 'wrap'}}>
-                        {tagsList.map((tag: string, index: number) => (
+                        {tagsList.map((tag: TagProp, index: number) => (
                             <li 
                                 key={index}
                                 className='px-2 py-1 border rounded-1 d-flex align-items-center gap-2'
                             >
-                                {tag}
+                                <input 
+                                    value={tag.labelColor}
+                                    onChange={(e) => onTagColorChangeEventHandler(e, index)}
+                                    type="color" 
+                                    className=''
+                                    style={{ width: '30px', height: '20px' }}
+                                />
+                                {tag.content}
                                 <button 
                                 type='button' 
                                 onClick={() => removeTag(index)} 
@@ -607,8 +628,24 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                             <Badge bg='success' className='ms-auto'>{todoItem.tags.length}</Badge>
                         </p>
                         <ul className='d-flex flex-row align-items-center gap-2 m-0 p-0 w-100' style={{overflowX: 'scroll'}}>
-                            {todoItem.tags.map((tag: string, index: number) => (
-                                <li key={index} className='px-2 py-1 border rounded-1 text-nowrap'>{tag}</li>
+                            {todoItem.tags.map((tag: TagProp, index: number) => (
+                                <li 
+                                    key={index} 
+                                    className='px-2 py-1 border rounded-1 text-nowrap d-flex align-items-center gap-2'
+                                    style={{
+                                        border: `2px solid ${tag.labelColor}83`
+                                    }}
+                                >
+                                    <span 
+                                    className='rounded-circle'
+                                    style={{
+                                        backgroundColor: tag.labelColor, 
+                                        width: '10px', 
+                                        height: '10px'
+                                    }}
+                                    ></span>
+                                    {tag.content}
+                                </li>
                             ))}                        
                         </ul>
                     </Dropdown.ItemText>

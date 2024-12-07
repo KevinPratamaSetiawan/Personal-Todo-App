@@ -10,7 +10,7 @@ import { faPlus, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSqua
 import TodoNav from './TodoNav';
 import { formatDate } from '../utils/script';
 import { completedData } from '../utils/script';
-import { todoItem, SubTask } from '../utils/props';
+import { todoItem, SubTask, TagProp } from '../utils/props';
 
 type TodoFormProps = {
     onAddTodo: (newTodo: todoItem) => void;
@@ -31,7 +31,7 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
     const [deadlineEndTimeHour, setEndDeadlineTimeHour] = React.useState(new Date().getHours() + 1);
     const [deadlineEndTimeMinute, setEndDeadlineTimeMinute] = React.useState(new Date().getMinutes());
     const [tag, setTag] = React.useState('');
-    const [tagsList, setTagsList] = React.useState<string[]>([]);
+    const [tagsList, setTagsList] = React.useState<TagProp[]>([]);
 
     const onTitleChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setTitle(event.target.value); };
     const onPreferredIdChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => { setPreferredId(event.target.value); };
@@ -108,11 +108,25 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
     const onAddTagEventHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if(event.key === 'Enter'){
             if(tag.trim()){
-                const newTag = tag.split(',').map(tag => tag.trim()).filter(tag => tag !== "");
-                setTagsList([...new Set([...tagsList, ...newTag])]);
+                const newTags = tag
+                    .split(',')
+                    .map(tag => tag.trim())
+                    .filter(tag => tag !== "")
+                    .map(tag => ({ "content": tag, "labelColor": '#23272d' }));
+
+                let updatedTagsList = [...tagsList, ...newTags];
+                updatedTagsList = Array.from(new Map(updatedTagsList.map(tag => [tag.content, tag])).values());
+
+                setTagsList(updatedTagsList);
                 setTag('');
             }
         }
+    };
+
+    const onTagColorChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+        const updatedTagsList = [...tagsList];
+        updatedTagsList[index].labelColor = event.target.value;
+        setTagsList(updatedTagsList);
     };
 
     const removeTag = (index: number) => {
@@ -545,12 +559,19 @@ const TodoForm = ({ onAddTodo, setTab }: TodoFormProps) => {
                     <InputGroup className="mb-3 bg-dark d-flex">
                         <InputGroup.Text className="text-white align-items-center">Tags</InputGroup.Text>
                         <ul className='d-flex align-items-center gap-2 form-control bg-dark text-white m-0 p-3' style={{overflowX: 'auto', flexWrap: 'wrap'}}>
-                            {tagsList.map((tag: string, index: number) => (
+                            {tagsList.map((tag: TagProp, index: number) => (
                                 <li 
                                     key={index}
                                     className='px-2 py-1 border rounded-1 d-flex align-items-center gap-2'
                                 >
-                                    {tag}
+                                    <input 
+                                    value={tag.labelColor}
+                                    onChange={(e) => onTagColorChangeEventHandler(e, index)}
+                                    type="color" 
+                                    className=''
+                                    style={{ width: '30px', height: '20px' }}
+                                    />
+                                    {tag.content}
                                     <button 
                                     type='button' 
                                     onClick={() => removeTag(index)} 

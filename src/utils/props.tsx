@@ -19,11 +19,16 @@ export type todoItem = {
     deadlineEndDate: string;
     deadlineStartTime: string;
     deadlineEndTime:string;
-    tags: string[];
+    tags: TagProp[];
 }
 
 export type NotificationProp = {
     todoId: string;
     id: number;
     actionType: number;
+}
+
+export type TagProp = {
+    content: string;
+    labelColor: string;
 }
