@@ -127,7 +127,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
     const addSubTask = () => {
         setSubTask(prevSubTask => [
             ...prevSubTask, 
-            { id: prevSubTask.length, content: "", completed: false, listStyle: "" }
+            { id: prevSubTask.length, content: "", completed: false, listStyle: "text", indent: 0 }
         ]);
     };
 
@@ -149,6 +149,12 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
         setSubTask(updatedSubTasks);
     };
 
+    const onSubTaskListIndentChangeEventHandler = (event: React.ChangeEvent<HTMLSelectElement>, index: number) => {
+        const updatedSubTasks = [...subTask];
+        updatedSubTasks[index].indent = parseInt(event.target.value, 10);
+        setSubTask(updatedSubTasks);
+    };
+
     const orderSubTask = (id: number, method: string) => {
         const updatedSubtask = [...subTask];
         const currentIndex = updatedSubtask.findIndex(item => item.id === id);
@@ -157,7 +163,7 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
             [updatedSubtask[currentIndex - 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex - 1]];
         }else if(method === 'add'){
             updatedSubtask.splice(currentIndex + 1, 0, 
-                { id: updatedSubtask.length, content: "", completed: false, listStyle: "" }
+                { id: updatedSubtask.length, content: "", completed: false, listStyle: "text", indent: 0 }
             )
         }else if(method === 'down'){
             [updatedSubtask[currentIndex + 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex + 1]];
@@ -308,30 +314,33 @@ export default function TodoItemOptionButton ({todoItem, onEditTodo, onDeleteTod
                 {subTask.map((task, index) => (
                     <InputGroup className="mb-3" key={task.id}>
                         <Form.Select 
+                            id="listIndentOptions" 
+                            value={task.indent} 
+                            onChange={(e) => onSubTaskListIndentChangeEventHandler(e, index)}
+                            aria-label="Subtask Indent Select"
+                            className="bg-dark text-white"
+                            style={{width: '12%', padding: '0', backgroundImage: 'none'}}
+                        >
+                            <option value={0}>0</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                        </Form.Select>
+                        <Form.Select 
                             id="listStyleOptions" 
                             value={task.listStyle} 
                             onChange={(e) => onSubTaskListStyleChangeEventHandler(e, index)}
                             aria-label="Subtask Style Select"
-                            
-                            style={{width: '15%', padding: '0', backgroundImage: 'none'}}
+                            className="bg-dark text-white"
+                            style={{width: '12%', padding: '0', backgroundImage: 'none'}}
                         >
-                            <option value="">None</option>
-                            <option value="textIndentOne">Str.</option>
-                            <option value="textIndentTwo">Str‥</option>
-                            <option value="textIndentThree">Str…</option>
-                            <option value="checkboxIndentOne">=.</option>
-                            <option value="checkboxIndentTwo">=‥</option>
-                            <option value="checkboxIndentThree">=…</option>
-                            <option value="xcircleIndentOne">*.</option>
-                            <option value="xcircleIndentTwo">*‥</option>
-                            <option value="xcircleIndentThree">*…</option>
-                            <option value="plusIndentOne">-.</option>
-                            <option value="plusIndentTwo">-‥</option>
-                            <option value="plusIndentThree">-…</option>
-                            <option value="linkIndentZero">#</option>
-                            <option value="linkIndentOne">#.</option>
-                            <option value="linkIndentTwo">#‥</option>
-                            <option value="linkIndentThree">#…</option>
+                            <option value="text">Str</option>
+                            <option value="checkbox">=</option>
+                            <option value="xcircle">*</option>
+                            <option value="plus">-</option>
+                            <option value="link">#</option>
                         </Form.Select>
                         <Form.Control 
                             value={task.content}

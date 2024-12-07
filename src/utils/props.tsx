@@ -3,6 +3,7 @@ export type SubTask = {
     content: string;
     completed: boolean;
     listStyle: string;
+    indent: number;
 }
 
 export type todoItem = {

@@ -736,64 +736,9 @@ body{
                     border-radius: 4px;
                   }
       
-                  button{
-                    cursor: pointer;
-                    margin-right: 5px;
-                  }
-      
                   br {
                     display: none;
                   }
-                }
-
-                li:has(.todo-list-indent-one){ padding-left: 7px; }
-
-                li:has(.todo-list-indent-two){ padding-left: 28px; }
-
-                li:has(.todo-list-indent-three){ padding-left: 49px; }
-
-                .text-indent-one,
-                .text-indent-two,
-                .text-indent-three{
-                  margin-top: -7px;
-                  margin-bottom: 5px;
-                }
-
-                .link-indent-one,
-                .link-indent-two,
-                .link-indent-three{
-                  button{
-                    text-align: left;
-                  }
-
-                  span{
-                    text-align: left;
-                    word-break: break-word;
-                    overflow-wrap: break-word;
-                    white-space: normal;
-                  }
-                }
-
-                .link-indent-one button::before,
-                .link-indent-two button::before,
-                .link-indent-three button::before{
-                  content: '# ';
-                  padding-left: 2px;
-                }
-
-                .text-indent-one,
-                .link-indent-one{
-                  padding-left: 26px;
-                }
-
-                .text-indent-two,
-                .link-indent-two{
-                  padding-left: 47px;
-                }
-      
-                .text-indent-three,
-                .link-indent-three{
-                  padding-left: 68px;
                 }
       
                 li:has(.fa-plus), li:has(.fa-circle-xmark), li:has(.fa-square-check) {
@@ -924,10 +869,7 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--schedule-color); } }
   .todo-deadline-stats-label{ color: var(--schedule-half); }
-  .link-indent-zero,
-  .link-indent-one,
-  .link-indent-two,
-  .link-indent-three{
+  li:has(.fa-link) {
     span{ color: var(--schedule-ratio-color); }}
 }
 #todo-priority{
@@ -939,10 +881,7 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--priority-color); } }
   .todo-deadline-stats-label{ color: var(--priority-half); }
-  .link-indent-zero,
-  .link-indent-one,
-  .link-indent-two,
-  .link-indent-three{
+  li:has(.fa-link) {
     span{ color: var(--priority-ratio-color); }}
 }
 #todo-items{
@@ -954,10 +893,7 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--task-color); } }
   .todo-deadline-stats-label{ color: var(--task-half); }
-  .link-indent-zero,
-  .link-indent-one,
-  .link-indent-two,
-  .link-indent-three{
+  li:has(.fa-link) {
     span{ color: var(--task-ratio-color); }}
 }
 #todo-finish{
@@ -969,9 +905,6 @@ body{
   .fa-angle-right:nth-child(3){ color: var(--text-color); }
   .todo-description{ .fa-plus, .fa-circle-xmark, .fa-square-check{ color: var(--complete-color); } }
   .todo-deadline-stats-label{ color: var(--complete-half); }
-  .link-indent-zero,
-  .link-indent-one,
-  .link-indent-two,
-  .link-indent-three{
+  li:has(.fa-link) {
     span{ color: var(--complete-ratio-color); }}
 }

@@ -21,8 +21,14 @@ export default function TodoCopyButton ({ buttonText }: TodoCopyButtonProps) {
 
     return (
         <>
-            <button onClick={onCopyLinkEventHandler}>
-                <span>{content}</span>
+            <button onClick={onCopyLinkEventHandler} className='text-start'>
+                <span 
+                style={{
+                    textAlign: 'left',
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word',
+                    whiteSpace: 'normal'
+                }}>{content}</span>
             </button>
         </>
     );

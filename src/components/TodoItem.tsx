@@ -197,7 +197,7 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
                         />:
                         null
                     }
-                    <button onClick={onTodoCopyIdEventHandler} className='todo-id'><span>{ todoId }</span></button>
+                    <button onClick={onTodoCopyIdEventHandler} className='todo-id'><span className='text-white'>{ todoId }</span></button>
                 </div>
             </div>
         </li>

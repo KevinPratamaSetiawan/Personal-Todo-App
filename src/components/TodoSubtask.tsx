@@ -4,7 +4,7 @@ import TodoCopyButton from './TodoCopyButton';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSquare } from '@fortawesome/free-regular-svg-icons';
-import { faSquareCheck, faMinus, faPlus, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faSquareCheck, faMinus, faPlus, faCircleXmark, faLink } from '@fortawesome/free-solid-svg-icons';
 
 type TodoTaskProps = {
     todoId: string;
@@ -19,42 +19,22 @@ export default function TodoTask ({ todoId, subTasks, onToggleSubTask}: TodoTask
         let icon;
 
         switch (listStyle){
-            case "plusIndentOne":
-                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-one" />;
+            case "plus":
+                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} />;
                 break;
 
-            case "plusIndentTwo":
-                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-two" />;
+            case "checkbox":
+                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} />;
                 break;
             
-            case "plusIndentThree":
-                icon = <FontAwesomeIcon icon={status ? faPlus : faMinus} className="todo-list-dash todo-list-indent-three" />;
+            case "xcircle":
+                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} />;
                 break;
-            
-            case "checkboxIndentOne":
-                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-one" />;
-                break;
-            
-            case "checkboxIndentTwo":
-                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-two" />;
-                break;
-                
-            case "checkboxIndentThree":
-                icon = <FontAwesomeIcon icon={status ? faSquareCheck : faSquare} className="todo-list-checkbox todo-list-indent-three" />;
-                break;
-            
-            case "xcircleIndentOne":
-                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-one" />;
+
+            case "link":
+                icon = <FontAwesomeIcon icon={faLink} size='xs' />;
                 break;
                                         
-            case "xcircleIndentTwo":
-                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-two" />;
-                break;
-                                    
-            case "xcircleIndentThree":
-                icon = <FontAwesomeIcon icon={status ? faCircleXmark : faCircle} className="todo-list-circle todo-list-indent-three" />;
-                break;
-                                                                                                                                                                
             default:
                 icon = null;
         }
@@ -69,14 +49,8 @@ export default function TodoTask ({ todoId, subTasks, onToggleSubTask}: TodoTask
     ));
 
     subTasks.map((task: SubTask) => (
-        task.listStyle !== '' && 
-        task.listStyle !== 'textIndentOne' && 
-        task.listStyle !== 'textIndentTwo' && 
-        task.listStyle !== 'textIndentThree' && 
-        task.listStyle !== 'linkIndentZero' &&
-        task.listStyle !== 'linkIndentOne' && 
-        task.listStyle !== 'linkIndentTwo' && 
-        task.listStyle !== 'linkIndentThree' ? 
+        task.listStyle !== 'text' && 
+        task.listStyle !== 'link' ? 
         totalSubtask++ : null
     ));
 
@@ -96,32 +70,37 @@ export default function TodoTask ({ todoId, subTasks, onToggleSubTask}: TodoTask
             {Array.isArray(subTasks) && subTasks.map((task: SubTask) => (
                 <li 
                 key={task.id} 
-                className={`${task.listStyle === 'textIndentOne' ? 'text-indent-one' : task.listStyle === 'textIndentTwo' ? 'text-indent-two' : task.listStyle === 'textIndentThree' ? 'text-indent-three' : ''} ${task.listStyle === 'linkIndentZero' ? 'link-indent-zero' : task.listStyle === 'linkIndentOne' ? 'link-indent-one' : task.listStyle === 'linkIndentTwo' ? 'link-indent-two' : task.listStyle === 'linkIndentThree' ? 'link-indent-three' : ''} ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`}>
-                    {task.listStyle !== '' && 
-                        task.listStyle !== 'textIndentOne' && 
-                        task.listStyle !== 'textIndentTwo' && 
-                        task.listStyle !== 'textIndentThree' && 
-                        task.listStyle !== 'linkIndentZero' &&
-                        task.listStyle !== 'linkIndentOne' && 
-                        task.listStyle !== 'linkIndentTwo' && 
-                        task.listStyle !== 'linkIndentThree' ?
-
-                    <button onClick={() => onToggleSubTask(todoId, task.id)}>
-                        {getListIcon(task.listStyle, task.completed)}
-                    </button> : null}
+                className={`${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`}
+                style={{
+                    paddingLeft: `${task.indent * 21}px`,
+                    marginTop: task.listStyle === 'text' && task.indent > 0 ? '-7px' : '',
+                    marginBottom: task.listStyle === 'text' && task.indent > 0 ? '7px' : ''
+                }}>
                     {
-                        task.listStyle !== 'linkIndentZero' &&
-                        task.listStyle !== 'linkIndentOne' && 
-                        task.listStyle !== 'linkIndentTwo' && 
-                        task.listStyle !== 'linkIndentThree' 
-                        ?
-                        task.content 
-                        : 
-                        <>
-                            <TodoCopyButton
-                                buttonText={task.content}
-                            />
-                        </>
+                        task.listStyle === 'link' ?
+                            <button 
+                            style={{
+                                marginRight: '5px',
+                                minWidth: '16px'
+                            }}
+                            >
+                                {getListIcon(task.listStyle, task.completed)}
+                            </button>
+                        : task.listStyle !== 'text' ? 
+                            <button 
+                            onClick={() => onToggleSubTask(todoId, task.id)}
+                            style={{
+                                marginRight: '5px',
+                                minWidth: '16px'
+                            }}
+                            >
+                                {getListIcon(task.listStyle, task.completed)}
+                            </button>
+                        : null
+                    }
+
+                    {task.listStyle !== 'link' ? task.content :                         
+                        <TodoCopyButton buttonText={task.content} />
                     }
                 </li>
             ))}
