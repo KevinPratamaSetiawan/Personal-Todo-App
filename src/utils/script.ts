@@ -9,49 +9,49 @@ const task = [
               "content": "PCD Report ?",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 13,
               "content": "RPP PPT",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 14,
               "content": "Fix Microdata PKL Letter Format",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 15,
               "content": "Fix Linkedin",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 16,
               "content": "Fix Resume and make a Portofolio",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 17,
               "content": "Apply to all internship as much as possible",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 18,
               "content": "Split the listStyle and Indent option into two dropdown",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": false,
@@ -74,112 +74,112 @@ const task = [
               "content": "Tabel Profile Kesamping, tapi kolom dijadikan 5 aja -> 1 per anggota, Foto diatas dibawahnya nama NIM",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Confusion Matrix -> lengkapi bagian recall, precision, dan f1-score",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Preprocessing, Augmentasi Data, bagian model training-evaluation, dan prediction display masuk ke dalam sub-bab arsitektur sistem",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "Sub-bab metode pengembangan dan pengujian dimasukkan ke sub-bab arsitektur sistem lalu didalam sub-bab metode tadi dimasukkan bagian-bagian diatas tadi",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 4,
               "content": "Arsitektur Sistem",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 5,
               "content": "Metode Pengembangan",
               "completed": false,
               "listStyle": "plus",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 6,
               "content": "Augmentasi, Data Preprocessing, dll",
               "completed": false,
               "listStyle": "plus",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 7,
               "content": "Metode Pengujian",
               "completed": false,
               "listStyle": "plus",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 8,
               "content": "Confusion Matrix",
               "completed": false,
               "listStyle": "plus",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 10,
               "content": "Metodologi pengumpulan dataset diletakkan sebelum alat dan bahan",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 11,
               "content": "Bab IV -> jelasin mengenai labeling, library yang dipakai untuk apa saja, untuk penjelasan kode fokus ke penjelasan fitur/fungsi secara keseluruhan bukan kode per baris",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 12,
               "content": "Buat ngejelasin kode jangan pake screenshoot tapi copy lalu display pada table dan pakai code-formatter web",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 13,
               "content": "https://www.syntax-highlighter.dev/",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 14,
               "content": "https://highlight.hohli.com/",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 15,
               "content": "Kesimpulan nanti fokus pada menjawab pertanyaan pada Rumusan Masalah",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 16,
               "content": "PPT gak perlu, presentasi pake laporan sama demo kode saja",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": false,
@@ -202,77 +202,77 @@ const task = [
               "content": "Classes",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "NLP -> Finishing the report document",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 2,
               "content": "PCD -> Finishing the report",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 3,
               "content": "RPP -> Finishing the model",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 4,
               "content": "PKL",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 5,
               "content": "MicroData -> Fix the format of registration letter",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 6,
               "content": "DBS Foundation -> Find a way to get recommendation letter",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 10,
               "content": "EdTech Backend Developer -> wait for email",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 7,
               "content": "Other -> wait for email",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 8,
               "content": "Thesis -> Take project hibah next semester, get pak Radhinka one if possible",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 9,
               "content": "Fullstack Development -> Finish that odin project you dipshit",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": false,
@@ -295,238 +295,238 @@ const task = [
               "content": "Create Vite React.js Typescript Bootstrap",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "npm create vite@latest",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "cd my-vite-project",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "npm install",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 4,
               "content": "npm install bootstrap",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 5,
               "content": "On main.tsx",
               "completed": false,
               "listStyle": "plus",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 6,
               "content": "import 'bootstrap/dist/css/bootstrap.min.css';",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 7,
               "content": "Override Bootstrap Var for more Custom Style",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 8,
               "content": "npm install sass",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 9,
               "content": "Create a file like src/styles/custom.scss and import Bootstrap",
               "completed": false,
               "listStyle": "plus",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 10,
               "content": "@import \"bootstrap/scss/bootstrap\";",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 11,
               "content": "Import the custom file in main.tsx instead of bootstrap.min.css",
               "completed": false,
               "listStyle": "plus",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 12,
               "content": "import './styles/custom.scss';",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 13,
               "content": "Install React Bootstrap",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 14,
               "content": "npm install react-bootstrap bootstrap",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 15,
               "content": "import { Button, etc } from 'react-bootstrap';",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 16,
               "content": "Install Bootstrap Icons",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 17,
               "content": "npm install bootstrap-icons",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 18,
               "content": "import 'bootstrap-icons/font/bootstrap-icons.css';",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 19,
               "content": "Install React Icons",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 20,
               "content": "npm install react-icons",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 21,
               "content": "import { FaBeer } from 'react-icons/fa';",
               "completed": false,
               "listStyle": "link",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 22,
               "content": "React Icons includes many popular libraries. You can import from these prefixes:",
               "completed": false,
               "listStyle": "plus",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 23,
               "content": "fa: Font Awesome",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 24,
               "content": "md: Material Design",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 25,
               "content": "ai: Ant Design",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 26,
               "content": "bs: Bootstrap Icons",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 27,
               "content": "gi: Game Icons",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 28,
               "content": "io: Ionicons",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 29,
               "content": "ri: Remix Icons",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 30,
               "content": "si: Simple Icons",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 31,
               "content": "fi: Feather Icons",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 32,
               "content": "cg: CSS.gg",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 33,
               "content": "tb: Tabler Icons",
               "completed": false,
               "listStyle": "text",
-              "indent": 2
+              "indent": 1
           }
       ],
       "completed": true,
@@ -549,49 +549,49 @@ const task = [
               "content": "Tingkatin Kontras Clache",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Hue bermasalah karena jadinya merah range 0-30 entah kenapa",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "GLCM untuk tekstur, contrast, energy nya low, correlation, ",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "dataset di sift mana yang jelek atau bagus, pembagian otomatis bermasalah",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 4,
               "content": "input model ada 2 (gambar dikecilin, dan dinormalisasi eg dibagi 255) feature texture sama feature warna sama gambarnya",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 5,
               "content": "hasil model overfitting, akurasi 100% tapi validasi 75%, value loss dapat 1 tapi bagusnya dibawah 1",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 6,
               "content": "Masalah: ekstrasi fitur malah fokus ke background, tekstur uang gak ke detect terutama yang jarak jauh, susunan dataset harus dibalance",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 7,
@@ -635,161 +635,161 @@ const task = [
               "content": "Main",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Filter navigation",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "Open now (client side filter)",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 4,
               "content": "Price (client side filter)",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 5,
               "content": "Categories/Cuisines (server side search filter)",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 6,
               "content": "Section",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 7,
               "content": "Restaurant item",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 8,
               "content": "Image (use first item in `photos`)",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 9,
               "content": "Cuisine / Categories (use first item in `categories`)",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 10,
               "content": "Rating",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 11,
               "content": "Price range",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 12,
               "content": "Open / Closed",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 13,
               "content": "Restaurant name",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 14,
               "content": "Learn more (navigate to Detail View)",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 15,
               "content": "Detail View",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 16,
               "content": "Restaurant Name & Rating",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 17,
               "content": "Map (optional)",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 18,
               "content": "Section",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 19,
               "content": "Review item",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 20,
               "content": "Image",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 21,
               "content": "Name",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 22,
               "content": "Rating",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           },
           {
               "id": 23,
               "content": "Text",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 3
+              "indent": 2
           }
       ],
       "completed": true,
@@ -812,35 +812,35 @@ const task = [
               "content": "Set up budget each month",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Form to put my expense consist of name, money spend, the date of expense, category (ex: food, primary, transportation, etc), createdAt",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Count the budget left out of setup budget that month",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "Stats f spending each month, and display the percentage of each spending out of the total budget",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 4,
               "content": "Icon based on the category that listed",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": false,
@@ -863,21 +863,21 @@ const task = [
               "content": "Category Badge",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Subtask Completion Percentage",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Preferred ID",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": true,
@@ -900,14 +900,14 @@ const task = [
               "content": "DBS Foundation Program",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "PT Mikrodata",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": false,
@@ -930,63 +930,63 @@ const task = [
               "content": "Typescript",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Bootstrap",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Stats Progress Bar",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 3,
               "content": "Form and Label",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 4,
               "content": "Badge",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 5,
               "content": "Toggles",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 6,
               "content": "Validation",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 7,
               "content": "Modal for Delete Validation",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 2
+              "indent": 1
           },
           {
               "id": 8,
               "content": "Counter for Schedule item if not completed for scheduleType [D], [W], [Y]",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": true,
@@ -1009,21 +1009,21 @@ const task = [
               "content": "Minta nomor ibu leslie",
               "completed": true,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Apakah program DBS Foundation bisa dikonversikan ke PKL",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Untuk Laporan PKL apakah menjadi semester 9, dan apakah pada semester 8 dapat mengerjakan TA1 dan TA2",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": true,
@@ -1046,35 +1046,35 @@ const task = [
               "content": "Add deadlineStartDate",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Add deadlineStartTime",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Add deadlineEndDate",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "Add deadlineEndTime",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 4,
               "content": "On Schedule List have a more specific listing per day on that week and shows the date on that week from Monday to Sunday and \"coming soon\" for the date that out of the week",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": true,
@@ -1189,14 +1189,14 @@ const task = [
               "content": "Cari kode buat chatbot dulu, nunggu preprocessing",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Modeling LSTM",
               "completed": true,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": true,
@@ -1219,28 +1219,28 @@ const task = [
               "content": "Bab I",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Bab II",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Bab III",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "Bab Lampiran",
               "completed": false,
               "listStyle": "checkbox",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": false,
@@ -1263,35 +1263,35 @@ const task = [
               "content": "Klasifikasi Pola Batik CNN.",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 1,
               "content": "Klasifikasi Karya Museum CNN.",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 2,
               "content": "Klasifikasi Kekuatan Tanah Pondasi CNN.",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 3,
               "content": "Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           },
           {
               "id": 4,
               "content": "Klasifikasi Aksara/Alfabet yang ada di Indonesi.",
               "completed": false,
               "listStyle": "plus",
-              "indent": 1
+              "indent": 0
           }
       ],
       "completed": false,
@@ -1324,42 +1324,42 @@ export const completedData = [
         "content": "Sub 1",
         "completed": false,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 2,
         "content": "Sub 1.1",
         "completed": false,
         "listStyle": "plus",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 3,
         "content": "Sub 1.1.1",
         "completed": true,
         "listStyle": "plus",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 4,
         "content": "Sub 1.1.2",
         "completed": true,
         "listStyle": "plus",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 5,
         "content": "Sub 1.2",
         "completed": false,
         "listStyle": "plus",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 6,
         "content": "Sub 1.2.1",
         "completed": true,
         "listStyle": "plus",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 7,
@@ -1373,42 +1373,42 @@ export const completedData = [
         "content": "Sub 2",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 9,
         "content": "Sub 2.1",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 10,
         "content": "Sub 2.1.1",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 11,
         "content": "Sub 2.1.2",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 12,
         "content": "Sub 2.2",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 13,
         "content": "Sub 2.2.1",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 14,
@@ -1422,42 +1422,42 @@ export const completedData = [
         "content": "Sub 3",
         "completed": true,
         "listStyle": "xcircle",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 16,
         "content": "Sub 3.1",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 17,
         "content": "Sub 3.1.1",
         "completed": true,
         "listStyle": "xcircle",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 18,
         "content": "Sub 3.1.2",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 19,
         "content": "Sub 3.2",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 20,
         "content": "Sub 3.2.1",
         "completed": true,
         "listStyle": "xcircle",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 21,
@@ -1471,42 +1471,42 @@ export const completedData = [
         "content": "Sub 4",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 23,
         "content": "Desc Sub 4",
         "completed": false,
         "listStyle": "text",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 24,
         "content": "Sub 4.1",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 25,
         "content": "Desc Sub 4.1",
         "completed": false,
         "listStyle": "text",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 26,
         "content": "Sub 4.1.1",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 27,
         "content": "Desc Sub 4.1.1",
         "completed": false,
         "listStyle": "text",
-        "indent": 3
+        "indent": 2
       }
     ],
     "completed": true,
@@ -1536,42 +1536,42 @@ export const completedData = [
         "content": "Sub 1",
         "completed": false,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 2,
         "content": "Sub 1.1",
         "completed": false,
         "listStyle": "plus",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 3,
         "content": "Sub 1.1.1",
         "completed": false,
         "listStyle": "plus",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 4,
         "content": "Sub 1.1.2",
         "completed": false,
         "listStyle": "plus",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 5,
         "content": "Sub 1.2",
         "completed": false,
         "listStyle": "plus",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 6,
         "content": "Sub 1.2.1",
         "completed": false,
         "listStyle": "plus",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 7,
@@ -1585,42 +1585,42 @@ export const completedData = [
         "content": "Sub 2",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 9,
         "content": "Sub 2.1",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 10,
         "content": "Sub 2.1.1",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 11,
         "content": "Sub 2.1.2",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 12,
         "content": "Sub 2.2",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 13,
         "content": "Sub 2.2.1",
         "completed": false,
         "listStyle": "checkbox",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 14,
@@ -1634,42 +1634,42 @@ export const completedData = [
         "content": "Sub 3",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 16,
         "content": "Sub 3.1",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 17,
         "content": "Sub 3.1.1",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 18,
         "content": "Sub 3.1.2",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 19,
         "content": "Sub 3.2",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 20,
         "content": "Sub 3.2.1",
         "completed": false,
         "listStyle": "xcircle",
-        "indent": 3
+        "indent": 2
       },
       {
         "id": 21,
@@ -1699,63 +1699,63 @@ export const completedData = [
         "content": "New Todo Form Modal.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 1,
         "content": "There is paste button that automaticaly fill the three input text.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 2,
         "content": "Display of date and clock.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 3,
         "content": "Take care of checkboxes in description.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 4,
         "content": "Major DEL, PUT, and GET feature.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 5,
         "content": "Fix the styling.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 6,
         "content": "Maybe has an option of want color or monochrome.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 7,
         "content": "Sorting the localStorage save based on the last 4 digit of the id from bigger to smallest.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 8,
         "content": "Fix the id assign system to the last item + 1.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       }
     ],
     "completed": true,
@@ -1778,14 +1778,14 @@ export const completedData = [
         "content": "Web React Kuis.",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 1,
         "content": "Video Demo Web.",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       }
     ],
     "completed": true,
@@ -1870,21 +1870,21 @@ export const completedData = [
         "content": "Tulis tangan.",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 1,
         "content": "Soal Konvolusi.",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 2,
         "content": "Histogram.",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       }
     ],
     "completed": true,
@@ -1907,98 +1907,98 @@ export const completedData = [
         "content": "Operasi Aras Titik:",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 1,
         "content": "Konversi Grayscale.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 2,
         "content": "Thresholding.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 3,
         "content": "Konversi Citra Negatif.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 4,
         "content": "Pencerahan.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 5,
         "content": "Operasi Aritmatika:",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 6,
         "content": "Penjumlahan Antar 2 Citra.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 7,
         "content": "Pengurangan Antar 2 Citra.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 8,
         "content": "Perkalian Antar 2 Citra.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 9,
         "content": "Operasi Boolean:",
         "completed": true,
         "listStyle": "plus",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 10,
         "content": "AND.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 11,
         "content": "OR.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 12,
         "content": "NOT.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       },
       {
         "id": 13,
         "content": "XOR.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 2
+        "indent": 1
       }
     ],
     "completed": true,
@@ -2021,14 +2021,14 @@ export const completedData = [
         "content": "Perluas Semantik.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 1,
         "content": "Jadikan Frame.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       }
     ],
     "completed": true,
@@ -2051,14 +2051,14 @@ export const completedData = [
         "content": "Make if list style followed by double dot or more means more indent or second rate.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       },
       {
         "id": 1,
         "content": "Make so if \":.\" is for start of list.",
         "completed": true,
         "listStyle": "checkbox",
-        "indent": 1
+        "indent": 0
       }
     ],
     "completed": true,
