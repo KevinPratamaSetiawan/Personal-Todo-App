@@ -36,7 +36,7 @@ export default function TodoDeadlineCounter ({ scheduleType, deadlineStartDate, 
             if(scheduleType !== '[A]'){
                 opening = 'starts in ';
             }else{
-                opening = 'ends in ';
+                opening = 'due in ';
             }
         } else if (now >= deadlineEnd) {
             msGap = now - deadlineEnd;
