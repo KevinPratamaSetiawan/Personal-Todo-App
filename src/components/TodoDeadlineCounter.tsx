@@ -32,7 +32,12 @@ export default function TodoDeadlineCounter ({ scheduleType, deadlineStartDate, 
     if (isToday) {
         if (now <= deadlineStart) {
             msGap = deadlineStart - now;
-            opening = 'starts in ';
+
+            if(scheduleType !== '[A]'){
+                opening = 'starts in ';
+            }else{
+                opening = 'ends in ';
+            }
         } else if (now >= deadlineEnd) {
             msGap = now - deadlineEnd;
             opening = 'finished ';

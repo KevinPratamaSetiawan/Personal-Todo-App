@@ -46,7 +46,7 @@ export default function TodoItem ({todoItem, onToggleComplete, onTogglePriority,
             const deadlineStart = new Date(`${deadlineStartDate}T23:59:59`).getTime();
 
             if (now <= deadlineStart){
-                todayAlert = '-TDY]';
+                todayAlert = '-DUE]';
                 isToday = true;
             }
         }else if (scheduleType !== '[D' && scheduleType !== '[W' && scheduleType !== '[A'){
