@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 type TodoDeadlineCounterProps = {
     scheduleType: string;
     deadlineStartDate: string;

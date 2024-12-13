@@ -1,18 +1,15 @@
-import React, { useState, ReactNode } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import TextareaAutosize, { TextareaAutosizeProps } from "react-textarea-autosize";
+import React, { ReactNode, useState } from 'react';
 import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Modal from 'react-bootstrap/Modal';
 
+import { faEllipsisVertical, faPen, faTags, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faPen, faEllipsisVertical, faPlus, faListCheck, faX, faAnglesRight, faTags, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-import TodoForm from './TodoForm';
+import { SubTask, TagProp, todoItem } from '../utils/props';
 import { formatDate } from '../utils/script';
-import { todoItem, SubTask, TagProp } from '../utils/props';
+import TodoForm from './TodoForm';
 
 type TodoItemProps = {
     todoItem: todoItem;

@@ -1,4 +1,3 @@
-import React from 'react';
 import TodoNav from './TodoNav';
 
 type TodoTimeProps = {

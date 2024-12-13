@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faToggleOff, faToggleOn, faChessRook } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from 'react';
 
-import TodoTime from './TodoTime';
+import ToastContainer from 'react-bootstrap/ToastContainer';
+import { NotificationProp, SubTask, todoItem } from '../utils/props';
+import { completedData, instructionData } from '../utils/data';
 import TodoAddForm from './TodoAddForm';
-import TodoStats from './TodoStats';
-import TodoSave from './TodoSave';
 import TodoDisplay from './TodoDisplay';
 import TodoNotification from './TodoNotification';
-import ToastContainer from 'react-bootstrap/ToastContainer';
-import { completedData } from '../utils/script';
-import { todoItem, SubTask, NotificationProp } from '../utils/props';
+import TodoSave from './TodoSave';
+import TodoStats from './TodoStats';
+import TodoTime from './TodoTime';
 
 export default function TodoPage () {
     // Handle Tab
@@ -224,7 +224,7 @@ export default function TodoPage () {
 
         const timer = setTimeout(() => {
             setNotifList((prev) => prev.slice(1));
-        }, 30000);
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, [notifList])
@@ -293,7 +293,7 @@ export default function TodoPage () {
                 />
             )}
             <TodoDisplay
-                todoItems={[...todosData, ...completedData]}
+                todoItems={[...todosData, ...completedData, ...instructionData]}
                 onToggleComplete={toggleComplete}
                 onTogglePriority={togglePriority}
                 onEditTodo={editTodo}

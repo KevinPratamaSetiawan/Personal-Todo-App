@@ -1,6 +1,5 @@
-import React from 'react';
+import { faChartGantt, faCheckSquare, faClock, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faFloppyDisk, faCheckSquare, faChartGantt } from '@fortawesome/free-solid-svg-icons';
 
 type TodoNavProps = {
     currentTab: string;

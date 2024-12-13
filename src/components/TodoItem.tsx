@@ -1,16 +1,13 @@
-import React, { useState, ReactNode } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
-import { faCircleCheck, faCircleExclamation, faTrashCan, faAngleRight, faCopy } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faCircleCheck, faCircleExclamation, faCopy } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { ReactNode } from 'react';
 
+import { todoItem } from '../utils/props';
+import TodoDeadlineCounter from './TodoDeadlineCounter';
+import TodoDeadlineStats from './TodoDeadlineStats';
 import TodoItemOptionButton from './TodoItemOptionButton';
 import TodoTask from './TodoSubtask';
-import TodoDeadlineStats from './TodoDeadlineStats';
-import TodoDeadlineCounter from './TodoDeadlineCounter';
-import { formatDate } from '../utils/script';
-import { todoItem } from '../utils/props';
 
 type TodoItemProps = {
     todoItem: todoItem;

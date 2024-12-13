@@ -1,6 +1,5 @@
-import React from 'react';
+import { todoItem } from '../utils/props';
 import TodoNav from './TodoNav';
-import { todoItem, SubTask } from '../utils/props';
 
 type TodoStatsProps = {
     todosData: todoItem[];

@@ -1,16 +1,13 @@
+import { faAnglesRight, faCaretDown, faCaretUp, faEllipsisVertical, faListCheck, faPlus, faTrashCan, faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import TextareaAutosize, { TextareaAutosizeProps } from "react-textarea-autosize";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faPaste, faSquareCheck, faCircleXmark, faListCheck, faX, faSquareXmark, faAnglesRight, faTrashCan, faCaretDown, faCaretUp, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import TextareaAutosize from "react-textarea-autosize";
 
-import TodoNav from './TodoNav';
-import { formatDate } from '../utils/script';
-import { completedData } from '../utils/script';
-import { todoItem, SubTask, TagProp } from '../utils/props';
+import { SubTask, TagProp } from '../utils/props';
 
 type TodoFormProps = {
     preferredId: string;

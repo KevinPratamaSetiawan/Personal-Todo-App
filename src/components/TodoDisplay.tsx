@@ -1,6 +1,5 @@
-import React from 'react';
+import { todoItem } from '../utils/props';
 import TodoList from './TodoList';
-import { todoItem, SubTask } from '../utils/props';
 
 type TodoDisplayProps = {
     todoItems: todoItem[];
@@ -52,6 +51,17 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 todoItems={todoItems}
                 listName={'Completed'}
                 listType={'completed'}
+                onToggleComplete={onToggleComplete}
+                onTogglePriority={onTogglePriority}
+                onEditTodo={onEditTodo}
+                onDeleteTodo={onDeleteTodo}
+                onToggleSubTask={onToggleSubTask}
+            />
+            <TodoList 
+                id={'todo-instruction'}
+                todoItems={todoItems}
+                listName={'Instructions'}
+                listType={'instruction'}
                 onToggleComplete={onToggleComplete}
                 onTogglePriority={onTogglePriority}
                 onEditTodo={onEditTodo}

@@ -1,9 +1,8 @@
-import React from 'react';
+import { faAnglesRight, faBook, faBookOpen, faBoxArchive, faFolderClosed, faFolderOpen, faInbox } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesRight, faFolderClosed, faFolderOpen, faInbox, faBoxArchive, faArchway } from '@fortawesome/free-solid-svg-icons';
 
+import { todoItem } from '../utils/props';
 import TodoItem from './TodoItem';
-import { todoItem, SubTask } from '../utils/props';
 
 type TodoListProps = {
     id: string;
@@ -17,7 +16,7 @@ type TodoListProps = {
     onToggleSubTask: (id: string, subtaskId: number) => void;
 }
 
-export default function TodoList ({ id, todoItems, listName, listType, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask}: TodoListProps) {
+export default function TodoList({ id, todoItems, listName, listType, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask }: TodoListProps) {
     function numberToRoman(num: number) {
         const romanNumerals = [
             { value: 1000, numeral: 'M' },
@@ -34,20 +33,20 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
             { value: 4, numeral: 'IV' },
             { value: 1, numeral: 'I' }
         ];
-        
+
         let result = '∅';
-      
-        if (num !== 0){
-          result = '';
-        
-          for (const { value, numeral } of romanNumerals) {
-            while (num >= value) {
-              result += numeral;
-              num -= value;
+
+        if (num !== 0) {
+            result = '';
+
+            for (const { value, numeral } of romanNumerals) {
+                while (num >= value) {
+                    result += numeral;
+                    num -= value;
+                }
             }
-          } 
         }
-          return result;
+        return result;
     }
 
     return (
@@ -55,28 +54,36 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
             <summary>
                 <h6>
                     <FontAwesomeIcon icon={faAnglesRight} />
-                    {listType === 'completed' ? 
+                    {listType === 'completed' ?
                         <>
                             <FontAwesomeIcon icon={faInbox} />
                             <FontAwesomeIcon icon={faBoxArchive} />
-                        </>:
+                        </> : listType !== 'instruction' ?
                         <>
                             <FontAwesomeIcon icon={faFolderClosed} />
                             <FontAwesomeIcon icon={faFolderOpen} />
+                        </> :
+                        <>
+                            <FontAwesomeIcon icon={faBook} />
+                            <FontAwesomeIcon icon={faBookOpen} />
                         </>
                     }
-                    { listName }
+                    {listName}
                 </h6>
                 <span>
                     {numberToRoman(
                         todoItems.filter((item) => {
-                            if (listType === 'schedule' && !item.completed && item.schedule) {
-                                return true;
-                            } else if (listType === 'priority' && !item.completed && item.priority && !item.schedule) {
-                                return true;
-                            } else if (listType === 'task' && !item.completed && !item.priority && !item.schedule) {
-                                return true;
-                            } else if (listType === 'completed' && item.completed) {
+                            if (item.id[0] === 'N') {
+                                if (listType === 'schedule' && !item.completed && item.schedule) {
+                                    return true;
+                                } else if (listType === 'priority' && !item.completed && item.priority && !item.schedule) {
+                                    return true;
+                                } else if (listType === 'task' && !item.completed && !item.priority && !item.schedule) {
+                                    return true;
+                                } else if (listType === 'completed' && item.completed) {
+                                    return true;
+                                }
+                            } else if (listType === 'instruction' && item.id[0] === 'I') {
                                 return true;
                             }
                             return false;
@@ -87,46 +94,58 @@ export default function TodoList ({ id, todoItems, listName, listType, onToggleC
 
             <ul>
                 {todoItems.map((item) => {
-                    if (listType === 'schedule' && !item.completed && item.schedule) {
-                        return <TodoItem 
-                                    key={item.id}
-                                    todoItem={item}
-                                    onToggleComplete={onToggleComplete}
-                                    onTogglePriority={onTogglePriority}
-                                    onEditTodo={onEditTodo}
-                                    onDeleteTodo={onDeleteTodo}
-                                    onToggleSubTask={onToggleSubTask}
-                                />;
-                    } else if (listType === 'priority' && !item.completed && item.priority && !item.schedule) {
-                        return <TodoItem 
-                                    key={item.id}
-                                    todoItem={item}
-                                    onToggleComplete={onToggleComplete}
-                                    onTogglePriority={onTogglePriority}
-                                    onEditTodo={onEditTodo}
-                                    onDeleteTodo={onDeleteTodo}
-                                    onToggleSubTask={onToggleSubTask}
-                                />;
-                    } else if (listType === 'task' && !item.completed && !item.priority && !item.schedule) {
-                        return <TodoItem 
-                                    key={item.id}
-                                    todoItem={item}
-                                    onToggleComplete={onToggleComplete}
-                                    onTogglePriority={onTogglePriority}
-                                    onEditTodo={onEditTodo}
-                                    onDeleteTodo={onDeleteTodo}
-                                    onToggleSubTask={onToggleSubTask}
-                                />;
-                    } else if (listType === 'completed' && item.completed) {
-                        return <TodoItem 
-                                    key={item.id}
-                                    todoItem={item}
-                                    onToggleComplete={onToggleComplete}
-                                    onTogglePriority={onTogglePriority}
-                                    onEditTodo={onEditTodo}
-                                    onDeleteTodo={onDeleteTodo}
-                                    onToggleSubTask={onToggleSubTask}
-                                />;
+                    if (item.id[0] === 'N') {
+                        if (listType === 'schedule' && !item.completed && item.schedule) {
+                            return <TodoItem
+                                key={item.id}
+                                todoItem={item}
+                                onToggleComplete={onToggleComplete}
+                                onTogglePriority={onTogglePriority}
+                                onEditTodo={onEditTodo}
+                                onDeleteTodo={onDeleteTodo}
+                                onToggleSubTask={onToggleSubTask}
+                            />;
+                        } else if (listType === 'priority' && !item.completed && item.priority && !item.schedule) {
+                            return <TodoItem
+                                key={item.id}
+                                todoItem={item}
+                                onToggleComplete={onToggleComplete}
+                                onTogglePriority={onTogglePriority}
+                                onEditTodo={onEditTodo}
+                                onDeleteTodo={onDeleteTodo}
+                                onToggleSubTask={onToggleSubTask}
+                            />;
+                        } else if (listType === 'task' && !item.completed && !item.priority && !item.schedule) {
+                            return <TodoItem
+                                key={item.id}
+                                todoItem={item}
+                                onToggleComplete={onToggleComplete}
+                                onTogglePriority={onTogglePriority}
+                                onEditTodo={onEditTodo}
+                                onDeleteTodo={onDeleteTodo}
+                                onToggleSubTask={onToggleSubTask}
+                            />;
+                        } else if (listType === 'completed' && item.completed) {
+                            return <TodoItem
+                                key={item.id}
+                                todoItem={item}
+                                onToggleComplete={onToggleComplete}
+                                onTogglePriority={onTogglePriority}
+                                onEditTodo={onEditTodo}
+                                onDeleteTodo={onDeleteTodo}
+                                onToggleSubTask={onToggleSubTask}
+                            />;
+                        }
+                    } else if (listType === 'instruction' && item.id[0] === 'I') {
+                        return <TodoItem
+                            key={item.id}
+                            todoItem={item}
+                            onToggleComplete={onToggleComplete}
+                            onTogglePriority={onTogglePriority}
+                            onEditTodo={onEditTodo}
+                            onDeleteTodo={onDeleteTodo}
+                            onToggleSubTask={onToggleSubTask}
+                        />;
                     }
                     return null;
                 })}

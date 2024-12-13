@@ -1,10 +1,9 @@
-import React from 'react';
 import { SubTask } from '../utils/props';
 import TodoCopyButton from './TodoCopyButton';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faSquare } from '@fortawesome/free-regular-svg-icons';
-import { faSquareCheck, faMinus, faPlus, faCircleXmark, faLink } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faLink, faMinus, faPlus, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type TodoTaskProps = {
     todoId: string;
