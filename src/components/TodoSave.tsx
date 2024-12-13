@@ -18,7 +18,13 @@ export default function TodoSave ({ setTodosData, setTab, createNotification }: 
     const openDelMethod = () => { setCurrentMethod('del'); };
 
     const getData = () => {
-        let saveData = localStorage.getItem('todoItems') || '[]]';
+        let saveData = 
+            JSON.stringify(
+                JSON.parse(localStorage.getItem('todoItems') || '[]'), 
+                null, 
+                0
+            );
+
         navigator.clipboard.writeText(saveData);
 
         createNotification(
@@ -67,7 +73,7 @@ export default function TodoSave ({ setTodosData, setTab, createNotification }: 
                 <div className='interface-display'>
                     {currentMethod === 'get' && (
                         <TodoSaveInterface
-                        methodLink={'https://💻/getSaveData'}
+                        methodLink={'https:/💻/getSaveData'}
                         interfaceType={currentMethod}
                         buttonText={'GET Data'}
                         methodUsed={getData}
@@ -76,7 +82,7 @@ export default function TodoSave ({ setTodosData, setTab, createNotification }: 
                     )}
                     {currentMethod === 'put' && (
                         <TodoSaveInterface
-                        methodLink={'https://💻/putSaveData'}
+                        methodLink={'https:/💻/putSaveData'}
                         interfaceType={currentMethod}
                         buttonText={'PUT Data'}
                         methodUsed={putData}
@@ -85,7 +91,7 @@ export default function TodoSave ({ setTodosData, setTab, createNotification }: 
                     )}
                     {currentMethod === 'del' && (
                         <TodoSaveInterface
-                        methodLink={'https://💻/delSaveData'}
+                        methodLink={'https:/💻/delSaveData'}
                         interfaceType={currentMethod}
                         buttonText={'DEL Data'}
                         methodUsed={delData}
