@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToggleOff, faToggleOn, faChessRook } from '@fortawesome/free-solid-svg-icons';
 
 import TodoTime from './TodoTime';
-import TodoForm from './TodoForm';
+import TodoAddForm from './TodoAddForm';
 import TodoStats from './TodoStats';
 import TodoSave from './TodoSave';
 import TodoDisplay from './TodoDisplay';
@@ -224,7 +224,7 @@ export default function TodoPage () {
 
         const timer = setTimeout(() => {
             setNotifList((prev) => prev.slice(1));
-        }, 3000);
+        }, 30000);
 
         return () => clearTimeout(timer);
     }, [notifList])
@@ -274,7 +274,7 @@ export default function TodoPage () {
                 />
             )}
             {currentTab === 'add' && (
-                <TodoForm 
+                <TodoAddForm 
                 onAddTodo={addTodo}
                 setTab={onTabChangeEventHandler}
                 />
@@ -302,8 +302,9 @@ export default function TodoPage () {
             />
 
             <ToastContainer className="position-fixed bottom-0 end-0 me-2 mb-4" style={{ zIndex: 1 }}>
-                {notifList.map((notif) => (
+                {notifList.map((notif, index) => (
                     <TodoNotification
+                        key={index}
                         closeNotification={closeNotification}
                         todoId={notif.todoId}
                         notifId={notif.id}
