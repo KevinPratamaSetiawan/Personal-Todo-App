@@ -772,14 +772,14 @@ body {
                   }
                 }
 
-                li:has(.fa-plus),
+                li:has(.fa-check),
                 li:has(.fa-circle-xmark),
                 li:has(.fa-square-check) {
                   text-decoration: line-through;
                   color: var(--neutral-400);
                 }
 
-                .mono-theme:has(.fa-plus)::after,
+                .mono-theme:has(.fa-check)::after,
                 .mono-theme:has(.fa-circle-xmark)::after,
                 .mono-theme:has(.fa-square-check)::after {
                   /* content: '\2714'; */
@@ -792,7 +792,7 @@ body {
                 }
 
                 .color-theme:has(
-                    :is(.fa-plus, .fa-circle-xmark, .fa-square-check)
+                    :is(.fa-check, .fa-circle-xmark, .fa-square-check)
                   )::after {
                   content: " ✨";
                   text-decoration: none;
@@ -915,7 +915,7 @@ body {
     color: var(--text-color);
   }
   .todo-description {
-    .fa-plus,
+    .fa-check,
     .fa-circle-xmark,
     .fa-square-check {
       color: var(--schedule-color);
@@ -948,7 +948,7 @@ body {
     color: var(--text-color);
   }
   .todo-description {
-    .fa-plus,
+    .fa-check,
     .fa-circle-xmark,
     .fa-square-check {
       color: var(--priority-color);
@@ -981,7 +981,7 @@ body {
     color: var(--text-color);
   }
   .todo-description {
-    .fa-plus,
+    .fa-check,
     .fa-circle-xmark,
     .fa-square-check {
       color: var(--task-color);
@@ -1014,7 +1014,7 @@ body {
     color: var(--text-color);
   }
   .todo-description {
-    .fa-plus,
+    .fa-check,
     .fa-circle-xmark,
     .fa-square-check {
       color: var(--complete-color);

@@ -244,12 +244,9 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                         className="bg-dark text-white"
                         style={{ width: '12%', padding: '0', backgroundImage: 'none' }}
                     >
-                        <option value={0}>0</option>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
+                        {Array.from({ length: 6 }, (_, i) => i).map(indent => (
+                            <option key={indent} value={indent}>{indent.toString().padStart(2, '0')}</option>
+                        ))}
                     </Form.Select>
                     <Form.Select
                         id="listStyleOptions"
@@ -264,6 +261,9 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                         <option value="xcircle">*</option>
                         <option value="plus">-</option>
                         <option value="link">#</option>
+                        <option value="caret">{">"}</option>
+                        <option value="dot">•</option>
+                        <option value="square">□</option>
                     </Form.Select>
                     <Form.Control
                         value={task.content}
