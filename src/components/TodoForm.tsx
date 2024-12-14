@@ -90,7 +90,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
             [updatedSubtask[currentIndex - 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex - 1]];
         } else if (method === 'add') {
             updatedSubtask.splice(currentIndex + 1, 0,
-                { id: updatedSubtask.length, content: "", completed: false, listStyle: "text", indent: 0 }
+                { id: updatedSubtask.length, content: "", completed: false, listStyle: subTask[currentIndex].listStyle, indent: subTask[currentIndex].indent }
             )
         } else if (method === 'down') {
             [updatedSubtask[currentIndex + 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex + 1]];

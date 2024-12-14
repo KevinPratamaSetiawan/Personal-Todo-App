@@ -1,432 +1,458 @@
 const task = [
     {
-        id: "N-0077",
-        title: "Resume Jurnal Segmentasi PCD",
-        description: "no description",
-        subTask: [],
-        completed: false,
-        priority: false,
-        schedule: true,
-        scheduleType: "[A]",
-        deadlineStartDate: "2024-12-13",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "23:59",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
-    },
-    {
-        id: "N-0076",
-        title: "TODAY",
-        description: "no description",
-        subTask: [
-            {
-                id: 12,
-                content: "PCD Resume Paper about Segmentation",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 15,
-                content: "Fix Linkedin",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 16,
-                content: "Fix Resume and make a Portofolio",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 17,
-                content: "Apply to all internship as much as possible",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 4,
-                content: "Focus on Web-Dev",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
+        "id": "N-0077",
+        "title": "Resume Jurnal Segmentasi PCD",
+        "description": "no description",
+        "subTask": [
+
         ],
-        completed: false,
-        priority: false,
-        schedule: true,
-        scheduleType: "[D]",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "00:01",
-        deadlineEndTime: "23:59",
-        tags: [],
+        "completed": false,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[A]",
+        "deadlineStartDate": "2024-12-13",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "23:59",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": [
+
+        ]
     },
     {
-        id: "N-0074",
-        title: "Current Priority",
-        description: "no description",
-        subTask: [
+        "id": "N-0076",
+        "title": "TODAY",
+        "description": "no description",
+        "subTask": [
             {
-                id: 0,
-                content: "Classes",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
+                "id": 12,
+                "content": "PCD Resume Paper about Segmentation",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
             {
-                id: 1,
-                content: "NLP -> Presentasi",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 1,
+                "id": 15,
+                "content": "Fix Linkedin",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
             {
-                id: 2,
-                content: "PCD -> Presentasi",
-                completed: true,
-                listStyle: "checkbox",
-                indent: 1,
+                "id": 16,
+                "content": "Fix Resume and make a Portofolio",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
             {
-                id: 3,
-                content: "RPP -> Laporan Akhir",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 1,
+                "id": 17,
+                "content": "Apply to all internship as much as possible",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
             {
-                id: 4,
-                content: "PKL",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 5,
-                content: "MicroData -> Wait for the fix timeline",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 1,
-            },
-            {
-                id: 6,
-                content: "DBS Foundation -> Find a way to get recommendation letter",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 1,
-            },
-            {
-                id: 10,
-                content: "EdTech Backend Developer -> wait for email",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 1,
-            },
-            {
-                id: 7,
-                content: "Other -> wait for email",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 1,
-            },
-            {
-                id: 8,
-                content:
-                    "Thesis -> Take project hibah next semester, get pak Radhinka one if possible",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 9,
-                content:
-                    "Fullstack Development -> Finish that odin project you dipshit",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
+                "id": 4,
+                "content": "Focus on Web-Dev",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            }
         ],
-        completed: false,
-        priority: true,
-        schedule: false,
-        scheduleType: "",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "noDeadlineStartTime",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
+        "completed": false,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[D]",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "00:01",
+        "deadlineEndTime": "23:59",
+        "tags": [
+
+        ]
     },
     {
-        id: "N-0069",
-        title: "Expense Tracker PWA",
-        description: "no description",
-        subTask: [
+        "id": "N-0074",
+        "title": "Current Priority",
+        "description": "no description",
+        "subTask": [
             {
-                id: 0,
-                content: "Set up budget each month",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
+                "id": 0,
+                "content": "Classes",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
             {
-                id: 1,
-                content:
-                    "Form to put my expense consist of name, money spend, the date of expense, category (ex: food, primary, transportation, etc), createdAt",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
+                "id": 1,
+                "content": "NLP -> Presentasi",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
             },
             {
-                id: 2,
-                content: "Count the budget left out of setup budget that month",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
+                "id": 2,
+                "content": "PCD -> Presentasi",
+                "completed": true,
+                "listStyle": "checkbox",
+                "indent": 1
             },
             {
-                id: 3,
-                content:
-                    "Stats f spending each month, and display the percentage of each spending out of the total budget",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
+                "id": 3,
+                "content": "RPP -> Laporan Akhir",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
             },
             {
-                id: 4,
-                content: "Icon based on the category that listed",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
+                "id": 4,
+                "content": "PKL",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
+            {
+                "id": 5,
+                "content": "MicroData -> Wait for the fix timeline",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
+            },
+            {
+                "id": 6,
+                "content": "DBS Foundation -> Find a way to get recommendation letter",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
+            },
+            {
+                "id": 10,
+                "content": "EdTech Backend Developer -> wait for email",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
+            },
+            {
+                "id": 7,
+                "content": "Other -> wait for email",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
+            },
+            {
+                "id": 8,
+                "content": "Thesis -> Take project hibah next semester, get pak Radhinka one if possible",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 9,
+                "content": "Fullstack Development -> Finish that odin project you dipshit",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            }
         ],
-        completed: false,
-        priority: false,
-        schedule: false,
-        scheduleType: "",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "noDeadlineStartTime",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
+        "completed": false,
+        "priority": true,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": [
+
+        ]
     },
     {
-        id: "N-0067",
-        title: "Find Internship",
-        description: "no description",
-        subTask: [
+        "id": "N-0069",
+        "title": "Expense Tracker PWA",
+        "description": "no description",
+        "subTask": [
             {
-                id: 0,
-                content: "DBS Foundation Program",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
+                "id": 0,
+                "content": "Set up budget each month",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
             {
-                id: 1,
-                content: "PT Mikrodata",
-                completed: true,
-                listStyle: "plus",
-                indent: 0,
+                "id": 1,
+                "content": "Form to put my expense consist of name, money spend, the date of expense, category (ex: food, primary, transportation, etc), createdAt",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             },
+            {
+                "id": 2,
+                "content": "Count the budget left out of setup budget that month",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 3,
+                "content": "Stats f spending each month, and display the percentage of each spending out of the total budget",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 4,
+                "content": "Icon based on the category that listed",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            }
         ],
-        completed: false,
-        priority: true,
-        schedule: false,
-        scheduleType: "",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "noDeadlineStartTime",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
+        "completed": false,
+        "priority": false,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": [
+
+        ]
     },
     {
-        id: "N-0062",
-        title: "Pengolahan Bahasa Alami",
-        description: "Kelas R | GK2-312 A | WIY",
-        subTask: [],
-        completed: false,
-        priority: false,
-        schedule: true,
-        scheduleType: "[W]",
-        deadlineStartDate: "Monday",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "09:30",
-        deadlineEndTime: "12:00",
-        tags: [],
-    },
-    {
-        id: "N-0061",
-        title: "Pengolahan Citra Digital",
-        description: "Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
-        subTask: [],
-        completed: false,
-        priority: false,
-        schedule: true,
-        scheduleType: "[W]",
-        deadlineStartDate: "Friday",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "09:30",
-        deadlineEndTime: "12:00",
-        tags: [],
-    },
-    {
-        id: "N-0060",
-        title: "Representasi Pengetahuan dan Penalaran",
-        description: "Kelas R | LAB IOT | MCU",
-        subTask: [],
-        completed: false,
-        priority: false,
-        schedule: true,
-        scheduleType: "[W]",
-        deadlineStartDate: "Friday",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "13:00",
-        deadlineEndTime: "15:30",
-        tags: [],
-    },
-    {
-        id: "N-0059",
-        title: " IDCamp and Project Odin",
-        description: "no description",
-        subTask: [
+        "id": "N-0067",
+        "title": "Find Internship",
+        "description": "no description",
+        "subTask": [
             {
-                id: 0,
-                content: "Archive Akademik -> React.js Node.js PostGre-SQL-etc",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
+                "id": 0,
+                "content": "DBS Foundation Program",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 0
             },
             {
-                id: 1,
-                content: "Project Display -> React.js",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 2,
-                content: "Re-work Past Project -> React.js",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 3,
-                content: "Finance Tracker",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
+                "id": 1,
+                "content": "PT Mikrodata",
+                "completed": true,
+                "listStyle": "plus",
+                "indent": 0
+            }
         ],
-        completed: false,
-        priority: true,
-        schedule: false,
-        scheduleType: "",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "noDeadlineStartTime",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
+        "completed": false,
+        "priority": true,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": [
+
+        ]
     },
     {
-        id: "N-0056",
-        title: " Finish TA",
-        description: "no description",
-        subTask: [
-            {
-                id: 0,
-                content: "Bab I",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 1,
-                content: "Bab II",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 2,
-                content: "Bab III",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
-            {
-                id: 3,
-                content: "Bab Lampiran",
-                completed: false,
-                listStyle: "checkbox",
-                indent: 0,
-            },
+        "id": "N-0062",
+        "title": "Pengolahan Bahasa Alami",
+        "description": "Kelas R | GK2-312 A | WIY",
+        "subTask": [
+
         ],
-        completed: false,
-        priority: false,
-        schedule: false,
-        scheduleType: "",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "noDeadlineStartTime",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
+        "completed": false,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[W]",
+        "deadlineStartDate": "Monday",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "09:30",
+        "deadlineEndTime": "12:00",
+        "tags": [
+
+        ]
     },
     {
-        id: "N-0055",
-        title: "Alternatif Judul TA",
-        description: "no description",
-        subTask: [
-            {
-                id: 0,
-                content: "Klasifikasi Pola Batik CNN.",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
-            {
-                id: 1,
-                content: "Klasifikasi Karya Museum CNN.",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
-            {
-                id: 2,
-                content: "Klasifikasi Kekuatan Tanah Pondasi CNN.",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
-            {
-                id: 3,
-                content: "Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
-            {
-                id: 4,
-                content: "Klasifikasi Aksara/Alfabet yang ada di Indonesi.",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
+        "id": "N-0061",
+        "title": "Pengolahan Citra Digital",
+        "description": "Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
+        "subTask": [
+
         ],
-        completed: false,
-        priority: false,
-        schedule: false,
-        scheduleType: "",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "noDeadlineStartTime",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
+        "completed": false,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[W]",
+        "deadlineStartDate": "Friday",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "09:30",
+        "deadlineEndTime": "12:00",
+        "tags": [
+
+        ]
     },
+    {
+        "id": "N-0060",
+        "title": "Representasi Pengetahuan dan Penalaran",
+        "description": "Kelas R | LAB IOT | MCU",
+        "subTask": [
+
+        ],
+        "completed": false,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[W]",
+        "deadlineStartDate": "Friday",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "13:00",
+        "deadlineEndTime": "15:30",
+        "tags": [
+
+        ]
+    },
+    {
+        "id": "N-0059",
+        "title": " IDCamp and Project Odin",
+        "description": "no description",
+        "subTask": [
+            {
+                "id": 0,
+                "content": "Archive Akademik -> React.js Node.js PostGre-SQL-etc",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 1,
+                "content": "Project Display -> React.js",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 2,
+                "content": "Re-work Past Project -> React.js",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 3,
+                "content": "Finance Tracker",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            }
+        ],
+        "completed": false,
+        "priority": true,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": [
+
+        ]
+    },
+    {
+        "id": "N-0056",
+        "title": " Finish TA",
+        "description": "no description",
+        "subTask": [
+            {
+                "id": 0,
+                "content": "Bab I",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 1,
+                "content": "Bab II",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 2,
+                "content": "Bab III",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 3,
+                "content": "Bab Lampiran",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            }
+        ],
+        "completed": false,
+        "priority": false,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": [
+
+        ]
+    },
+    {
+        "id": "N-0055",
+        "title": "Alternatif Judul TA",
+        "description": "no description",
+        "subTask": [
+            {
+                "id": 0,
+                "content": "Klasifikasi Pola Batik CNN.",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 0
+            },
+            {
+                "id": 1,
+                "content": "Klasifikasi Karya Museum CNN.",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 0
+            },
+            {
+                "id": 2,
+                "content": "Klasifikasi Kekuatan Tanah Pondasi CNN.",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 0
+            },
+            {
+                "id": 3,
+                "content": "Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 0
+            },
+            {
+                "id": 4,
+                "content": "Klasifikasi Aksara/Alfabet yang ada di Indonesi.",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 0
+            }
+        ],
+        "completed": false,
+        "priority": false,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": [
+
+        ]
+    }
 ];
 
 export const completedData = [
