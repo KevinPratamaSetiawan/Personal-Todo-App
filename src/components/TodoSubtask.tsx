@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import { SubTask } from '../utils/props';
 import TodoCopyButton from './TodoCopyButton';
+import SubtaskCode from './TodoSubtaskCode';
 
 import { faCircle, faSquare } from '@fortawesome/free-regular-svg-icons';
-import { faCaretRight, faCheck, faCircleXmark, faCompress, faCopy, faCropSimple, faExpand, faLink, faMinus, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCaretRight, faCheck, faCircleXmark, faCropSimple, faLink, faMinus, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type TodoTaskProps = {
@@ -17,7 +16,6 @@ type TodoTaskProps = {
 
 export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTaskProps) {
     const currentTheme = localStorage.getItem('currentTheme') || 'mono';
-    const [codeExpand, setCodeExpand] = useState(false);
 
     const getListIcon = (listStyle: string, status: boolean) => {
         let icon;
@@ -124,39 +122,7 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
 
                     {
                         task.listStyle === 'code' ?
-                            <div className=''>
-                                <div
-                                    className='rounded-top d-flex align-items-center justify-content-between px-3 py-2'
-                                    style={{ 
-                                        backgroundColor: '#3A404D',
-                                    }}
-                                >
-                                    <span>{'</>'}</span>
-                                    <div className='d-flex gap-3'>
-                                        <TodoCopyButton
-                                            buttonText={<><FontAwesomeIcon icon={faCopy} /></>}
-                                            copyText={task.content}
-                                        />
-
-                                        <button type='button' onClick={() => setCodeExpand(!codeExpand)}>
-                                            <FontAwesomeIcon icon={codeExpand ? faCompress : faExpand} />
-                                        </button>
-                                    </div>
-                                </div>
-                                <SyntaxHighlighter
-                                    style={dracula}
-                                    showLineNumbers={true}
-                                    className='m-0 px-0 rounded-bottom'
-                                    customStyle={{
-                                        maxHeight: `${codeExpand ? "none" : "175px"}`,
-                                        // maxWidth: '95%',
-                                        width: '100%',
-                                        minWidth: 'none'
-                                    }}
-                                >
-                                    {task.content}
-                                </SyntaxHighlighter>
-                            </div> :
+                            <SubtaskCode task={task} /> :
                             task.listStyle !== 'link' ? task.content :
                                 <TodoCopyButton
                                     buttonText={task.content}
