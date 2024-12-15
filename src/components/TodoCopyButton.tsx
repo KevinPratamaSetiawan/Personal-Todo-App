@@ -1,20 +1,21 @@
-import React, { useState, ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type TodoCopyButtonProps = {
-    buttonText: string;
+    buttonText: React.ReactNode;
+    copyText: string;
 };
 
-export default function TodoCopyButton ({ buttonText }: TodoCopyButtonProps) {
+export default function TodoCopyButton({ buttonText, copyText }: TodoCopyButtonProps) {
     const [content, SetContent] = useState<string | ReactNode>(buttonText);
 
     const onCopyLinkEventHandler = () => {
-        navigator.clipboard.writeText(buttonText);
+        navigator.clipboard.writeText(copyText);
         SetContent(<><FontAwesomeIcon icon={faCopy} /> Copied!</>);
-        
-        setTimeout(function() {
+
+        setTimeout(function () {
             SetContent(buttonText);
         }, 1000);
     }
@@ -22,13 +23,13 @@ export default function TodoCopyButton ({ buttonText }: TodoCopyButtonProps) {
     return (
         <>
             <button onClick={onCopyLinkEventHandler} className='text-start'>
-                <span 
-                style={{
-                    textAlign: 'left',
-                    wordBreak: 'break-word',
-                    overflowWrap: 'break-word',
-                    whiteSpace: 'normal'
-                }}>{content}</span>
+                <span
+                    style={{
+                        textAlign: 'left',
+                        wordBreak: 'break-word',
+                        overflowWrap: 'break-word',
+                        whiteSpace: 'normal'
+                    }}>{content}</span>
             </button>
         </>
     );

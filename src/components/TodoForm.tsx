@@ -54,7 +54,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
     const addSubTask = () => {
         setSubTask(prevSubTask => [
             ...prevSubTask,
-            { id: prevSubTask.length, content: "", completed: false, listStyle: "text", indent: 0 }
+            { id: new Date().getTime() , content: "", completed: false, listStyle: "text", indent: 0 }
         ]);
     };
 
@@ -64,7 +64,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
         setSubTask(updatedSubTasks);
     };
 
-    const onSubTaskContentChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index: number) => {
+    const onSubTaskContentChangeEventHandler = (event: React.ChangeEvent<HTMLTextAreaElement>, index: number) => {
         const updatedSubTasks = [...subTask];
         updatedSubTasks[index].content = event.target.value;
         setSubTask(updatedSubTasks);
@@ -90,7 +90,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
             [updatedSubtask[currentIndex - 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex - 1]];
         } else if (method === 'add') {
             updatedSubtask.splice(currentIndex + 1, 0,
-                { id: updatedSubtask.length, content: "", completed: false, listStyle: subTask[currentIndex].listStyle, indent: subTask[currentIndex].indent }
+                { id: new Date().getTime(), content: "", completed: false, listStyle: updatedSubtask[currentIndex].listStyle, indent: updatedSubtask[currentIndex].indent }
             )
         } else if (method === 'down') {
             [updatedSubtask[currentIndex + 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex + 1]];
@@ -235,7 +235,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
             }
 
             {subTask.map((task, index) => (
-                <InputGroup className="mb-3" key={task.id}>
+                <InputGroup className="mb-3" key={index + "-subtask"}>
                     <Form.Select
                         id="listIndentOptions"
                         value={task.indent}
@@ -256,21 +256,28 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                         className="bg-dark text-white"
                         style={{ width: '12%', padding: '0', backgroundImage: 'none' }}
                     >
-                        <option value="text">Str</option>
-                        <option value="checkbox">=</option>
-                        <option value="xcircle">*</option>
-                        <option value="plus">-</option>
-                        <option value="link">#</option>
-                        <option value="caret">{">"}</option>
-                        <option value="dot">•</option>
-                        <option value="square">□</option>
+                        <option disabled className='text-start'>Text</option>
+                            <option value="text">Str</option>
+                            <option value="code">{"</>"}</option>
+                            <option value="link">#</option>
+                        <option disabled className='text-start'>Checklist</option>
+                            <option value="checkbox">=</option>
+                            <option value="xcircle">*</option>
+                            <option value="plus">-</option>
+                        <option disabled className='text-start'>Bulleted</option>
+                            <option value="caret">{">"}</option>
+                            <option value="dot">•</option>
+                            <option value="square">□</option>
                     </Form.Select>
-                    <Form.Control
+                    <TextareaAutosize
                         value={task.content}
                         onChange={(e) => onSubTaskContentChangeEventHandler(e, index)}
                         placeholder={`Subtask ${index + 1}`}
                         aria-label="Text input for subtask content"
-
+                        className="form-control"
+                        minRows={1}
+                        maxRows={5}
+                        style={{ resize: 'none' }}
                     />
                     <Button
                         variant="outline-light"
@@ -489,6 +496,9 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                                 className=''
                                 style={{ width: '30px', height: '20px' }}
                             />
+                            <datalist>
+                                <option value=""></option>
+                            </datalist>
                             {tag.content}
                             <button
                                 type='button'

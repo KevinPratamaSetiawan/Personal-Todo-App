@@ -2,12 +2,8 @@
 
 pre,
 code {
-  overflow: auto;
+  overflow: scroll;
   font-size: 0.7rem;
-  border-radius: 3px;
-  > code {
-    border: none;
-  }
 }
 
 body {
@@ -630,14 +626,6 @@ body {
             align-items: center;
             gap: 10px;
 
-            code {
-              background-color: var(--background-color);
-              color: var(--text-color);
-              border: 1px solid var(--brand-color);
-              padding: 0 5px;
-              border-radius: 4px;
-            }
-
             i,
             p {
               cursor: pointer;
@@ -649,7 +637,6 @@ body {
               display: flex;
               align-items: center;
               justify-content: center;
-              /* width: 5%; */
             }
 
             button:has(p) {
@@ -714,22 +701,22 @@ body {
             .todo-description-container {
               width: 100%;
               display: flex;
-              flex-direction: row;
+              /* flex-direction: row; */
               align-items: start;
 
-              span {
+              > span {
+                min-width: 20px;
                 text-wrap: nowrap;
                 padding-top: 1px;
                 margin-right: 10px;
 
                 .fa-angle-right {
-                  transform: rotate(0);
                   margin-right: -3px;
                 }
               }
 
               .todo-description-subtask {
-                width: 100%;
+                width: calc(100% - 30px);
                 display: flex;
                 flex-direction: column;
                 align-items: start;
@@ -745,7 +732,9 @@ body {
                 text-wrap: wrap;
                 white-space: normal;
                 padding-bottom: 5px;
+              }
 
+              .todo-subtask {
                 .subtask-counter {
                   display: flex;
                   align-items: center;
@@ -758,14 +747,6 @@ body {
                   overflow-wrap: break-word;
                   text-wrap: wrap;
                   white-space: normal;
-
-                  code {
-                    background-color: var(--background-color);
-                    color: var(--text-color);
-                    border: 1px solid var(--brand-color);
-                    padding: 0 5px;
-                    border-radius: 4px;
-                  }
 
                   br {
                     display: none;
@@ -924,7 +905,7 @@ body {
   .todo-deadline-stats-label {
     color: var(--schedule-half);
   }
-  li:has(.fa-link) {
+  .subtask-item:has(.fa-link) {
     span {
       color: var(--schedule-ratio-color);
     }
@@ -957,7 +938,7 @@ body {
   .todo-deadline-stats-label {
     color: var(--priority-half);
   }
-  li:has(.fa-link) {
+  .subtask-item:has(.fa-link) {
     span {
       color: var(--priority-ratio-color);
     }
@@ -990,7 +971,7 @@ body {
   .todo-deadline-stats-label {
     color: var(--task-half);
   }
-  li:has(.fa-link) {
+  .subtask-item:has(.fa-link) {
     span {
       color: var(--task-ratio-color);
     }
@@ -1023,7 +1004,7 @@ body {
   .todo-deadline-stats-label {
     color: var(--complete-half);
   }
-  li:has(.fa-link) {
+  .subtask-item:has(.fa-link) {
     span {
       color: var(--complete-ratio-color);
     }
