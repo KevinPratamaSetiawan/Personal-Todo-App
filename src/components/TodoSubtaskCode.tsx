@@ -15,7 +15,7 @@ type TodoSubTaskCodeProps = {
 }
 
 export default function SubtaskCode({ task }: TodoSubTaskCodeProps) {
-    const [codeExpand, setCodeExpand] = useState(0);
+    const [codeExpand, setCodeExpand] = useState(1);
     const [codeDark, setCodeDark] = useState(true);
 
     return (
