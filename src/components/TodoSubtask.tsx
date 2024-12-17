@@ -125,7 +125,7 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
                             <SubtaskCode task={task} /> :
                             task.listStyle !== 'link' ? task.content :
                                 <TodoCopyButton
-                                    buttonText={task.content}
+                                    buttonText={task.content.replace(/^https?:\/\/|\/.*$/g, '')}
                                     copyText={task.content}
                                 />
                     }
