@@ -30,8 +30,8 @@ export default function SubtaskCode({ task }: TodoSubTaskCodeProps) {
                     style={{
                         backgroundColor: '#3A404D',
                         position: 'absolute',
-                        top: '10px',
-                        right: '10px',
+                        top: '8px',
+                        right: '5px',
                         zIndex: 100,
                     }}
                 >
