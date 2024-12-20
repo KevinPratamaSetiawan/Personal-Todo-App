@@ -119,11 +119,8 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
                     }
 
                     {
-                        task.listStyle === 'code' || task.listStyle === 'demureCode' ?
-                            <SubtaskCode 
-                                listStyle={task.listStyle} 
-                                task={task} 
-                            /> :
+                        task.listStyle === 'code' ?
+                            <SubtaskCode task={task} /> :
                         
                         task.listStyle === 'link' ?
                             <TodoCopyButton

@@ -259,7 +259,6 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                         <option disabled className='text-start'>Text</option>
                             <option value="text">Str</option>
                             <option value="link">#</option>
-                            <option value="demureCode">{"<>"}</option>
                             <option value="code">{"</>"}</option>
                         <option disabled className='text-start'>Checklist</option>
                             <option value="checkbox">=</option>
