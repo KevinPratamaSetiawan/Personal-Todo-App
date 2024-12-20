@@ -24,31 +24,39 @@ export default function SubtaskCode({ task }: TodoSubTaskCodeProps) {
                 margin: '10px 0'
             }}
         >
-            <div
-                className='rounded-top rounded-bottom d-flex align-items-center justify-content-between px-3 py-2'
-                style={{
-                    backgroundColor: '#3A404D',
-                    position: 'absolute',
-                    top: '10px',
-                    right: '10px',
-                    zIndex: 100,
-                }}
-            >
-                <div className='d-flex gap-3'>
-                    <TodoCopyButton
-                        buttonText={<><FontAwesomeIcon icon={faCopy} /></>}
-                        copyText={task.content}
-                    />
+            {task.content.split('\n').length > 5 ?
+                <div
+                    className='rounded-top rounded-bottom d-flex align-items-center justify-content-between px-3 py-2'
+                    style={{
+                        backgroundColor: '#3A404D',
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        zIndex: 100,
+                    }}
+                >
+                    <div className='d-flex gap-3'>
+                        <TodoCopyButton
+                            buttonText={<><FontAwesomeIcon icon={faCopy} /></>}
+                            copyText={task.content}
+                        />
 
-                    <button type='button' onClick={() => setCodeDark(!codeDark)} style={{ width: '16px' }}>
-                        <FontAwesomeIcon icon={codeDark ? faSun : faMoon} />
-                    </button>
+                        <button type='button' onClick={() => setCodeDark(!codeDark)} style={{ width: '16px' }}>
+                            <FontAwesomeIcon icon={codeDark ? faSun : faMoon} />
+                        </button>
 
-                    <button type='button' onClick={() => setCodeExpand(!codeExpand)}>
-                        <FontAwesomeIcon icon={codeExpand ? faCompress : faExpand} />
-                    </button>
-                </div>
-            </div>
+                        <button type='button' onClick={() => setCodeExpand(!codeExpand)}>
+                            <FontAwesomeIcon icon={codeExpand ? faCompress : faExpand} />
+                        </button>
+                    </div>
+                </div> :
+                <TodoCopyButton
+                    buttonText={<><FontAwesomeIcon icon={faCopy} /></>}
+                    copyText={task.content}
+                    floating={true}
+                />
+            }
+
 
             <SyntaxHighlighter
                 style={codeDark ? dracula : atomOneLight}
