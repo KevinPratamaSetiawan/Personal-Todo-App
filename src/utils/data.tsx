@@ -2564,7 +2564,7 @@ export const instructionData = [
             },
             {
                 id: 1,
-                content: "npm create vite@latest",
+                content: "npm create vite@latest . -- --template react-ts",
                 completed: false,
                 listStyle: "link",
                 indent: 1,

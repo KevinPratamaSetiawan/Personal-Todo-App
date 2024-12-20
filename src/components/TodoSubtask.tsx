@@ -90,9 +90,7 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
                     key={index}
                     className={`subtask-item ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`}
                     style={{
-                        paddingLeft: `${task.indent * 21}px`,
-                        marginTop: task.listStyle === 'text' && task.indent > 0 ? '-7px' : '',
-                        marginBottom: task.listStyle === 'text' && task.indent > 0 ? '7px' : ''
+                        paddingLeft: `${task.indent * 21}px`
                     }}>
                     {
                         task.listStyle === 'link' ||
