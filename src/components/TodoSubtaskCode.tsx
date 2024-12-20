@@ -49,7 +49,7 @@ export default function SubtaskCode({ task }: TodoSubTaskCodeProps) {
                 className='m-0 px-0 rounded-bottom'
                 customStyle={{
                     maxHeight: `${codeExpand % 3 === 1 ? "170px" : codeExpand % 3 === 2 ? "none" : "0"}`,
-                    padding: `${codeExpand % 3 === 0 ? '0' : ''}`,
+                    padding: `${codeExpand % 3 === 0 ? '0' : '12px 0'}`,
                     width: '100%',
                     minWidth: 'none'
                 }}
