@@ -119,13 +119,19 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
                     }
 
                     {
-                        task.listStyle === 'code' ?
-                            <SubtaskCode task={task} /> :
-                            task.listStyle !== 'link' ? task.content :
-                                <TodoCopyButton
-                                    buttonText={task.content.replace(/^https?:\/\/|\/.*$/g, '')}
-                                    copyText={task.content}
-                                />
+                        task.listStyle === 'code' || task.listStyle === 'demureCode' ?
+                            <SubtaskCode 
+                                listStyle={task.listStyle} 
+                                task={task} 
+                            /> :
+                        
+                        task.listStyle === 'link' ?
+                            <TodoCopyButton
+                                buttonText={task.content.replace(/^https?:\/\/|\/.*$/g, '')}
+                                copyText={task.content}
+                            /> :
+
+                        task.content
                     }
                 </li>
             ))}

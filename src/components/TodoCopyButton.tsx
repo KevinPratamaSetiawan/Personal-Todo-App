@@ -6,9 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 type TodoCopyButtonProps = {
     buttonText: React.ReactNode;
     copyText: string;
+    floating?: boolean;
 };
 
-export default function TodoCopyButton({ buttonText, copyText }: TodoCopyButtonProps) {
+export default function TodoCopyButton({ buttonText, copyText, floating = false }: TodoCopyButtonProps) {
     const [content, SetContent] = useState<string | ReactNode>(buttonText);
 
     const onCopyLinkEventHandler = () => {
@@ -22,7 +23,16 @@ export default function TodoCopyButton({ buttonText, copyText }: TodoCopyButtonP
 
     return (
         <>
-            <button onClick={onCopyLinkEventHandler} className='text-start'>
+            <button 
+                onClick={onCopyLinkEventHandler} 
+                className='text-start'
+                style={{
+                    position: floating ? 'absolute' : undefined,
+                    top: floating ? '10px' : undefined,
+                    right: floating ? '10px' : undefined,
+                    zIndex: floating ? 100 : undefined,
+                }}
+            >
                 <span
                     style={{
                         textAlign: 'left',
