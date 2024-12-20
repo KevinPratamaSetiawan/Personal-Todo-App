@@ -1,32 +1,20 @@
 const task = [
     {
-        "id": "N-0077",
-        "title": "Resume Jurnal Segmentasi PCD",
-        "description": "no description",
-        "subTask": [
-
-        ],
-        "completed": false,
-        "priority": false,
-        "schedule": true,
-        "scheduleType": "[A]",
-        "deadlineStartDate": "2024-12-13",
-        "deadlineEndDate": "noDeadlineEndDate",
-        "deadlineStartTime": "23:59",
-        "deadlineEndTime": "noDeadlineEndTime",
-        "tags": [
-
-        ]
-    },
-    {
         "id": "N-0076",
         "title": "TODAY",
         "description": "no description",
         "subTask": [
             {
-                "id": 12,
-                "content": "PCD Resume Paper about Segmentation",
+                "id": 1734686965598,
+                "content": "Add customize list style for number/sub section",
                 "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 1734686967790,
+                "content": "Add \"codeSimple\" list style",
+                "completed": true,
                 "listStyle": "checkbox",
                 "indent": 0
             },
@@ -45,6 +33,118 @@ const task = [
                 "indent": 0
             },
             {
+                "id": 8,
+                "content": "Displayed Projects",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
+            },
+            {
+                "id": 9,
+                "content": "[FINISH] justRUN! Game",
+                "completed": true,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 1734449270393,
+                "content": "[FINISH] PeakTime Cloud Architecture",
+                "completed": true,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 11,
+                "content": "[FINISH] PeakTime",
+                "completed": true,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 1734420559368,
+                "content": "[FINISH] Todo Website",
+                "completed": true,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 1734420583201,
+                "content": "[FINISH] Restaurant Recommendation Website",
+                "completed": true,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 1734423204431,
+                "content": "[FINISH] Quiz Web",
+                "completed": true,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 10,
+                "content": "[REWORK] Jemanten",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 1734420751736,
+                "content": "[REWORK] Resume Website",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 12,
+                "content": "[NEW] Portofolio Website",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 1734422526426,
+                "content": "https://wpriverthemes.com/HTML/drake/home6.html#home",
+                "completed": false,
+                "listStyle": "link",
+                "indent": 3
+            },
+            {
+                "id": 1734422908545,
+                "content": "https://preview.themeforest.net/item/bentox-personal-portfolio-html-templates/full_screen_preview/50513423?_ga=2.246856452.1454913207.1734422329-1566479235.1734422329",
+                "completed": false,
+                "listStyle": "link",
+                "indent": 3
+            },
+            {
+                "id": 1734422912725,
+                "content": "https://harnishdesign.net/demo/react/callum/demo/?theme=Full%20Screen%20Menu&intro=default",
+                "completed": false,
+                "listStyle": "link",
+                "indent": 3
+            },
+            {
+                "id": 1734425331359,
+                "content": "https://github.com/chetanverma16/react-portfolio-template?tab=readme-ov-file",
+                "completed": false,
+                "listStyle": "link",
+                "indent": 3
+            },
+            {
+                "id": 1734420622624,
+                "content": "[NEW] Archive Akademik Website",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
+                "id": 1734420662169,
+                "content": "[NEW] Money Tracker Website",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 2
+            },
+            {
                 "id": 17,
                 "content": "Apply to all internship as much as possible",
                 "completed": false,
@@ -57,6 +157,27 @@ const task = [
                 "completed": false,
                 "listStyle": "checkbox",
                 "indent": 0
+            },
+            {
+                "id": 5,
+                "content": "Rework The Thesis",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 6,
+                "content": "More research on the method being used ",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
+            },
+            {
+                "id": 7,
+                "content": "Research about the model architecture",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
             }
         ],
         "completed": false,
@@ -67,9 +188,7 @@ const task = [
         "deadlineEndDate": "noDeadlineEndDate",
         "deadlineStartTime": "00:01",
         "deadlineEndTime": "23:59",
-        "tags": [
-
-        ]
+        "tags": []
     },
     {
         "id": "N-0074",
@@ -86,7 +205,7 @@ const task = [
             {
                 "id": 1,
                 "content": "NLP -> Presentasi",
-                "completed": false,
+                "completed": true,
                 "listStyle": "checkbox",
                 "indent": 1
             },
@@ -113,14 +232,21 @@ const task = [
             },
             {
                 "id": 5,
-                "content": "MicroData -> Wait for the fix timeline",
+                "content": "MicroData -> Confirmed 6th January 2025",
                 "completed": false,
                 "listStyle": "checkbox",
                 "indent": 1
             },
             {
                 "id": 6,
-                "content": "DBS Foundation -> Find a way to get recommendation letter",
+                "content": "DBS Foundation -> Find a way to get recommendation letter before 30th January",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
+            },
+            {
+                "id": 1734508445889,
+                "content": "ASDF.ID -> Wait for response",
                 "completed": false,
                 "listStyle": "checkbox",
                 "indent": 1
@@ -162,9 +288,7 @@ const task = [
         "deadlineEndDate": "noDeadlineEndDate",
         "deadlineStartTime": "noDeadlineStartTime",
         "deadlineEndTime": "noDeadlineEndTime",
-        "tags": [
-
-        ]
+        "tags": []
     },
     {
         "id": "N-0069",
@@ -205,6 +329,20 @@ const task = [
                 "completed": false,
                 "listStyle": "checkbox",
                 "indent": 0
+            },
+            {
+                "id": 5,
+                "content": "Projection of future spending based on the pattern of spending the last 5 days and warning if its gonna over budget",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 6,
+                "content": "Spending of each day/month displayed like a receipt",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
             }
         ],
         "completed": false,
@@ -215,9 +353,7 @@ const task = [
         "deadlineEndDate": "noDeadlineEndDate",
         "deadlineStartTime": "noDeadlineStartTime",
         "deadlineEndTime": "noDeadlineEndTime",
-        "tags": [
-
-        ]
+        "tags": []
     },
     {
         "id": "N-0067",
@@ -247,66 +383,7 @@ const task = [
         "deadlineEndDate": "noDeadlineEndDate",
         "deadlineStartTime": "noDeadlineStartTime",
         "deadlineEndTime": "noDeadlineEndTime",
-        "tags": [
-
-        ]
-    },
-    {
-        "id": "N-0062",
-        "title": "Pengolahan Bahasa Alami",
-        "description": "Kelas R | GK2-312 A | WIY",
-        "subTask": [
-
-        ],
-        "completed": false,
-        "priority": false,
-        "schedule": true,
-        "scheduleType": "[W]",
-        "deadlineStartDate": "Monday",
-        "deadlineEndDate": "noDeadlineEndDate",
-        "deadlineStartTime": "09:30",
-        "deadlineEndTime": "12:00",
-        "tags": [
-
-        ]
-    },
-    {
-        "id": "N-0061",
-        "title": "Pengolahan Citra Digital",
-        "description": "Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
-        "subTask": [
-
-        ],
-        "completed": false,
-        "priority": false,
-        "schedule": true,
-        "scheduleType": "[W]",
-        "deadlineStartDate": "Friday",
-        "deadlineEndDate": "noDeadlineEndDate",
-        "deadlineStartTime": "09:30",
-        "deadlineEndTime": "12:00",
-        "tags": [
-
-        ]
-    },
-    {
-        "id": "N-0060",
-        "title": "Representasi Pengetahuan dan Penalaran",
-        "description": "Kelas R | LAB IOT | MCU",
-        "subTask": [
-
-        ],
-        "completed": false,
-        "priority": false,
-        "schedule": true,
-        "scheduleType": "[W]",
-        "deadlineStartDate": "Friday",
-        "deadlineEndDate": "noDeadlineEndDate",
-        "deadlineStartTime": "13:00",
-        "deadlineEndTime": "15:30",
-        "tags": [
-
-        ]
+        "tags": []
     },
     {
         "id": "N-0059",
@@ -350,9 +427,7 @@ const task = [
         "deadlineEndDate": "noDeadlineEndDate",
         "deadlineStartTime": "noDeadlineStartTime",
         "deadlineEndTime": "noDeadlineEndTime",
-        "tags": [
-
-        ]
+        "tags": []
     },
     {
         "id": "N-0056",
@@ -365,6 +440,27 @@ const task = [
                 "completed": false,
                 "listStyle": "checkbox",
                 "indent": 0
+            },
+            {
+                "id": 1734580789174,
+                "content": "Kalau mau membandingkan sebuah metode, pada bagian penting jangan setelah itu ada penggunaan metode yang tidak seimbang, jangan satu dipake satu tidak",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 1
+            },
+            {
+                "id": 1734581216855,
+                "content": "Penggambaran alur jangan asal",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 1
+            },
+            {
+                "id": 1734582141936,
+                "content": "Perbandingan metode harus apple to apple, dimana ada aspek ya g memang bisa dibandingkan jangan sampai membandingkan sesuatu yang sudah jelas atau yang merupakan kelemahan dan kelebihan satu metode",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 1
             },
             {
                 "id": 1,
@@ -386,6 +482,20 @@ const task = [
                 "completed": false,
                 "listStyle": "checkbox",
                 "indent": 0
+            },
+            {
+                "id": 1734580640064,
+                "content": "PPT SemPro",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 0
+            },
+            {
+                "id": 1734580660222,
+                "content": "Latar Belakang",
+                "completed": false,
+                "listStyle": "checkbox",
+                "indent": 1
             }
         ],
         "completed": false,
@@ -396,9 +506,7 @@ const task = [
         "deadlineEndDate": "noDeadlineEndDate",
         "deadlineStartTime": "noDeadlineStartTime",
         "deadlineEndTime": "noDeadlineEndTime",
-        "tags": [
-
-        ]
+        "tags": []
     },
     {
         "id": "N-0055",
@@ -428,10 +536,31 @@ const task = [
             },
             {
                 "id": 3,
-                "content": "Klasifikasi Nilai Uang untuk Membantu Tuna Netra.",
+                "content": "Klasifikasi Nilai Uang",
                 "completed": false,
                 "listStyle": "plus",
                 "indent": 0
+            },
+            {
+                "id": 1734585568231,
+                "content": "Permasalahkan bagian kesamaan karakteristik uang seperti ukuran ketebalan, warna sehingga metode lama pada mesin lebih buruk",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 1
+            },
+            {
+                "id": 1734581584376,
+                "content": "Multi input model CNN dengan citra dan multi feature",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 1
+            },
+            {
+                "id": 1734581621518,
+                "content": "Penggunaan Hyper parameter, pada feature",
+                "completed": false,
+                "listStyle": "plus",
+                "indent": 1
             },
             {
                 "id": 4,
@@ -449,13 +578,71 @@ const task = [
         "deadlineEndDate": "noDeadlineEndDate",
         "deadlineStartTime": "noDeadlineStartTime",
         "deadlineEndTime": "noDeadlineEndTime",
-        "tags": [
-
-        ]
+        "tags": []
     }
 ];
 
 export const completedData = [
+    {
+        "id": "N-0077",
+        "title": "Resume Jurnal Segmentasi PCD",
+        "description": "no description",
+        "subTask": [],
+        "completed": true,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[A]",
+        "deadlineStartDate": "2024-12-13",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "23:59",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": []
+    },
+    {
+        "id": "N-0062",
+        "title": "Pengolahan Bahasa Alami",
+        "description": "Kelas R | GK2-312 A | WIY",
+        "subTask": [],
+        "completed": true,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[W]",
+        "deadlineStartDate": "Monday",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "09:30",
+        "deadlineEndTime": "12:00",
+        "tags": []
+    },
+    {
+        "id": "N-0061",
+        "title": "Pengolahan Citra Digital",
+        "description": "Kelas RA | Labkom 3 Labtek 1 Lt 3 | ANS",
+        "subTask": [],
+        "completed": true,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[W]",
+        "deadlineStartDate": "Friday",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "09:30",
+        "deadlineEndTime": "12:00",
+        "tags": []
+    },
+    {
+        "id": "N-0060",
+        "title": "Representasi Pengetahuan dan Penalaran",
+        "description": "Kelas R | LAB IOT | MCU",
+        "subTask": [],
+        "completed": true,
+        "priority": false,
+        "schedule": true,
+        "scheduleType": "[W]",
+        "deadlineStartDate": "Friday",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "13:00",
+        "deadlineEndTime": "15:30",
+        "tags": []
+    },
     {
         id: "N-0075",
         title: "Notulen PCD - 05/12/24",
@@ -2549,262 +2736,364 @@ export const completedData = [
     },
 ];
 
+
 export const instructionData = [
     {
-        id: "I-0001",
-        title: "Vite React.js Typescript Bootstrap React-Bootstrap",
-        description: "no description",
-        subTask: [
+        "id": "I-0001",
+        "title": "How to start a React.js project ?",
+        "description": "no description",
+        "subTask": [
             {
-                id: 0,
-                content: "Create Vite React.js Typescript Bootstrap",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
+                "id": 0,
+                "content": "1. Create Vite, React.js, Typescript directories",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
             },
             {
-                id: 1,
-                content: "npm create vite@latest . -- --template react-ts",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
+                "id": 1734685036159,
+                "content": "2. Move into the directories",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
             },
             {
-                id: 2,
-                content: "cd my-vite-project",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
+                "id": 1734685060575,
+                "content": "3. Create the project",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
             },
             {
-                id: 3,
-                content: "npm install",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
+                "id": 1734685093151,
+                "content": "npm create vite@latest . -- --template react-ts",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
             },
             {
-                id: 4,
-                content: "npm install bootstrap",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
+                "id": 3,
+                "content": "npm install",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
             },
             {
-                id: 5,
-                content: "On main.tsx",
-                completed: false,
-                listStyle: "plus",
-                indent: 1,
+                "id": 1734685116127,
+                "content": "4. Fix the tsconfig.app.json",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
             },
             {
-                id: 6,
-                content: "import 'bootstrap/dist/css/bootstrap.min.css';",
-                completed: false,
-                listStyle: "link",
-                indent: 2,
+                "id": 1734685152055,
+                "content": "4.1 To fix the \"tsBuildInfoFile\" problem, add this line before the \"tsBuildInfoFile\" line.",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 1
             },
             {
-                id: 7,
-                content: "Override Bootstrap Var for more Custom Style",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
+                "id": 1734685193126,
+                "content": "\"incremental\": true,",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 2
             },
             {
-                id: 8,
-                content: "npm install sass",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
-            },
-            {
-                id: 9,
-                content:
-                    "Create a file like src/styles/custom.scss and import Bootstrap",
-                completed: false,
-                listStyle: "plus",
-                indent: 1,
-            },
-            {
-                id: 10,
-                content: '@import "bootstrap/scss/bootstrap";',
-                completed: false,
-                listStyle: "link",
-                indent: 2,
-            },
-            {
-                id: 11,
-                content:
-                    "Import the custom file in main.tsx instead of bootstrap.min.css",
-                completed: false,
-                listStyle: "plus",
-                indent: 1,
-            },
-            {
-                id: 12,
-                content: "import './styles/custom.scss';",
-                completed: false,
-                listStyle: "link",
-                indent: 2,
-            },
-            {
-                id: 13,
-                content: "Install React Bootstrap",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
-            {
-                id: 14,
-                content: "npm install react-bootstrap bootstrap",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
-            },
-            {
-                id: 15,
-                content: "import { Button, etc } from 'react-bootstrap';",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
-            },
-            {
-                id: 16,
-                content: "Install Bootstrap Icons",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
-            {
-                id: 17,
-                content: "npm install bootstrap-icons",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
-            },
-            {
-                id: 18,
-                content: "import 'bootstrap-icons/font/bootstrap-icons.css';",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
-            },
-            {
-                id: 19,
-                content: "Install React Icons",
-                completed: false,
-                listStyle: "plus",
-                indent: 0,
-            },
-            {
-                id: 20,
-                content: "npm install react-icons",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
-            },
-            {
-                id: 21,
-                content: "import { FaBeer } from 'react-icons/fa';",
-                completed: false,
-                listStyle: "link",
-                indent: 1,
-            },
-            {
-                id: 22,
-                content:
-                    "React Icons includes many popular libraries. You can import from these prefixes:",
-                completed: false,
-                listStyle: "plus",
-                indent: 1,
-            },
-            {
-                id: 23,
-                content: "fa: Font Awesome",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 24,
-                content: "md: Material Design",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 25,
-                content: "ai: Ant Design",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 26,
-                content: "bs: Bootstrap Icons",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 27,
-                content: "gi: Game Icons",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 28,
-                content: "io: Ionicons",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 29,
-                content: "ri: Remix Icons",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 30,
-                content: "si: Simple Icons",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 31,
-                content: "fi: Feather Icons",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 32,
-                content: "cg: CSS.gg",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
-            {
-                id: 33,
-                content: "tb: Tabler Icons",
-                completed: false,
-                listStyle: "text",
-                indent: 2,
-            },
+                "id": 1734685219286,
+                "content": "4.2 To fix the \"noUncheckedSideEffectImports\": true, just delete it.",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 1
+            }
         ],
-        completed: false,
-        priority: false,
-        schedule: false,
-        scheduleType: "",
-        deadlineStartDate: "noDeadlineStartDate",
-        deadlineEndDate: "noDeadlineEndDate",
-        deadlineStartTime: "noDeadlineStartTime",
-        deadlineEndTime: "noDeadlineEndTime",
-        tags: [],
+        "completed": false,
+        "priority": false,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": []
+    },
+    {
+        "id": "I-0002",
+        "title": "How to setup a TailwindCSS project ?",
+        "description": "no description",
+        "subTask": [
+            {
+                "id": 1734686180058,
+                "content": "TailwindCSS",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 1734686210782,
+                "content": "1 Install TailwindCSS",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 1734686234993,
+                "content": "npm install -D tailwindcss postcss autoprefixer",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 1734686243774,
+                "content": "2 Initialize the TailwindCSS configuration files",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 1734686251862,
+                "content": "npx tailwindcss init -p",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 1734686264062,
+                "content": "3 Configure the tailwind.config.js file to include Vite's content paths:",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 1734686272902,
+                "content": "/** @type {import('tailwindcss').Config} */\nexport default {\n  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],\n  theme: {\n    extend: {},\n  },\n  plugins: [],\n};",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 1734686300623,
+                "content": "4 Add the TailwindCSS base styles to your style sheet",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 1734686293894,
+                "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            }
+        ],
+        "completed": false,
+        "priority": false,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": []
+    },
+    {
+        "id": "I-0003",
+        "title": "How to setup a Bootstrap project ?",
+        "description": "no description",
+        "subTask": [
+            {
+                "id": 1734685323536,
+                "content": "Bootstrap",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 4,
+                "content": "npm install bootstrap",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 5,
+                "content": "On main.tsx",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 6,
+                "content": "import 'bootstrap/dist/css/bootstrap.min.css';",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 7,
+                "content": "Override Bootstrap Var for more Customize Style",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 8,
+                "content": "npm install sass",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 9,
+                "content": "Create a file like src/styles/custom.scss and import Bootstrap",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 10,
+                "content": "@import \"bootstrap/scss/bootstrap\";",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 11,
+                "content": "Import the custom file in main.tsx instead of bootstrap.min.css",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 12,
+                "content": "import './styles/custom.scss';",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 13,
+                "content": "Install React Bootstrap components",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 14,
+                "content": "npm install react-bootstrap bootstrap",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 15,
+                "content": "import { Button, etc } from 'react-bootstrap';",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 16,
+                "content": "Install Bootstrap Icons",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 17,
+                "content": "npm install bootstrap-icons",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 18,
+                "content": "import 'bootstrap-icons/font/bootstrap-icons.css';",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 19,
+                "content": "Install React Icons",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 20,
+                "content": "npm install react-icons",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 21,
+                "content": "import { FaBeer } from 'react-icons/fa';",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 22,
+                "content": "React Icons includes many popular libraries. You can import from these prefixes:",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 1734686570343,
+                "content": "fa: Font Awesome\nmd: Material Design\nai: Ant Design\nbs: Bootstrap Icons\ngi: Game Icons\nio: Ionicons\nri: Remix Icons\nsi: Simple Icons\nfi: Feather Icons\ncg: CSS.gg\ntb: Tabler Icons",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            }
+        ],
+        "completed": false,
+        "priority": false,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": []
+    },
+    {
+        "id": "I-0004",
+        "title": "How to setup a Vercel project ?",
+        "description": "no description",
+        "subTask": [
+            {
+                "id": 1734685323536,
+                "content": 'Make a "vercel.json" file',
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 4,
+                "content": '{\n    \"routes\": [\n        {\n            \"src\": \"/[^.]+\",\n            \"dest\": \"/\"\n        }\n    ]\n}',
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 5,
+                "content": "On main.tsx",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            }
+        ],
+        "completed": false,
+        "priority": false,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": []
     }
 ]
