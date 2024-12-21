@@ -28,7 +28,7 @@ export default function TodoCopyButton({ buttonText, copyText, floating = false 
                 className='text-start'
                 style={{
                     position: floating ? 'absolute' : undefined,
-                    top: floating ? '10px' : undefined,
+                    top: floating ? '5px' : undefined,
                     right: floating ? '10px' : undefined,
                     zIndex: floating ? 2 : undefined,
                 }}

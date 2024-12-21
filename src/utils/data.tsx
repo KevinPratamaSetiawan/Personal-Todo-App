@@ -2807,8 +2807,8 @@ export const instructionData = [
                 "indent": 1
             }
         ],
-        "completed": false,
-        "priority": false,
+        "completed": true,
+        "priority": true,
         "schedule": false,
         "scheduleType": "",
         "deadlineStartDate": "noDeadlineStartDate",
@@ -2831,7 +2831,7 @@ export const instructionData = [
             },
             {
                 "id": 1734686210782,
-                "content": "1 Install TailwindCSS",
+                "content": "1. Install TailwindCSS",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2845,7 +2845,7 @@ export const instructionData = [
             },
             {
                 "id": 1734686243774,
-                "content": "2 Initialize the TailwindCSS configuration files",
+                "content": "2. Initialize the TailwindCSS configuration files",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2859,7 +2859,7 @@ export const instructionData = [
             },
             {
                 "id": 1734686264062,
-                "content": "3 Configure the tailwind.config.js file to include Vite's content paths:",
+                "content": "3. Configure the tailwind.config.js file to include Vite's content paths:",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2873,7 +2873,7 @@ export const instructionData = [
             },
             {
                 "id": 1734686300623,
-                "content": "4 Add the TailwindCSS base styles to your style sheet",
+                "content": "4. Add the TailwindCSS base styles to your style sheet",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2884,10 +2884,38 @@ export const instructionData = [
                 "completed": false,
                 "listStyle": "code",
                 "indent": 1
-            }
+            },
+            {
+                "id": 21078213123,
+                "content": "5. Start the Tailwind CLI build process",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 289412412412414,
+                "content": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 17345286211238,
+                "content": "6. Start using Tailwind in your HTML",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 173468124124124,
+                "content": '<link href="./output.css" rel="stylesheet">',
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
         ],
-        "completed": false,
-        "priority": false,
+        "completed": true,
+        "priority": true,
         "schedule": false,
         "scheduleType": "",
         "deadlineStartDate": "noDeadlineStartDate",
@@ -2903,7 +2931,7 @@ export const instructionData = [
         "subTask": [
             {
                 "id": 1734685323536,
-                "content": "Bootstrap",
+                "content": "1. Install Bootstrap",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2917,7 +2945,7 @@ export const instructionData = [
             },
             {
                 "id": 5,
-                "content": "On main.tsx",
+                "content": "2. On main.tsx",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2931,7 +2959,7 @@ export const instructionData = [
             },
             {
                 "id": 7,
-                "content": "Override Bootstrap Var for more Customize Style",
+                "content": "3. Override Bootstrap Var for more Customize Style",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2945,7 +2973,7 @@ export const instructionData = [
             },
             {
                 "id": 9,
-                "content": "Create a file like src/styles/custom.scss and import Bootstrap",
+                "content": "4. Create a file like src/styles/custom.scss and import Bootstrap",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2959,7 +2987,7 @@ export const instructionData = [
             },
             {
                 "id": 11,
-                "content": "Import the custom file in main.tsx instead of bootstrap.min.css",
+                "content": "5. Import the custom file in main.tsx instead of bootstrap.min.css",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2973,7 +3001,7 @@ export const instructionData = [
             },
             {
                 "id": 13,
-                "content": "Install React Bootstrap components",
+                "content": "6. Install React Bootstrap components",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -2994,7 +3022,7 @@ export const instructionData = [
             },
             {
                 "id": 16,
-                "content": "Install Bootstrap Icons",
+                "content": "7. Install Bootstrap Icons",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -3015,7 +3043,7 @@ export const instructionData = [
             },
             {
                 "id": 19,
-                "content": "Install React Icons",
+                "content": "8. Install React Icons",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -3036,7 +3064,7 @@ export const instructionData = [
             },
             {
                 "id": 22,
-                "content": "React Icons includes many popular libraries. You can import from these prefixes:",
+                "content": "9. React Icons includes many popular libraries. You can import from these prefixes:",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -3049,8 +3077,8 @@ export const instructionData = [
                 "indent": 1
             }
         ],
-        "completed": false,
-        "priority": false,
+        "completed": true,
+        "priority": true,
         "schedule": false,
         "scheduleType": "",
         "deadlineStartDate": "noDeadlineStartDate",
@@ -3066,7 +3094,7 @@ export const instructionData = [
         "subTask": [
             {
                 "id": 1734685323536,
-                "content": 'Make a "vercel.json" file',
+                "content": '1. Make a "vercel.json" file',
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
@@ -3077,17 +3105,10 @@ export const instructionData = [
                 "completed": false,
                 "listStyle": "code",
                 "indent": 1
-            },
-            {
-                "id": 5,
-                "content": "On main.tsx",
-                "completed": false,
-                "listStyle": "text",
-                "indent": 0
             }
         ],
-        "completed": false,
-        "priority": false,
+        "completed": true,
+        "priority": true,
         "schedule": false,
         "scheduleType": "",
         "deadlineStartDate": "noDeadlineStartDate",

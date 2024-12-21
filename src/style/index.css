@@ -844,14 +844,12 @@ body {
     }
 
     details[open] .fa-folder-closed,
-    details[open] .fa-box-archive,
-    details[open] .fa-book {
+    details[open] .fa-box-archive {
       display: none;
     }
 
     details:not([open]) .fa-folder-open,
-    details:not([open]) .fa-inbox,
-    details:not([open]) .fa-book-open {
+    details:not([open]) .fa-inbox {
       display: none;
     }
   }
@@ -1007,6 +1005,42 @@ body {
   .subtask-item:has(.fa-link) {
     span {
       color: var(--complete-ratio-color);
+    }
+  }
+}
+
+#todo-instruction {
+  .fa-circle-check,
+  .fa-circle-exclamation,
+  .todo-id::before,
+  .todo-id::after {
+    color: var(--instruction-color);
+  }
+  .open {
+    color: var(--instruction-color);
+  }
+  .fa-angle-right:nth-child(1) {
+    color: var(--instruction-color);
+  }
+  .fa-angle-right:nth-child(2) {
+    color: var(--instruction-half);
+  }
+  .fa-angle-right:nth-child(3) {
+    color: var(--text-color);
+  }
+  .todo-description {
+    .fa-check,
+    .fa-circle-xmark,
+    .fa-square-check {
+      color: var(--instruction-color);
+    }
+  }
+  .todo-deadline-stats-label {
+    color: var(--instruction-half);
+  }
+  .subtask-item:has(.fa-link) {
+    span {
+      color: var(--instruction-ratio-color);
     }
   }
 }

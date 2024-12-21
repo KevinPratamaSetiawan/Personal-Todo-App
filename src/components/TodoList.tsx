@@ -65,7 +65,6 @@ export default function TodoList({ id, todoItems, listName, listType, onToggleCo
                         </> :
                         <>
                             <FontAwesomeIcon icon={faBook} />
-                            <FontAwesomeIcon icon={faBookOpen} />
                         </>
                     }
                     {listName}

@@ -23,6 +23,7 @@ through typing */
   --priority-ratio-color:   #f85149;
   --task-ratio-color:       #f1e05a;
   --complete-ratio-color:   #6bdd9a;
+  --instruction-ratio-color: #0ea5e9;
 
   /* Neutrals */
   --neutral-100: #fafafa;
@@ -42,6 +43,8 @@ through typing */
   --schedule-half: #fdfdfd;
   --complete-color: #fdfdfd;
   --schedule-half: #fdfdfd;
+  --instruction-color: #0ea5e9;
+  --instruction-half: #86d2f4;
 }
 
 /* Reset */
