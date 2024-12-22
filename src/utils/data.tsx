@@ -2805,7 +2805,49 @@ export const instructionData = [
                 "completed": false,
                 "listStyle": "text",
                 "indent": 1
-            }
+            },
+            {
+                "id": 1734685152056,
+                "content": "5. Install React router library.",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 1734685193127,
+                "content": "npm install react-router-dom",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },,
+            {
+                "id": 1734685152058,
+                "content": "6. For TypeScript, you also need the type declarations.",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 17346851931561,
+                "content": "npm install --save-dev @types/react-router-dom",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 1734685152069,
+                "content": "8. Put this code in main.tsx for routing purposes.",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 17346851125124,
+                "content": 'import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";\n\n<React.StrictMode>\n    <Router>\n        <Routes>\n            <Route path="/" element={ <Navigate to="/main" />} />\n            <Route path="/main" element={<App />} />\n        </Routes>\n    </Router>\n</React.StrictMode>',
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
         ],
         "completed": true,
         "priority": true,
@@ -3106,6 +3148,50 @@ export const instructionData = [
                 "listStyle": "code",
                 "indent": 1
             }
+        ],
+        "completed": true,
+        "priority": true,
+        "schedule": false,
+        "scheduleType": "",
+        "deadlineStartDate": "noDeadlineStartDate",
+        "deadlineEndDate": "noDeadlineEndDate",
+        "deadlineStartTime": "noDeadlineStartTime",
+        "deadlineEndTime": "noDeadlineEndTime",
+        "tags": []
+    },
+    {
+        "id": "I-0005",
+        "title": "How to install FontAwesome Icons ?",
+        "description": "no description",
+        "subTask": [
+            {
+                "id": 17346861800125,
+                "content": "1. Install the Font Awesome Packages",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 17346861241,
+                "content": "# Core Font Awesome package\n                npm install @fortawesome/fontawesome-svg-core\n                \n                # Free solid icons\n                npm install @fortawesome/free-solid-svg-icons\n                \n                # Free regular icons (optional, if you need them)\n                npm install @fortawesome/free-regular-svg-icons\n                \n                # React wrapper for Font Awesome\n                npm install @fortawesome/react-fontawesome",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 1734663574,
+                "content": "2. Usage in a React Component",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 17312451862,
+                "content": "import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';\n                import { faCoffee } from '@fortawesome/free-solid-svg-icons';",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
         ],
         "completed": true,
         "priority": true,
