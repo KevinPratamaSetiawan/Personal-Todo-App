@@ -3173,7 +3173,7 @@ export const instructionData = [
             },
             {
                 "id": 17346861241,
-                "content": "# Core Font Awesome package\n                npm install @fortawesome/fontawesome-svg-core\n                \n                # Free solid icons\n                npm install @fortawesome/free-solid-svg-icons\n                \n                # Free regular icons (optional, if you need them)\n                npm install @fortawesome/free-regular-svg-icons\n                \n                # React wrapper for Font Awesome\n                npm install @fortawesome/react-fontawesome",
+                "content": "# Core Font Awesome package\nnpm install @fortawesome/fontawesome-svg-core\n\n# Free solid icons\nnpm install @fortawesome/free-solid-svg-icons\n\n# Free regular icons (optional, if you need them)\nnpm install @fortawesome/free-regular-svg-icons\n\n# React wrapper for Font Awesome\nnpm install @fortawesome/react-fontawesome",
                 "completed": false,
                 "listStyle": "code",
                 "indent": 1
@@ -3187,7 +3187,7 @@ export const instructionData = [
             },
             {
                 "id": 17312451862,
-                "content": "import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';\n                import { faCoffee } from '@fortawesome/free-solid-svg-icons';",
+                "content": "import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';\nimport { faCoffee } from '@fortawesome/free-solid-svg-icons';",
                 "completed": false,
                 "listStyle": "code",
                 "indent": 1
