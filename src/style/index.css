@@ -6,6 +6,16 @@ code {
   font-size: 0.7rem;
 }
 
+.shortcut-highlight{
+  font-family: monospace; 
+  background-color: rgba(101, 108, 118, 0.2); 
+  color: rgb(240, 246, 252); 
+  padding: 2px 4px; 
+  border-radius: 3px; 
+  font-size: 0.9rem; 
+  text-transform: uppercase;
+}
+
 body {
   width: 100vw;
   height: 100vh;

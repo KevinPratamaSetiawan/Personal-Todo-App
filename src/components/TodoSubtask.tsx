@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { SubTask } from '../utils/props';
 import TodoCopyButton from './TodoCopyButton';
 import SubtaskCode from './TodoSubtaskCode';
@@ -128,7 +126,11 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
                                 copyText={task.content}
                             /> :
 
-                        task.content
+                        <span
+                            dangerouslySetInnerHTML={{
+                                __html: task.content.replace(/`([^`]*)`/g, (_, code) => `<span class='shortcut-highlight'>${code}</span>`)
+                            }}
+                        ></span>
                     }
                 </li>
             ))}
