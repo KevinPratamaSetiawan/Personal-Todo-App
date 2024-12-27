@@ -6,13 +6,13 @@ code {
   font-size: 0.7rem;
 }
 
-.shortcut-highlight{
-  font-family: monospace; 
-  background-color: rgba(101, 108, 118, 0.2); 
-  color: rgb(240, 246, 252); 
-  padding: 2px 4px; 
-  border-radius: 3px; 
-  font-size: 0.9rem; 
+.shortcut-highlight {
+  font-family: monospace;
+  background-color: rgba(101, 108, 118, 0.2);
+  color: rgb(240, 246, 252);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9rem;
   text-transform: uppercase;
 }
 
@@ -758,21 +758,20 @@ body {
                   text-wrap: wrap;
                   white-space: normal;
 
-                  br {
-                    display: none;
-                  }
+                  display: flex;
+                  align-items: start;
                 }
 
-                li:has(.fa-check),
-                li:has(.fa-circle-xmark),
-                li:has(.fa-square-check) {
+                li:has(
+                  :is(.fa-check, .fa-circle-xmark, .fa-square-check)
+                ) > div {
                   text-decoration: line-through;
                   color: var(--neutral-400);
                 }
 
-                .mono-theme:has(.fa-check)::after,
-                .mono-theme:has(.fa-circle-xmark)::after,
-                .mono-theme:has(.fa-square-check)::after {
+                .mono-theme:has(
+                    :is(.fa-check, .fa-circle-xmark, .fa-square-check)
+                  )::after {
                   /* content: '\2714'; */
                   content: "";
                   text-decoration: none;
@@ -784,7 +783,7 @@ body {
 
                 .color-theme:has(
                     :is(.fa-check, .fa-circle-xmark, .fa-square-check)
-                  )::after {
+                  ) > div::after{
                   content: " ✨";
                   text-decoration: none;
                   color: var(--text-color);
