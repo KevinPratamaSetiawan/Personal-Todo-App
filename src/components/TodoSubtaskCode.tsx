@@ -21,7 +21,8 @@ export default function SubtaskCode({ task }: TodoSubTaskCodeProps) {
         <div
             style={{
                 position: 'relative',
-                margin: '10px 0'
+                margin: '10px 0',
+                width: '100%'
             }}
         >
             {task.content.split('\n').length > 5 ?
