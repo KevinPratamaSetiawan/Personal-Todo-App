@@ -2936,21 +2936,21 @@ export const instructionData = [
             },
             {
                 "id": 289412412412414,
-                "content": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+                "content": "npx tailwindcss -i ./src/style/index.css -o ./src/style/output.css --watch",
                 "completed": false,
                 "listStyle": "code",
                 "indent": 1
             },
             {
                 "id": 17345286211238,
-                "content": "6. Start using Tailwind in your HTML",
+                "content": "6. Start using Tailwind in your `main.tsx`",
                 "completed": false,
                 "listStyle": "text",
                 "indent": 0
             },
             {
                 "id": 173468124124124,
-                "content": '<link href="./output.css" rel="stylesheet">',
+                "content": "import './src/style/output.css';",
                 "completed": false,
                 "listStyle": "code",
                 "indent": 1
