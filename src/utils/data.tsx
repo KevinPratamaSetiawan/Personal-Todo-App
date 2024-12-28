@@ -2955,6 +2955,27 @@ export const instructionData = [
                 "listStyle": "code",
                 "indent": 1
             },
+            {
+                "id": 1734125125,
+                "content": "7. To fix the `Unknown at rule @tailwindcss(unknownAtRules)` problem",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
+            {
+                "id": 173461212421,
+                "content": "npm install -D tailwindcss postcss autoprefixer",
+                "completed": false,
+                "listStyle": "code",
+                "indent": 1
+            },
+            {
+                "id": 1734124573,
+                "content": "8. Then reopen VSCode window",
+                "completed": false,
+                "listStyle": "text",
+                "indent": 0
+            },
         ],
         "completed": true,
         "priority": true,
