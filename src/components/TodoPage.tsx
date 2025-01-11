@@ -12,7 +12,17 @@ import TodoSave from './TodoSave';
 import TodoStats from './TodoStats';
 import TodoTime from './TodoTime';
 
-export default function TodoPage () {
+export default function TodoPage() {
+    // Handle Data
+    const [admin, setAdmin] = useState(parseInt(localStorage.getItem('admin') || '0'));
+    const [completeData, setCompleteData] = useState(admin >= 5 ? completedData : []);
+    const [instructData, setInstructData] = useState(admin >= 5 ? instructionData : []);
+
+    const adminAccess = () => {
+        setAdmin(admin + 1);
+        localStorage.setItem('admin', admin.toString());
+    };
+
     // Handle Tab
     const [currentTab, setCurrentTab] = React.useState('time');
 
@@ -53,14 +63,14 @@ export default function TodoPage () {
                 const newCompleted = !todo.completed;
 
                 todo.schedule ?
-                createNotification(
-                    todoId,
-                    newCompleted ? 4 : 5,
-                ) : 
-                createNotification(
-                    todoId,
-                    newCompleted ? 8 : 9,
-                );
+                    createNotification(
+                        todoId,
+                        newCompleted ? 4 : 5,
+                    ) :
+                    createNotification(
+                        todoId,
+                        newCompleted ? 8 : 9,
+                    );
 
                 return { ...todo, completed: newCompleted };
             }
@@ -94,7 +104,7 @@ export default function TodoPage () {
             if (todo.id === todoId) {
                 if (Array.isArray(todo.subTask)) {
                     const updatedSubTasks = todo.subTask.map((subtask: SubTask) => {
-                        if (subtask.id === subtaskId) { 
+                        if (subtask.id === subtaskId) {
                             const newCompletedStatus = !subtask.completed;
 
                             createNotification(
@@ -102,7 +112,7 @@ export default function TodoPage () {
                                 newCompletedStatus ? 10 : 11,
                             );
 
-                            return {...subtask, completed: newCompletedStatus};
+                            return { ...subtask, completed: newCompletedStatus };
                         }
 
                         return subtask;
@@ -112,7 +122,7 @@ export default function TodoPage () {
             }
             return todo;
         });
-    
+
         setTodosData(updatedTodos);
         localStorage.setItem("todoItems", JSON.stringify(updatedTodos));
     };
@@ -146,8 +156,8 @@ export default function TodoPage () {
     const thisYear = new Date().getFullYear();
 
     const [currentTime, setCurrentTime] = useState(
-        today.getHours().toString().padStart(2, '0') + ':' + 
-        today.getMinutes().toString().padStart(2, '0') + ':' + 
+        today.getHours().toString().padStart(2, '0') + ':' +
+        today.getMinutes().toString().padStart(2, '0') + ':' +
         today.getSeconds().toString().padStart(2, '0')
     );
 
@@ -155,9 +165,9 @@ export default function TodoPage () {
         const timer = setInterval(() => {
             const now = new Date();
             setCurrentTime(
-                now.getHours().toString().padStart(2, '0') + ':' + 
-                now.getMinutes().toString().padStart(2, '0') + ':' + 
-                now.getSeconds().toString().padStart(2, '0') 
+                now.getHours().toString().padStart(2, '0') + ':' +
+                now.getMinutes().toString().padStart(2, '0') + ':' +
+                now.getSeconds().toString().padStart(2, '0')
             );
         }, 1000);
 
@@ -169,7 +179,7 @@ export default function TodoPage () {
     const [currentTheme, setCurrentTheme] = React.useState(localStorage.getItem('currentTheme') || 'mono');
 
     const onThemeChangeEventHandler = (chosenTheme: string) => {
-        if(chosenTheme === 'color'){
+        if (chosenTheme === 'color') {
             setCurrentTheme('color');
             localStorage.setItem('currentTheme', 'color');
             document.documentElement.style.setProperty('--schedule-color', '#a97bff');
@@ -180,7 +190,7 @@ export default function TodoPage () {
             document.documentElement.style.setProperty('--task-half', '#f7eeab');
             document.documentElement.style.setProperty('--complete-color', '#6bdd9a');
             document.documentElement.style.setProperty('--complete-half', '#b4edcb');
-        }else if(chosenTheme === 'mono'){
+        } else if (chosenTheme === 'mono') {
             setCurrentTheme('mono');
             localStorage.setItem('currentTheme', 'mono');
             document.documentElement.style.setProperty('--schedule-color', '#fdfdfd');
@@ -236,12 +246,12 @@ export default function TodoPage () {
                     {/* <FontAwesomeIcon icon={faChessRook} size='lg' /> */}
                     {
                         currentTheme === 'mono' ?
-                        <img src="./blue-profile.jpg" alt="Blue Profile Picture" className='rounded border border-white' style={{width: '45px', height: '45px'}} /> :
-                        <img src="./red-profile.jpg" alt="Red Profile Picture" className='rounded border border-white' style={{width: '45px', height: '45px'}}/>
+                            <img onClick={adminAccess} src="./blue-profile.jpg" alt="Blue Profile Picture" className='rounded border border-white' style={{ width: '45px', height: '45px' }} /> :
+                            <img onClick={adminAccess} src="./red-profile.jpg" alt="Red Profile Picture" className='rounded border border-white' style={{ width: '45px', height: '45px' }} />
                     }
                     <div>
                         <p className='d-flex flex-column align-items-start fw-lighter fs-6 m-0'>Welcome back,
-                            <span className='fw-bold fs-5 mb-0' style={{marginTop: '-10px'}}>KPS {thisYear}</span>
+                            <span className='fw-bold fs-5 mb-0' style={{ marginTop: '-10px' }}>KPS {thisYear}</span>
                         </p>
                     </div>
                 </div>
@@ -251,49 +261,49 @@ export default function TodoPage () {
                             <span></span>
                             <span></span>
                         </div>
-                        <button onClick={() => onThemeChangeEventHandler('color')}><FontAwesomeIcon icon={faToggleOff} size="2xl"/></button>                    
-                    </> : 
-                    <>
-                        <div className='color-theme'>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <button onClick={() => onThemeChangeEventHandler('mono')}><FontAwesomeIcon icon={faToggleOn} size="2xl"/></button>
-                    </>
+                        <button onClick={() => onThemeChangeEventHandler('color')}><FontAwesomeIcon icon={faToggleOff} size="2xl" /></button>
+                    </> :
+                        <>
+                            <div className='color-theme'>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <button onClick={() => onThemeChangeEventHandler('mono')}><FontAwesomeIcon icon={faToggleOn} size="2xl" /></button>
+                        </>
                     }
                 </div>
             </div>
-            
+
             {currentTab === 'time' && (
-                <TodoTime 
-                today={today}
-                currentTime={currentTime}
-                setTab={onTabChangeEventHandler}
+                <TodoTime
+                    today={today}
+                    currentTime={currentTime}
+                    setTab={onTabChangeEventHandler}
                 />
             )}
             {currentTab === 'add' && (
-                <TodoAddForm 
-                onAddTodo={addTodo}
-                setTab={onTabChangeEventHandler}
+                <TodoAddForm
+                    onAddTodo={addTodo}
+                    setTab={onTabChangeEventHandler}
                 />
             )}
             {currentTab === 'stats' && (
-                <TodoStats 
-                todosData={[...todosData, ...completedData]}
-                setTab={onTabChangeEventHandler}
+                <TodoStats
+                    todosData={[...todosData, ...completeData]}
+                    setTab={onTabChangeEventHandler}
                 />
             )}
             {currentTab === 'save' && (
-                <TodoSave 
-                setTodosData={setTodosData}
-                setTab={onTabChangeEventHandler}
-                createNotification={createNotification}
+                <TodoSave
+                    setTodosData={setTodosData}
+                    setTab={onTabChangeEventHandler}
+                    createNotification={createNotification}
                 />
             )}
             <TodoDisplay
-                todoItems={[...todosData, ...completedData, ...instructionData]}
+                todoItems={[...todosData, ...completeData, ...instructData]}
                 onToggleComplete={toggleComplete}
                 onTogglePriority={togglePriority}
                 onEditTodo={editTodo}
