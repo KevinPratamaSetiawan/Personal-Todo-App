@@ -54,7 +54,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
     const addSubTask = () => {
         setSubTask(prevSubTask => [
             ...prevSubTask,
-            { id: new Date().getTime() , content: "", completed: false, listStyle: "text", indent: 0 }
+            { id: new Date().getTime(), content: "", completed: false, listStyle: "checkbox", indent: 0 }
         ]);
     };
 
@@ -257,17 +257,17 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                         style={{ width: '12%', padding: '0', backgroundImage: 'none' }}
                     >
                         <option disabled className='text-start'>Text</option>
-                            <option value="text">Str</option>
-                            <option value="link">#</option>
-                            <option value="code">{"</>"}</option>
+                        <option value="text">Str</option>
+                        <option value="link">#</option>
+                        <option value="code">{"</>"}</option>
                         <option disabled className='text-start'>Checklist</option>
-                            <option value="checkbox">=</option>
-                            <option value="xcircle">*</option>
-                            <option value="plus">-</option>
+                        <option value="checkbox">=</option>
+                        <option value="xcircle">*</option>
+                        <option value="plus">-</option>
                         <option disabled className='text-start'>Bulleted</option>
-                            <option value="caret">{">"}</option>
-                            <option value="dot">•</option>
-                            <option value="square">□</option>
+                        <option value="caret">{">"}</option>
+                        <option value="dot">•</option>
+                        <option value="square">□</option>
                     </Form.Select>
                     <TextareaAutosize
                         value={task.content}
