@@ -1,4 +1,4 @@
-import { faAnglesRight, faCaretDown, faCaretUp, faEllipsisVertical, faListCheck, faPlus, faTrashCan, faX } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesRight, faBan, faCaretDown, faCaretUp, faEllipsisVertical, faListCheck, faPlus, faTrashCan, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
@@ -51,6 +51,8 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
     const onDescriptionChangeEventHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => { setDescription(event.target.value); };
 
     // Handle Subtask
+    const [subTaskAction, setSubTaskAction] = React.useState('');
+
     const addSubTask = () => {
         setSubTask(prevSubTask => [
             ...prevSubTask,
@@ -229,102 +231,109 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
             </InputGroup>
 
             {subTask.length !== 0 ?
-                <InputGroup className="mb-3 w-100">
-                    <InputGroup.Text className=" text-center w-100 d-flex justify-content-center align-items-center">Sub-Task</InputGroup.Text>
-                </InputGroup> : null
+                <>
+                    <InputGroup className="mb-3 w-100">
+                        <InputGroup.Text className=" text-center w-100 d-flex justify-content-center align-items-center">Sub-Task</InputGroup.Text>
+                    </InputGroup>
+
+                    <InputGroup className='w-100 mb-3'>
+                        <Button type='button' onClick={() => setSubTaskAction('')} variant={`${subTaskAction == '' ? 'outline-light' : ''}`} className={`${subTaskAction == '' ? 'bg-white text-black' : ''} flex-fill border border-white`}><FontAwesomeIcon icon={faBan} /></Button>
+                        <Button type='button' onClick={() => setSubTaskAction('move')} variant={`${subTaskAction == 'move' ? 'outline-light' : ''}`} className={`${subTaskAction == 'move' ? 'bg-white text-black' : ''} flex-fill border border-white`}><FontAwesomeIcon icon={faCaretUp} /><FontAwesomeIcon icon={faCaretDown} /></Button>
+                        <Button type='button' onClick={() => setSubTaskAction('add')} variant={`${subTaskAction == 'add' ? 'outline-light' : ''}`} className={`${subTaskAction == 'add' ? 'bg-white text-black' : ''} flex-fill border border-white`}><FontAwesomeIcon icon={faPlus} /></Button>
+                        <Button type='button' onClick={() => setSubTaskAction('del')} variant={`${subTaskAction == 'del' ? 'outline-light' : ''}`} className={`${subTaskAction == 'del' ? 'bg-white text-black' : ''} flex-fill border border-white`}><FontAwesomeIcon icon={faTrashCan} /></Button>
+                    </InputGroup>
+                </> : null
             }
 
-            {subTask.map((task, index) => (
-                <InputGroup className="mb-3" key={index + "-subtask"}>
-                    <Form.Select
-                        id="listIndentOptions"
-                        value={task.indent}
-                        onChange={(e) => onSubTaskListIndentChangeEventHandler(e, index)}
-                        aria-label="Subtask Indent Select"
-                        className="bg-dark text-white"
-                        style={{ width: '12%', padding: '0', backgroundImage: 'none' }}
-                    >
-                        {Array.from({ length: 6 }, (_, i) => i).map(indent => (
-                            <option key={indent} value={indent}>{indent.toString().padStart(2, '0')}</option>
-                        ))}
-                    </Form.Select>
-                    <Form.Select
-                        id="listStyleOptions"
-                        value={task.listStyle}
-                        onChange={(e) => onSubTaskListStyleChangeEventHandler(e, index)}
-                        aria-label="Subtask Style Select"
-                        className="bg-dark text-white"
-                        style={{ width: '12%', padding: '0', backgroundImage: 'none' }}
-                    >
-                        <option disabled className='text-start'>Text</option>
-                        <option value="text">Str</option>
-                        <option value="link">#</option>
-                        <option value="code">{"</>"}</option>
-                        <option disabled className='text-start'>Checklist</option>
-                        <option value="checkbox">=</option>
-                        <option value="xcircle">*</option>
-                        <option value="plus">-</option>
-                        <option disabled className='text-start'>Bulleted</option>
-                        <option value="caret">{">"}</option>
-                        <option value="dot">•</option>
-                        <option value="square">□</option>
-                    </Form.Select>
-                    <TextareaAutosize
-                        value={task.content}
-                        onChange={(e) => onSubTaskContentChangeEventHandler(e, index)}
-                        placeholder={`Subtask ${index + 1}`}
-                        aria-label="Text input for subtask content"
-                        className="form-control"
-                        minRows={1}
-                        maxRows={5}
-                        style={{ resize: 'none' }}
-                    />
-                    <Button
-                        variant="outline-light"
-                        id="del-subtask-btn"
-                        onClick={(e) => delSubTask(e, index)}
-                    >
-                        <FontAwesomeIcon icon={faX} size="xs" />
-                    </Button>
+            <div className='mb-3' style={{ maxHeight: "80vh", overflow: "scroll" }}>
+                {subTask.map((task, index) => (
+                    <InputGroup className="mb-3" key={index + "-subtask"}>
+                        <Form.Select
+                            id="listIndentOptions"
+                            value={task.indent}
+                            onChange={(e) => onSubTaskListIndentChangeEventHandler(e, index)}
+                            aria-label="Subtask Indent Select"
+                            className="bg-dark text-white"
+                            style={{ width: '12%', padding: '0', backgroundImage: 'none' }}
+                        >
+                            {Array.from({ length: 6 }, (_, i) => i).map(indent => (
+                                <option key={indent} value={indent}>{indent.toString().padStart(2, '0')}</option>
+                            ))}
+                        </Form.Select>
+                        <Form.Select
+                            id="listStyleOptions"
+                            value={task.listStyle}
+                            onChange={(e) => onSubTaskListStyleChangeEventHandler(e, index)}
+                            aria-label="Subtask Style Select"
+                            className="bg-dark text-white"
+                            style={{ width: '12%', padding: '0', backgroundImage: 'none' }}
+                        >
+                            <option disabled className='text-start'>Text</option>
+                            <option value="text">Str</option>
+                            <option value="link">#</option>
+                            <option value="code">{"</>"}</option>
+                            <option disabled className='text-start'>Checklist</option>
+                            <option value="checkbox">=</option>
+                            <option value="xcircle">*</option>
+                            <option value="plus">-</option>
+                            <option disabled className='text-start'>Bulleted</option>
+                            <option value="caret">{">"}</option>
+                            <option value="dot">•</option>
+                            <option value="square">□</option>
+                        </Form.Select>
+                        <TextareaAutosize
+                            value={task.content}
+                            onChange={(e) => onSubTaskContentChangeEventHandler(e, index)}
+                            placeholder={`Subtask ${index + 1}`}
+                            aria-label="Text input for subtask content"
+                            className="form-control"
+                            minRows={1}
+                            maxRows={5}
+                            style={{ resize: 'none' }}
+                        />
 
-                    <Dropdown data-bs-theme="dark" className='ms-auto'>
-                        <Dropdown.Toggle variant="outline-light" className=''><FontAwesomeIcon icon={faEllipsisVertical} /></Dropdown.Toggle>
-
-                        <Dropdown.Menu data-bs-theme="dark" className="shadow rounded" align="end" style={{ width: '195px' }}>
-                            {index !== 0 ? <>
-                                <Dropdown.Item
-                                    as="button"
-                                    onClick={() => orderSubTask(task.id, 'up')}
-                                    className='d-flex align-items-center'
-                                >
-                                    <FontAwesomeIcon icon={faCaretUp} className="me-2" size='lg' />
-                                    Move Up
-                                </Dropdown.Item>
-                                <Dropdown.Divider />
-                            </> : null}
-                            <Dropdown.Item
-                                as="button"
-                                onClick={() => orderSubTask(task.id, 'add')}
-                                className='d-flex align-items-center'
+                        {subTaskAction == 'move' && (
+                            <Button
+                                variant="outline-light"
+                                onClick={() => orderSubTask(task.id, 'up')}
+                                disabled={index === 0}
                             >
-                                <FontAwesomeIcon icon={faPlus} className="me-2" style={{ markerStart: '-2px' }} />
-                                Add Below
-                            </Dropdown.Item>
-                            {index !== subTask.length - 1 ? <>
-                                <Dropdown.Divider />
-                                <Dropdown.Item
-                                    as="button"
-                                    onClick={() => orderSubTask(task.id, 'down')}
-                                    className='d-flex align-items-center'
-                                >
-                                    <FontAwesomeIcon icon={faCaretDown} className="me-2" size='lg' />
-                                    Move Down
-                                </Dropdown.Item>
-                            </> : null}
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </InputGroup>
-            ))}
+                                <FontAwesomeIcon icon={faCaretUp} size="xs" />
+                            </Button>
+                        )}
+                        {subTaskAction == 'move' && (
+                            <Button
+                                variant="outline-light"
+                                onClick={() => orderSubTask(task.id, 'down')}
+                                disabled={index === subTask.length - 1}
+                            >
+                                <FontAwesomeIcon icon={faCaretDown} size="xs" />
+                            </Button>
+                        )}
+
+                        {subTaskAction == 'add' &&
+                            <Button
+                                variant="outline-light"
+                                id="del-subtask-btn"
+                                onClick={() => orderSubTask(task.id, 'add')}
+                            >
+                                <FontAwesomeIcon icon={faPlus} size="xs" />
+                            </Button>
+                        }
+
+                        {subTaskAction == 'del' &&
+                            <Button
+                                variant="outline-light"
+                                id="del-subtask-btn"
+                                onClick={(e) => delSubTask(e, index)}
+                            >
+                                <FontAwesomeIcon icon={faX} size="xs" />
+                            </Button>
+                        }
+                    </InputGroup>
+                ))}
+            </div>
+
 
             <InputGroup className="mb-3 ">
                 <InputGroup.Text className="">Schedule</InputGroup.Text>
@@ -371,91 +380,67 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                 <InputGroup.Text id='scheduleOptionsLabel' className=""></InputGroup.Text>
             </InputGroup>
 
-            {scheduleType !== '' ?
-                <InputGroup className="mb-3 w-100">
-                    <InputGroup.Text id='timePickerLabel' className=" text-center w-100 d-flex justify-content-center align-items-center">Time Picker</InputGroup.Text>
-                </InputGroup> : null
+            {
+                scheduleType !== '' ?
+                    <InputGroup className="mb-3 w-100">
+                        <InputGroup.Text id='timePickerLabel' className=" text-center w-100 d-flex justify-content-center align-items-center">Time Picker</InputGroup.Text>
+                    </InputGroup> : null
             }
 
-            {scheduleType !== '' && scheduleType !== '[D]' ?
-                <InputGroup className="mb-3 ">
-                    {scheduleType !== '[D]' && scheduleType !== '[W]' ?
-                        <>
-                            <input
-                                id="datePicker"
-                                type="date"
-                                value={deadlineStartDate}
-                                onChange={onStartDateChangeEventHandler}
-                                className='form-control  text-light text-center form-datepicker'
-                            />
-
-                            {scheduleType !== '[A]' ? <>
-                                <InputGroup.Text className=""><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+            {
+                scheduleType !== '' && scheduleType !== '[D]' ?
+                    <InputGroup className="mb-3 ">
+                        {scheduleType !== '[D]' && scheduleType !== '[W]' ?
+                            <>
                                 <input
                                     id="datePicker"
                                     type="date"
-                                    value={deadlineEndDate}
-                                    onChange={onEndDateChangeEventHandler}
+                                    value={deadlineStartDate}
+                                    onChange={onStartDateChangeEventHandler}
                                     className='form-control  text-light text-center form-datepicker'
                                 />
-                            </> : null
-                            }
-                        </> :
-                        (scheduleType === '[W]' ?
-                            <Form.Select
-                                id="dateOptions"
-                                value={deadlineStartDate}
-                                onChange={onStartDateChangeEventHandler}
-                                aria-label="Deadline Day Select"
-                                style={{ width: '100%' }}
-                            >
-                                <option value="">None</option>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option>
-                                <option value="Sunday">Sunday</option>
-                            </Form.Select> : null
-                        )
-                    }
-                </InputGroup> : null
+
+                                {scheduleType !== '[A]' ? <>
+                                    <InputGroup.Text className=""><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+                                    <input
+                                        id="datePicker"
+                                        type="date"
+                                        value={deadlineEndDate}
+                                        onChange={onEndDateChangeEventHandler}
+                                        className='form-control  text-light text-center form-datepicker'
+                                    />
+                                </> : null
+                                }
+                            </> :
+                            (scheduleType === '[W]' ?
+                                <Form.Select
+                                    id="dateOptions"
+                                    value={deadlineStartDate}
+                                    onChange={onStartDateChangeEventHandler}
+                                    aria-label="Deadline Day Select"
+                                    style={{ width: '100%' }}
+                                >
+                                    <option value="">None</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                </Form.Select> : null
+                            )
+                        }
+                    </InputGroup> : null
             }
 
-            {scheduleType !== '' ?
-                <InputGroup className="mb-3 ">
-                    <Form.Select
-                        id="hourTimePicker"
-                        value={deadlineStartTimeHour}
-                        onChange={onStartTimeHourChangeEventHandler}
-                        className="bg-dark text-white text-center flex-grow-1 no-icon"
-                    >
-                        {Array.from({ length: 24 }, (_, i) => i).map(hour => (
-                            <option key={hour} value={hour}>
-                                {hour.toString().padStart(2, '0')}
-                            </option>
-                        ))}
-                    </Form.Select>
-                    <InputGroup.Text className="text-white">:</InputGroup.Text>
-                    <Form.Select
-                        id="minuteTimePicker"
-                        value={deadlineStartTimeMinute}
-                        onChange={onStartTimeMinuteChangeEventHandler}
-                        className="bg-dark text-white text-center flex-grow-1 no-icon"
-                    >
-                        {Array.from({ length: 60 }, (_, i) => i).map(hour => (
-                            <option key={hour} value={hour}>
-                                {hour.toString().padStart(2, '0')}
-                            </option>
-                        ))}
-                    </Form.Select>
-                    {scheduleType !== '[A]' ? <>
-                        <InputGroup.Text className=""><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+            {
+                scheduleType !== '' ?
+                    <InputGroup className="mb-3 ">
                         <Form.Select
                             id="hourTimePicker"
-                            value={deadlineEndTimeHour}
-                            onChange={onEndTimeHourChangeEventHandler}
+                            value={deadlineStartTimeHour}
+                            onChange={onStartTimeHourChangeEventHandler}
                             className="bg-dark text-white text-center flex-grow-1 no-icon"
                         >
                             {Array.from({ length: 24 }, (_, i) => i).map(hour => (
@@ -467,8 +452,8 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                         <InputGroup.Text className="text-white">:</InputGroup.Text>
                         <Form.Select
                             id="minuteTimePicker"
-                            value={deadlineEndTimeMinute}
-                            onChange={onEndTimeMinuteChangeEventHandler}
+                            value={deadlineStartTimeMinute}
+                            onChange={onStartTimeMinuteChangeEventHandler}
                             className="bg-dark text-white text-center flex-grow-1 no-icon"
                         >
                             {Array.from({ length: 60 }, (_, i) => i).map(hour => (
@@ -477,8 +462,35 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                                 </option>
                             ))}
                         </Form.Select>
-                    </> : null}
-                </InputGroup> : null
+                        {scheduleType !== '[A]' ? <>
+                            <InputGroup.Text className=""><FontAwesomeIcon icon={faAnglesRight} /></InputGroup.Text>
+                            <Form.Select
+                                id="hourTimePicker"
+                                value={deadlineEndTimeHour}
+                                onChange={onEndTimeHourChangeEventHandler}
+                                className="bg-dark text-white text-center flex-grow-1 no-icon"
+                            >
+                                {Array.from({ length: 24 }, (_, i) => i).map(hour => (
+                                    <option key={hour} value={hour}>
+                                        {hour.toString().padStart(2, '0')}
+                                    </option>
+                                ))}
+                            </Form.Select>
+                            <InputGroup.Text className="text-white">:</InputGroup.Text>
+                            <Form.Select
+                                id="minuteTimePicker"
+                                value={deadlineEndTimeMinute}
+                                onChange={onEndTimeMinuteChangeEventHandler}
+                                className="bg-dark text-white text-center flex-grow-1 no-icon"
+                            >
+                                {Array.from({ length: 60 }, (_, i) => i).map(hour => (
+                                    <option key={hour} value={hour}>
+                                        {hour.toString().padStart(2, '0')}
+                                    </option>
+                                ))}
+                            </Form.Select>
+                        </> : null}
+                    </InputGroup> : null
             }
 
             <InputGroup className="mb-3 d-flex">
