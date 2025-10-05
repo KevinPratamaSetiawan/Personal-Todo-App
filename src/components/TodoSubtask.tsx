@@ -66,7 +66,8 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
             task.listStyle !== 'caret' &&
             task.listStyle !== 'dot' &&
             task.listStyle !== 'square' &&
-            task.listStyle !== 'code' ?
+            task.listStyle !== 'code' &&
+            task.listStyle !== 'border' ?
             totalSubtask++ : null
     ));
 
@@ -87,10 +88,10 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
                 <li
                     key={index}
                     className={`subtask-item ${currentTheme === 'mono' ? 'mono-theme' : 'color-theme'}`}
-                    style={{ 
+                    style={{
                         paddingLeft: `${task.indent * 21}px`
                         // paddingLeft: `${task.listStyle === 'code' || task.listStyle === 'link' ? task.indent * 21 : null}px` 
-                }}>
+                    }}>
                     {/* {
                         task.indent > 0 && task.listStyle !== 'code' && task.listStyle !== 'link' ?
                             <aside
@@ -112,45 +113,57 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
 
                     {
                         task.listStyle === 'link' ||
-                        task.listStyle === 'caret' ||
-                        task.listStyle === 'dot' ||
-                        task.listStyle === 'square' ?
-                        <button
-                            style={{
-                                marginRight: '5px',
-                                minWidth: '16px'
-                            }}
-                        >
-                            {getListIcon(task.listStyle, task.completed)}
-                        </button> : 
+                            task.listStyle === 'caret' ||
+                            task.listStyle === 'dot' ||
+                            task.listStyle === 'square' ?
+                            <button
+                                style={{
+                                    marginRight: '5px',
+                                    minWidth: '16px'
+                                }}
+                            >
+                                {getListIcon(task.listStyle, task.completed)}
+                            </button> :
 
-                        task.listStyle !== 'text' && task.listStyle !== 'code' ?
-                        <button
-                            onClick={() => onToggleSubTask(todoId, task.id)}
-                            style={{
-                                marginRight: '5px',
-                                minWidth: '16px'
-                            }}
-                        >
-                            {getListIcon(task.listStyle, task.completed)}
-                        </button> : null
+                            task.listStyle !== 'text' && task.listStyle !== 'code' && task.listStyle !== 'border' ?
+                                <button
+                                    onClick={() => onToggleSubTask(todoId, task.id)}
+                                    style={{
+                                        marginRight: '5px',
+                                        minWidth: '16px'
+                                    }}
+                                >
+                                    {getListIcon(task.listStyle, task.completed)}
+                                </button> : null
                     }
 
                     {
                         task.listStyle === 'code' ?
                             <SubtaskCode task={task} /> :
 
-                        task.listStyle === 'link' ?
-                            <TodoCopyButton
-                                buttonText={task.content.replace(/^https?:\/\/|\/.*$/g, '')}
-                                copyText={task.content}
-                            /> :
+                            task.listStyle === 'link' ?
+                                <TodoCopyButton
+                                    buttonText={task.content.replace(/^https?:\/\/|\/.*$/g, '')}
+                                    copyText={task.content}
+                                /> :
 
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: task.content.replace(/`([^`]*)`/g, (_, code) => `<span class='shortcut-highlight'>${code}</span>`)
-                            }}
-                        ></div>
+                                task.listStyle === 'border' ?
+                                    <div
+                                        className='w-100'
+                                        style={{
+                                            height: '2px',
+                                            backgroundColor: '#4b4b4b',
+                                            // borderTop: '1px solid white',
+                                            // borderBottom: '1px solid white'
+                                        }}
+                                    ></div>
+                                    :
+
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: task.content.replace(/`([^`]*)`/g, (_, code) => `<span class='shortcut-highlight'>${code}</span>`)
+                                        }}
+                                    ></div>
                     }
                 </li>
             ))}

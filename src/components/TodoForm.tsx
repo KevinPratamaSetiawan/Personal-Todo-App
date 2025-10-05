@@ -74,7 +74,15 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
 
     const onSubTaskListStyleChangeEventHandler = (event: React.ChangeEvent<HTMLSelectElement>, index: number) => {
         const updatedSubTasks = [...subTask];
+        const previousListStyle = updatedSubTasks[index].listStyle;
         updatedSubTasks[index].listStyle = event.target.value;
+
+        if (event.target.value === 'border') {
+            updatedSubTasks[index].content = '=====================';
+        } else if (previousListStyle === 'border') {
+            updatedSubTasks[index].content = '';
+        }
+
         setSubTask(updatedSubTasks);
     };
 
@@ -280,6 +288,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                             <option value="caret">{">"}</option>
                             <option value="dot">•</option>
                             <option value="square">□</option>
+                            <option value="border">├┼┤</option>
                         </Form.Select>
                         <TextareaAutosize
                             value={task.content}
@@ -289,7 +298,11 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                             className="form-control"
                             minRows={1}
                             maxRows={5}
-                            style={{ resize: 'none' }}
+                            style={{
+                                resize: 'none',
+                                cursor: task.listStyle === 'border' ? 'not-allowed' : 'text',
+                            }}
+                            disabled={task.listStyle === 'border'}
                         />
 
                         {subTaskAction == 'move' && (
