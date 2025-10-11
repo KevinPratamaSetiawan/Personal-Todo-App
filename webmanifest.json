@@ -3,7 +3,7 @@
   "short_name": "KPSToDo",
   "start_url": "https://kps-iota.vercel.app/",
   "scope": "/",
-  "description": "A portfolio and project showcase for Kevin Pratama Setiawan.",
+  "description": "To-Do App by Kevin Setiawan.",
   "icons": [
     {
       "src": "icons/manifest-icon-192.maskable.png",
@@ -30,8 +30,8 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#23272d",
-  "background_color": "#23272d",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "prefer_related_applications": false
 }

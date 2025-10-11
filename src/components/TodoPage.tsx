@@ -14,14 +14,28 @@ import TodoTime from './TodoTime';
 
 export default function TodoPage() {
     // Handle Data
-    const [admin, setAdmin] = useState(parseInt(localStorage.getItem('admin') || '0'));
-    const [completeData, setCompleteData] = useState(admin >= 5 ? completedData : []);
-    const [instructData, setInstructData] = useState(admin >= 5 ? instructionData : []);
+    const [isAdmin, setIsAdmin] = useState(() => {
+        const saved = localStorage.getItem('isAdmin');
+        return saved ? JSON.parse(saved) : false;
+    });
+    const [completeData, setCompleteData] = useState(isAdmin ? completedData : []);
+    const [instructData, setInstructData] = useState(isAdmin ? instructionData : []);
 
     const adminAccess = () => {
-        setAdmin(admin + 1);
-        localStorage.setItem('admin', admin.toString());
+        const newAdminState = !isAdmin;
+        setIsAdmin(newAdminState);
+        localStorage.setItem('isAdmin', JSON.stringify(newAdminState));
     };
+
+    useEffect(() => {
+        if (isAdmin) {
+            setCompleteData(completedData);
+            setInstructData(instructionData);
+        } else {
+            setCompleteData([]);
+            setInstructData([]);
+        }
+    }, [isAdmin]);
 
     // Handle Tab
     const [currentTab, setCurrentTab] = React.useState('time');
