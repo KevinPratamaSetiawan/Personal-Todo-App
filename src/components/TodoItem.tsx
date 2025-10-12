@@ -20,56 +20,70 @@ type TodoItemProps = {
 }
 
 export default function TodoItem({ todoItem, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask }: TodoItemProps) {
+    const getData = localStorage.getItem('todoItems');
+    const savedData = getData ? JSON.parse(getData) : [];
+    const copyData = savedData.filter((item: todoItem) => item.id === todoItem.id)
+
     let copyText =
-        todoItem.id + '=>' +
-        todoItem.scheduleType + '=>' +
-        todoItem.title + ' => ' +
-        todoItem.description + '=>' +
-        (todoItem.subTask.length === 0 ? 'noSubtask' : JSON.stringify(todoItem.subTask)) + '=>' +
-        todoItem.deadlineStartDate + '=>' +
-        todoItem.deadlineEndDate + '=>' +
-        todoItem.deadlineStartTime + '=>' +
-        todoItem.deadlineEndTime + '=>' +
-        todoItem.tags;
+        // Type I
+        // todoItem.id + '=>' +
+        // todoItem.scheduleType + '=>' +
+        // todoItem.title + ' => ' +
+        // todoItem.description + '=>' +
+        // (todoItem.subTask.length === 0 ? 'noSubtask' : JSON.stringify(todoItem.subTask)) + '=>' +
+        // todoItem.deadlineStartDate + '=>' +
+        // todoItem.deadlineEndDate + '=>' +
+        // todoItem.deadlineStartTime + '=>' +
+        // todoItem.deadlineEndTime + '=>' +
+        // todoItem.tags;
+
+        // Type II
+        JSON.stringify(copyData);
+    ;
 
     let isToday = false;
 
     const scheduleAlert = (scheduleType: string, deadlineStartDate: string, deadlineEndDate: string) => {
-        let todayAlert = ']';
-        scheduleType = scheduleType.slice(0, -1);
+        const displayStyle = {
+            'openBracket': '「',
+            'separator': '-',
+            'closeBracket': '」',
+        };
+        let todayAlert = '';
+        scheduleType = scheduleType[1];
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-        if (scheduleType === '[D') {
-            todayAlert = '-T]';
+        if (scheduleType === 'D') {
+            todayAlert = displayStyle.separator + 'T';
             isToday = true;
-        } else if (scheduleType === '[W') {
+        } else if (scheduleType === 'W') {
             const today = new Date().getDay();
             let day = days.findIndex(day => deadlineStartDate.includes(day));
 
             if (day !== -1 && day === today) {
-                todayAlert = '-T]';
+                todayAlert = displayStyle.separator + 'T';
                 isToday = true;
             }
-        } else if (scheduleType === '[A') {
+        } else if (scheduleType === 'A') {
             const now = new Date().getTime();
             const deadlineStart = new Date(`${deadlineStartDate}T23:59:59`).getTime();
 
             if (now <= deadlineStart) {
-                todayAlert = '-DUE]';
+                todayAlert = displayStyle.separator + 'DUE';
                 isToday = true;
             }
-        } else if (scheduleType !== '[D' && scheduleType !== '[W' && scheduleType !== '[A') {
+        } else if (scheduleType !== 'D' && scheduleType !== 'W' && scheduleType !== 'A') {
             const now = new Date().getTime();
             const deadlineStart = new Date(`${deadlineStartDate}T00:00:01`).getTime();
             const deadlineEnd = new Date(`${deadlineEndDate}T23:59:59`).getTime();
 
             if (now >= deadlineStart && now <= deadlineEnd) {
-                todayAlert = '-TDY]';
+                todayAlert = displayStyle.separator + 'TDY';
                 isToday = true;
             }
         }
 
-        return scheduleType + todayAlert;
+        return displayStyle.openBracket + scheduleType + todayAlert + displayStyle.closeBracket;
     };
 
     const onTodoFinishEventHandler = () => {
@@ -174,7 +188,7 @@ export default function TodoItem({ todoItem, onToggleComplete, onTogglePriority,
                     }
                     <div className='todo-deadline-copy'>
                         {
-                            todoItem.scheduleType !== '' && isToday ?
+                            todoItem.scheduleType !== '' && isToday && !todoItem.completed ?
                                 <TodoDeadlineCounter
                                     scheduleType={todoItem.scheduleType}
                                     deadlineStartDate={todoItem.deadlineStartDate}

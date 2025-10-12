@@ -218,7 +218,7 @@ export default function TodoAddForm({ onAddTodo, setTab }: TodoAddFormProps) {
             </div>
 
             <InputGroup className='w-100 d-flex align-items-center justify-content-end gap-2'>
-                <Button type='button' onClick={onPasteEventHandler} variant="outline-light" className='' style={{ width: '20%', borderRadius: '5px' }}><FontAwesomeIcon icon={faPaste} /></Button>
+                <Button disabled type='button' onClick={onPasteEventHandler} variant="outline-light" className='' style={{ width: '20%', borderRadius: '5px' }}><FontAwesomeIcon icon={faPaste} /></Button>
                 <Button type='button' onClick={onAddTodoEventHandler} variant="outline-light" className='' style={{ width: '20%', borderRadius: '5px' }}><FontAwesomeIcon icon={faPlus} /></Button>
             </InputGroup>
         </div>

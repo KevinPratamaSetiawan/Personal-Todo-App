@@ -10,10 +10,13 @@ type TodoDisplayProps = {
     onToggleSubTask: (id: string, subtaskId: number) => void;
 }
 
-export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask}: TodoDisplayProps) {
+export default function TodoDisplay({ todoItems, onToggleComplete, onTogglePriority, onEditTodo, onDeleteTodo, onToggleSubTask }: TodoDisplayProps) {
+    const saved = localStorage.getItem('isAdmin');
+    const isAdmin = saved ? JSON.parse(saved) : false;
+
     return (
         <div className='todo-display'>
-            <TodoList 
+            <TodoList
                 id={'todo-schedule'}
                 todoItems={todoItems}
                 listName={'Schedule'}
@@ -24,7 +27,7 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />
-            <TodoList 
+            <TodoList
                 id={'todo-priority'}
                 todoItems={todoItems}
                 listName={'Priority'}
@@ -35,7 +38,7 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />
-            <TodoList 
+            <TodoList
                 id={'todo-items'}
                 todoItems={todoItems}
                 listName={'Task'}
@@ -46,7 +49,7 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />
-            <TodoList 
+            <TodoList
                 id={'todo-finish'}
                 todoItems={todoItems}
                 listName={'Completed'}
@@ -57,17 +60,20 @@ export default function TodoDisplay  ({todoItems, onToggleComplete, onTogglePrio
                 onDeleteTodo={onDeleteTodo}
                 onToggleSubTask={onToggleSubTask}
             />
-            <TodoList 
-                id={'todo-instruction'}
-                todoItems={todoItems}
-                listName={'Instructions'}
-                listType={'instruction'}
-                onToggleComplete={onToggleComplete}
-                onTogglePriority={onTogglePriority}
-                onEditTodo={onEditTodo}
-                onDeleteTodo={onDeleteTodo}
-                onToggleSubTask={onToggleSubTask}
-            />
+            {
+                isAdmin &&
+                <TodoList
+                    id={'todo-instruction'}
+                    todoItems={todoItems}
+                    listName={'Instructions'}
+                    listType={'instruction'}
+                    onToggleComplete={onToggleComplete}
+                    onTogglePriority={onTogglePriority}
+                    onEditTodo={onEditTodo}
+                    onDeleteTodo={onDeleteTodo}
+                    onToggleSubTask={onToggleSubTask}
+                />
+            }
         </div>
     );
 };

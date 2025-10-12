@@ -246,9 +246,13 @@ export default function TodoPage() {
     useEffect(() => {
         if (notifList.length === 0) return;
 
+        if (notifList.length > 5) {
+            setNotifList((prev) => prev.slice(1));
+        };
+
         const timer = setTimeout(() => {
             setNotifList((prev) => prev.slice(1));
-        }, 3000);
+        }, 2000);
 
         return () => clearTimeout(timer);
     }, [notifList])
