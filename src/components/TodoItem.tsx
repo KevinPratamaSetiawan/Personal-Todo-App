@@ -50,7 +50,7 @@ export default function TodoItem({ todoItem, onToggleComplete, onTogglePriority,
             'closeBracket': '」',
         };
         let todayAlert = '';
-        scheduleType = scheduleType[1];
+        scheduleType = scheduleType.slice(1, -1);
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
         if (scheduleType === 'D') {
@@ -188,7 +188,7 @@ export default function TodoItem({ todoItem, onToggleComplete, onTogglePriority,
                     }
                     <div className='todo-deadline-copy'>
                         {
-                            todoItem.scheduleType !== '' && isToday && !todoItem.completed ?
+                            todoItem.schedule && (isToday || todoItem.scheduleType === '[A]') && !todoItem.completed ?
                                 <TodoDeadlineCounter
                                     scheduleType={todoItem.scheduleType}
                                     deadlineStartDate={todoItem.deadlineStartDate}

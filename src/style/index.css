@@ -762,9 +762,8 @@ body {
                   align-items: start;
                 }
 
-                li:has(
-                  :is(.fa-check, .fa-circle-xmark, .fa-square-check)
-                ) > div {
+                li:has(:is(.fa-check, .fa-circle-xmark, .fa-square-check))
+                  > div {
                   text-decoration: line-through;
                   color: var(--neutral-400);
                 }
@@ -783,7 +782,8 @@ body {
 
                 .color-theme:has(
                     :is(.fa-check, .fa-circle-xmark, .fa-square-check)
-                  ) > div::after{
+                  )
+                  > div::after {
                   content: " ✨";
                   text-decoration: none;
                   color: var(--text-color);
@@ -803,7 +803,7 @@ body {
               .todo-deadline-counter {
                 font-size: 0.8rem;
 
-                span {
+                .display-number {
                   color: var(--schedule-half);
                   font-size: 1rem;
                   font-weight: 600;

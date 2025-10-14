@@ -119,7 +119,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
     };
 
     const onCustomScheduleTypeChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCustomScheduleType(event.target.value);
+        setCustomScheduleType('[' + event.target.value + ']');
     };
 
     // Handle Deadline Time
@@ -374,7 +374,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                         value={scheduleType}
                         placeholder="None"
                         disabled
-                        aria-label="Text input for subtask content"
+                        aria-label="Text input for schedule type text"
                         className="  text-center"
                     />
                 )}
