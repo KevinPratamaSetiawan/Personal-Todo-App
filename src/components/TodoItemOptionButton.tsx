@@ -67,6 +67,7 @@ export default function TodoItemOptionButton({ todoItem, onEditTodo, onDeleteTod
         }
 
         const updatedSubTasks = subTask.filter(task => task.content !== "");
+        // const updatedSubTasks = subTask.filter(task => (task.content !== "" || task.listStyle === 'break'));
 
         if (!title.trim()) {
             document.getElementById('titleLabel')!.classList.add('title-empty');

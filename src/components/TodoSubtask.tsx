@@ -148,15 +148,29 @@ export default function TodoTask({ todoId, subTasks, onToggleSubTask }: TodoTask
                                 /> :
 
                                 task.listStyle === 'border' ?
-                                    <div
-                                        className='w-100'
-                                        style={{
-                                            height: '2px',
-                                            backgroundColor: '#4b4b4b',
-                                            // borderTop: '1px solid white',
-                                            // borderBottom: '1px solid white'
-                                        }}
-                                    ></div>
+                                    // <div
+                                    //     className='w-100'
+                                    //     style={{
+                                    //         height: '4px',
+                                    //         backgroundColor: '#4b4b4b',
+                                    //         // borderTop: '1px solid white',
+                                    //         // borderBottom: '1px solid white'
+                                    //     }}
+                                    // ></div>
+                                    <div className={`w-100 d-flex align-items-center gap-1`}>
+                                        <div style={{ flex: '1', minHeight: '2px', backgroundColor: '#e0e0e0' }}></div>
+                                        {/* <p style={{ fontSize: '12px', color: '#6b6b6b', }}>{task.content !== 'Section Divider' ? task.content : 'Section Divider'}</p> */}
+                                        {/* {task.content !== 'Section Divider' && <p style={{ fontSize: '16px', color: '#ffffff', }}>{task.content}</p>} */}
+                                        <p
+                                            style={{
+                                                fontSize: `${task.content !== 'Section Divider' ? '16px' : '12px'}`,
+                                                color: `${task.content !== 'Section Divider' ? '#ffffff' : '#6b6b6b'}`
+                                            }}
+                                        >
+                                            {task.content}
+                                        </p>
+                                        <div style={{ flex: '1', minHeight: '2px', backgroundColor: '#e0e0e0' }}></div>
+                                    </div>
                                     :
 
                                     <div

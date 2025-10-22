@@ -95,6 +95,7 @@ export default function TodoAddForm({ onAddTodo, setTab }: TodoAddFormProps) {
         }
 
         const updatedSubTasks = subTask.filter(task => task.content !== "");
+        // const updatedSubTasks = subTask.filter(task => task.content !== "" || task.listStyle === 'border');
 
         if (!title.trim()) {
             document.getElementById('titleLabel')!.classList.add('title-empty');

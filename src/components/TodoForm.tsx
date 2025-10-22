@@ -78,10 +78,11 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
         updatedSubTasks[index].listStyle = event.target.value;
 
         if (event.target.value === 'border') {
-            updatedSubTasks[index].content = '=====================';
-        } else if (previousListStyle === 'border') {
-            updatedSubTasks[index].content = '';
+            updatedSubTasks[index].content = 'Section Divider';
         }
+        // else if (previousListStyle === 'border') {
+        // updatedSubTasks[index].content = '';
+        // }
 
         setSubTask(updatedSubTasks);
     };
@@ -100,7 +101,7 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
             [updatedSubtask[currentIndex - 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex - 1]];
         } else if (method === 'add') {
             updatedSubtask.splice(currentIndex + 1, 0,
-                { id: new Date().getTime(), content: "", completed: false, listStyle: updatedSubtask[currentIndex].listStyle, indent: updatedSubtask[currentIndex].indent }
+                { id: new Date().getTime(), content: `${updatedSubtask[currentIndex].listStyle === 'border' ? 'Section Divider' : ''}`, completed: false, listStyle: updatedSubtask[currentIndex].listStyle, indent: updatedSubtask[currentIndex].indent }
             )
         } else if (method === 'down') {
             [updatedSubtask[currentIndex + 1], updatedSubtask[currentIndex]] = [updatedSubtask[currentIndex], updatedSubtask[currentIndex + 1]];
@@ -300,9 +301,9 @@ export default function TodoForm({ preferredId, setPreferredId, title, setTitle,
                             maxRows={5}
                             style={{
                                 resize: 'none',
-                                cursor: task.listStyle === 'border' ? 'not-allowed' : 'text',
+                                // cursor: task.listStyle === 'border' ? 'not-allowed' : 'text',
                             }}
-                            disabled={task.listStyle === 'border'}
+                        // disabled={task.listStyle === 'border'}
                         />
 
                         {subTaskAction == 'move' && (
